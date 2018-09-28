@@ -1,0 +1,55 @@
+﻿<html>
+  <head>
+  <link rel="stylesheet" href="../lead/css/bootstrap.min.css">
+  <style>
+    html, *{overflow: hidden;}
+    .noAuth, .yesAuth{display:none;}
+    .mb0{margin-bottom: 0;}
+    .border-danger{border:2px sold red !important;}
+  </style>
+  </head>
+<body style="background: #333;">
+<div class="fluid-controller">
+  <div class="row">
+    <div class="col-sm-6 col-sm-offset-3" style="margin-top: 10%;">
+      <div class="alert alert-success text-center onAuth" role="alert"><h4 class="mb0">Authentication is in Process...</h4></div>
+      <div class="alert alert-success text-center yesAuth" role="alert"><h4 class="mb0">Authentication Successful...</h4></div>
+      <div class="alert alert-danger text-center noAuth" role="alert"><h4>You are not Having Privilege to access this Application</h4><button class="btn btn-primary btn-sm" onclick="authContext.logOut();">Logout</button></div>
+    </div>
+  </div>
+</div> 
+
+</div>
+<script src="../PO/scripts/jquery.min.js"></script>
+<script src="https://secure.aadcdn.microsoftonline-p.com/lib/1.0.11/js/adal.min.js"></script>
+<script>
+  var authContext = new AuthenticationContext({clientId: '7b32c697-48e5-4046-a507-25acb1eb8f2a',postLogoutRedirectUri: 'https://fugue-server.total-environment.com/TEPOProcurement/MobileAuth/'});
+  if (authContext.isCallback(window.location.hash)) {
+    authContext.handleWindowCallback();
+    var err = authContext.getLoginError();
+    if(err){}
+  }else{
+    credentials = authContext.getCachedUser();
+    if(credentials){login(credentials);
+    }else{authContext.login();}
+  }  
+  function login(e){
+    var viewName = sessionStorage.getItem('adal.idtoken');
+    $.ajax({
+      url: 'https://fugue-server.total-environment.com/lead/api/AuthenticateADALAPI/Save',
+      type: "POST",
+	  contentType: "application/json",
+	  dataType: "json",
+      data:JSON.stringify({"AuthCode":viewName,"AuthToken":viewName,"EmailID":e.userName}),
+      cache: false,
+      async: false,
+      error: function() {},
+      success: function(response) {}
+    });
+  }
+
+</script>
+
+</body>
+
+</html>

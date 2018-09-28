@@ -1,0 +1,1051 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="db37ce2d4f294f59b7fd45c13fa27bf7" Name="Diagram1">
+        <EntityTypeShape EntityType="FugueV2_currentModel.ActionsRole" Width="1.5" PointX="11" PointY="14.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.ApplicationErrorLog" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.CATEGORYMASTER" Width="1.5" PointX="0.75" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.CENTRALCOMMENT" Width="1.5" PointX="2.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.CITYMASTER" Width="1.5" PointX="0.75" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.CPRMASTER" Width="1.5" PointX="2.75" PointY="17.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.DataBaseLog" Width="1.5" PointX="8.75" PointY="17.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.EBUILDPRICEBOOK" Width="1.5" PointX="3" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.EBUILDPRICING" Width="1.5" PointX="8.25" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.EmployeeInfoLog" Width="1.5" PointX="2.75" PointY="21.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.empnew" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.FeedbackEntry" Width="1.5" PointX="22.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.LeadTransaction" Width="1.5" PointX="23.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.LeadTransactionWithAttachment" Width="1.5" PointX="27.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.MyTeamReport" Width="1.5" PointX="29.75" PointY="25.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.pdfDummy" Width="1.5" PointX="29.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.PlantStorageDetail" Width="1.5" PointX="0.75" PointY="30.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.PRICEPUSHDETAIL" Width="1.5" PointX="8.25" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.productmaster" Width="1.5" PointX="2.75" PointY="30.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.projectMaster" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.R_TEContactOrganisationRepresentatives" Width="1.5" PointX="33" PointY="100.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.R_TEEmailMessage_TEEdmTemplate" Width="1.5" PointX="25" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.R_TERecipient_TEEmailSuppression" Width="1.5" PointX="32" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.R_TERelationshipsOfContact" Width="1.5" PointX="33" PointY="95.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.RATEMASTER" Width="1.5" PointX="6" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.RATEMASTERPRICING" Width="1.5" PointX="11.25" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.RATEMASTERUSERSESSION" Width="1.5" PointX="15.75" PointY="30.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.SA_Relationship" Width="1.5" PointX="27" PointY="26.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.ScheduleDetail" Width="1.5" PointX="17.75" PointY="30.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.SERVERDETAIL" Width="1.5" PointX="6" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.Service_Acceptance" Width="1.5" PointX="24.75" PointY="26" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.Service_Acceptance_Items" Width="1.5" PointX="24.75" PointY="31.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.SUBCATEGORYMASTER" Width="1.5" PointX="6" PointY="13.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.sysdiagram" Width="1.5" PointX="30.75" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TE_Document_Templates" Width="1.5" PointX="19.75" PointY="30.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TE_Ref_Document_Type" Width="1.5" PointX="10.75" PointY="31" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TE_Ref_Methods" Width="1.5" PointX="30.75" PointY="21.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TE_Ref_Template_Type" Width="1.5" PointX="21.75" PointY="30.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TE_Ref_Variables" Width="1.5" PointX="13" PointY="31" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TE_Templates_Mapping" Width="1.5" PointX="26.75" PointY="30.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TE_VendorInvoice_Header" Width="1.5" PointX="32.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TE_VendorInvoice_Item" Width="1.5" PointX="0.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEAboutu" Width="1.5" PointX="32.75" PointY="21.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEAccountTransfer" Width="1.5" PointX="2.75" PointY="33.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEAction" Width="1.5" PointX="8.75" PointY="26.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEActivityTimelineInfo" Width="1.5" PointX="21.75" PointY="33.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEAgreementTemplate" Width="1.5" PointX="34.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEAnswer" Width="1.5" PointX="34.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEApplicant" Width="1.5" PointX="4.75" PointY="34.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEApprovalEntity" Width="1.5" PointX="10.75" PointY="21.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEApprovalProcess" Width="1.5" PointX="15.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEApprovalProcessing" Width="1.5" PointX="34.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEApprovalTransaction" Width="1.5" PointX="10.75" PointY="34.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEApproveBox" Width="1.5" PointX="12.75" PointY="34.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEApproveGroup" Width="1.5" PointX="10.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEApproveGroupUser" Width="1.5" PointX="13" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEApproveLevel" Width="1.5" PointX="13" PointY="18" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEApproveObject" Width="1.5" PointX="13" PointY="21.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEApproveStage" Width="1.5" PointX="13" PointY="25.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEAssestRequestationItem" Width="1.5" PointX="3.75" PointY="126" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEAssestRequestation" Width="1.5" PointX="0.75" PointY="165" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEAsset" Width="1.5" PointX="3.75" PointY="77.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEAssetAllocation" Width="1.5" PointX="3" PointY="145.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEAssetCategory" Width="1.5" PointX="1.5" PointY="72.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEAssetClass" Width="1.5" PointX="1.5" PointY="65.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEAssetLoss" Width="1.5" PointX="6" PointY="144" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEAssetReturn" Width="1.5" PointX="14.25" PointY="159.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEAssetScrapping" Width="1.5" PointX="6" PointY="81.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEAssetSubCategory" Width="1.5" PointX="1.5" PointY="80.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEAssetVariantMapping" Width="1.5" PointX="8.25" PointY="78.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEAssetVariantType" Width="1.5" PointX="3.75" PointY="71.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEAssetVariantValue" Width="1.5" PointX="6" PointY="71.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TeAssignSalesConsultant" Width="1.5" PointX="14.75" PointY="34.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEAttendanceEntry" Width="1.5" PointX="34.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEAttendanceSourcePriorityRule" Width="1.5" PointX="34.75" PointY="19.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEAttendenceDevicemaster" Width="1.5" PointX="27.75" PointY="34.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEAttendenceLog" Width="1.5" PointX="6.75" PointY="35.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEBandsAndGrade" Width="1.5" PointX="6.75" PointY="116.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEBankDetail" Width="1.5" PointX="35.25" PointY="121.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEBankDetails_HistoryAudit" Width="1.5" PointX="35.75" PointY="24.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEBOQCategoryMaster" Width="1.5" PointX="36.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEBOQItem" Width="1.5" PointX="36.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEBOQMaster" Width="1.5" PointX="36.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEBusinessPartner" Width="1.5" PointX="24.75" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEBusinessPartnerAgreement" Width="1.5" PointX="36.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEBusinessPartnerBrokerFee" Width="1.5" PointX="27" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEBusinessPartnersRepresentative" Width="1.5" PointX="27" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEBusinessSegmentMaster" Width="1.5" PointX="36.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TECampaignMaster" Width="1.5" PointX="36.75" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TECampaign" Width="1.5" PointX="37.75" PointY="23.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TECampusCoordinatesMaster" Width="1.5" PointX="35.75" PointY="31.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TECancellationBreakup" Width="1.5" PointX="38.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TECancellation" Width="1.5" PointX="37.5" PointY="120.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TECarParkInventory" Width="1.5" PointX="40.25" PointY="94.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TECarPark" Width="1.5" PointX="37.5" PointY="116" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TECarParksMaster" Width="1.5" PointX="38" PointY="94.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TECarParksMaster_HistoryAudit" Width="1.5" PointX="0.75" PointY="38.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TECarParkSummary" Width="1.5" PointX="38.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TECategory" Width="1.5" PointX="38.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TECategory_UOMMapping" Width="1.5" PointX="26.5" PointY="151.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEChangeLog" Width="1.5" PointX="12.75" PointY="38.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEChangeOrder" Width="1.5" PointX="37.5" PointY="130.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEClaimApprover" Width="1.5" PointX="9" PointY="146" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEClaimBook" Width="1.5" PointX="11.25" PointY="138.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEClaimBook_TEClaimItem" Width="1.5" PointX="22.5" PointY="141" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEClaimBookLog" Width="1.5" PointX="20.5" PointY="150.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEClaimBookLogs_Visibility" Width="1.5" PointX="25.75" PointY="147.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEClaimCategory" Width="1.5" PointX="21.25" PointY="128.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEClaimCategoryGLMapping" Width="1.5" PointX="21.25" PointY="164.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEClaimFundCenter" Width="1.5" PointX="3" PointY="132.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEClaimItem" Width="1.5" PointX="23.5" PointY="146.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEClaimLimitUOM" Width="1.5" PointX="21.25" PointY="169.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEClaimType" Width="1.5" PointX="9" PointY="121.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEClearanceMaster" Width="1.5" PointX="18" PointY="164.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TECollateral" Width="1.5" PointX="38.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TECollection" Width="1.5" PointX="14.75" PointY="38.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEComment" Width="1.5" PointX="16.75" PointY="38.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TECompany" Width="1.5" PointX="4.5" PointY="113.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TECompanyGSTNDetail" Width="1.5" PointX="18.75" PointY="38.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEConstructionRateBook" Width="1.5" PointX="20.75" PointY="38.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEConstructionRateBook_HistoryAudit" Width="1.5" PointX="38.75" PointY="38.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEContact" Width="1.5" PointX="27.75" PointY="89.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEContactAddress" Width="1.5" PointX="30" PointY="50.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEContactAlumni" Width="1.5" PointX="30" PointY="58" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEContactApprover" Width="1.5" PointX="30" PointY="62.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEContactEducation" Width="1.5" PointX="30" PointY="67.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEContactEmail" Width="1.5" PointX="30" PointY="73" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEContactFamilyRelation" Width="1.5" PointX="30" PointY="78.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEContactGPA" Width="1.5" PointX="30" PointY="83.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEContactIdentification" Width="1.5" PointX="30" PointY="97.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEContactImportReport" Width="1.5" PointX="30" PointY="93.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEContactInterest" Width="1.5" PointX="30" PointY="104.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEContactMobile" Width="1.5" PointX="30" PointY="109.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEContactNote" Width="1.5" PointX="30" PointY="114.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEContactOrderFund" Width="1.5" PointX="2.75" PointY="39.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEContactOrganisation" Width="1.5" PointX="30.75" PointY="44.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEContactProfession" Width="1.5" PointX="36" PointY="99.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEContactRegisteredCorrespondanceAddress" Width="1.5" PointX="39.75" PointY="20.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEContact1" Width="1.5" PointX="39.75" PointY="26.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEContactSelfUpdationTracking" Width="1.5" PointX="30" PointY="126.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEContactSocial" Width="1.5" PointX="30" PointY="130.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEContOrgCategoryMaster" Width="1.5" PointX="40.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TECustomerBOQ" Width="1.5" PointX="40.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TECustomerBOQDetail" Width="1.5" PointX="8.75" PointY="40.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TECustomerEmailTemplate" Width="1.5" PointX="40.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TECustomisationDataToEBuild" Width="1.5" PointX="27.75" PointY="40.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TECustomizationMileStone" Width="1.5" PointX="40.75" PointY="37.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEDCBreakUp" Width="1.5" PointX="41.75" PointY="17.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEDcoumentCatMaster" Width="1.5" PointX="33" PointY="34.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEDefaultCarPark" Width="1.5" PointX="41.75" PointY="21.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEDelayCompensation" Width="1.5" PointX="22.75" PointY="41.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEDepartment" Width="1.5" PointX="6.75" PointY="103.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEDiscountThresholdRule" Width="1.5" PointX="24.75" PointY="41.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEDMSDocument" Width="1.5" PointX="41.75" PointY="25.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEDmsUploadBatchUtilityDetail" Width="1.5" PointX="41.75" PointY="31.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEDocument" Width="1.5" PointX="42.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEDocumentSubTypeMaster" Width="1.5" PointX="37.5" PointY="34.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEDocumentTypeMaster" Width="1.5" PointX="35.25" PointY="34.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEDynamicGroupQuery" Width="1.5" PointX="33" PointY="121.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEEDMTemplate" Width="1.5" PointX="22.75" PointY="24.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEEmailEvent" Width="1.5" PointX="25.75" PointY="13.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEEmailGunEventCallBackLog" Width="1.5" PointX="25" PointY="36" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEEMailLink" Width="1.5" PointX="4.75" PointY="42.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEEmailLog" Width="1.5" PointX="28" PointY="18.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEEmailMessage" Width="1.5" PointX="22.75" PointY="18.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEEmailStatu" Width="1.5" PointX="21" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEEmailSuppression" Width="1.5" PointX="29.75" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEEmailTemplate" Width="1.5" PointX="42.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEEmailTemplateAttach" Width="1.5" PointX="21" PointY="10.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEEmailTemplateAttachment" Width="1.5" PointX="42.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEEmailTemplate1" Width="1.5" PointX="18.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEEmailTriggerEvent" Width="1.5" PointX="42.75" PointY="35.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEEMPAddress" Width="1.5" PointX="3" PointY="138.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEEmpAssignmentDetail" Width="1.5" PointX="9" PointY="133.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEEmpAttendancePayrollProcessLog" Width="1.5" PointX="35.75" PointY="42.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEEmpAttendence" Width="1.5" PointX="9" PointY="151" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEEmpBankDetail" Width="1.5" PointX="3" PointY="156.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEEmpBasicInfo" Width="1.5" PointX="0.75" PointY="131.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEEmpBasicInfo_data" Width="1.5" PointX="42.75" PointY="39.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEEmpBasicInfoPendingDetail" Width="1.5" PointX="3" PointY="178.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEEmpBenefit" Width="1.5" PointX="3" PointY="172.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEEmpClearanceDetail" Width="1.5" PointX="20.25" PointY="156.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEEmpEducationDetail" Width="1.5" PointX="3" PointY="187.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEEmpEmergencyContact" Width="1.5" PointX="3" PointY="193.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEEmpExperienceDetail" Width="1.5" PointX="3" PointY="199.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEEmpFamilyDetail" Width="1.5" PointX="3" PointY="205.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEEmpFinalLeaveNAttendStatu" Width="1.5" PointX="32.75" PointY="38.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEEmpInsuranceDetail" Width="1.5" PointX="3" PointY="211" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEEmpLanguage" Width="1.5" PointX="3" PointY="217.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEEmpLeaveApplication" Width="1.5" PointX="6" PointY="134.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEEmpLeavesSummary" Width="1.5" PointX="6" PointY="152.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEEmpMobileEligibility" Width="1.5" PointX="3" PointY="237.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEEmpNotification" Width="1.5" PointX="43.75" PointY="17.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEEmpOtherDetail" Width="1.5" PointX="12" PointY="148.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEEmpReference" Width="1.5" PointX="3" PointY="250.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEEmpSeparationLog" Width="1.5" PointX="5.25" PointY="256.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEEmpSeparationQuestionBucket" Width="1.5" PointX="18.75" PointY="43.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEEmpSeparationQuestionNResponse" Width="1.5" PointX="5.25" PointY="261.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEEmpSeparation" Width="1.5" PointX="3" PointY="257.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEEmpSpecialLeaveApplication" Width="1.5" PointX="20.25" PointY="140.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEEmpWorkSchedule" Width="1.5" PointX="14" PointY="138.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEESCALATION" Width="1.5" PointX="43.75" PointY="21.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEESCALATIONMATRIX" Width="1.5" PointX="43.75" PointY="26.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEEvaluation" Width="1.5" PointX="32.25" PointY="141.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEEvaluationQuestionMaster" Width="1.5" PointX="30" PointY="166.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEEventList" Width="1.5" PointX="37.75" PointY="43.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEException" Width="1.5" PointX="43.75" PointY="32.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEExchangeRate" Width="1.5" PointX="44.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEFBVO_Vendor_Header_" Width="1.5" PointX="44.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEFBVO_Vendor_Item" Width="1.5" PointX="6.75" PointY="44.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEFBVO_Vendor_Tax" Width="1.5" PointX="8.75" PointY="44.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEFBVO_Vendor_WTH" Width="1.5" PointX="10.75" PointY="44.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEFinalSOA" Width="1.5" PointX="44.75" PointY="35.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEFloorTypeMaster" Width="1.5" PointX="44.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEGenaralNote" Width="1.5" PointX="44.75" PointY="40.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEGlobalParameter" Width="1.5" PointX="44.75" PointY="44.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEGlobalReassignment" Width="1.5" PointX="45.75" PointY="17.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEGoodsReceipt" Width="1.5" PointX="18" PointY="16.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEGoodsReceiptItem" Width="1.5" PointX="20.25" PointY="15.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEGSTNStateMaster" Width="1.5" PointX="45.75" PointY="22.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEHoliday_TEWorkLocation_Mappings" Width="1.5" PointX="9" PointY="177.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEHoliday" Width="1.5" PointX="6.75" PointY="197" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEImportantContact" Width="1.5" PointX="45.75" PointY="26.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEIncentiveSlab" Width="1.5" PointX="42.5" PointY="129" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEIncentiveSlabMaster" Width="1.5" PointX="26.75" PointY="45.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEIncentivesMaster" Width="1.5" PointX="40.25" PointY="133.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEInterestInvoice" Width="1.5" PointX="39.75" PointY="45.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEInterestInvoiceBreakup" Width="1.5" PointX="46.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEInvoice" Width="1.5" PointX="0.75" PointY="46.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEInvoiceApprover" Width="1.5" PointX="46.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEInVoiceBreakUp" Width="1.5" PointX="46.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEInvoiceBusinessPlace" Width="1.5" PointX="46.75" PointY="32.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEInvoiceCancellationAdvice" Width="1.5" PointX="46.75" PointY="36.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEInvoiceCancellationAdviceBreakUp" Width="1.5" PointX="46.75" PointY="44.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEInvoiceSectionCode" Width="1.5" PointX="2.75" PointY="47.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEIssue" Width="1.5" PointX="18" PointY="120.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEIssuesDisposition" Width="1.5" PointX="20.25" PointY="134.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TELandParcelBreakupDetail" Width="1.5" PointX="37.5" PointY="109" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TELandParcelDetail" Width="1.5" PointX="35.25" PointY="106.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TELead" Width="1.5" PointX="30" PointY="135.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TELeadActivityLog" Width="1.5" PointX="30" PointY="151.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TELeadAllocationRatio" Width="1.5" PointX="12.75" PointY="47.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TELeadInterestedProjectid" Width="1.5" PointX="14.75" PointY="47.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TELeadSalesCoassignman" Width="1.5" PointX="47.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TELeadStatusTrack" Width="1.5" PointX="47.75" PointY="20.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TELeadTag" Width="1.5" PointX="47.75" PointY="25.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TELeaveType" Width="1.5" PointX="3.75" PointY="94.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TELineOfBusiness" Width="1.5" PointX="4.5" PointY="104.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TELocation" Width="1.5" PointX="48.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEMasterRule" Width="1.5" PointX="47.75" PointY="29.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEMasterSmsTemplate" Width="1.5" PointX="48.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEMasterSpecialCondition" Width="1.5" PointX="48.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEMasterTermsCondition" Width="1.5" PointX="20.75" PointY="48.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEMileStonesMaster" Width="1.5" PointX="48.75" PointY="32.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEMileStonesMaster_HistoryAudit" Width="1.5" PointX="32.75" PointY="48.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEMIR4_Vendor_Header" Width="1.5" PointX="34.75" PointY="48.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEMIR4_Vendor_Item_GL" Width="1.5" PointX="48.75" PointY="36.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEMIR4_Vendor_Item_PO" Width="1.5" PointX="48.75" PointY="44.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEMIR4_VendorTax" Width="1.5" PointX="49.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEMobileBillDetail" Width="1.5" PointX="15" PointY="148.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEMobileBillSummary" Width="1.5" PointX="12.75" PointY="166.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEMobileEligibility" Width="1.5" PointX="24" PointY="159" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEModule" Width="1.5" PointX="6.5" PointY="26.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEMultiplePremium" Width="1.5" PointX="16.75" PointY="49.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TENote" Width="1.5" PointX="33" PointY="104.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TENotification_History" Width="1.5" PointX="49.75" PointY="19.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TENotification" Width="1.5" PointX="49.75" PointY="24.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TENotificationsTemplate" Width="1.5" PointX="26.75" PointY="49.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEOffer" Width="1.5" PointX="35.25" PointY="133.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEOfferApplicant" Width="1.5" PointX="41.75" PointY="49.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEOfferApprovalCheck" Width="1.5" PointX="43.75" PointY="49.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEOfferApprovalsHistory" Width="1.5" PointX="45.75" PointY="49.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEOfferApprover" Width="1.5" PointX="50.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEOfferCarPark" Width="1.5" PointX="50.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEOfferDocument" Width="1.5" PointX="37.5" PointY="135.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEOfferEventsDate" Width="1.5" PointX="8.75" PointY="50.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEOfferExpireExtension" Width="1.5" PointX="37.5" PointY="138.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEOfferExtension" Width="1.5" PointX="50.75" PointY="30.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEOfferMileStone" Width="1.5" PointX="37.5" PointY="143.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEOfferPremium" Width="1.5" PointX="50.75" PointY="36.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEOfferPriceBreakUpDetail" Width="1.5" PointX="37.5" PointY="151.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEOfferScheme" Width="1.5" PointX="37.5" PointY="156" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEOfferSpecial" Width="1.5" PointX="36.75" PointY="50.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEOfferSpecialCondition" Width="1.5" PointX="37.5" PointY="159.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEOfferSpecification" Width="1.5" PointX="37.5" PointY="163.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEOfferSpecificationMaster" Width="1.5" PointX="38.75" PointY="50.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEOfferSubMileStone" Width="1.5" PointX="39.75" PointY="144.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEOfferTC" Width="1.5" PointX="37.5" PointY="167.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEOfferTerm" Width="1.5" PointX="50.75" PointY="40.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEOfferTermsMaster" Width="1.5" PointX="50.75" PointY="45.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEOfferTETaxElementDetail" Width="1.5" PointX="2.75" PointY="51.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEOfferThreshold" Width="1.5" PointX="10.75" PointY="51.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEOrderPaymentSchedule" Width="1.5" PointX="8" PointY="30" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEOrgRule" Width="1.5" PointX="51.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEOtherDetail" Width="1.5" PointX="9.75" PointY="161.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEParameter" Width="1.5" PointX="51.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEPartnerMaster" Width="1.5" PointX="51.75" PointY="20.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEPaymentAllocation" Width="1.5" PointX="22.75" PointY="51.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEPayRollAbscondingReport" Width="1.5" PointX="12" PointY="155.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEPayRollBankAcReport" Width="1.5" PointX="12" PointY="132.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEPayRollFFReport" Width="1.5" PointX="15" PointY="132.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEPayRollFinancialYear" Width="1.5" PointX="8.25" PointY="127.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEPayRollInputFile" Width="1.5" PointX="12.75" PointY="125.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEPayRollLeaveEncashmentReport" Width="1.5" PointX="17" PointY="140.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEPayRollLeaveReport" Width="1.5" PointX="6" PointY="159.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEPayRollLOPReport" Width="1.5" PointX="18" PointY="148.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEPayRollNewJoineeReport" Width="1.5" PointX="18" PointY="154" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEPayRollReportingPeriod" Width="1.5" PointX="10.5" PointY="126.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEPayRollResignationReport" Width="1.5" PointX="12" PointY="160.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEPayRollTransferReport" Width="1.5" PointX="18" PointY="134.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEPDFTemplate" Width="1.5" PointX="51.75" PointY="24.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEPersonalInformationData" Width="1.5" PointX="47.75" PointY="51.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEPickListItem" Width="1.5" PointX="1.5" PointY="96.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEPickList" Width="1.5" PointX="1.5" PointY="90.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEPOApprovalCondition" Width="1.5" PointX="49.75" PointY="51.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEPOMasterApprover" Width="1.5" PointX="51.75" PointY="51.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEPreLeadData" Width="1.5" PointX="52.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEPremiumMaster" Width="1.5" PointX="17.75" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEPriceBook" Width="1.5" PointX="4.75" PointY="52.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEPriceBookElement" Width="1.5" PointX="52.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEPriceBookMaster" Width="1.5" PointX="12.75" PointY="52.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEPriceBookMaster_HistoryAudit" Width="1.5" PointX="52.75" PointY="27.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEPriceElementMaster" Width="1.5" PointX="52.75" PointY="33.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEPrimarySource" Width="1.5" PointX="29.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEProduct" Width="1.5" PointX="40" PointY="149.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEProducts_HistoryAudit" Width="1.5" PointX="52.75" PointY="37.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEProductSpecification" Width="1.5" PointX="44.5" PointY="141.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEProductSpecMapping" Width="1.5" PointX="52.75" PointY="42.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEProjectCarPark" Width="1.5" PointX="40.25" PointY="128.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEProjectDetail" Width="1.5" PointX="35.25" PointY="128.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEProjectDetails_HistoryAudit" Width="1.5" PointX="53.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEProjectPremium" Width="1.5" PointX="20" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEProjectProductMapping" Width="1.5" PointX="52.75" PointY="46.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEProjectRule" Width="1.5" PointX="14.75" PointY="53.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEProject" Width="1.5" PointX="33" PointY="132.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEProjects_HistoryAudit" Width="1.5" PointX="53.75" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEProjects_TOWER" Width="1.5" PointX="16.75" PointY="53.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEProjects_UNIT" Width="1.5" PointX="18.75" PointY="53.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEProjectUnitPremium" Width="1.5" PointX="22.25" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEPurchase_Annexure_OtherCharges" Width="1.5" PointX="53.75" PointY="50.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEPurchase_Assignment" Width="1.5" PointX="54.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEPurchase_FundCenter" Width="1.5" PointX="53.75" PointY="22.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEPurchase_header" Width="1.5" PointX="6.75" PointY="54.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEPurchase_header_condition" Width="1.5" PointX="54.75" PointY="27.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEPurchase_header_structure" Width="1.5" PointX="15.75" PointY="15.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEPurchase_Item_Structure" Width="1.5" PointX="54.75" PointY="33.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEPurchase_Itemwise" Width="1.5" PointX="40.75" PointY="54.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEPurchase_OrderTypes" Width="1.5" PointX="54.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEPurchase_ReleaseCode" Width="1.5" PointX="42.75" PointY="54.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEPurchase_Service" Width="1.5" PointX="44.75" PointY="54.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEPurchase_Service_Condition" Width="1.5" PointX="54.75" PointY="43.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEPurchase_Terms" Width="1.5" PointX="8.75" PointY="55.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEPurchase_Vendor" Width="1.5" PointX="21.25" PointY="173.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEPurchase_WBSFundCentreMapping" Width="1.5" PointX="55.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEPurchaseOrderApprover" Width="1.5" PointX="55.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEPurchasingGroup" Width="1.5" PointX="55.75" PointY="20.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEQuestion" Width="1.5" PointX="24.75" PointY="55.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEQuestionsMaster" Width="1.5" PointX="26.75" PointY="55.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEQueue" Width="1.5" PointX="35.25" PointY="85.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEQueueDepartment" Width="1.5" PointX="6.75" PointY="96.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEReimbursement" Width="1.5" PointX="55.75" PointY="49.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TERelationshipCategory" Width="1.5" PointX="30.75" PointY="121" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TERequestAssignment" Width="1.5" PointX="55.75" PointY="54.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TERule" Width="1.5" PointX="56.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TESACCodeMaster" Width="1.5" PointX="55.75" PointY="24.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TESaleMasterTermsandCondition" Width="1.5" PointX="56.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TESaleMasterTermsandConditions_HistoryAudit" Width="1.5" PointX="56.75" PointY="27.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TESalesPlanandTarget" Width="1.5" PointX="35.25" PointY="154.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TESalesUserMapping" Width="1.5" PointX="56.75" PointY="32.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TESaleTermsANDCondition" Width="1.5" PointX="36.75" PointY="56.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TESAPGlobalRule" Width="1.5" PointX="56.75" PointY="38.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TESAPInvoice" Width="1.5" PointX="56.75" PointY="41.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TESAPReceipt" Width="1.5" PointX="49.75" PointY="56.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEScheduleMaster" Width="1.5" PointX="5.75" PointY="30.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEScheduleMasterNew" Width="1.5" PointX="51.75" PointY="56.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TESchemaMaster" Width="1.5" PointX="27.75" PointY="10.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TESecondarySource" Width="1.5" PointX="32" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEServiceEntry" Width="1.5" PointX="18" PointY="23.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEServiceEntryItem" Width="1.5" PointX="20.25" PointY="22.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TESGCampaign" Width="1.5" PointX="0.75" PointY="57.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TESGOption" Width="1.5" PointX="57.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TESGParticipant" Width="1.5" PointX="10.75" PointY="57.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TESGQuestion" Width="1.5" PointX="12.75" PointY="57.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TESGSurvey" Width="1.5" PointX="57.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TESGSurveyContactResponse" Width="1.5" PointX="57.75" PointY="17.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TESGSurveyResponse" Width="1.5" PointX="57.75" PointY="46.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEShareDetail" Width="1.5" PointX="13.75" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TESiteVisit" Width="1.5" PointX="57.75" PointY="22.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TESmsDetail" Width="1.5" PointX="57.75" PointY="52.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TESMSTemplate" Width="1.5" PointX="57.75" PointY="56.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TESMSTriggerEvent" Width="1.5" PointX="58.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TESpecificationCategory" Width="1.5" PointX="40" PointY="155" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TESpecificationDetailed" Width="1.5" PointX="2.75" PointY="58.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TESpecificationLibrary" Width="1.5" PointX="42.25" PointY="154.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TESpecificationMaster" Width="1.5" PointX="38" PointY="172" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TESpecificationMaster_HistoryAudit" Width="1.5" PointX="58.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TESpecificatonSubCategory" Width="1.5" PointX="42.25" PointY="159.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEStampDuty" Width="1.5" PointX="14.75" PointY="58.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEStandardSchemeTermsAndCondition" Width="1.5" PointX="30" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TESubFunction" Width="1.5" PointX="6.75" PointY="165.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TESubProductDetail" Width="1.5" PointX="42.25" PointY="140.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TESubProductDetails_HistoryAudit" Width="1.5" PointX="20.75" PointY="58.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TESurveyLeadership_Master" Width="1.5" PointX="58.75" PointY="26.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TESurveyList" Width="1.5" PointX="58.75" PointY="30.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TESurveyStatu" Width="1.5" PointX="3" PointY="342.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TETag" Width="1.5" PointX="58.75" PointY="35.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.tetandccategorymaster" Width="1.5" PointX="58.75" PointY="39.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TETargetAllocation" Width="1.5" PointX="35.25" PointY="163.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TETask" Width="1.5" PointX="30" PointY="171.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TETaskFeedBack" Width="1.5" PointX="46.75" PointY="58.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TETaxBook" Width="1.5" PointX="4.75" PointY="59.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TETaxCodeMaster" Width="1.5" PointX="59.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TETaxDetail" Width="1.5" PointX="42.5" PointY="133.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TETaxDetails_HistoryAudit" Width="1.5" PointX="59.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TETaxElementDetail" Width="1.5" PointX="16.75" PointY="59.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TETermsAndCondition" Width="1.5" PointX="59.75" PointY="20.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TETimeLine" Width="1.5" PointX="26.75" PointY="59.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TETowerMaster" Width="1.5" PointX="35.25" PointY="176.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TETowerMaster_HistoryAudit" Width="1.5" PointX="32.75" PointY="59.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TETransferOrder" Width="1.5" PointX="59.75" PointY="43.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEUIAuditMaster" Width="1.5" PointX="59.75" PointY="48.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEUIAuditTransaction" Width="1.5" PointX="59.75" PointY="52.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEUnit_Onboarding" Width="1.5" PointX="59.75" PointY="55.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEUnitPricingShareDetail" Width="1.5" PointX="16" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEUnitQue" Width="1.5" PointX="60.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEUnit" Width="1.5" PointX="60.75" PointY="25.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEUnitShareDetial" Width="1.5" PointX="16" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEUserPrevilegeMapping" Width="1.5" PointX="3" PointY="27" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEUserPrevilege" Width="1.5" PointX="0.75" PointY="27.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEUserProfile" Width="1.5" PointX="6.75" PointY="60.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEUserRoleThresholdMapping" Width="1.5" PointX="36" PointY="38.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEUserRoleThresholdMaster" Width="1.5" PointX="33.75" PointY="30.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TeUsersRole" Width="1.5" PointX="60.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEUsersThreshold" Width="1.5" PointX="33" PointY="41.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEVendorPaymentMilestone" Width="1.5" PointX="60.75" PointY="37.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEVisitorDetail" Width="1.5" PointX="38.75" PointY="60.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEWebpagesMembership" Width="1.5" PointX="53.75" PointY="60.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEWebpagesRole" Width="1.5" PointX="55.75" PointY="60.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEWebpagesUsersInRole" Width="1.5" PointX="8.75" PointY="61.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEWmCGuestVisitsHistory" Width="1.5" PointX="30" PointY="177.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEWmCGuestVisitsSelectedItem" Width="1.5" PointX="32.25" PointY="177.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEWorkingDesignation" Width="1.5" PointX="6.75" PointY="180.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEWorkLocation" Width="1.5" PointX="6.75" PointY="187.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TFUserSurvey" Width="1.5" PointX="61.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TRANSITIONTOCEMMEASURE" Width="1.5" PointX="10.75" PointY="61.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.UserProfile" Width="1.5" PointX="30.75" PointY="35" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.UsersToken" Width="1.5" PointX="61.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.VisitorFeedbackSummary" Width="1.5" PointX="61.75" PointY="17.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.WBSMASTER" Width="1.5" PointX="6" PointY="17.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.WebPageAudit" Width="1.5" PointX="61.75" PointY="20.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.webpages_Membership" Width="1.5" PointX="22.75" PointY="61.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.webpages_OAuthMembership" Width="1.5" PointX="34.75" PointY="61.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.webpages_Roles" Width="1.5" PointX="8.75" PointY="14.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.webpages_UsersInRoles" Width="1.5" PointX="33" PointY="27.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.ADALAuthenticationTable" Width="1.5" PointX="40.75" PointY="61.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.FeedbackQuestion" Width="1.5" PointX="61.75" PointY="42.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.RMPRICEDUMMY" Width="1.5" PointX="61.75" PointY="45.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.SaleOfferSpecificationMigrationTable" Width="1.5" PointX="61.75" PointY="51.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEEmailTriggerEvents_History" Width="1.5" PointX="61.75" PointY="57.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TESurvey" Width="1.5" PointX="57.75" PointY="61.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEUserModule" Width="1.5" PointX="59.75" PointY="61.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEUserSalesEngineMapping" Width="1.5" PointX="33" PointY="45.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="FugueV2_currentModel.TEVisitorPass" Width="1.5" PointX="61.75" PointY="61.75" IsExpanded="true" />
+        <AssociationConnector Association="FugueV2_currentModel.FK_ActionId_ActionRoles" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK_roleid_actionsrole" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__EBUILDPRI__CATEG__0E591826" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__EBUILDPRI__CATEG__0F4D3C5F" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__EBUILDPRI__CATEG__1C5D1EBA" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__RATEMASTE__CATEG__09F455BC" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__RATEMASTE__CATEG__10EB6C0E" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__RATEMASTE__CATEG__1D9B5BB6" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__RATEMASTE__CATEG__1E8F7FEF" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__SUBCATEGO__CATEG__10A1534B" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__SUBCATEGO__CATEG__2354350C" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__WBSMASTER__categ__26BAB19C" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__WBSMASTER__categ__496FBC53" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__EBUILDPRI__cityi__006AEB82" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__EBUILDPRI__cityi__015F0FBB" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__EBUILDPRI__cityi__025333F4" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__EBUILDPRI__cityi__0347582D" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__EBUILDPRI__CITYI__10416098" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__EBUILDPRI__cityi__118A8A8C" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__EBUILDPRI__cityi__1372D2FE" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__EBUILDPRI__cityi__28A2FA0E" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__RATEMASTE__cityi__0623C4D8" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__RATEMASTE__cityi__0717E911" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__RATEMASTE__cityi__080C0D4A" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__RATEMASTE__cityi__09003183" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__RATEMASTE__CITYI__0AE879F5" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__RATEMASTE__cityi__127EAEC5" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__RATEMASTE__cityi__1466F737" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__RATEMASTE__cityi__1E256B9B" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__RATEMASTE__CITYI__1F83A428" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__PRICEPUSH__PRICE__150615B5" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK_EBUILDPRICING_EBUILDPRICEBOOK" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__EBUILDPRI__SUBCA__131DCD43" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__EBUILDPRI__WBSMA__1411F17C" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__PRICEPUSH__SERVE__15FA39EE" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK_R_TEContactOrganisationRepresentatives_TEContactOrganisation" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK_R_TEOrganisationRepresentatives_TEContact" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK_R_TEOrganisationRepresentatives_TEContactOrganisation" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK_R_TEEmailMessage_TEEdmTemplate_TEEDMTemplates" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK_R_TEEmailMessage_TEEdmTemplate_TEEmailMessages" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK_R_TERecipient_TEEmailSuppression_TEEmailSuppressions" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK_R_TERelationshipsOfContact_TEContact" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK_R_TERelationshipsOfContact_TERelationshipCategories" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__RATEMASTE__RATEM__16A44564" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__RATEMASTE__RATEM__2077C861" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__RATEMASTE__SUBCA__0CD0C267" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__RATEMASTE__SUBCA__216BEC9A" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__RATEMASTE__WBSMA__0DC4E6A0" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__RATEMASTE__WBSMA__226010D3" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__SA_Relati__SA_Un__0EB90AD9" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__SA_Relati__SAIte__0FAD2F12" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__WBSMASTER__SUBCA__4A63E08C" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__WBSMASTER__SUBCA__4B5804C5" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__WBSMASTER__SUBCA__7EE1CA6C" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TE_Ref_Va__RefDo__11957784" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK_item_Uniqueid" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK_ModuleId_Action" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK_TEApproveObjects_TEApprovalEntities" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK_TEApprovalProcess_TEApproveGroupUsers" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK_TEApprovalProcess_TEApproveLevels1" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK_TEApprovalProcess_TEApproveObjects1" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK_TEApprovalProcess_TEApproveStages" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK_TEApproveGroupUsers_TEApproveGroups" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEAssestR__TEAss__18427513" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEAssestR__TEAss__1936994C" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEAssestR__TEAss__1A2ABD85" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEAssestR__TEAss__1B1EE1BE" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEAssestR__TEAss__532343BF" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEAssestR__TEAss__541767F8" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEAssestR__TEDep__1C1305F7" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEAssestR__TEDep__1D072A30" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEAssestR__TEDep__4D6A6A69" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEAssestR__TEWor__1DFB4E69" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEAssestR__TEWor__1EEF72A2" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEAssestR__TEWor__1FE396DB" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEAssestR__TEWor__20D7BB14" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEAssestR__TEWor__4E5E8EA2" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEAssestR__TEWor__4F52B2DB" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEAssetAl__TEAss__2D3D91F9" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEAssetAl__TEAss__2E31B632" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEAssetAl__TEAss__5BB889C0" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEAsset__TEAsset__21CBDF4D" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEAsset__TEAsset__22C00386" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEAsset__TEAsset__3592E0D8" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEAsset__TECompa__23B427BF" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEAsset__TECompa__24A84BF8" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEAsset__TECompa__36870511" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEAssetAl__TEAss__2B554987" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEAssetAl__TEAss__2C496DC0" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEAssetAl__TEAss__5AC46587" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEAssetLo__TEAss__3A978D17" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEAssetLo__TEAss__3B8BB150" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEAssetLo__TEAss__6CE315C2" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEAssetSc__TEAss__4050666D" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEAssetSc__TEAss__41448AA6" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEAssetSc__TEAss__66361833" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEAssetVa__TEAss__3A5795F5" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEAssetVa__TEAss__4420F751" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEAssetVa__TEAss__46093FC3" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEAssetAl__Alloc__259C7031" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEAssetAl__Alloc__2690946A" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEAssetAl__Alloc__2784B8A3" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEAssetAl__Alloc__2878DCDC" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEAssetAl__Alloc__57E7F8DC" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEAssetAl__Alloc__58DC1D15" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEAssetAl__Respo__296D0115" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEAssetAl__Respo__2A61254E" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEAssetAl__Respo__59D0414E" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEAssetAl__TEWor__2F25DA6B" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEAssetAl__TEWor__3019FEA4" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEAssetAl__TEWor__5CACADF9" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEAssetRe__TEAss__3E681DFB" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEAssetRe__TEAss__3F5C4234" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEAssetRe__TEAss__6265874F" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEEmpClea__TEAss__2937F6EB" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEEmpClea__TEAss__2A2C1B24" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEEmpClea__TEAss__7948ECA7" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEAssetCa__TEAss__2097C3F2" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEAssetCa__TEAss__310E22DD" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEAssetCa__TEAss__32024716" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEAssetSu__TEAss__2744C181" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEAssetSu__TEAss__4238AEDF" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEAssetSu__TEAss__432CD318" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEAssetCl__TEDep__19EAC663" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEAssetCl__TEDep__32F66B4F" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEAssetCl__TEDep__33EA8F88" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEClearan__TEAss__74C42EAC" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEClearan__TEAss__75B852E5" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEClearan__TEAss__7854C86E" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEAssetLo__LostF__34DEB3C1" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEAssetLo__LostF__35D2D7FA" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEAssetLo__LostF__36C6FC33" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEAssetLo__LostF__37BB206C" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEAssetLo__LostF__38AF44A5" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEAssetLo__LostF__39A368DE" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEAssetLo__LostF__6A06A917" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEAssetLo__LostF__6AFACD50" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEAssetLo__LostF__6BEEF189" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEAssetRe__Accep__3C7FD589" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEAssetRe__Accep__3D73F9C2" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEAssetRe__Accep__61716316" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEAssetVa__TEAss__2B155265" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEAssetVa__TEAss__47F18835" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEAssetVa__TEAss__48E5AC6E" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEAssetVa__TEAss__3B4BBA2E" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEAssetVa__TEAss__45151B8A" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEAssetVa__TEAss__46FD63FC" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEAssetVa__TEAss__2EE5E349" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEAssetVa__TEAss__49D9D0A7" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEAssetVa__TEAss__4ACDF4E0" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEBandsAn__TECom__4BC21919" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEBandsAn__TECom__4CB63D52" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEBandsAn__TECom__7EC1CEDB" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEEmpAssi__TEBan__0D0FEE32" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEEmpAssi__TEBan__11606D5A" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEEmpAssi__TEBan__12549193" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK_TEBankDetails_TECompanies" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK_TEBankDetails_TEProjects" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK_TEBusinessPartnerBrokerFee_TEBusinessPartner" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK_TEBusinessPartnersRepresentative_TEBusinessPartner" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK_TECancellations_TEOffer" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK_TECarParkInventory_TECarParkSummary" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK_TECarParks_TEOffer" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK_TEProjectCarParks_TECarParksMaster" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TECategor__Claim__383A4359" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TECategor__Claim__392E6792" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TECategor__Claim__54575F1A" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TECategor__Claim__554B8353" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TECategor__Claim__563FA78C" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TECategor__Claim__5733CBC5" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.CurrentOfferId" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEClaimAp__Appro__591C1437" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEClaimAp__Appro__599B3724" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEClaimAp__Claim__5A103870" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEClaimAp__Claim__5A8F5B5D" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEClaimBo__Claim__3C0AD43D" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEClaimBo__Claim__55CAA640" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEClaimBo__Claim__5B045CA9" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEClaimBo__Claim__5BF880E2" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEClaimBo__Claim__5D6BC808" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEClaimBo__Claim__60BD35FF" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEClaimBo__Claim__6399A2AA" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEClaimBo__Emplo__3CFEF876" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEClaimBo__Emplo__5CECA51B" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEClaimBo__Emplo__5DE0C954" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEClaimBo__FundC__3DF31CAF" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEClaimBo__FundC__5ED4ED8D" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEClaimBo__FundC__5FC911C6" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEClaimIt__Claim__4E298478" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEClaimIt__Claim__6FFF798F" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEClaimBo__Claim__54D68207" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEClaimBo__Claim__56BECA79" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEClaimBo__Claim__61B15A38" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEClaimBo__Claim__62A57E71" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEClaimBo__Claim__613C58EC" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEClaimBo__Claim__6581EB1C" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEClaimBo__Emplo__5E5FEC41" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEClaimBo__Emplo__648DC6E3" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEClaimBo__Emplo__62307D25" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEClaimBo__Emplo__66760F55" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEClaimCa__Claim__2AE0483B" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEClaimCa__Claim__2FA4FD58" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEClaimCa__Claim__676A338E" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEClaimCa__Claim__685E57C7" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEClaimCa__Claim__69527C00" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEClaimCa__Claim__6A46A039" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEClaimIt__Claim__4D35603F" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEClaimIt__Claim__6F0B5556" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEClaimCa__Compa__30992191" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEClaimCa__Compa__6B3AC472" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEClaimCa__Compa__6C2EE8AB" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEClaimIt__GLMap__4F1DA8B1" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEClaimIt__GLMap__70F39DC8" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEClaimFu__FundC__33758E3C" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEClaimFu__FundC__6D230CE4" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEClaimFu__FundC__6E17311D" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEClaimIt__JobAs__5011CCEA" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEClaimIt__JobAs__71E7C201" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEClaimIt__Vendo__5105F123" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEClaimIt__Vendo__72DBE63A" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEClaimIte__Unit__51FA155C" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEClaimIte__Unit__73D00A73" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEClearan__TECom__3A379A64" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEClearan__TECom__76AC771E" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEClearan__TECom__77A09B57" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEClearan__TELin__3B2BBE9D" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEClearan__TELin__7894BF90" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEClearan__TELin__7988E3C9" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEClearan__TEWor__3C1FE2D6" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEClearan__TEWor__7A7D0802" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEClearan__TEWor__7B712C3B" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK_TEClearanceMaster" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK_TEClearanceMaster_TEDepartments" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEDepartm__TECom__06E2DEE7" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEDepartm__TECom__07D70320" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEDepartm__TECom__093F5D4E" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEEmpAssi__TECom__0E04126B" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEEmpAssi__TECom__1348B5CC" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEEmpAssi__TECom__143CDA05" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEMobileE__TECom__02DD43D9" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEMobileE__TECom__03D16812" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEMobileE__TECom__04C58C4B" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEMobileE__TECom__3F1C4B12" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEMobileE__TECom__42ECDBF6" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TESubFunc__TECom__245D67DE" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TESubFunc__TECom__33807B34" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TESubFunc__TECom__39E294A9" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.fk_TECompTELOB" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK_TEProjects_TECompanies" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEContact__TECon__0035E158" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEContact__TECon__058EC7FB" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEContact__TECon__226010D3" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEContact__TECon__2354350C" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEContact__TECon__2B7F66B9" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEContact__TECon__2C738AF2" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEContact__TECon__407A839F" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEContact__TECon__7C655074" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEContact__TECon__7E4D98E6" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TELead__ContactI__147C05D0" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TELeadAct__TECon__00750D23" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TELeadAct__TECon__0169315C" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TELeadAct__TECon__025D5595" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TELeadAct__TECon__035179CE" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TELeadAct__TECon__04459E07" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TELeadAct__TECon__0539C240" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TELeadAct__TECon__062DE679" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TELeadAct__TECon__07220AB2" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TELeadAct__TECon__1387E197" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TELeadAct__TECon__147C05D0" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TELeadAct__TECon__15702A09" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TELeadAct__TECon__16644E42" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TELeadAct__TECon__1758727B" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TELeadAct__TECon__184C96B4" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TELeadAct__TECon__1940BAED" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TELeadAct__TECon__1A34DF26" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TELeadAct__TECon__1B29035F" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TELeadAct__TECon__20D7BB14" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TELeadAct__TECon__21CBDF4D" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TELeadAct__TECon__22C00386" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TELeadAct__TECon__2690946A" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TELeadAct__TECon__2784B8A3" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TELeadAct__TECon__2878DCDC" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TELeadAct__TECon__6641052B" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TELeadAct__TECon__67352964" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TELeadAct__TECon__68294D9D" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TELeadAct__TECon__691D71D6" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TELeadAct__TECon__6A11960F" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TELeadAct__TECon__6B05BA48" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TELeadAct__TECon__6BF9DE81" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TELeadAct__TECon__6CEE02BA" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TELeadAct__TECon__6DE226F3" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TELeadAct__TECon__6ED64B2C" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TELeadAct__TECon__6FCA6F65" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TELeadAct__TECon__70BE939E" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TELeadAct__TECon__71B2B7D7" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TELeadAct__TECon__72A6DC10" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TELeadAct__TECon__739B0049" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TELeadAct__TECon__748F2482" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TELeadAct__TECon__758348BB" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TELeadAct__TECon__7C30464A" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TELeadAct__TECon__7F80E8EA" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TENotes__Contact__16644E42" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TETask__ContactI__0BE6BFCF" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.fk_Tecontact_TeContactAddress" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.fk_Tecontact_TEContactAlumni" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.fk_Tecontact_TEContactApprovers" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.fk_Tecontact_TEContactEducation" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.fk_Tecontact_tecontactEmail" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.fk_Tecontact_TEContactGPA" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.fk_Tecontact_TEContactIdentification" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.fk_Tecontact_TEContactImportReport" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.fk_Tecontact_TEContactInterest" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.fk_Tecontact_TEContactMobile" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.fk_Tecontact_TEContactProfession" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.fk_Tecontact_TEContactRelation" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.fk_Tecontact_TEContactSelfUpdationTracking" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.fk_Tecontact_TEContactSocial" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK_TEWmCGuestVisitsHistories_TEContact" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEContact__TECon__021E29CA" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEContact__TECon__03124E03" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEContact__TECon__0406723C" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEContact__TECon__04FA9675" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEContact__TECon__216BEC9A" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK_TEDcoumentCatMaster_UserProfile" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK_TEDocumentTypeMaster_TEDcoumentCatMaster1" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEDepartm__TELin__08CB2759" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEDepartm__TELin__09BF4B92" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEDepartm__TELin__0A338187" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEEmpAssi__TEDep__0EF836A4" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEEmpAssi__TEDep__1530FE3E" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEEmpAssi__TEDep__16252277" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TESubFunc__TEDep__25518C17" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TESubFunc__TEDep__3568C3A6" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TESubFunc__TEDep__3AD6B8E2" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK_TEDocumentSubTypeMaster_TEDocumentTypeMaster" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK_TEDynamicGroupQueries_TERelationshipCategories" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.fk_TEEDMTemplates_TEEmailGunEventCallBackLogs" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK_TEEmailLogs_TEEmailEvents" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK_TEEmailLogs_TEEmailMessages" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEEmailSt__Email__6BAEFA67" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEEmailTe__Email__1F2F69C4" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEEMPAddr__TEEmp__0C1BC9F9" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEEMPAddr__TEEmp__0F7824E8" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEEMPAddr__TEEmp__106C4921" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEEmpAssi__TEEmp__0FEC5ADD" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEEmpAssi__TEEmp__10E07F16" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEEmpAssi__TEEmp__171946B0" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEEmpAssi__TEEmp__180D6AE9" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEEmpAssi__TEEmp__19018F22" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEEmpAssi__TEEmp__19F5B35B" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEEmpAssi__TEWor__11D4A34F" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEEmpAssi__TEWor__12C8C788" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEEmpAssi__TEWor__1AE9D794" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEEmpAssi__TEWor__1BDDFBCD" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEEmpAssi__TEWor__1CD22006" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEEmpAssi__TEWor__1DC6443F" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.fk_EmpBasicInfo_ReportingToDotted" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.fk_WorkLocationSecondary" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.teempassign_TESubFunction" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEEmpAtte__TEEmp__1699586C" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEEmpAtte__TEEmp__178D7CA5" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEEmpAtte__TEEmp__1EBA6878" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEEmpAtte__TEEmp__1FAE8CB1" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEEmpAtte__TEEmp__20A2B0EA" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEEmpAtte__TEEmp__2196D523" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEEmpAtte__TEEmp__228AF95C" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEEmpAtte__TEEmp__237F1D95" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.fk_TEEmpAttendence_TEEmpLEaveApplication" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEEmpBank__TEEmp__1881A0DE" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEEmpBank__TEEmp__247341CE" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEEmpBank__TEEmp__25676607" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEEmpBasi__TEEmp__265B8A40" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEEmpBene__TEEmp__1975C517" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEEmpBene__TEEmp__274FAE79" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEEmpBene__TEEmp__2843D2B2" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEEmpEduc__TEEmp__1A69E950" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEEmpEduc__TEEmp__2B203F5D" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEEmpEduc__TEEmp__2C146396" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEEmpEmer__TEEmp__1B5E0D89" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEEmpEmer__TEEmp__2D0887CF" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEEmpEmer__TEEmp__2DFCAC08" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEEmpExpe__TEEmp__1C5231C2" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEEmpExpe__TEEmp__2EF0D041" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEEmpExpe__TEEmp__2FE4F47A" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEEmpFami__TEEmp__1D4655FB" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEEmpFami__TEEmp__30D918B3" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEEmpFami__TEEmp__31CD3CEC" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEEmpInsu__TEEmp__1E3A7A34" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEEmpInsu__TEEmp__32C16125" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEEmpInsu__TEEmp__33B5855E" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEEmpLang__TEEmp__1F2E9E6D" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEEmpLang__TEEmp__34A9A997" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEEmpLang__TEEmp__359DCDD0" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEEmpLeav__TEEmp__2022C2A6" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEEmpLeav__TEEmp__220B0B18" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEEmpLeav__TEEmp__3691F209" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEEmpLeav__TEEmp__37861642" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEEmpLeav__TEEmp__387A3A7B" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEEmpLeav__TEEmp__396E5EB4" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEEmpMobi__TEEmp__3A6282ED" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEEmpMobi__TEEmp__3B56A726" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEEmpMobi__TEEmp__4999D985" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEEmpOthe__TEEmp__23F3538A" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEEmpOthe__TEEmp__3C4ACB5F" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEEmpOthe__TEEmp__3D3EEF98" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEEmpRefe__TEEmp__26CFC035" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEEmpRefe__TEEmp__4203A4B5" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEEmpRefe__TEEmp__42F7C8EE" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEEmpSpec__HRApp__41C3AD93" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEEmpSpec__HRApp__43EBED27" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEEmpSpec__HRApp__44E01160" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEEmpSpec__Mange__44A01A3E" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEEmpSpec__Mange__49A4C67D" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEEmpSpec__Mange__4A98EAB6" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEEmpSpec__TEEmp__45943E77" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEEmpSpec__TEEmp__4B8D0EEF" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEEmpSpec__TEEmp__4C813328" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEEmpWork__TEEmp__27C3E46E" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEEmpWork__TEEmp__4D755761" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEEmpWork__TEEmp__4E697B9A" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEIssuesD__TEEmp__1249A49B" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEIssuesD__TEEmp__5F94079C" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEIssuesD__TEEmp__60882BD5" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEMobileB__Curre__0000D72E" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEMobileB__Curre__00F4FB67" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEMobileB__Curre__01E91FA0" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEMobileB__Curre__71A7CADF" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEMobileB__Curre__766C7FFC" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEPayRoll__Teemp__00B50445" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEPayRoll__Teemp__04859529" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEPayRoll__Teemp__0856260D" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEPayRoll__Teemp__0C26B6F1" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEPayRoll__Teemp__6DA22FD1" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEPayRoll__Teemp__7172C0B5" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEPayRoll__Teemp__75435199" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEPayRoll__Teemp__7913E27D" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEPayRoll__Teemp__7CE47361" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TESurveyS__EmpUn__18C19800" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TESurveyS__EmpUn__3A2D78C3" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TESurveyS__EmpUn__3B219CFC" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK_TEEmpBasicInfo_TEEmpClearanceDetails" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK_TEEmpBasicInfo_TEEmpSeparation" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEEmpSpec__Leave__42B7D1CC" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEEmpSpec__Leave__46C859D2" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEEmpSpec__Leave__47BC7E0B" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEIssuesD__Leave__1431ED0D" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEIssuesD__Leave__5E9FE363" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK_teempleaveapplications_TEEmpLeaveSummary" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK_TEmpLeaveSummary_TELeaveType" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEEmpOthe__TEOth__24E777C3" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEEmpOthe__TEOth__25DB9BFC" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEEmpOthe__TEOth__3E3313D1" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEEmpOthe__TEOth__3F27380A" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEEmpOthe__TEOth__401B5C43" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEEmpOthe__TEOth__410F807C" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEEmpSeparation_TEEmpSeparationLog" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK_TEEmpSeparationQuestionNResponse_TEEmpSeparations" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEEmpSpec__Leave__43ABF605" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEEmpSpec__Leave__45D43599" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEEmpSpec__Leave__48B0A244" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEEmpWork__TESub__1AD3FDA4" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEEmpWork__TESub__28B808A7" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEEmpWork__TESub__5051C40C" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEEvaluat__EQMID__025D5595" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEEvaluat__EQMID__119F9925" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEEvaluat__EQMID__1EF99443" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEEvaluat__LeadI__035179CE" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEEvaluat__LeadI__1293BD5E" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEEvaluat__LeadI__1FEDB87C" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEGoodsRe__POStr__56FEC19B" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEGoodsRe__TEGoo__57F2E5D4" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEHoliday__TEHol__29AC2CE0" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEHoliday__TEHol__58E70A0D" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEHoliday__TEHol__59DB2E46" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEHoliday__TEWor__2AA05119" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEHoliday__TEWor__5ACF527F" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEHoliday__TEWor__5BC376B8" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK_TEHoliday_TEWorkLocation_Mappings" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEIncenti__Incen__4EA972BC" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK_TEIncentivesMaster_TEProjects" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK_TEIncentivesMaster_TESpecificationMaster" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEIssuesD__TEIss__133DC8D4" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEIssuesD__TEIss__617C500E" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEIssuesD__TEIss__62707447" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK_TELandParcelBreakupDetails_TELandParcelDetails" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK_TELandParcelDetails_TEProjects" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEOffer__LeadID__1FF8A574" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.fk_TELeaveTypes_Picklistitem" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEQueueDe__TELin__0307610B" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEQueueDe__TELin__271AA44F" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEQueueDe__TELin__280EC888" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TESubFunc__TELin__2645B050" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TESubFunc__TELin__37510C18" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TESubFunc__TELin__3BCADD1B" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEMobileB__BillS__75785BC3" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEMobileB__BillS__7D246A83" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEMobileB__BillS__7E188EBC" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEMobileB__BillS__7F0CB2F5" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEMobileE__TESub__05B9B084" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEMobileE__TESub__06ADD4BD" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEMobileE__TESub__07A1F8F6" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEMobileE__TESub__40106F4B" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEMobileE__TESub__43E1002F" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEMobileE__TEWor__08961D2F" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEMobileE__TEWor__098A4168" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEMobileE__TEWor__0A7E65A1" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEMobileE__TEWor__41049384" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEMobileE__TEWor__44D52468" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TENotes__Context__09FE775D" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TENotes__Context__1758727B" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEOffer__Project__1411F17C" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEOfferSc__Offer__15F0184D" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK_TEOffer_TEOffer" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK_TEOffer_TEOffer1" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK_TEOfferDocuments_TEOffer" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK_TEOfferExpireExtension_TEOffer" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK_TEOfferMileStone_TEOffer" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK_TEOfferPriceBreakUpDetails_TEOffer" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK_TEOfferSpecialCondition_TEOffer" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK_TEOfferSpecification_TEOffer" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK_TEOfferTC_TEOffer" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK_TEOfferMileStone_MILESTONEID" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK_TEOrderPaymentSchedule_TEScheduleMaster" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEPayRoll__Payro__0B3292B8" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEPayRoll__Payro__744F2D60" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEPayRoll__Payro__076201D4" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEPayRoll__Finan__66F53242" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEPayRoll__Payro__039170F0" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEPayRoll__Payro__6CAE0B98" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEPayRoll__Payro__707E9C7C" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEPayRoll__Payro__781FBE44" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEPayRoll__Payro__7BF04F28" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEPayRoll__Payro__7FC0E00C" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEPayRoll__Repor__69D19EED" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.fk_TEPickListItems_Picklist" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK_TEPickListItems_TEPickLists" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK_TETaxDetails_TEPickListItems" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK_TETaxDetails_TEPickListItems1" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK_TEProjectPremium_TEPremiumMaster" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TESecondar__PSID__2A01329B" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK_TESubProductDetails_TEProducts" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK_TEProductSpecifications_TESpecificationLibrary" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK_TEProductSpecifications_TESubProductDetails" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK_TEProjectCarParks_TEProjects" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK_TEProjectDetails_TEProjects" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK_TEProjectUnitPremium_TEProjectPremium" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK_TEQueue_TEProject" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK_TESalesPlanandTargets_TEProjects" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK_TESubProductDetails_TEProjects" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK_TETargetAllocations_TEProjects" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK_TETaxDetails_TEProjects" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK_TETowerMaster_TEProjects" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEService__POStr__2BDF596C" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEQueue__Admin__1C9228E4" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEQueue__Admin__243E37A4" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEQueue__Admin__25325BDD" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.fk_SelfReferenceToTERelationshipCategories" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK_TEStandardSchemeTermsAndConditions_TESchemaMaster" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEService__TESer__2CD37DA5" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK_TEUnitPricingShareDetails_TEShareDetails" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK_TEUnitShareDetials_TEShareDetails" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK_TESpecificatonSubCategory_TESpecificatonSubCategory" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK_TESpecifictionLibrary_TESpecificationCategory" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TESubFunc__Paren__236943A5" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TESubFunc__Paren__319832C2" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TESubFunc__Paren__38EE7070" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK_TETaxDetails_TETowerMaster" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK_TEUserPrevilegeMapping_TEUserPrevileges" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK__TEUserRol__URTMI__3D14070F" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK_TEUserRoleThresholdMapping_UserProfile" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK_TEUsersThresholds_UserProfile" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK_TEWmCGuestVisitsSelectedItems_TEWmCGuestVisitsHistories" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK_TEUserSalesEngineMapping_UserProfile" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.fk_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.fk_RoleId" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK_webpages_Roles_webpages_Roles" ManuallyRouted="false" />
+        <AssociationConnector Association="FugueV2_currentModel.FK_webpages_UsersInRoles_webpages_Roles" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

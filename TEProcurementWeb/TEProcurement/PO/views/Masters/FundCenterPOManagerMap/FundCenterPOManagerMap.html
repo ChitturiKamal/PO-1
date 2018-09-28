@@ -1,0 +1,272 @@
+<style>
+        .nicEdit-main {
+            width: 100% !important;
+            margin: 0px !important;
+        }
+        
+        .form-block .richTxt {
+            width: 100% !important;
+        }
+        
+        .templatelengthtext {
+            white-space: nowrap;
+            width: 25em;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            margin: 0;
+        }
+        .height200px{
+            height: 200px;
+        }
+        
+        .limitText {
+            font-size: 13px;
+            width: 20em;
+            height: 18px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            -webkit-box-orient: vertical;
+            position: absolute;
+            padding: 0 5px;
+            font-weight: normal;
+        }
+        
+        .modal-dialog {
+            margin: 70px auto;
+        }
+        
+        .well {
+            margin-bottom: 0;
+        }
+    </style>
+    <header ng-include="'views/header.html'"></header>
+    <div ng-controller="FundCenterPOManagerCtrl">
+        <div ng-include="'views/Delete.html'"></div>
+        <div class="wrapper" style="background-color:#fff;width: 100% !important;">
+            <div class="row selcproject" style="margin:0;">
+                <div class="col-md-12" style="padding:0;">
+                    <div class="portfolio-page">
+                        <div class="wizard" style="margin:0 auto;">
+                            <div class="head-panel-grey">
+                                <div class="pull-left">
+                                    <h4>Fund Center PO Manager</h4>
+                                </div>
+                                <div class="pull-right">
+                                    <a ng-if="CheckPrivilage('FundCenterPOMgrMaster','Save')" class="btn btn-sm btn-primary mt33" href="javascript:void(0)" data-toggle="modal" data-target="#addFundCenterPOManager" ng-click="cleanInformation();" ><i class="fa fa-plus"></i> ADD NEW</a>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="table-content">
+                                <div class="main-table filterable">
+                                    <div class="panel">
+                                        <div class="panel-body">
+                                            <table class="table table-bordered">
+                                                <thead>
+                                                    <tr class="filters">
+                                                        <th class="text-center">
+                                                            <label>Fund Center Code</label>
+                                                        </th>	
+                                                        <th class="text-center">
+                                                            <label>Fund Center Description</label>
+                                                        </th>														
+                                                        <th class="text-center">
+                                                            <label>Manager Name</label>
+                                                        </th>
+                                                        <th class="text-center" >
+                                                            <label>LastModifiedBy</label>
+                                                        </th>
+                                                        <th class="text-center">
+                                                            <label>LastModifiedOn</label>
+                                                        </th>
+                                                        <th>Option</th>
+                                                    </tr>
+                                                    <tr class="filtersLight">
+                                                        <th class="text-center">
+                                                            <input class="form-control" type="text" placeholder="Search" ng-model="FC">
+                                                        </th>
+                                                        <th class="text-center">
+                                                            <input class="form-control" type="text" placeholder="Search" ng-model="FCD"> </th>
+                                                        <th class="text-center">
+                                                            <input class="form-control" type="text" placeholder="Search" ng-model="UN"> </th>
+                                                        <th class="text-center">
+                                                              <input class="form-control" type="text" placeholder="Search" ng-model="LMB"> </th>
+                                                        <th class="text-center">
+                                                             <!-- <input class="form-control" type="text" placeholder="Search" ng-model="WBSN"></th>   -->
+                                                        <th></th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody ng-if="result.info.listcount<='0'">
+                                                    <tr>
+                                                        <td colspan="1000" style="text-align: center">No Records</td>
+                                                    </tr>
+                                                </tbody>
+                                                <tbody>
+                                                    <tr ng-repeat="data in result.result|filter:{FundCenter_Code:FC,FundCenter_Description:FCD,UserName:UN, Roles:role,LastModifiedBy:LMB}">
+                                                        <td class="text-left">{{data.FundCenter_Code}}</td>
+                                                        <td class="text-left">{{data.FundCenter_Description}}</td>
+                                                        <td class="text-left">{{data.UserName}}</td>
+                                                        <td class="text-left">{{data.LastModifiedBy}}</td>
+                                                        <td>{{data.LastModifiedOn|date:'dd-MM-yyyy'}}</td>    
+                                                        <td class="options" align="center">
+                                                           <!-- <a ng-show="CheckPrivilage('masters','Delete')" href="javascript:void(0)" ng-click="SetDeleteData(obj)" data-toggle="modal" data-target="#DeleteBroadcastPopUp" title="Delete"><i class="fa fa-trash-o"></i></a> -->
+                                                           <a ng-click="FromView(data.FundCenterPOMgrMappingId)" data-toggle="modal" data-target="#updateFundCenterPOManager" title="Edit" class=""><i class="fa fa-pencil-square-o"></i></a>
+                                                           <a ng-click="SetDeleteData(data);" data-toggle="modal" data-target="#DeleteBroadcastPopUp" title="Delete"><i class="fa fa-trash-o"></i></a>
+                                                           <a><!--<i class="fa fa-cog" data-toggle="modal" data-target="#SendForApprovalPage"></i>--></a>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                                <tfoot class="footer">
+                                                    <tr>
+                                                        <td colspan="9" align="right" style="text-align: right;">
+                                                            <label ng-if="result.info.listcount>'0'">Now Showing: {{result.info.fromrecords}} - {{result.info.torecords}} of {{result.info.totalrecords}}</label> &nbsp;&nbsp;
+                                                            <label>Go To Page : &nbsp;
+                                                                <input type="text" size="2" value="1" class="form-control inline-in intvalid pageInput" ng-model="pagenumber" ng-change="pagenationss(pagenumber)" /> </label> &nbsp;&nbsp;
+                                                            <label> Show Rows : </label>
+                                                            <label>
+                                                                <select ng-model="pageprecounts" name="pageprecounts" class="pageCount inline-in" ng-change="pagenationss(pagenumber,pageprecounts)">
+                                                                    <option value="" disabled="disabled">Select</option>
+                                                                    <option value="10" ng-selected="true">10</option>
+                                                                    <option value="20">20</option>
+                                                                    <option value="50">50</option>
+                                                                    <option value="100">100</option>
+                                                                    <option value="200">200</option>
+                                                                    <option value="400">400</option>
+                                                                    <option value="500">500</option>
+                                                                    <option value="700">700</option>
+                                                                    <option value="1000">1000</option>
+                                                                    <option value="9999999">All</option>
+                                                                </select>
+                                                            </label> &nbsp;&nbsp;
+                                                            <label><a class="btn btn-default btn-xs" ng-click="pagenationss_clk(pagenumber,0)" style="padding:1px 8px;"><i class="fa fa-caret-left"></i></a> </label>
+                                                            <label ng-if="result.info.listcount>'0'"><a class="btn btn-default btn-xs" ng-click="pagenationss_clk(pagenumber,1)" style="padding:1px 8px;" ng-if="result.info.listcount!=0"><i class="fa fa-caret-right"></i></a> </label>
+                                                        </td>
+                                                    </tr>
+                                                </tfoot>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>    
+        <div id="DeleteBroadcastPopUp" class="modal fade pop-modal" role="dialog">
+            <div class="modal-dialog modal-md">
+                <div class="modal-content">
+                    <div class="modal-header padpop">
+                        <h5 class="modal-title pull-left mt7">Are you sure you want delete?</h5>
+                        <div class="pull-right">
+                            &nbsp;
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="modal-body">
+                        <div class="main-content text-right">
+                            <form name="deleteForm" class="deleteForm">
+                                <input type="hidden" value="{{FundCenterPOMgrMappingId}}" name="FundCenterPOMgrMappingId">
+                                <!-- <input type="hidden" name="LastModifiedBy" ng-model="UserDetails.currentUser.UserId" value="{{UserDetails.currentUser.UserId}}" /> -->
+                            </form>
+                            <button class="btn btn-warning btn-sm" data-dismiss="modal" type="button">No, Cancel</button>
+                            <button class="btn btn-success btn-sm" ng-click="FormDelete()" type="button">Yes, Delete</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+            <div id="addFundCenterPOManager" class="modal pop-modal fade" role="dialog">
+                <div class="modal-dialog">
+                            <!-- Modal content-->
+                  <div class="modal-content">
+                        <div class="modal-header padpop">
+                            <h5 class="modal-title pull-left mt7">Add Fund Center PO Manager Details</h5>
+                            <div class="pull-right">
+                                <button class="btn btn-warning btn-sm" type="button" data-dismiss="modal">Cancel</button>
+                                <button class="btn btn-success btn-sm" type="button" ng-click="FromCreate()">Create</button>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="modal-body">
+                            <div class="main-content">
+                                <form name="addForm" class="addForm ng-pristine ng-valid" enctype="multipart/form-data" method="post">
+                                    <!-- <!-- <input type="hidden" name="WBSCODE" ng-model="WBSCODE" />
+                                    <input type="hidden" name="FundCentreCode" ng-model="FundCentreCode" />
+                                    <input value="0" type="hidden" name="ApproverName">  -->
+                                    <input type="hidden" name="LastModifiedBy" ng-model="UserDetails.currentUser.UserId" value="{{UserDetails.currentUser.UserId}}" />
+                                    <div class="row">
+                                        <div class="col-md-6 mb10">
+                                            <div class="form-block">
+                                                <label>Fund Center</label>
+                                                <select class="form-control" name="FundCentreID" ng-model="FundCenter_Description">
+                                                    <option value="">Select Fund Center</option>
+                                                    <!-- +' '+data.FundCenter_Description -->
+                                                    <option ng-repeat="data in FundCenter" value="{{data.Uniqueid}}">{{data.FundCenter_Code}}</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 mb10">
+                                            <div class="form-block">
+                                                <label>Manager</label>
+                                                <select class="form-control" name="ManagerId" ng-model="CallName">
+                                                    <option value="">Select Manager</option>
+                                                    <!-- +' '+data.FundCenter_Description -->
+                                                    <option ng-repeat="data in ManagersResult" value="{{data.UserId}}">{{data.CallName}}</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                   </div>
+                </div>
+            </div>
+            <div id="updateFundCenterPOManager" class="modal pop-modal fade" role="dialog">
+                <div class="modal-dialog">
+                            <!-- Modal content-->
+                  <div class="modal-content">
+                        <div class="modal-header padpop">
+                            <h5 class="modal-title pull-left mt7">Update Fund Center PO Manager Details</h5>
+                            <div class="pull-right">
+                                <button class="btn btn-warning btn-sm" type="button" data-dismiss="modal">Cancel</button>
+                                <button class="btn btn-success btn-sm" type="button" ng-click="FromUpdate()">Update</button>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="modal-body">
+                            <div class="main-content">
+                                <form name="updateForm" class="updateForm ng-pristine ng-valid" enctype="multipart/form-data" method="post">
+                                    <input type="hidden" name="FundCenterPOMgrMappingId" value="{{fundCenterPOManagerById[0].FundCenterPOMgrMappingId}}" />
+                                    <!-- <input type="hidden" name="FundCentreCode" ng-model="FundCentreCode" />
+                                    <input value="0" type="hidden" name="ApproverName">  -->
+                                    <input type="hidden" name="LastModifiedBy" ng-model="UserDetails.currentUser.UserId" value="{{UserDetails.currentUser.UserId}}" />
+                                    <div class="row">
+                                        <div class="col-md-6 mb10">
+                                            <div class="form-block">
+                                                <label>Fund Center</label>
+                                                <select class="form-control" name="FundCentreID" ng-model="FundCenter_Description">
+                                                    <option value="">Select Fund Center</option>
+                                                    <!-- +' '+data.FundCenter_Description -->
+                                                    <option ng-repeat="data in FundCenter" value="{{data.Uniqueid}}" ng-selected="data.Uniqueid == fundCenterPOManagerById[0].FundCenterId">{{data.FundCenter_Code}}</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 mb10">
+                                            <div class="form-block">
+                                                <label>Manager</label>
+                                                <select class="form-control" name="ManagerId" ng-model="CallName">
+                                                    <option value="">Select Manager</option>
+                                                    <!-- +' '+data.FundCenter_Description -->
+                                                    <option ng-repeat="data in ManagersResult" value="{{data.UserId}}" ng-selected="data.UserId == fundCenterPOManagerById[0].UserId">{{data.CallName}}</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                   </div>
+                </div>
+            </div>
+            </div>

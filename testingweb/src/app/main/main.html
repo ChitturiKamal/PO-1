@@ -1,0 +1,86 @@
+<div id="bgwrapper" block-ui="myBlockUI">
+    <div>
+        <acme-navbar creation-date="main.creationDate" profile-info="vm.getProfile"></acme-navbar>
+    </div>
+    <div class="container-fluid" style="margin-right: 8px;margin-left: -6px;margin-top: 8px;">
+        <div class="row">
+            <div class="col-lg-2 col-md-2 col-sm-3 col-xs-12" style="padding:0px 7px;">
+                <!-- <div style="height: 50px;background-color:#85a520;"></div> -->
+                <div style="overflow-y:auto;border-right:1px Solid #ccc;" class="containerHeight">
+                    <!-- <div href="#statusList" data-toggle="collapse" class="panel-heading" ng-click="vm.statusToggle = !vm.statusToggle">
+                        <img src="assets/images/procure.png" class="icon-size" alt="" /> Purchase Order
+                        <span class="pull-right">
+                            <i class="glyphicon" ng-class="{'glyphicon-chevron-up' : vm.statusToggle, 'glyphicon-chevron-down' : !vm.statusToggle}"></i>
+                        </span>
+                    </div>
+                    <div id="statusList" class="collapse" >
+                        <div class="panel-body tagList">
+                            <div class="leftpan-button" ui-sref="main.contact.detail({relationId: tag.UniqueId})" ui-sref-active="leftpan-button-active" title="{{tag.Name}}">
+                                Approved
+                            </div>
+                        </div>
+                    </div> -->
+
+                    <div class="leftpan-button" ui-sref="main.poList({status: 'All'})" ui-sref-active="leftpan-button-active">
+                        <img src="assets/images/procure.png" class="icon-size" alt="" /> Purchase Order
+                        <span class="pull-right panel-heading" ng-click="vm.statusToggle = !vm.statusToggle; $event.stopPropagation();">
+                            <i class="glyphicon" ng-class="{'glyphicon-chevron-up' : vm.statusToggle, 'glyphicon-chevron-down' : !vm.statusToggle}"></i>
+                        </span>
+                        <span class="badge" style="background-color:#ff6a00" ng-if="vm.statusCount.TotalCount" ng-bind="vm.statusCount.TotalCount">378</span>
+                    </div>
+                    <div id="statusList" uib-collapse="!vm.statusToggle" >
+                        <div class="panel-body tagList">
+                         <div class="leftpan-button" ui-sref="main.poList({status: 'Finalize'})" ui-sref-active="leftpan-button-active" title="{{tag.Name}}">
+                                My PO
+                                <span class="badge pull-right" style="background-color:#ff6a00" ng-if="vm.statusCount.PendingCount" ></span>
+                         </div>
+                            <div class="leftpan-button" ui-sref="main.poList({status: 'Pending for Approval'})" ui-sref-active="leftpan-button-active" title="{{tag.Name}}">
+                                Pending for approval
+                                <span class="badge pull-right" style="background-color:#ff6a00" ng-if="vm.statusCount.PendingCount" ng-bind="vm.statusCount.PendingCount">378</span>
+                            </div>
+                            <div class="leftpan-button" ui-sref="main.poList({status: 'Draft'})" ui-sref-active="leftpan-button-active" title="{{tag.Name}}">
+                                Upcoming
+                                <span class="badge pull-right" style="background-color:#ff6a00" data-ng-if="vm.statusCount.UpcomingCount" ng-bind="vm.statusCount.UpcomingCount">378</span>
+                            </div>
+                            <div class="leftpan-button" ui-sref="main.poList({status: 'Approved'})" ui-sref-active="leftpan-button-active" title="{{tag.Name}}">
+                                Approved
+                                <span class="badge pull-right" style="background-color:#ff6a00" data-ng-if="vm.statusCount.ApprovedCount" ng-bind="vm.statusCount.ApprovedCount">378</span>
+                            </div>
+                            <div class="leftpan-button" ui-sref="main.poList({status: 'Rejected'})" ui-sref-active="leftpan-button-active" title="{{tag.Name}}">
+                                Rejected
+                                <span class="badge pull-right" style="background-color:#ff6a00" data-ng-if="vm.statusCount.RejectedCount" ng-bind="vm.statusCount.RejectedCount">378</span>
+                            </div>
+                            <div class="leftpan-button" ui-sref="main.poCreate({status: 'POCreate'})" ui-sref-active="leftpan-button-active" title="{{tag.Name}}">
+                                POCreate
+                                <span class="badge pull-right" style="background-color:#ff6a00" data-ng-if="vm.statusCount.RejectedCount" ng-bind="vm.statusCount.RejectedCount">378</span>
+                            </div>
+                        </div>
+                    </div>
+                  <!--   <div class="leftpan-button" ui-sref="main.poReport" ui-sref-opts="{reload: true}" ui-sref-active="leftpan-button-active">
+                        <img src="assets/images/report.png" class="icon-size" alt="" /> Report
+                    </div>
+                    <div class="leftpan-button" ui-sref="main.poVendor" ui-sref-opts="{reload: true}" ui-sref-active="leftpan-button-active">
+                        <img src="assets/images/vendor-icon.png" class="icon-size" alt="" /> Vendors
+                    </div> -->
+					
+				<!-- 	
+					<div class="leftpan-button" ui-sref="main.poTerms.DetailTerms" ui-sref-active="leftpan-button-active">
+                                Terms & Conditions
+                    </div> -->
+					
+                </div>
+            </div>
+            <div class="col-lg-10 col-md-10 col-sm-9 col-xs-12" style="padding:0px 7px;">
+                <div ui-view></div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- <div class="leftpan-button" ui-sref="main.poTerms" ui-sref-opts="{reload: true}" ui-sref-active="leftpan-button-active" title="{{tag.Name}}">
+                                Terms & Conditions
+                    </div> -->
+					<!-- <div class="leftpan-button" ui-sref="main.poTerms.DetailTerms" ui-sref-active="leftpan-button-active">
+                                Terms & Conditions
+                    </div> -->
+
+

@@ -1,0 +1,447 @@
+﻿<script src="~/Scripts/jquery-1.8.2.min.js"></script>
+<script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script> 
+ <script>
+     $(document).ready(function () { 
+     //localStorage.UserId = "46";
+         //var date = new Date("15-Aug-2015 18");
+         debugger;
+
+         //$.ajax({
+         //    type: "POST",
+         //    contentType: "application/json; charset=utf-8",
+         //    url: '/api/TEPODetails/PurchaseApprove',
+         //    //data: '{"CreatedOn": "","CreatedBy": "Baya ","LastModifiedOn": "","LastModifiedBy": "Baya ","IsDeleted": "0","UNITONBOARDINGID": "2","Descritpion": "Ticket Desc","CategoryID": "5","ParentCatID": "1","RaisedBy": "1102","Attachments": "","ProjectID": "1","UnitID": "22","Status":"PAUSED","PrefferedTime":"9am-12pm","QueueID":"1","Uniqueid":"2264","AssignedTo":"18"}',
+         //    data: '{"Purchasing_Order_Number": "16S-100107","Fugue_Purchasing_Order_Number": "","ReleaseCodeBy": "","ReleaseCode": "FA","ReleaseCodeStatus":"Approved"}',
+         //    // data: '{"Purchasing_Order_Number": "16M-100077","Fugue_Purchasing_Order_Number": "","ReleaseCodeBy": "","ReleaseCode": "AB","ReleaseCodeStatus":"Approved"}',
+         //    dataType: "json",
+         //    processData: false,
+         //    success: function (data) {
+         //    }
+         //});
+
+         //$.ajax({
+         //    type: "POST",
+         //    contentType: "application/json; charset=utf-8",
+         //    url: 'api/TEContact/updateIsProfilePublic',
+         //    data: '{"Userid":"5025","ISProfileSPublic":1}',
+         //    dataType: "json",
+         //    processData: false,
+         //    success: function (data) {
+         //        //if("")
+         //        // alert("success");
+         //    }
+         //});
+
+         //    $.ajax({
+         //        type: "POST",
+         //        contentType: "application/json; charset=utf-8",
+         //url: 'api/TENotifications/AddNotifications',
+         //data: '{"UniqueId":"11","ReadStatus":1,"ReceivedBy":"5073"}',
+         //        dataType: "json",
+         //        processData: false,
+         //        success: function (data) {
+         //            alert("success");
+         //        }
+         //    });
+
+         //$.ajax({
+         //    type: "POST",
+         //    contentType: "application/json; charset=utf-8",
+         //    url: 'api/TEIssues/PostIssue',
+         //    data: '{"LastModifiedBy": "Shivam.srivastava","Uniqueid": "3302","Status": "PAUSED"}',
+         //    dataType: "json",
+         //    processData: false,
+         //    success: function (data) {
+
+         //        if (data.Uniqueid) {
+
+         //            // alert("success");
+         //            if (status == "CLOSED") {
+         //                sessionStorage.IssueId = data.Uniqueid;
+         //                window.location.href = "Feedback-page.html";
+         //            }
+         //            else if (status == "REOPEN") {
+         //                window.location.href = "MyTickets.html";
+         //            }
+
+         //        }
+         //    }
+         //});
+
+     //$.ajax({
+     //    type: "POST",
+     //    contentType: "application/json; charset=utf-8",
+     //    url: '/api/TEIssues/PostIssue',
+     //    //data: '{"CreatedOn": "","CreatedBy": "Baya ","LastModifiedOn": "","LastModifiedBy": "Baya ","IsDeleted": "0","UNITONBOARDINGID": "2","Descritpion": "Ticket Desc","CategoryID": "5","ParentCatID": "1","RaisedBy": "1102","Attachments": "","ProjectID": "1","UnitID": "22","Status":"PAUSED","PrefferedTime":"9am-12pm","QueueID":"1","Uniqueid":"2264","AssignedTo":"18"}',
+     //    data: '{"LastModifiedBy": "Shivam","Uniqueid": "2265","Status": "RESOLVED"}',
+     //    dataType: "json",
+     //    processData: false,
+     //    success: function (data) {
+     //    }
+         //});
+
+         //$.ajax({
+         //    type: "POST",
+         //    contentType: "application/json; charset=utf-8",
+         //    url: '/api/TEPODetails/PurchaseApprove',
+         //    //data: '{"CreatedOn": "","CreatedBy": "Baya ","LastModifiedOn": "","LastModifiedBy": "Baya ","IsDeleted": "0","UNITONBOARDINGID": "2","Descritpion": "Ticket Desc","CategoryID": "5","ParentCatID": "1","RaisedBy": "1102","Attachments": "","ProjectID": "1","UnitID": "22","Status":"PAUSED","PrefferedTime":"9am-12pm","QueueID":"1","Uniqueid":"2264","AssignedTo":"18"}',
+         //    data: '{"Purchasing_Order_Number": "16E-100004","Fugue_Purchasing_Order_Number": "","ReleaseCodeBy": "","ReleaseCode": "A7","ReleaseCodeStatus":"Approved"}',
+         //    dataType: "json",
+         //  processData: false,
+         //    success: function (data) {
+         //    }
+         //});
+
+          //$.ajax({
+          //   type: "POST",
+          //   contentType: "application/json; charset=utf-8",
+          //   url: '/api/TEContact/AddUserProfile',
+          //   data: '{"UserId":"","UserName":"test2","email":"test2@test123.test","Phone":"123456787","Photo":"","Status":"Active","facebookid":"","googleid":"","Password":"pass","CallName":"test2"}',
+          //   dataType: "json",
+          //   processData: false,
+          //   success:function(data){
+                               
+          //       //alert("call");
+                               
+                               
+          //       if(data.UserName=="Already exists")
+          //       {
+          //           $('#Processing1').hide();
+          //           alert("With this email id account is already exists");
+                               
+          //       }
+                               
+          //       else
+          //       {
+          //           alert("record Updated");
+          //           //alert(data.UserId);
+          //       }
+          //        }  });
+         //$.ajax({
+         //    type: "POST",
+         //    contentType: "application/json; charset=utf-8",
+         //    url: '/api/TEIssues/PostIssue',
+         //    data: '{"LastModifiedBy": "Shivam","Uniqueid": "2265","Status": "COMMENCED"}',
+         //    dataType: "json",
+         //    processData: false,
+         //    success:function(data){       
+         //        if(data.Uniqueid)
+         //        {
+                
+         //            alert("success");
+         //            if(status=="Closed")
+         //            {
+         //                sessionStorage.IssueId=data.Uniqueid;
+         //                // window.location.href="Feedback-page.html";
+         //            }
+         //        }
+         //    }
+         //});
+     //$.ajax({
+     //    type: "POST",
+     //    contentType: "application/json; charset=utf-8",
+     //    url: '/api/TEIssues/PostIssue',
+     //    data: '{"CreatedOn": "","CreatedBy": "Baya ","LastModifiedOn": "","LastModifiedBy": "Baya ","IsDeleted": "0","UNITONBOARDINGID": "2","Descritpion": "Ticket Desc","CategoryID": "5","ParentCatID": "1","RaisedBy": "1102","Attachments": "","ProjectID": "1","UnitID": "22","Status":"PAUSED","PrefferedTime":"9am-12pm","QueueID": "1" }',
+     //    //,"Uniqueid":"2270","AssignedTo":"18"  
+     //    //data: '{"LastModifiedBy": "Shivam","Uniqueid": "2265","Status": "RESOLVED"}',
+     //    dataType: "json",
+     //    processData: false,
+     //    success: function (data) {
+     //    }
+         //});
+
+         //$.ajax({
+         //    type: "POST",
+         //    contentType: "application/json; charset=utf-8",
+         //    url: '/api/TENotifications/SendNotifications',
+         //    data: '{"CreatedOn": "","CreatedBy": "Baya ","LastModifiedOn": "","LastModifiedBy": "Baya ","IsDeleted": "0","Name": "check notification","description": "Notification Desc","SendBy":"18","ReadStatus": "0","Status":"Active","Project":"14","Tower":"23","unit":"203"}',
+         //    //,"Uniqueid":"2270","AssignedTo":"18"  
+         //    //data: '{"LastModifiedBy": "Shivam","Uniqueid": "2265","Status": "RESOLVED"}',
+         //    dataType: "json",
+         //    processData: false,
+         //    success: function (data) {
+         //    }
+         //});
+
+         //$.ajax({
+         //    type: "POST",
+         //    contentType: "application/json; charset=utf-8",
+         //    url: '/api/TEContact/PostContact',
+         //    data: '{"CreatedBy":"Shivam","LastModifiedBy":"Shivam","Projectid":"2","Unitid":"302","CallName":"Naveen Kumar","Emailid":"test1@gmail.com","Mobile":"9875567745","Uniqueid":"2343","Type":"Owner"}',
+         //    dataType: "json",
+         //    processData: false,
+         //    success: function (data) {
+         //    }
+         //});
+
+     //    });
+         //$.ajax({
+         //    type: "POST",
+         //    contentType: "application/json; charset=utf-8",
+         //    url: '/api/TEIssues/PostIssue',
+         //    data: '{"LastModifiedBy": "Shivam","Uniqueid": "2265","Status": "COMMENCED"}',
+         //    dataType: "json",
+         //    processData: false,
+         //    success:function(data){       
+         //        if(data.Uniqueid)
+         //        {
+                
+         //            alert("success");
+         //            if(status=="Closed")
+         //            {
+         //                sessionStorage.IssueId=data.Uniqueid;
+         //                // window.location.href="Feedback-page.html";
+         //            }
+         //        }
+         //    }
+         //});
+     //$.ajax({
+     //    type: "POST",
+     //    contentType: "application/json; charset=utf-8",
+     //    url: '/api/TEIssues/PostIssue',
+     //    data: '{"CreatedOn": "","CreatedBy": "Baya ","LastModifiedOn": "","LastModifiedBy": "Baya ","IsDeleted": "0","UNITONBOARDINGID": "2","Descritpion": "Ticket Desc","CategoryID": "5","ParentCatID": "1","RaisedBy": "1102","Attachments": "","ProjectID": "1","UnitID": "22","Status":"PAUSED","PrefferedTime":"9am-12pm","QueueID":"1","Uniqueid":"2264","AssignedTo":"18"}',
+     //    dataType: "json",
+     //    processData: false,
+     //    success: function (data) {
+     //    }
+     //});
+     //});
+     //$.ajax({
+     //    type: "POST",
+     //    contentType: "application/json; charset=utf-8",
+     //    url: '/api/TEIssues/PostIssue',
+     //    data: '{"LastModifiedBy": "4","IsDeleted": "0","Uniqueid": "2","Status": "Paused"}',
+     //    dataType: "json",
+     //    processData: false,
+     //    success: function (data) {
+     //    }
+     //});
+     //$.ajax({
+     //    type: "POST",
+     //    url: '/api/TEResident/Post',
+     //    data: '{"salution":"Mr","FirstName":"' + $fname + '","MIddleName":"' + $mname + '","LastName":"' + $lname + '","TYPE":"' + $Resident + '","ProjectID":"' + $project + '","UNITID":"' + $Unit + '","MOBILE":"' + $mob + '","EMAILID":"' + $mail + '","ResidentName":"' + $ResidentName + '","Uniqueid":"' + $addtyp + '"}',
+     //    contentType: "application/json; charset=utf-8",
+     //    dataType: "json",
+     //    success: function (data) {
+     //        alert("sucess");
+     //    },
+     //    error: function (result) {
+     //        alert("fail");
+     //    }
+         //});
+
+         debugger;
+         //$.ajax({
+
+
+         //    type: "POST",
+         //    contentType: "application/json; charset=utf-8",
+         //    url: 'http://182.72.251.226/ComplaintsService/Service.svc/TEUnit_Onboarding_Insert_Update',
+         //    data: '{"Uniqueid":"","UserID":"' + localStorage.UserId + '","Project":"' + sessionStorage.ProjectId + '","Unit":"' + UnitNumber + '","Status":"Inactive","PMDAPPROVEDBY":"","PMDAPPROVEDREASON":""}',
+         //    dataType: "json",
+         //    processData: false,
+         //    success: function (data) {
+         //        //alert("inside");
+         //        if (data.d.length > 0) {
+         //            if (data.d[0].ResMessage == "Success") {
+         //                /* navigator.notification.alert(
+         //                                           'Submitted for activation',  // message
+         //                                           alertDismissed,         // callback
+         //                                           'Game Over',            // title
+         //                                           'Ok'                  // buttonName
+         //                                           );*/
+         //            }
+         //        }
+         //    },
+         //    error: function (result) {
+         //        alert("error");
+         //        //$('#btnConfirm').hide();
+         //    }
+         //});
+     //$.ajax({
+     //    type: "POST",
+     //    url: 'api/TEContact/AddTEUnitOnboarding',
+     //    data: '{"UniqueId":"0","ProjectID":"4","UNITID":"105","Status":"active","PMDAPPROVEDBY":"afdfafafdf","PMDAPPROVEDREASON":"deepak Updated"}',
+     //    dataType: "json",
+     //    contentType: "application/json; charset=utf-8",
+     //    success: function (data) {
+     //        alert("sucess");
+
+     //    },
+     //    error: function (result) {
+     //        alert("error");
+     //    }
+     //});
+     //$.ajax({
+     //    url: "/api/teissues/PostIssue",
+     //    type: "Post",
+     //    data: '{"projectId":"1"}',
+     //    contentType: 'application/json; charset=utf-8',
+     //    success: function (data) {
+     //        alert('Hello');
+     //        alert(data[0].Uniqueid);
+     //    },
+     //    error: function () { alert('error'); }
+     //});
+
+         //debugger;
+         //$.ajax({
+         //    type: "POST",
+         //    contentType: "application/json; charset=utf-8",
+         //    url: '/api/TEUnitOnBoarding/AddTEUnitOnboarding',
+         //    //data: '{"CreatedOn": "","CreatedBy": "Baya ","LastModifiedOn": "","LastModifiedBy": "Baya ","IsDeleted": "0","UNITONBOARDINGID": "2","Descritpion": "Ticket Desc","CategoryID": "5","ParentCatID": "1","RaisedBy": "1102","Attachments": "","ProjectID": "1","UnitID": "22","Status":"PAUSED","PrefferedTime":"9am-12pm","QueueID":"1","Uniqueid":"2264","AssignedTo":"18"}',
+         //    data: '{"Project": 5,"Unit": "1334","UniqueId": "3213","Status": "Active","PMDAPPROVEDBY": "admin","PMDAPPROVEDREASON": "approved","UserID":"1103"}',
+         //    dataType: "json",
+         //    processData: false,
+         //    success: function (data) {
+         //    }
+         //});
+
+         //var jsonRequest = {
+         //    "UniqueId": 3213,
+         //    "Project": 5,
+         //    "Unit": "1334",
+         //    "Status": "active",
+         //    "PMDAPPROVEDBY": "admin",
+         //    "PMDAPPROVEDREASON": "approved"
+         //};
+         ////debugger;
+         //$.ajax({
+         //    type: "POST",
+         //    // contentType: "application/json; charset=utf-8",
+         //    url: '/api/TEContact/AddTEUnitOnboarding',
+         //    data: JSON.stringify(jsonData),
+         //    dataType: "json",
+         //    processData: false,
+         //    success: function (data) {
+         //        alert("sucess");
+         //    },
+         //    error: function (result) {
+         //        alert("error");
+         //    }
+         //});
+
+         //$.ajax({
+         //    type: "POST",
+         //    contentType: "application/json; charset=utf-8",
+         //    url: 'api/TEContact/PostContact',
+         //    data: '{"CreatedBy":"1103","LastModifiedBy":"Naveen Kumar","Projectid":"2","Unitid":"101","CallName":"Test User","Type":"Owner","Emailid":"test1@gmail.com","Mobile":"9875567745","Uniqueid":"2341"}',
+         //    dataType: "json",
+         //    processData: false,
+         //    success: function (data) {
+
+         //         alert("Record Saved");
+
+         //        window.location.href = "Unit-ResidentDetails.html";
+         //                     }
+         //});
+
+
+     //    var jsonRequest = {
+     //        "UniqueId": "4",
+     //        "ReadStatus": 1
+     //    };
+     //   
+     //$.ajax({
+     //    type: "POST",
+     //    contentType: "application/json; charset=utf-8",
+     //    url: '/api/TENotifications/AddNotifications',
+     //    data: JSON.stringify(jsonRequest),
+     //    dataType: "json",
+     //    processData: false,
+     //    success: function (data) {
+
+     //        alert("inside");
+
+     //        if (data.d.length > 0) {
+
+     //        }
+         //    }
+
+         debugger;
+         //$.ajax({
+         //    type: "POST",
+         //    contentType: "application/json; charset=utf-8",
+         //    url: 'api/TEIssues/PostIssue',
+         //    data: '{"CreatedOn": "","CreatedBy": "baya","LastModifiedOn": "","LastModifiedBy": "baya","IsDeleted": "0","UNITONBOARDINGID": "1218","Descritpion": "BayA Prakash reddy testing.","CategoryID": "4","ParentCatID": "1","RaisedBy": "1084","Attachments": "","ProjectID": "1","UnitID": "101","Status":"INQUE","AvailableStart":"28-08-2015 17:38","AvailableEnd":"28-08-2015 17:38"}',
+         //    dataType: "json",
+         //    processData: false,
+         //    success:function(data){
+         //    }
+         //});
+
+     //    $.ajax({
+     //        type: "POST",
+     //        contentType: "application/json; charset=utf-8",
+     //        url: 'api/TEContact/AddUserProfile',
+     //            data: '{"UserId":"3997","UserName":"Sai Kumar123","email":"sai.kumar1234@gmail.com","Phone":"","Photo":"http:/182.72.251.230/teleadmanagementapi//TEDocument/UserProfile/UserProfile46825201532726PM1.png","Status":"Active","facebookid":"","googleid":"","Password":"12"}',
+     //        dataType: "json",
+     //        processData: false,
+     //        success: function (data) {
+     //            //  alert("call");
+     //            alert("record Updated");
+     //            //alert(data.UserId);
+     //            localStorage.UserId = data.UserId;
+     //            localStorage.UserName = data.CallName;
+     //            localStorage.Email = data.email;
+     //            localStorage.homeCheck = 1;
+
+     //            //  var imagepath=data.d[0].Photo;
+     //            //  imagepath= imagepath.replace(/\\/gi, "/");
+     //            // localStorage.ProfileUrl=imagepath;
+     //            UploadImage(sessionStorage.imageCode);
+
+     //            if (data.length > 0) {
+
+
+     //            }
+     //        }
+     //    });
+     });
+ </script>
+  
+<div id="body">
+    <section class="featured">
+        <div class="content-wrapper">
+            <hgroup class="title">
+                <h1>Welcome to ASP.NET Web API!!!!</h1>
+                <h2>Modify the code in this template to jump-start your ASP.NET Web API development.</h2>
+            </hgroup>
+            <p>
+                ASP.NET Web API allows you to expose your applications, data and services to the
+                web directly over HTTP.
+            </p>
+            <p>
+                To learn more about ASP.NET Web API visit the
+                <a href="http://go.microsoft.com/fwlink/?LinkID=238195" title="ASP.NET Web API Website">ASP.NET Web API Website</a>.
+                The page features <mark>videos, tutorials, and samples</mark> to help you get the most from ASP.NET Web API.
+                If you have any questions about ASP.NET Web API, visit
+                <a href="http://go.microsoft.com/fwlink/?LinkID=238196" title="ASP.NET Web API Forum">our forums</a>.
+            </p>
+        </div>
+    </section>
+    <section class="content-wrapper main-content clear-fix">
+        <h3>We suggest the following steps:</h3>
+        <ol class="round">
+            <li class="one">
+                <h5>Getting Started</h5>
+                ASP.NET Web API is a framework that makes it easy to build HTTP services that reach
+                a broad range of clients, including browsers and mobile devices. ASP.NET Web API
+                is an ideal platform for building RESTful applications on the .NET Framework.
+                <a href="http://go.microsoft.com/fwlink/?LinkId=245160">Learn more…</a>
+            </li>
+
+            <li class="two">
+                <h5>Add NuGet packages and jump-start your coding</h5>
+                NuGet makes it easy to install and update free libraries and tools.
+                <a href="http://go.microsoft.com/fwlink/?LinkId=245161">Learn more…</a>
+            </li>
+            <li class="three">
+                <h5>Find Web Hosting</h5>
+                You can easily find a web hosting company that offers the right mix of features
+                and price for your applications.
+                <a href="http://go.microsoft.com/fwlink/?LinkId=245164">Learn more…</a>
+            </li>
+        </ol>
+    </section>
+</div>

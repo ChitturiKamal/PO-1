@@ -1,0 +1,238 @@
+<style>.navbar-form,.panel-group .panel+.panel{margin-top:0}.DMSUpload,.clickable{cursor:pointer}.btn-circle-sm,.filters th{text-align:center}.panel-heading span{font-size:15px;text-decoration:none}.panel{margin-bottom:0;background-color:transparent}.panel-body{padding:0 0 0 15px}.panel-heading{padding:0}.panel-default{border-color:transparent}.panel-head-org{background-color:rgba(255,102,0,.973);padding:10px;font-weight:700;color:#fff;border-radius:0;margin:0 0 5px}.bs-example{margin:20px}.table{margin-bottom:0!important}.btn-primary{color:#fff;background-color:rgba(255,102,0,.863);border-color:#a4752e}.modal-dialog{margin-top:90px}.well{margin-bottom:0}.pl5{padding-left:5px}.buttonpadding{padding-bottom:7px}.padding20{padding:20px}.btn-circle-sm{width:50px;height:50px;padding:2px 0;font-size:16px;line-height:43px;border-radius:30px;font-weight:700;letter-spacing:1px}.small{font-size:11px!important}.btn-sample{color:#fff;background-color:#C2C2C2;border-color:#C7C7C7}.cmplibpadpop{padding:4px 8px!important}.btn-sample.active,.btn-sample:active,.btn-sample:focus,.btn-sample:hover,.open .dropdown-toggle.btn-sample{color:#fff;background-color:#6E6E6E;border-color:#C7C7C7}.DMSUpload{position:absolute;margin-top:-4px;margin-left:2px;font-size:14px;color:#337ab7}.DMSUpload:hover{color:#262626}.h110{height:110px;margin:5px 0}.dropdown.dropdown-scroll .dropdown-menu{max-height:200px;width:60px;overflow:auto}.search-control{padding:5px 10px}.filtersLight td{padding:5px 8px!important;font-size:10pt!important}.filtersCSS{background:#fff;color:#262626!important;font-size:15px;font-weight:500;line-height:14px;border:none;-webkit-box-shadow:none!important;box-shadow:none!important;height:20px}.SelTD{background-color:#8fbc8f!important}</style>
+<header ng-include="'views/header.html'"></header>
+<div class="wrapper" ng-controller="POSaveController">
+  <div class="row">
+    <div class="container wrapper" style="background: #fff;">
+      <div class="row">
+        <section>
+          <div style="margin: 70px auto 0 auto;">
+            <div class="title-panel">
+              Purchase Order
+              <div class="pull-right"><a class="btn btn-xs btn-warning" style="margin-right: 4px;margin-bottom: 3px" href="#/DraftPO"> <i class="fa fa-arrow-left"></i>&nbsp; Back</a></div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="row">
+              <div class="col-md-12">
+                <ul class="nav nav-tabs">
+                  <li class="active"><a>Basic Information</a></li>
+                  <li ng-click="ShowValidation();" class="cursorPointer"><a>General Information</a></li>
+                  <li ng-click="ShowValidation();" class="cursorPointer"><a>Purchase Details</a></li>
+                  <li ng-click="ShowValidation();" class="cursorPointer"><a>Annexure</a></li>
+                  <li ng-click="ShowValidation();" class="cursorPointer"><a>Payment Terms</a></li>
+                  <li ng-click="ShowValidation();" class="cursorPointer"><a>Specific T&C</a></li>
+                  <li ng-click="ShowValidation();" class="cursorPointer"><a>Special T&C</a></li>
+                  <li ng-click="ShowValidation();" class="cursorPointer"><a>General T&C</a></li>
+                  <li ng-click="ShowValidation();" class="cursorPointer"><a>Linked PO</a></li>
+                </ul>
+                <div class="tab-content" style="padding: 10px;">
+                  <div id="basicInformation">
+                    <div class="row">
+                      <form name="basicInformation" class="basicInformation">
+                        <input type="text" name="SubmitterName" value="{{UserDetails.currentUser.CallName}}" hidden="true" />
+                        <input type="text" name="CreatedBy" value="{{UserDetails.currentUser.UserId}}" hidden="true" />
+                        <input type="text" name="ProjectID" value="{{ClientprojectInfo.ProjectID}}" hidden="true" />
+                        <input type="text" name="Vendor_Account_Number" ng-model="Vendor_Account_Number" hidden="true" />
+                        <input type="text" name="FundCenterID" value="{{FundCenterID}}" hidden="true" />
+                        <input type="text" name="VendorID" ng-model="selectedVendorDetails.POVendorDetailId" value="{{selectedVendorDetails.POVendorDetailId}}" hidden="true"/>
+                        <input type="text" name="POManagerID" ng-model="selectedManager.UserId" value="{{selectedManager.UserId}}" hidden="true"/>
+                        <input type="text" name="Purchasing_Organization" value="1000" hidden="true" />
+                        <input type="text" name="BilledByID" value="{{selectedVendorDetails.POVendorDetailId}}" hidden="true" />
+                        <input type="text" name="BilledToID" value="{{billingData.PlantStorageDetailsID}}" hidden="true" />
+                        <input type="text" name="LastModifiedBy" value="{{UserDetails.currentUser.UserId}}" hidden="true" />
+                        <input type="hidden" ng-model="WBSProjectCOde" value="{{WBSProjectCOde}}" name="ProjectCode" >
+                        <div class="col-sm-4 form-group">
+                            <label>WBS Head<span class="mandatory">*</span></label>
+                            <input class="form-control" name="WBSHead" list="wbsListFilter" ng-model="wbsListFilter" ng-change="getFundCenters(wbsListFilter)" placeholder="WBS Head">
+                            <datalist id="wbsListFilter"><option ng-repeat="item in fundCentersList" value="{{item.FundCenter_Code}}"></datalist>
+                        </div>
+                        <div class="col-sm-4 form-group">
+                          <label>Client</label>
+                          <input class="form-control" ng-model="ClientprojectInfo.Name" ng-disabled="true" placeholder="Client">
+                        </div>
+                        <div class="col-sm-4 form-group">
+                          <label>Project/Function</label>
+                          <input class="form-control" ng-model="ClientprojectInfo.ProjectName" ng-disabled="true" placeholder="Project/Function">
+                        </div>
+                        <div class="col-sm-4">
+                          <label>PO Manager<span class="mandatory">*</span></label>
+                          <div class="input-group input-group-sm">
+                            <input type="text" class="form-control ng-pristine ng-valid ng-not-empty ng-touched" name="POManagerID" value="{{selectedManager.CallName}}" ng-disabled="true" style="height: 33px;" placeholder="Select PO Manager">
+                            <div class="input-group-addon" data-toggle="modal" data-target="#ManagerDetailsPopup"><i class="fa fa-search"></i></div>
+                          </div>
+                        </div>
+                        <div class="col-sm-4">
+                          <label>Vendor<span class="mandatory">*</span></label>
+                          <div class="input-group input-group-sm">
+                            <input type="text" class="form-control ng-pristine ng-valid ng-not-empty ng-touched" name="Vendor_OwnerName" value="{{selectedVendorDetails.VendorCode?(selectedVendorDetails.VendorCode+' - '+selectedVendorDetails.VendorName):''}}" ng-readonly="true" style="height: 33px;" placeholder="Select Vendor">
+                            <div class="input-group-addon" data-toggle="modal" data-target="#VenderDetailsPopup" ng-click="getVendorsByReset();"><i class="fa fa-search"></i></div>
+                          </div>
+                        </div>
+                        <div class="col-sm-4 form-group">
+                          <label>PO Type<span class="mandatory">*</span></label>
+                          <select name="PO_OrderTypeID" class="form-control">
+                            <option value="">Select PO Type</option>
+                            <option ng-repeat="poType in orderTypeList" value="{{poType.UniqueId}}">{{poType.Description}}</option>
+                          </select>
+                        </div>
+                        <div class="col-sm-4 form-group">
+                          <label>PO Title<span class="mandatory">*</span></label>
+                            <input type="text" name="PO_Title" class="form-control" placeholder="PO Title">
+                        </div>
+                        <div class="col-sm-4 form-group">
+                          <label>Date</label>
+                            <input class="form-control" ng-model="date" ng-disabled="true">
+                        </div>
+                        <div class="col-sm-4 form-group">
+                          <label>Version</label>
+                            <input class="form-control" value="0" ng-disabled="true">
+                        </div>
+                        <div class="col-sm-12 form-group">
+                            <label>Description<span class="mandatory">*</span></label>
+                            <textarea class="form-control" placeholder="Description" style="height: 100px;" name="PODescription"></textarea>
+                        </div>
+                        <div class="col-sm-12 text-center">
+                          <button type="button" class="btn btn-md btn-success" ng-click="basicInfoSavePO()">Save</button>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+    <div id="VenderDetailsPopup" class="modal fade pop-modal" role="dialog">
+      <div class="modal-dialog modal-lg" style="width:90% !important">
+        <div class="modal-content">
+          <div class="modal-header padpop">
+            <h5 class="modal-title pull-left mt7">Add Vendor</h5>
+            <div class="pull-right">
+              <button class="btn btn-warning btn-sm" type="button" data-dismiss="modal">Cancel</button>
+              <button class="btn btn-success btn-sm" type="button" ng-click="setVendorData(SelVenMas);">Add</button>
+            </div>
+            <div class="clearfix"></div>
+          </div>
+          <div class="modal-body">
+            <form name="VenderDetailsForm" class="VenderDetailsForm">
+              <input type="hidden" name="Qtype" value="and">
+              <input type="hidden" name="PageNumber" value="{{pagenumberVD}}" ng-model="pagenumberVD">
+              <input type="hidden" name="PageperCount" value="{{pageprecountsVD}}" ng-model="pageprecountsVD">
+              <div class="row">
+                <div class="col-xs-12">
+                  <button class="btn btn-warning btn-sm"><i class="fa fa-search" ></i></button>
+                  <div class="table-responsive" style="margin-bottom: 0;max-height: 450px;">
+                    <table class="table table-bordered">
+                      <thead style="font-size:9pt;">
+                        <tr class="filters">
+                          <th width="120">Code</th>
+                          <th>Vendor Name</th>
+                          <th>Billing Address</th>
+                          <th>Shipping Address</th>
+                          <th width="120">Region Code</th>
+                          <th width="120">GSTIN</th>
+                        </tr>
+                        <tr class="filtersLight">
+                          <td><input class="form-control filtersCSS" placeholder="Search" ng-model="f1" ng-change="getVendors();" name="VendorCode"></td>
+                          <td><input class="form-control filtersCSS" placeholder="Search" ng-model="f2" ng-change="getVendors();" name="VendorName"></td>
+                          <td><input class="form-control filtersCSS" placeholder="Search" ng-model="f3" ng-change="getVendors();" name="BillingAddress"></td>
+                          <td><input class="form-control filtersCSS" placeholder="Search" ng-model="f4" ng-change="getVendors();" name="ShippingAddress"></td>
+                          <td><input class="form-control filtersCSS" placeholder="Search" ng-model="f5" ng-change="getVendors();" name="RegionCode"></td>
+                          <td><input class="form-control filtersCSS" placeholder="Search" ng-model="f6" ng-change="getVendors();" name="GSTIN"></td>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr ng-repeat="(key,obj) in VendorsList" ng-click="$parent.SelVenMas=obj;$parent.SelIndV=$index;" class="filtersLight cursorPointer" ng-class="{'SelTD':$index==SelIndV}">
+                          <td>{{obj.VendorCode}}</td>
+                          <td>{{obj.VendorName}}</td>
+                          <td>{{obj.BillingAddress}}</td>
+                          <td>{{obj.ShippingAddress}}</td>
+                          <td>{{obj.RegionCode?(obj.RegionCode +'-'+obj.RegionCodeDesc):''}}</td>
+                          <td>{{obj.GSTIN}}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <table class="table table-bordered">
+                    <tfoot>
+                      <tr>
+                        <td class="footer text-right" colspan="6" style="padding: 5px 8px;">
+                          <label>Go To Page :</label> &nbsp;
+                          <label><input type="text" style="width:auto;" size="2" value="1" class="form-control inline-in intvalid pageInput" ng-model="pagenumberVD" ng-change="pagenationVD(pagenumberVD)" /> </label> &nbsp;&nbsp;
+                          <label> Show Rows : </label>
+                          <label style="color: #000 !important;">
+                            <select ng-model="pageprecountsVD" name="pageprecountsVD" id="pageprecountsVD" class="pageCount inline-in" ng-change="pagenationVD(1,pageprecountsVD)">
+                              <option value="" disabled>Select</option>
+                              <option value="10">10</option>
+                              <option value="20">20</option>
+                              <option value="50">50</option>
+                              <option value="100" ng-selected="true">100</option>
+                              <option value="200">200</option>
+                              <option value="400">400</option>
+                              <option value="500">500</option>
+                              <option value="700">700</option>
+                              <option value="1000">1000</option>
+                            </select>
+                          </label>
+                          &nbsp;&nbsp;
+                          <label><a class="btn btn-default btn-xs" ng-click="pagenationVD_Clk(pagenumberVD,0)" style="padding:0px 8px;margin-bottom: 3px;"><i class="fa fa-caret-left"></i></a> </label>
+                          <label ng-if="VendorsList.length>'0'"><a class="btn btn-default btn-xs" ng-click="pagenationVD_Clk(pagenumberVD,1)" style="padding:0px 8px;margin-bottom: 3px;"><i class="fa fa-caret-right"></i></a> </label>
+                        </td>
+                      </tr>
+                    </tfoot>
+                  </table>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="ManagerDetailsPopup" class="modal fade pop-modal" role="dialog">
+      <div class="modal-dialog modal-md">
+        <div class="modal-content">
+          <div class="modal-header padpop">
+            <h5 class="modal-title pull-left mt7">Add PO Manager</h5>
+            <div class="pull-right">
+              <button class="btn btn-warning btn-sm" type="button" data-dismiss="modal">Cancel</button>
+              <button class="btn btn-success btn-sm" type="button" ng-click="setManagerData(SelPOManager)">Add</button>
+            </div>
+            <div class="clearfix"></div>
+          </div>
+          <div class="modal-body">
+            <form name="ManagersForm" class="ManagersForm">
+              <div class="row">
+                <div class="col-xs-12">
+                  <div class="table-responsive" style="width:100%;margin-bottom: 0">
+                    <table class="table table-bordered">
+                      <thead style="font-size:9pt;">
+                        <tr class="filters">
+                          <th>Manager Name</th>
+                          <th>Personal Email</th>
+                          <th width="120">Phone No</th>
+                        </tr>
+                        <tr class="filtersLight">
+                          <td><input class="form-control filtersCSS" type="text" placeholder="Search" ng-model="fa"></td>
+                          <td><input class="form-control filtersCSS" type="text" placeholder="Search" ng-model="fb"></td>
+                          <td><input class="form-control filtersCSS" type="text" placeholder="Search" ng-model="fc"></td>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr ng-repeat="obj in ManagersResult|filter:{CallName:fa,PersonalEmail:fb,Phone:fc}" ng-click="$parent.SelPOManager=obj;$parent.SelInd=$index;" class="filtersLight cursorPointer" ng-class="{'SelTD':$index==SelInd}">
+                          <td>{{obj.CallName}}</td>
+                          <td>{{obj.PersonalEmail}}</td>
+                          <td>{{obj.Phone}}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

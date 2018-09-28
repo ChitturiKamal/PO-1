@@ -1,0 +1,26 @@
+.btn-default {
+    border-color: #fff;
+}
+
+.panel-heading span {
+    margin-top: -30px;
+    margin-right: 10px;
+    font-size: 15px;
+    color: #ff6a00;
+}
+
+.panel {
+    margin-bottom: 0;
+}
+
+.panel-body {
+    padding: 0 0 0 15px;
+}
+
+.clickable {
+    cursor: pointer;
+}
+
+.panel-heading {
+    padding: 0;
+}

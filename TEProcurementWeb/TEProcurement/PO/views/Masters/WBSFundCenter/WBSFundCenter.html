@@ -1,0 +1,337 @@
+<style>
+        .nicEdit-main {
+            width: 100% !important;
+            margin: 0px !important;
+        }
+        
+        .form-block .richTxt {
+            width: 100% !important;
+        }
+        
+        .templatelengthtext {
+            white-space: nowrap;
+            width: 25em;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            margin: 0;
+        }
+        .height200px{
+            height: 200px;
+        }
+        
+        .limitText {
+            font-size: 13px;
+            width: 20em;
+            height: 18px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            -webkit-box-orient: vertical;
+            position: absolute;
+            padding: 0 5px;
+            font-weight: normal;
+        }
+        
+        .modal-dialog {
+            margin: 70px auto;
+        }
+        
+        .well {
+            margin-bottom: 0;
+        }
+    </style>
+    <header ng-include="'views/header.html'"></header>
+    <div ng-controller="WBSFundCenterCtrl">
+        <div ng-include="'views/Delete.html'"></div>
+        <div class="wrapper" style="background-color:#fff;width: 100% !important;">
+            <div class="row selcproject" style="margin:0;">
+                <div class="col-md-12" style="padding:0;">
+                    <div class="portfolio-page">
+                        <div class="wizard" style="margin:0 auto;">
+                            <div class="head-panel-grey">
+                                <div class="pull-left">
+                                    <h4>WBS Fund Center</h4>
+                                </div>
+                                <div class="pull-right"> <a ng-if="CheckPrivilage('WBSFUNDCENTERMapping','Save')" class="btn btn-sm btn-primary mt33" href="javascript:void(0)" data-toggle="modal" data-target="#addWBSFundCenter"><i class="fa fa-plus"></i> ADD NEW</a> </div>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="table-content">
+                                <div class="main-table filterable">
+                                    <div class="panel">
+                                        <div class="panel-body">
+                                            <table class="table table-bordered">
+                                                <thead>
+                                                    <tr class="filters">
+                                                         <!--<th class="text-center">
+                                                            <label>Category</label>
+                                                        </th>
+                                                        <th class="text-center">
+                                                            <label>Sub Category</label>
+                                                        </th>-->
+                                                        <th class="text-center">
+                                                            <label>WBS Code</label>
+                                                        </th>
+                                                        <!--<th class="text-center">
+                                                            <label>WBS Name</label>
+                                                        </th>-->
+                                                        <th class="text-center">
+                                                            <label>Fund Center Code</label>
+                                                        </th>
+                                                        <th class="text-center">
+                                                                <label>Fund Center Description</label>
+                                                            </th>
+                                                            <th class="text-center">
+                                                                <label>Project Code</label>
+                                                            </th>
+                                                            <th class="text-center">
+                                                                <label>project Name</label>
+                                                            </th>
+                                                        <th class="text-center">
+                                                            <label>LastModifiedBy</label>
+                                                        </th>
+                                                        <th class="text-center">
+                                                            <label>LastModifiedOn</label>
+                                                        </th>
+                                                        <th class="text-center">
+                                                            <label>Options</label>
+                                                        </th>
+                                                    </tr>
+                                                    <tr class="filtersLight">
+                                                        <!--<th class="text-center">
+                                                            <input class="form-control" type="text" placeholder="Search" ng-model="Cat"> </th>
+                                                        <th class="text-center">
+                                                            <input class="form-control" type="text" placeholder="Search" ng-model="SubCat"> </th>-->
+                                                        <th class="text-center">
+                                                              <input class="form-control" type="text" placeholder="Search" ng-model="WBSC"> </th>
+                                                        <!--<th class="text-center">
+                                                             <input class="form-control" type="text" placeholder="Search" ng-model="WBSN"></th>-->
+                                                        <th class="text-center">
+                                                            <input class="form-control" type="text" placeholder="Search" ng-model="code"> </th>
+                                                        <th class="text-center">
+                                                            <input class="form-control" type="text" placeholder="Search" ng-model="desc"> </th>
+                                                            <th class="text-center">
+                                                                <input class="form-control" type="text" placeholder="Search" ng-model="ProjCod"> </th>
+                                                                <th class="text-center">
+                                                                    <input class="form-control" type="text" placeholder="Search" ng-model="ProjName"> </th>
+                                                             <th class="text-center">
+                                                             </th>
+                                                        <th></th>
+                                                        <th></th>
+    
+                                                    </tr>
+                                                </thead>
+                                                <tbody ng-if="WBSList.info.listcount<='0'">
+                                                    <tr>
+                                                        <td colspan="1000" class="text-center">No Records</td>
+                                                    </tr>
+                                                </tbody>
+                                                <tbody>
+                                                    <tr ng-repeat="WBS in WBSList.result | filter:{WBSCode:WBSC,FundCenter_Description:desc,FundCentreCode:code,LastModifiedBy_Name:lastmodifiedname,ProjectCode:ProjCod, ProjectName:ProjName}">
+                                                        <!--<td class="text-left">{{WBS.categoryid}}</td>
+                                                        <td class="text-left">{{WBS.SUBCATEGORYID}}</td>-->
+                                                        <td>{{WBS.WBSCode?(WBS.WBSCode):'NA'}}</td>
+                                                        <!--<td>{{WBS.name?(WBS.name):'NA'}}</td>     -->
+                                                        <td class="text-left">{{WBS.FundCentreCode?WBS.FundCentreCode:'NA'}}</td>
+                                                        <td class="text-left">{{WBS.FundCenter_Description?WBS.FundCenter_Description:'NA'}}</td>
+                                                        <td class="text-left">{{WBS.ProjectCode?WBS.ProjectCode:'NA'}}</td>
+                                                        <td class="text-left">{{WBS.ProjectName?WBS.ProjectName:'NA'}}</td>
+                                                        <td class="text-left">{{WBS.LastModifiedBy_Name}}</td>
+                                                        <td>{{WBS.LastModifiedOn|date:'dd-MM-yyyy'}}</td>    
+                                                        <td class="options" align="center">
+                                                           <!-- <a ng-show="CheckPrivilage('masters','Delete')" href="javascript:void(0)" ng-click="SetDeleteData(obj)" data-toggle="modal" data-target="#DeleteBroadcastPopUp" title="Delete"><i class="fa fa-trash-o"></i></a> -->
+                                                           <a ng-click="FromView(WBS.uniqueID)" data-toggle="modal" data-target="#editWBSFundCenter" title="Add" class=""><i class="fa fa-pencil-square-o"></i></a>
+                                                           <a ng-click="SetDeleteData(WBS.uniqueID);" data-toggle="modal" data-target="#DeleteWBSPopUp" title="Delete"><i class="fa fa-trash-o"></i></a>
+                                                           <a><!--<i class="fa fa-cog" data-toggle="modal" data-target="#SendForApprovalPage"></i>--></a>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                                <tfoot class="footer">
+                                                    <tr>
+                                                        <td colspan="9" align="right" style="text-align: right;">
+                                                            <label ng-if="WBSList.info.listcount>'0'">Now Showing: {{WBSList.info.fromrecords}} - {{WBSList.info.torecords}} of {{WBSList.info.totalrecords}}</label> &nbsp;&nbsp;
+                                                            <label>Go To Page : &nbsp;
+                                                                <input type="text" size="2" value="1" class="form-control inline-in intvalid pageInput" ng-model="pagenumber" ng-change="pagenationss(pagenumber)" /> </label> &nbsp;&nbsp;
+                                                            <label> Show Rows : </label>
+                                                            <label>
+                                                                <select ng-model="pageprecounts" name="pageprecounts" class="pageCount inline-in" ng-change="pagenationss(pagenumber,pageprecounts)">
+                                                                    <option value="" disabled="disabled">Select</option>
+                                                                    <option value="10" ng-selected="true">10</option>
+                                                                    <option value="20">20</option>
+                                                                    <option value="50">50</option>
+                                                                    <option value="100">100</option>
+                                                                    <option value="200">200</option>
+                                                                    <option value="400">400</option>
+                                                                    <option value="500">500</option>
+                                                                    <option value="700">700</option>
+                                                                    <option value="1000">1000</option>
+                                                                    <option value="9999999">All</option>
+                                                                </select>
+                                                            </label> &nbsp;&nbsp;
+                                                            <label><a class="btn btn-default btn-xs" ng-click="pagenationss_clk(pagenumber,0)" style="padding:1px 8px;"><i class="fa fa-caret-left"></i></a> </label>
+                                                            <label ng-if="result.info.listcount>'0'"><a class="btn btn-default btn-xs" ng-click="pagenationss_clk(pagenumber,1)" style="padding:1px 8px;" ng-if="result.info.listcount!=0"><i class="fa fa-caret-right"></i></a> </label>
+                                                        </td>
+                                                    </tr>
+                                                </tfoot>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>    
+        <div id="DeleteWBSPopUp" class="modal fade pop-modal" role="dialog">
+            <div class="modal-dialog modal-md">
+                <div class="modal-content">
+                    <div class="modal-header padpop">
+                        <h5 class="modal-title pull-left mt7">Are you sure you want delete?</h5>
+                        <div class="pull-right">
+                            &nbsp;
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="modal-body">
+                        <div class="main-content text-right">
+                            <form name="deleteForm" class="deleteForm">
+                                <input type="hidden" name="UniqueID" value="{{UniqueID}}">
+                            </form>
+                            <button class="btn btn-warning btn-sm" data-dismiss="modal" type="button">No, Cancel</button>
+                            <button class="btn btn-success btn-sm" ng-click="FormDelete()" type="button">Yes, Delete</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="addWBSFundCenter" class="modal pop-modal fade" role="dialog">
+                <div class="modal-dialog">
+                            <!-- Modal content-->
+                  <div class="modal-content">
+                        <div class="modal-header padpop">
+                            <h5 class="modal-title pull-left mt7">Create WBS and Fund Center</h5>
+                            <div class="pull-right">
+                                <button class="btn btn-warning btn-sm" type="button" data-dismiss="modal">Cancel</button>
+                                <button class="btn btn-success btn-sm" type="button" ng-click="FromCreate()">Create</button>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="modal-body">
+                            <div class="main-content">
+                                <form name="addForm" class="addForm ng-pristine ng-valid" enctype="multipart/form-data" method="post">
+                                    <!-- <input type="hidden" name="WBSCODE" ng-model="WBSCODE" />
+                                    <input type="hidden" name="FundCentreCode" ng-model="FundCentreCode" />
+                                    <input value="0" type="hidden" name="ApproverName">
+                                    <input type="hidden" name="uniqueID" value="0" /> -->
+                                    <div class="row">
+                                        <!-- <div class="col-md-6 mb10">
+                                            <div class="form-block">
+                                                <label>Category</label>
+                                                <select class="form-control" ng-model="CATEGORYID" name="CATEGORY" ng-change="getSubCategoryCall(CATEGORYID)" >
+                                                    <option value="">Select Category</option>
+                                                    <option ng-repeat="data in Categories" value="{{data.CATEGORYID}}">{{data.NAME}}</option>
+                                                </select>
+                                            </div>
+                                        </div> -->
+                                        <!-- <div class="col-md-6 mb10">
+                                            <div class="form-block">
+                                                <label>Sub Category</label>
+                                                <select class="form-control" name="SUBCATEGORY" ng-model="SUBCATEGORYID" ng-change="getWBSCodeCall(CATEGORYID,SUBCATEGORYID)">
+                                                    <option value="">Select Sub Category</option>
+                                                    <option ng-repeat="data in getSubCategory" value="{{data.SUBCATEGORYID}}">{{data.NAME}}</option>
+                                                </select>
+                                            </div>
+                                        </div> -->
+                                        <div class="col-md-6 mb10">
+                                            <div class="form-block">
+                                                <label>WBS Code</label>
+                                                <input type="text" class="form-control" name="WBSAddCode" ng-model="WBSAddCode" ng-keyup="LengthRestriction(this)" placeholder="Enter WBS Code">
+                                               
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 mb10">
+                                            <div class="form-block">
+                                                <label>WBS Name</label>
+                                                <input type="text" class="form-control" name="WBSAddName" ng-model="WBSAddName" ng-keyup="LengthRestriction(this)" placeholder="Enter WBS Name">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 mb10">
+                                            <div class="form-block">
+                                                <label>Select Fund Center Code</label>
+                                                <select class="form-control" name="FundAddCentreID" ng-model="FundAddCentreID" ng-change="getAddFCCodeChange(FundCentreID)">
+                                                    <option value="">Select Fund Center</option>
+                                                    <option ng-repeat="data in getFundCenterCodeList" value="{{data.Uniqueid}}">{{data.FundCenter_Code}}</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 mb10">
+                                            <div class="form-block">
+                                                <label>Fund Center Description</label>
+                                                <input type="text" class="form-control" name="FundAddCenterDescription" ng-model="FundAddCenterDescription"  placeholder="Enter Fund Center Description" ng-readonly="true">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                   </div>
+                </div>
+            </div>
+            <div id="editWBSFundCenter" class="modal pop-modal fade" role="dialog">
+                    <div class="modal-dialog">
+                      <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header padpop">
+                            <h5 class="modal-title pull-left mt7">Update WBS And Fund Center Mapping</h5>
+                            <div class="pull-right">
+                                <button class="btn btn-warning btn-sm" type="button" data-dismiss="modal">Cancel</button>
+                                <button class="btn btn-success btn-sm" type="button" ng-click="FromUpdate()">Update</button>
+                            </div>
+                            <div class="clearfix"></div>
+                            </div>
+                                 <div class="modal-body">
+                                    <div class="main-content">
+                                        <form name="editForm" class="updateForm">
+                                            <div class="row">
+                                               
+                                                <input type="hidden" name="FundCentreCode" ng-model="vm.FundCenterCode" value="{{FundCenterCode}}">
+                                                <input type="hidden" name="UniqueID"  value="{{getWBSView.uniqueID}}">
+                                                <input type="hidden" name="WBSID"  value="{{getWBSView.WbsUniqueID}}">
+                                                
+                                                <div class="col-md-6 mb10">
+                                                    <div class="form-block">
+                                                        <label>WBS Code<span class="mandatory">*</span></label>
+                                                        <input type="text" name="WBSCode" ng-model="WBSCode" class="form-control ng-pristine ng-untouched ng-valid ng-empty" placeholder="Enter WBS Code" ng-readonly="true">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 mb10">
+                                                    <div class="form-block">
+                                                        <label>WBS Name<span class="mandatory">*</span></label>
+                                                        <input type="text" name="WBSName" ng-model="WBSname" class="form-control ng-pristine ng-untouched ng-valid ng-empty" placeholder="Enter Fund Center Description" ng-readonly="true">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 mb10">
+                                                    <div class="form-block">
+                                                        <label>Fund Center Code<span class="mandatory">*</span></label>
+                                                        <!-- <select class="form-control" name="FundCentreCode" ng-model="vm.getWBSView.FundCentreCode">
+                                                            <option value="">Select Fund Center</option>
+                                                            <option ng-repeat="data in vm.getFundCenterCode" value="{{data.Uniqueid}}">{{data.NAME}}</option>
+                                                        </select> -->
+                                                        <select class="form-control" name="FundCentreID" ng-model="FundCentreID" ng-change="getFCCodeChange(FundCentreID)">
+                                                            <option value="">Select Fund Center</option>
+                                                            <option ng-repeat="data in getFundCenterCodeList" value="{{data.Uniqueid}}" ng-selected="FundCentreID == data.Uniqueid">{{data.FundCenter_Code}}</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 mb10">
+                                                    <label>Fund Center Description<span class="mandatory">*</span></label> &nbsp;&nbsp;
+                                                    <input type="text" name="FundCenterDescription" ng-model="FundCenterDescription" class="form-control ng-pristine ng-untouched ng-valid ng-empty" placeholder="Enter Fund Center Description" ng-readonly="true">
+                                                </div>
+                                                <div class="clearfix"></div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                 </div>
+                         </div>
+                     </div>
+                 </div>
+            </div>

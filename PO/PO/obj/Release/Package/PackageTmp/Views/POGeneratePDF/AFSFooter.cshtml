@@ -1,0 +1,45 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+    <link href="~/CustomisationOrderStyle.css" rel="stylesheet" />
+</head>
+<body style="margin:0;padding:0;">
+    <table style='width: 100%;font-family:Neue Haas Unica Pro Light;font-size:9.5pt;'>
+        @if (ViewBag.POStatus == "Approved")
+        {
+			<tr>
+				<td style='text-align:left;' width="45%">
+					<p style="font-size:10pt;line-height:10px;margin:0;">Signature<p>
+					<p style="font-size:10pt;line-height:10px;margin:0;">Name<p>
+					<p style="font-size:10pt;line-height:10px;margin:0;">Authorised Signatory<p>
+					<p style="font-size:10pt;line-height:10px;margin:0;">[Vendors] <b>@ViewBag.VendorName</b></p>
+				</td>
+				<td style='text-align:left;'>
+					<p style="font-size:10pt;line-height:10px;margin:0;">Signature<p>
+					<p style="font-size:10pt;line-height:10px;margin:0;">Name<b></b><p>
+					<p style="font-size:10pt;line-height:10px;margin:0;"><b>PO Manager</b><p>
+				</td>
+				<td style='text-align:right;' width="45%">
+					<p style="font-size:10pt;line-height:10px;margin:0;">Signature<p>
+					<p style="font-size:10pt;line-height:10px;margin:0;">Name<p>
+					<p style="font-size:10pt;line-height:10px;margin:0;">Authorised Signatory<p>
+					<p style="font-size:10pt;line-height:10px;margin:0;">[Company] <b>@ViewBag.CompanyName</b></p>
+				</td>
+			</tr>
+        }
+        <tr>
+            <td></td>
+            <td></td>
+            <td style='width:33.3%;text-align:right;font-family:Neue Haas Unica Pro Light;'><small>@ViewBag.Page / @ViewBag.ToPage</small> </td>
+            @*<td style='width:33.3%;text-align:right;font-family:Neue Haas Unica Pro Light;'><small>Page @ViewBag.Page of total pages @ViewBag.ToPage</small> </td>*@
+        </tr>
+    </table>
+</body>
+</html>

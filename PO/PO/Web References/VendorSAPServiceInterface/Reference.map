@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DiscoveryClientResultsFile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Results>
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.ContractReference" url="http://sapquality.total-environment.com:50100/dir/wsdl?p=sa/1a9016661dff352fb391dabac5525d12" filename="VendorMaster_Out.wsdl" />
+  </Results>
+</DiscoveryClientResultsFile>

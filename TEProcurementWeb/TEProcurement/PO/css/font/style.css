@@ -1,0 +1,203 @@
+html  {
+    line-height: 1.6;
+}
+
+body {
+  margin:0;
+  font-family:'Neue Haas Unica Pro Light'!important;
+}
+.tenumber{font-family: 'Neue Haas Unica Pro Light';font-weight:normal !important; text-align:right;}
+.heading{font-family: 'Neue Haas Unica Pro Light';font-weight:bold; !important; }
+.content{font-family: 'Neue Haas Unica Pro Light';font-weight:normal !important; }
+header, { display:block}
+#bgwrapper {
+	width:90%;
+	margin:auto;
+	background-color:#FFF;
+}
+header {
+	width:100%;	
+	-webkit-box-shadow: 0px 2px 5px 0px rgba(107,107,107,1);
+-moz-box-shadow: 0px 2px 5px 0px rgba(107,107,107,1);
+box-shadow: 0px 2px 5px 0px rgba(107,107,107,1);
+}
+.dottedline {
+	margin:2px 0;
+	border-bottom:dotted 1px  #333;	
+}
+.link {
+	font-family:"Neue Haas Unica Pro Light", Arial, Helvetica, sans-serif;
+	color:#FFF;
+	font-size:10pt;
+	line-height:1.6;
+}
+.link a:link {
+	color: #FFF;
+	text-decoration: none;
+}
+.link a:visited {
+	text-decoration: none;
+	color: #FFF;
+}
+.link a:hover {
+	text-decoration: none;
+	color: #FFF;
+}
+.link a:active {
+	text-decoration: none;
+	color: #FFF;
+}
+.logo {
+	background-color:#03C;	
+}
+.marginspace {
+	margin:5px 0;	
+}
+.marginspace8 {
+	margin:7px 0 !important;	
+}
+.marginspace10 {
+	margin:10px 0;	
+}
+.marginspaceright {
+	margin:5px 10px 5px 0;	
+}
+
+#wrapper {
+	padding:10px;
+}
+.textheightspace {
+	line-height:2.5;	
+}
+.textheightspace1 {
+	line-height:2.8;	
+}
+.panelblue {
+	background-color:#007eff;	
+	color:#FFF;
+	font-size:10pt;
+}
+.panelbluein {
+	background-color:#fff;	
+	color:#000;
+	font-size:10pt;
+}
+@media only screen and (max-width: 980px) {
+
+.scorlbarwidth {
+	Overflow:auto; 
+	width:100%;
+	
+	overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+	padding:0 1% 0 1%;
+}
+}
+.heading {
+	font-size:12pt;
+}
+.pageination {
+	text-align:right;	
+}
+.grey {background-color:#333;}.purple {background-color:#9b59b6;}
+.whiteclr { color:#fff;}
+.boxpanel {border:solid 1px #ccc; margin:20px 0 0 0; padding:20px 25px;}
+.boxpanicon {padding:15px 0 0 15px; font-size:14pt; color:#FFF;}
+.boxpancontent {color:#000; padding:15px;}
+.bluecircle {background-color:#007eff; width:50px; height:50px; border-radius:50%; position:absolute; left:20px; top:30px; border:solid 2px #FFF}
+
+.boxpanelinblue {background-color:#FFF; border:solid 1px #007eff; margin:10px 0 10px 0;}
+.boxpanheadingblue {background-color:#007eff; color:#FFF; padding:0 0 0 40px;}
+.boxpanelinorange {background-color:#FFF; border:solid 1px #ff3300; margin:10px 0 10px 0;}
+.orangecircle {background-color:#ff3300; width:50px; height:50px; border-radius:50%; position:absolute; left:20px; top:170px; border:solid 2px #FFF}
+.boxpanheadingorange {background-color:#ff3300; color:#FFF; padding:0 0 0 40px;}
+
+.dashedline {height:25px; border-left:dashed 1px #666}
+/*````````````````````````````*/
+.navbar-demo {
+   background: rgba(255, 255, 255, 1.0);
+  border-color: rgba(0, 0, 0, .0);
+  margin:0 0;
+}
+.navbar-demo .navbar-brand {
+  color: #0681b9;
+  margin:0 10px 0 -15px;
+  padding:0;
+}
+.navbar-demo .navbar-brand:hover, .navbar-demo .navbar-brand:focus {
+  color: #0681b9;
+}
+.navbar-demo .navbar-text {
+  color: #0681b9;
+}
+.navbar-demo .navbar-nav > li > a {
+  color: #0681b9;
+}
+.navbar-demo .navbar-nav > li > a:hover, .navbar-demo .navbar-nav > li > a:focus  {
+  color: #FFF;
+  background-color:#0681b9;
+}
+.navbar-demo .navbar-nav > .active > a, .navbar-demo .navbar-nav > .active > a:hover, .navbar-demo .navbar-nav > .active > a:focus {
+  color: #FFF;
+  background: rgba(6, 129, 185, .9);
+}
+.navbar-demo .navbar-nav > .open > a, .navbar-demo .navbar-nav > .open > a:hover, .navbar-demo .navbar-nav > .open > a:focus {
+  color: #ecdbff;
+  background-color: #399;
+}
+.navbar-demo .navbar-toggle {
+  border-color: #fff;
+}
+.navbar-demo .navbar-toggle:hover, .navbar-demo .navbar-toggle:focus {
+  background-color: #0681b9;
+  color:#FFF;
+}
+.navbar-demo .navbar-toggle .icon-bar {
+  background-color: #ccc;
+}
+.navbar-demo .navbar-collapse,
+.navbar-demo .navbar-form {
+  border-color: #ecf0f1;
+}
+.navbar-demo .navbar-link {
+  color: #ecf0f1;
+}
+.navbar-demo .navbar-link:hover {
+  color: #ecdbff;
+}
+
+@media (max-width: 767px) {
+  .navbar-demo .navbar-nav .open .dropdown-menu > li > a {
+    color: #000;
+  }
+  .navbar-demo .navbar-nav .open .dropdown-menu > li > a:hover, .navbar-demo .navbar-nav .open .dropdown-menu > li > a:focus {
+    color: #ecdbff;
+  }
+  .navbar-demo .navbar-nav .open .dropdown-menu > .active > a, .navbar-demo .navbar-nav .open .dropdown-menu > .active > a:hover, .navbar-demo .navbar-nav .open .dropdown-menu > .active > a:focus {
+    color: #ecdbff;
+    background-color: #8e44ad;
+  }
+  .navbar-demo .navbar-nav > li > a {
+  color: #0681b9;
+  border-bottom:solid 1px #f1f1f1;
+}
+}
+.boxclrpanel {
+    background-color:#02b500;
+    width:250px;
+    border-radius: 5px;
+    cursor:pointer;
+    border:solid 1px #02b500;
+}
+.boxclrpanel:hover {
+    -webkit-box-shadow: 3px 3px 5px 0px rgba(50, 50, 50, 0.75);
+    -moz-box-shadow: 3px 3px 5px 0px rgba(50, 50, 50, 0.75);
+    box-shadow: 3px 3px 5px 0px rgba(50, 50, 50, 0.75);
+}
+.boxclrpanel-patch {
+    margin-left:5px; background-color:#fff; border-radius: 5px;
+}
+.boxclrpanel-head {
+    padding:5px 0; text-align:center; background-color:#02b500; color:#fff; text-align:center
+}

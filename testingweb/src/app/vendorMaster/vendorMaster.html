@@ -1,0 +1,388 @@
+
+<div>
+<div class="row" resize>
+    <div class="col-md-12 padding0">
+        <div style="height:569px;">
+            <div class="table-responsive report-table" style="margin:auto;">
+              <div class="head-panel-grey">
+                    <div class="pull-left">
+                       <h4>Vendor Master</h4>
+                    </div>
+            <div class="pull-right"><button  class="btn btn-sm btn-success mt33 ng-scope"  data-toggle="modal" data-target="#addVendorMaster"><i class="fa fa-plus"></i> ADD NEW</button></div>
+           </div> 
+            <table class="table table-striped table-hover" data-page-length='10' style="margin-bottom:0;border:1px solid #ccc;">
+                    <thead style="background-color: #85a520; color:#fff;">
+                        <tr style="width:98%;">
+                            <th >Vendor Code</th>
+                            <th >Vendor Owner</th>
+                            <th>Region Code </th>
+                            <th>Region Code Desc</th>
+                            <th>Country</th>
+                            <th>Service Tax</th>
+                            <th>GSTIN</th>
+                            <th>Vat</th>
+                            <th>Address</th>
+                            <th>Pan Number</th>
+                            <th>Status</th>
+                            <th>option</th>
+                        </tr>
+                    </thead>
+                    <tbody when-scroll-ends="vm.loadMoreRecords()" style="height:720px;overflow:scroll">
+                        <tr ng-repeat="vendor in vm.vendorList">
+                            <td>{{vendor.Vendor_Code}}</td>
+                            <td>{{vendor.Vendor_Owner}}</td>
+                            <td>{{vendor.RegionCode?vendor.RegionCode:'NA'}}</td>
+                            <td>{{vendor.RegionCodeDesc?vendor.RegionCodeDesc:'NA'}}</td>
+                            <td>{{vendor.Country?vendor.Country:'NA'}}</td>
+                            <td >{{vendor.ServiceTax?vendor.ServiceTax:'NA'}}</td>
+                            <td>{{vendor.GSTIN?vendor.GSTIN:'NA'}}</td>
+                            <td>{{vendor.Vat?vendor.Vat:'NA'}}</td>
+                            <td>{{vendor.Address?vendor.Address:'NA'}}</td>
+                            <td class="uppercase">{{vendor.PanNumber?vendor.PanNumber:'NA'}}</td>
+                            <td>{{vendor.Status?vendor.Status:'NA'}}</td>
+                            <td>
+                              <a ng-click="vm.FromView(vendor.Uniqueid)" data-toggle="modal" data-target="#editVendorMaster" title="Add" class=""><i class="fa fa-pencil-square-o"></i></a>
+                              <a ng-click="$parent.FinalDelete=vendor.Uniqueid;" data-toggle="modal" data-target="#DeletePopUp" title="Delete"><i class="fa fa-trash-o"></i></a>
+                              <a><i class="fa fa-cog" data-toggle="modal" data-target="#SendForApprovalPage"></i></a>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="122" class="footer" align="right" style="text-align: right;">
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="addVendorMaster" class="modal pop-modal fade" role="dialog">
+        <div class="modal-dialog">
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header padpop">
+              <h5 class="modal-title pull-left mt7">Create Vendor Master</h5>
+              <div class="pull-right">
+                <button class="btn btn-warning btn-sm" type="button" data-dismiss="modal">Cancel</button>
+                <button class="btn btn-success btn-sm" type="button" ng-click="vm.FromCreate()">Create</button>
+              </div>
+              <div class="clearfix"></div>
+            </div>
+            <div class="modal-body">
+                <div class="modal-body">
+                    <div class="main-content">
+                        <form name="addForm" class="addForm ng-pristine ng-valid" enctype="multipart/form-data" method="post">
+                            <div class="row">
+                                <!-- <input type="hidden" value="" name="ProjectID" ng-model="ProjectID" class="ng-pristine ng-untouched ng-valid ng-empty">
+                                <input type="hidden" name="LastModifiedDate" value="">
+                                <input type="hidden" name="LastModifiedBy" ng-model="UserDetails.currentUser.UserId" value="251" class="ng-pristine ng-untouched ng-valid ng-not-empty">
+                                <input type="hidden" name="CreatedBy" ng-model="UserDetails.currentUser.UserId" value="251" class="ng-pristine ng-untouched ng-valid ng-not-empty"> -->
+                                <input type="hidden" name="IsDeleted" value="false" />
+                                <div class="col-md-6 mb10">
+                                    <div class="form-block">
+                                        <label>Vendor Code<span class="mandatory">*</span>
+                                        </label>
+                                        <input type="text" name="Vendor_Code" ng-model="Vendor_Code" class="form-control ng-pristine ng-untouched ng-valid ng-empty" placeholder="Enter Vendor Code">
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb10">
+                                    <div class="form-block">
+                                        <label>Vendor Owner<span class="mandatory">*</span>
+                                        </label>
+                                        <input type="text" name="Vendor_Owner" ng-model="Vendor_Owner" class="form-control ng-pristine ng-untouched ng-valid ng-empty" placeholder="Enter Vendor Owner">
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb10">
+                                    <div class="form-block">
+                                        <label>GSTIN<span class="mandatory">*</span>
+                                        </label>
+                                        <input type="text" name="GSTIN" ng-model="GSTIN" class="form-control ng-pristine ng-untouched ng-valid ng-empty" placeholder="Enter GSTIN">
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb10">
+                                    <div class="form-block">
+                                        <label>Vat<span class="mandatory">*</span>
+                                        </label>
+                                        <input type="number" name="Vat" ng-model="Vat" class="form-control ng-pristine ng-untouched ng-valid ng-empty" placeholder="Enter Vat">
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb10">
+                                    <label>Service Tax<span class="mandatory">*</span>
+                                    </label> &nbsp;&nbsp;
+                                    <input type="text" class="form-control ng-pristine ng-untouched ng-valid ng-empty uppercase intvalid" name="ServiceTax" ng-model="ServiceTax" placeholder="Enter Service Tax" maxlength="16">
+                                </div>
+                                <div class="col-md-6 mb10">
+                                    <label>Pan Number<span class="mandatory">*</span>
+                                    </label> &nbsp;&nbsp;
+                                    <input type="text" class="form-control ng-pristine ng-untouched ng-valid ng-empty uppercase" name="PanNumber" ng-model="PanNumber" placeholder="Enter Pan No" maxlength="10">
+                                </div>
+                                <div class="col-md-6 mb10">
+                                    <div class="form-block">
+                                        <label>Country<span class="mandatory">*</span></label>
+                                        <select class="form-control" name="Country">
+                                            <option value="">Country Code</option>
+                                            <option ng-repeat="data in vm.CountryDropList.countries" value="{{data.callingCode}}">{{data.name}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                      </div>
+                 </div>
+             </div>
+          </div>
+     </div>
+</div>
+
+<div id="" class="modal fade pop-modal" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header padpop">
+                <h5 class="modal-title pull-left mt7">Update Project</h5>
+                <div class="pull-right">
+                    <button class="btn btn-warning btn-sm" type="button" data-dismiss="modal">Cancel</button>
+                    <button class="btn btn-success btn-sm" type="button" ng-click="vm.Fromsave()">Update</button>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="modal-body">
+                <div class="main-content">
+                    <form name="editproductForm" class="updateForm">
+                        <div class="row">
+                            <input type="hidden" value="{{result_v.result.ProjectID}}" name="projectID" ng-model="result_v.result.ProjectID" />
+                            <input type="hidden" name="LastModifiedBy" ng-model="UserDetails.currentUser.UserId" value="{{UserDetails.currentUser.UserId}}" />
+                            <input type="hidden" value="" name="LastModifiedDate" />
+                            <div class="col-sm-6 mb10">
+                                <div class="form-block">
+                                    <label>Company Name<span class="mandatory">*</span>
+                                    </label>
+                                    <select class="form-control" name="CompanyID">
+                                        <option value="" selected="selected">Select Company Name</option>
+                                        <option ng-repeat="data in CompanyList.result" value="{{data.CompanyID}}" ng-selected="data.CompanyID==result_v.result.CompanyID">{{data.CompanyName}} ({{data.StateName}})</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 mb10">
+                                <div class="form-block">
+                                    <label>Project Name<span class="mandatory">*</span>
+                                    </label>
+                                    <input type="text" name="ProjectName" value="{{result_v.result.ProjectName}}" ng-model="result_v.result.ProjectName" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="col-sm-6 mb10">
+                                <div class="form-block">
+                                    <label>Project Code<span class="mandatory">*</span>
+                                    </label>
+                                    <input type="text" name="ProjectCode" value="{{result_v.result.ProjectCode }}" ng-model="result_v.result.ProjectCode" class="form-control" ng-change="updateCode(result_v.result.ProjectCode)" />
+                                </div>
+                            </div>
+                            <div class="col-sm-6 mb10">
+                                <div class="form-block">
+                                    <label>Project Abbreviation<span class="mandatory">*</span>
+                                    </label>
+                                    <input type="text" name="ProjectShortName" value="{{result_v.result.ProjectShortName}}" ng-model="result_v.result.ProjectShortName" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="col-sm-6 mb10">
+                                <label>Project Color<span class="mandatory">*</span>
+                                </label> &nbsp&nbsp
+                                <input type="text" class="form-control" name="ProjectColor" value="{{result_v.result.ProjectColor}}" ng-model="result_v.result.ProjectColor" />
+                            </div>
+                            <div class="col-md-6 mb10">
+                                <label>Project SAP Code<span class="mandatory">*</span>
+                                </label> &nbsp&nbsp
+                                <input type="text" class="form-control" name="SapCode" value="{{result_v.result.SapCode}}" ng-model="result_v.result.SapCode" placeholder="Enter Project SAP Code" />
+                            </div>
+                            <div class="col-md-6 mb10">
+                                <div class="form-block">
+                                    <label>State<span class="mandatory">*</span></label>
+                                    <select class="form-control" name="StateID">
+                                        <option value="" selected="selected">Select State</option>
+                                        <option ng-repeat="data in StateCodeList.result" value="{{data.states.StateID}}" ng-selected="data.states.StateID==result_v.result.StateID">{{data.states.StateName}}({{data.states.SAPCode}})</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb10">
+                                <label>Project Location<span class="mandatory">*</span>
+                                </label> &nbsp&nbsp
+                                <input type="text" class="form-control" name="Location" value="{{result_v.result.Location}}" placeholder="Enter Project Location" />
+                            </div>
+                            <div class="col-md-6 mb10">
+                                    <div class="form-block">
+                                        <label>Termsheet Design Type<span class="mandatory">*</span>
+                                        </label>
+                                        <select class="form-control" name="TermsheetDesignType">
+                                            <option value="" selected="selected">Select Termsheet Design Type</option>
+                                            <option value="0" ng-selected="result_v.result.TermSheetDesignType=='0'">New</option>
+                                            <option value="1" ng-selected="result_v.result.TermSheetDesignType=='1'">Old</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 mb10">
+                                        <div class="form-block inline">
+                                            <label>Upload Project Logo &nbsp&nbsp&nbsp&nbsp
+                                                <input type="file" id="file1" class="form-control" accept="application/pdf, image/*" name="file1" ng-model="file1" onchange="angular.element(this).scope().uploadClicked(this.files)" />
+                                            </label>
+                                        </div>
+                                    </div>
+    
+                                <div class="col-sm-6 mb10">
+                                <div class="form-block">
+                                    <label class="checkbox-inline">
+                                        <input name="IsSales" type="checkbox" ng-model="result_v.result.IsSales" value="true" /> Sales
+                                    </label>
+                                    <label class="checkbox-inline">
+                                        <input name="IsMaintenance" type="checkbox" ng-model="result_v.result.IsMaintenance" value="true" /> Maintenance
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb10">
+                                <div class="col-sm-6 mb10">
+                                    <label style="display:block;">Current Logo</label>
+                                    <img class="img-thumbnail" style="height:80px; width:80px" ng-src="{{server_folder}}/{{result_v.result.Logo}}" />
+                                </div>
+                                <div class="col-md-6 mb10">
+                                    <input type="hidden" name="ImageType" value="{{fileExtension}}" ng-model="fileExtension" />
+                                    <textarea ng-show="false" name="Logo" ng-model="encodedUpload">{{encodedUpload}}</textarea>
+                                    <label style="display:block;">Uploaded Logo</label>
+                                    <img class="img-thumbnail previewOnly" style="height:80px; width:80px" ng-src="{{encoded}}" />
+                                </div>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="editVendorMaster" class="modal pop-modal fade" role="dialog">
+        <div class="modal-dialog">
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header padpop">
+              <h5 class="modal-title pull-left mt7">Update Vendor Master</h5>
+              <div class="pull-right">
+                <button class="btn btn-warning btn-sm" type="button" data-dismiss="modal">Cancel</button>
+                <button class="btn btn-success btn-sm" type="button" ng-click="vm.Fromsave()">Update</button>
+              </div>
+              <div class="clearfix"></div>
+            </div>
+            <div class="modal-body">
+                    <div class="main-content">
+                        <form name="editForm" class="updateForm">
+                            <div class="row">
+                                <input type="hidden" name="CreatedOn" ng-model="vm.getVM.CreatedOn" value={{vm.getVM.CreatedOn|date:"dd-MM-yyyy"}}>
+                                <input type="hidden" name="LastModifiedOn" ng-model="vm.getVM.LastModifiedOn" value={{vm.getVM.LastModifiedOn|date:"dd-MM-yyyy"}}>
+                                <input type="hidden" name="LastModifiedBy" ng-model="vm.getVM.LastModifiedBy" value="{{vm.getVM.LastModifiedBy}}">
+                                <input type="hidden" name="CreatedBy" ng-model="vm.getVM.CreatedBy" value="251">
+                                <input type="hidden" name="Uniqueid" ng-model="vm.getVM.Uniqueid" value="{{vm.getVM.Uniqueid}}">
+                                <input type="hidden" name="OldUniqueid" ng-model="vm.getVM.OldUniqueid" value="{{vm.getVM.OldUniqueid}}">
+                                <input type="hidden" name="Objectid" ng-model="vm.getVM.Objectid" value="{{vm.getVM.Objectid}}">
+                                <input type="hidden" name="Status" ng-model="vm.getVM.Status" value="{{vm.getVM.Status}}">
+                                <input type="hidden" name="ApprovedBy" ng-model="vm.getVM.ApprovedBy" value="{{vm.getVM.ApprovedBy}}">
+                                <input type="hidden" name="ApprovedOn" ng-model="vm.getVM.ApprovedOn" value="{{vm.getVM.ApprovedOn}}">
+                                <input type="hidden" name="Address" ng-model="vm.getVM.Address" value="{{vm.getVM.Address}}">
+                                <input type="hidden" name="RegionCode" ng-model="vm.getVM.RegionCode" value="{{vm.getVM.RegionCode}}">
+                                <input type="hidden" name="RegionCodeDesc" ng-model="vm.getVM.RegionCodeDesc" value="{{vm.getVM.RegionCodeDesc}}">
+                                <input type="hidden" name="TEClaimItems1" ng-model="vm.TEClaimItems1" value="{{vm.TEClaimItems1}}">
+                                <input type="hidden" name="TEClaimItems" ng-model="vm.TEClaimItems" value="{{vm.TEClaimItems}}">
+                                <input type="hidden" name="IsDeleted" value="false" />
+                                <div class="col-md-6 mb10">
+                                    <div class="form-block">
+                                        <label>Vendor Code<span class="mandatory">*</span>
+                                        </label>
+                                        <!-- <input type="text" name="Vendor_Code" ng-model="vm.getVM.Vendor_Code" class="form-control ng-pristine ng-untouched ng-valid ng-empty" placeholder="Enter Vendor Code"> -->
+                                        <input type="text" name="Vendor_Code" ng-model="vm.getVM.Vendor_Code" class="form-control" placeHolder="Enter Measure Type" />
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb10">
+                                    <div class="form-block">
+                                        <label>Vendor Owner<span class="mandatory">*</span>
+                                        </label>
+                                        <input type="text" name="Vendor_Owner" ng-model="vm.getVM.Vendor_Owner" class="form-control ng-pristine ng-untouched ng-valid ng-empty"  placeholder="Enter Vendor Owner">
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb10">
+                                    <div class="form-block">
+                                        <label>GSTIN<span class="mandatory">*</span>
+                                        </label>
+                                        <input type="text" name="GSTIN" ng-model="vm.getVM.GSTIN" class="form-control ng-pristine ng-untouched ng-valid ng-empty" placeholder="Enter GSTIN">
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb10">
+                                    <div class="form-block">
+                                        <label>Vat<span class="mandatory">*</span>
+                                        </label>
+                                        <input type="text" name="Vat" ng-model="vm.getVM.Vat" class="form-control ng-pristine ng-untouched ng-valid ng-empty" placeholder="Enter Vat">
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb10">
+                                    <label>Service Tax<span class="mandatory">*</span>
+                                    </label> &nbsp;&nbsp;
+                                    <input type="text" class="form-control ng-pristine ng-untouched ng-valid ng-empty uppercase intvalid" name="ServiceTax" ng-model="vm.getVM.ServiceTax" placeholder="Enter Service Tax" maxlength="16">
+                                </div>
+                                <div class="col-md-6 mb10">
+                                    <label>Pan Number<span class="mandatory">*</span>
+                                    </label> &nbsp;&nbsp;
+                                    <input type="text" class="form-control ng-pristine ng-untouched ng-valid ng-empty uppercase" name="PanNumber" ng-model="vm.getVM.PanNumber" placeholder="Enter Pan No" maxlength="10">
+                                </div>
+                                <div class="col-md-6 mb10">
+                                    <div class="form-block">
+                                        <label>Country<span class="mandatory">*</span></label>
+                                        <select class="form-control" name="Country" ng-model="vm.getVM.Country">
+                                            <option value="">Country Code</option>
+                                            <option ng-repeat="data in vm.CountryDropList.countries" value="{{data.callingCode}}" ng-selected="vm.getVM.Country==data.name">{{data.name}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                      </div>
+                 </div>
+          </div>
+     </div>
+</div>
+
+<!-- Delete popup-->
+    <div id="DeletePopUp" class="modal fade pop-modal" role="dialog">
+    <div class="modal-dialog modal-md">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" style="margin-top:2px;">&times;</button>
+          <h4 class="modal-title">Sure you want to delete?</h4>
+        </div>
+        <div class="modal-body">
+            <div class="main-content text-right">
+            <button class="btn btn-warning btn-sm" data-dismiss="modal" type="button">No, Cancel</button>
+            <button class="btn btn-success btn-sm" ng-click="FromDelete(FinalDelete)" data-dismiss="modal" type="button">Yes, Delete</button>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--vendor Approval popup start-->
+  <div id="SendForApprovalPage" class="modal fade pop-modal" role="dialog">
+        <div class="modal-dialog modal-md">
+          <div class="modal-content">
+            <div class="modal-header">
+              <!-- <button type="button" class="close" data-dismiss="modal" style="margin-top:2px;">&times;</button>
+              <h4 class="modal-title">Sure you want to delete?</h4> -->
+              <h4 class="modal-title">Approvals</h4>
+            </div>
+            <div class="modal-body" style="height: 76px !important;overflow-y: auto;">Sure you want to Send for Approval?</div>
+            <div class="modal-footer">
+                <button class="btn btn-warning btn-sm" data-dismiss="modal" type="button">No, Cancel</button>
+                <button class="btn btn-primary btn-sm" ng-click="vendorApprove(FinalDelete)" data-dismiss="modal" type="button">Yes, Send</button>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+   
+  

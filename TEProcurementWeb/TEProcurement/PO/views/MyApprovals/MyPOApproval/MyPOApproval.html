@@ -1,0 +1,373 @@
+<style>
+    .modal-dialog {
+        margin-top: 90px;
+    }
+    .well {
+        margin-bottom: 0;
+    }
+    .vertical-text {
+	transform: rotate(270deg);
+    height: 130px;
+    }
+</style>
+<header ng-include="'views/header.html'"></header>
+<div class="wrapper" ng-controller="MyPOApprovalCtrl">
+    <div class="row">
+        <div class="container wrapper" style="background: #fff;">
+            <div class="row">
+                <section>
+                    <div style="margin: 70px auto 0 auto;">
+                            <div class="title-panel">Purchase Order Approval - {{POApprovalInfo.info.listcount}}
+                            </div>
+                            <div class="clearfix"></div>
+                            <a id='pdfDownloadId' download='Receipt{{CurrentDateTime}}.pdf' ng-show="false" />                         
+                        <div style="width:99%; margin:0px;">
+                            <div class="salestracker_container ng-scope">
+                                <div class="saleorder_detailsbox">                                        
+                                    <div class="row">                                  
+                                        <div class="gridStyle hgt" ng-grid="finalresultGrid" style="margin-top:0; min-height:444px"></div>   
+                                        <div ng-if="POApprovalInfo.info.listcount<='0'&& count==0">
+                                            <div style="top: -294px;left: 45%; position: relative;">No PO(s) Found</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>    
+                    </div>
+                 </section>
+            </div>
+        </div>
+    </div>
+   <div id="SendForApprovalPagePopUp" class="modal fade pop-modal" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header padpop">
+                <h5 class="modal-title pull-left mt7">PO Approval</h5>
+                <div class="clearfix"></div>
+            </div>
+            <div class="modal-body">
+                <span><h5 class="modal-title" style="margin: 6px">Are you sure ,you want to submit for Approval?</h5><span>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="table-responsive" style="width:100%;margin-bottom: 0">
+                                <table class="table table table-bordered">
+                                    <thead style="font-size:9pt;">
+                                        <tr class="filters">
+                                            <th>#</th>
+                                            <th>Approver</th>
+                                            <th>Status</th>
+                                            <th style="width:15%;">Date</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr ng-repeat="(key,obj) in currentApproveRequestData.Approvers">
+                                            <td>{{obj.SequenceNumber}}</td>
+                                            <td>{{obj.ApproverName}}</td>
+                                            <td>{{obj.Status}}</td>
+                                            <td>{{obj.LastModifiedOn}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <form name="appoff1" class="SendForApprovalForm">
+                        <div class="row">
+                            <input type="hidden" name="UserId" ng-model="UserDetails.currentUser.UserId" value="{{UserDetails.currentUser.UserId}}" />
+                            <input type="hidden" name="PurchaseOrderNumber" ng-model="PurchaseOrderNumber" value="{{PurchaseOrderNumber}}" />
+                            <input type="hidden" name="POUniqueId" ng-model="POUniqueId" value="{{POUniqueId}}" />
+                        </div>
+                        <div class="row" style="margin: 8px"></div>
+                        <div class="form-group">
+                            <label>Remarks</label>
+                            <textarea ng-model="SubmitterComments" name="SubmitterComments" class="form-control ng-pristine ng-valid ng-empty ng-touched"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-warning" type="button" data-dismiss="modal">Cancel</button>
+                    <button class="btn btn-primary" type="button" ng-click="SendForApprovalBtn();">Submit For Approval</button>
+                </div>
+            </div>
+        </div>
+    </div>
+     <div id="WithDrawPagePopUp" class="modal fade pop-modal" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header padpop">
+                    <h5 class="modal-title pull-left mt7">Withdraw</h5>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="modal-body">Are you sure you want to withdraw PO?
+                    <form name="powithdrawForm" class="powithdrawForm">
+                        <div class="row">
+                            <input type="hidden" name="UserId" ng-model="UserDetails.currentUser.UserId" value="{{UserDetails.currentUser.UserId}}" />
+                            <input type="hidden" name="PurchaseOrderNumber" ng-model="PurchaseOrderNumber" value="{{PurchaseOrderNumber}}" />
+                            <input type="hidden" name="POUniqueId" ng-model="POUniqueId" value="{{POUniqueId}}" />
+                        </div>
+                        <div class="row" style="margin: 8px"></div>
+                        <div class="form-group">
+                            <label>Remarks<small class="mandatory">(Mandatory for Withdraw)</small></label>
+                            <textarea ng-model="SubmitterComments" name="SubmitterComments" class="form-control ng-pristine ng-valid ng-empty ng-touched"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-warning" type="button" data-dismiss="modal">Cancel</button>
+                    <button class="btn btn-success" type="button" ng-click="POWithDrawBtn();">Withdraw</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="PendingForApprovalPagePopUp" class="modal fade pop-modal" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header padpop">
+                    <h5 class="modal-title pull-left mt7">Approve/Reject</h5>
+                    <div class="pull-right">
+                    <button class="btn btn-warning" type="button" data-dismiss="modal">Cancel</button>
+                    <button class="btn btn-warning" type="button" ng-click="PendingForApprovalRejectBtn();">Reject</button>
+                    <button class="btn btn-primary" type="button" ng-click="PendingForApprovalApproveBtn();">Approve</button>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="modal-body">
+                    <span><h5 class="modal-title" style="margin: 6px">Are you sure ,you want to Approve/Reject?</h5><span>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="table-responsive" style="width:100%;margin-bottom: 0">
+                                <table class="table table table-bordered">
+                                    <thead style="font-size:9pt;">
+                                        <tr class="filters">
+                                            <th>#</th>
+                                            <th>Approver</th>
+                                            <th>Status</th>
+                                            <th style="width:15%;">Date</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr ng-repeat="(key,obj) in currentApproveRequestData.Approvers">
+                                            <td>{{obj.SequenceNumber}}</td>
+                                            <td>{{obj.ApproverName}}</td>
+                                            <td>{{obj.Status}}</td>
+                                            <td>{{obj.LastModifiedOn}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <form name="PendingForApprovalForm" class="PendingForApprovalForm">
+                        <div class="row">
+                            <input type="hidden" name="UserId" ng-model="UserDetails.currentUser.UserId" value="{{UserDetails.currentUser.UserId}}" />
+                            <input type="hidden" name="PurchaseOrderNumber" ng-model="PurchaseOrderNumber" value="{{PurchaseOrderNumber}}" />
+                            <input type="hidden" name="POUniqueId" ng-model="POUniqueId" value="{{POUniqueId}}" />
+                        </div>
+                        <div class="row" style="margin: 8px"></div>
+                        <div class="form-group">
+                            <label>Remarks<small class="mandatory">(Mandatory for Rejecting)</small></label>
+                            <textarea ng-model="SubmitterComments" name="SubmitterComments" class="form-control ng-pristine ng-valid ng-empty ng-touched"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <!--<div class="modal-footer">
+                </div>-->
+            </div>
+        </div>
+    </div>
+    <div id="genPOPDFPagePopUp" class="modal fade pop-modal" role="dialog">
+    <div class="modal-dialog modal-lg" style="width:80%;">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header padpop">
+                <h5 class="modal-title pull-left mt7">{{titleStatus}} PDF</h5>
+                <div class="pull-right">
+                    <button class="btn btn-warning btn-sm" type="button" data-dismiss="modal">Cancel</button>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="modal-body">
+                <div class="main-content">
+                    <form class="NewTemplateCreateForm" name="NewTemplateCreateForm">
+                        <div class="col-lg-12 mb10 pr0 pl0">
+                            <div class="form-block">
+                                <object data="{{PDFUrl}}" style="width: 100%;min-height: 450px;"></object>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="genPOPDFApprovalPopUp" class="modal fade pop-modal" role="dialog">
+    <div class="modal-dialog modal-lg" style="width:80%;">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header padpop">
+                <h5 class="modal-title pull-left mt7">{{titleStatus}} PDF</h5>
+                <div class="pull-right">
+                    <button class="btn btn-success btn-sm" data-toggle="modal" data-target="#SendForApprovalPagePopUp" style="margin:3px;" title="Send For Approval"
+                        ng-if="currentApproveRequestData.POStatus=='Draft' && currentApproveRequestData.isCurrentApprover==true">Submit For Approval</button>
+                        <button class="btn btn-success btn-sm" data-toggle="modal" data-target="#PendingForApprovalPagePopUp" style="margin:3px;"
+                            title="Approve/Reject" ng-if="currentApproveRequestData.POStatus=='Pending For Approval'&& currentApproveRequestData.isCurrentApprover==true">Approve/Reject</button>
+                            <button class="btn btn-warning btn-sm" type="button" data-dismiss="modal">Cancel</button>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="modal-body">
+                <div class="main-content">
+                    <form class="NewTemplateCreateForm" name="NewTemplateCreateForm">
+                        <div class="col-lg-12 mb10 pr0 pl0">
+                            <div class="form-block">
+                                <object data="{{PDFUrl}}" style="width: 100%;min-height: 450px;"></object>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="infoPagePopUp" class="modal fade pop-modal" role="dialog">
+<div class="modal-dialog modal-lg" style="width: 50%;">
+    <!-- Modal content-->
+    <div class="modal-content">
+        <div class="modal-header padpop">
+            <h5 class="modal-title pull-left mt7">Approvers</h5>
+            <div class="pull-right">
+                <button class="btn btn-warning btn-sm" type="button" data-dismiss="modal">Cancel</button>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+        <div class="modal-body">
+            <div class="main-content">
+                <div class="gridStyle hgt" ng-grid="infoGrid" style="margin-top:0; height:480px"></div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<div id="GLPagePopUp" class="modal fade pop-modal" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header padpop">
+                <h5 class="modal-title pull-left mt7">Update GL Account</h5>
+                <div class="pull-right">
+                    <button class="btn btn-warning btn-sm" type="button" data-dismiss="modal">Cancel</button>
+                    <button class="btn btn-success btn-sm" type="button"ng-click="UpdateGLAccount()">Update</button>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <form name="UpdateGLAccountForm" class="UpdateGLAccountForm">
+                            <input type="text" name="Uniqueid" value="0" ng-hide="true"/>
+                            <input type="text" name="LastmodifiedByName" ng-model="LastmodifiedByName" value="{{LastmodifiedByName}}" ng-hide="true"/>
+                            <input type="text" name="GLAccountNo" value="0" ng-hide="true" />
+                            <div class="table-responsive" style="width:100%">
+                                <table class="table table table-bordered">
+                                    <thead style="font-size:9pt;">
+                                        <tr class="filters">
+                                            <th>Material Name</th>
+                                            <th>Material Description</th>
+                                            <th>Material Number</th>
+                                            <th>Item Type</th>
+                                            <th>GL Account No</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr ng-repeat="(key,GL) in GLupdate">
+                                            <td>{{GL.MaterialName}}</td>
+                                            <td>{{GL.MaterialDescription}}</td>
+                                            <td>{{GL.Material_Number}}</td>
+                                            <td>{{GL.ItemType}}</td>
+                                            <td>
+                                                <div class="input-group input-group-sm">
+                                                    <input type="hidden" name="Uniqueid" ng-model="GLupdate[key].Uniqueid" value="{{GLupdate[key].Uniqueid}}" />
+                                                    <input type="text" class="form-control" name="GLAccountNo" ng-model="GLupdate[key].GLAccountNo" placeholder="Select GL Account" ng-readonly="true" />
+                                                    <div class="input-group-addon" data-toggle="modal" data-target="#GLPageDetailedPopUp" ng-click="setGLrowclicked(key);"><i class="fa fa-search"></i></div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="GLPageDetailedPopUp" class="modal fade pop-modal" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header padpop">
+                <h5 class="modal-title pull-left mt7">Add GL Account</h5>
+                <div class="pull-right">
+                    <button class="btn btn-warning btn-sm" type="button" data-dismiss="modal">Cancel</button>
+                    <button class="btn btn-success btn-sm" type="button" data-dismiss="modal">Add GL Account</button>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-xs-12">
+                      <div class="table-responsive" style="width:100%;margin-bottom: -20px">
+                            <table class="table table table-bordered">
+                                <thead style="font-size:9pt;">
+                                    <tr class="filters">
+                                        <!--<td>Sl No</td>-->
+                                        <th style="width: 15%">GLAccount Code</th>
+                                        <th style="width: 25%">GLAccount Desc</th>
+                                        <th style="width: 20%">GLAccount Short Name</th>
+                                        <th style="width: 20%">Commitment Item Code</th>
+                                        <th style="width: 20%">Commitment Item Desc</th>
+                                    </tr>
+                                    <tr class="filtersLight">
+                                        <!--<td></td>-->
+                                        <td class="text-center">
+                                            <input class="form-control" type="text" placeholder="Search" ng-model="GLAccountCodeSearch">
+                                        </td>
+                                        <td class="text-center">
+                                            <input class="form-control" type="text" placeholder="Search" ng-model="GLAccountDescSearch">
+                                        </td>
+                                        <td class="text-center">
+                                            <input class="form-control" type="text" placeholder="Search" ng-model="GLAccountShortNameSearch">
+                                        </td>
+                                        <td class="text-center">
+                                            <input class="form-control" type="text" placeholder="Search" ng-model="CommitmentItemCodeSearch">
+                                        </td>
+                                        <td class="text-center">
+                                            <input class="form-control" type="text" placeholder="Search" ng-model="CommitmentItemDescSearch">
+                                        </td>
+                                    </tr>
+                                </thead>
+                            </table>
+                        </div>
+                       <div class="table-responsive" style="width:100%;height: 300px;">
+                            <table class="table table table-bordered">
+                                <tbody>
+                                    <tr ng-repeat="(key,obj) in GLAccountResult|filter:{GLAccountCode:GLAccountCodeSearch,GLAccountDesc:GLAccountDescSearch,GLAccountShortName:GLAccountShortNameSearch,CommitmentItemCode:CommitmentItemCodeSearch,CommitmentItemDesc:CommitmentItemDescSearch}" ng-style="{'background-color':GLAccountbgColor[key]}" ng-click="GLAccountDetailsClick(key,obj);">
+                                        <td style="width: 15%">{{obj.GLAccountCode}}</td>
+                                        <td style="width: 25%">{{obj.GLAccountDesc}}</td>
+                                        <td style="width: 20%">{{obj.GLAccountShortName}}</td>
+                                        <td style="width: 20%">{{obj.CommitmentItemCode}}</td>
+                                        <td style="width: 20%">{{obj.CommitmentItemDesc}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>           
+</div>

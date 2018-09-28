@@ -1,0 +1,150 @@
+<style>
+  .dropdown-submenu {
+    position: relative;
+  }
+  
+  .dropdown-submenu .dropdown-menu {
+    top: 0;
+    left: -80%;
+    margin-top: 10px;
+  }
+  
+  .dropdown-sub-submenu .dropdown-menu {
+    top: inherit;
+    left: -80%;
+    margin-top: -5px;
+  }
+  
+  div.panel1 {
+    padding: 0 18px;
+    display: none;
+    background-color: white;
+  }
+  
+  .NotificationAlert {
+    margin: -15px -30px;
+    width: 353px;
+  }
+  
+  .NotificationboxNew {
+    position: absolute;
+    top: 30px;
+    right: -150px;
+    background-color: #fff;
+    border: 1px solid #333;
+    width: 362px;
+  }
+  
+  .panel-group {
+    margin-bottom: 0px !important;
+  }
+  
+  .f1 {
+    font-size: 23px;
+  }
+  
+  .divNotification {
+    margin-left: 27px;
+    margin-top: -25px;
+    font-size: 12px;
+  }
+  
+  .containerScroll {
+    max-height: 210px;
+    overflow-y: scroll;
+  }
+  
+  .accordion1 {
+    background-color: #dbf5d8 !important;
+  }
+  
+  .NotificationboxNew .accordion1 .panel-heading {
+    background: #61a1d2 !important;
+    border: #3e7eae !important;
+    color: #fff;
+    display: block;
+  }
+  
+  .accordion1 .accordion-toggle:after {
+    font-family: 'FontAwesome !important';
+    content: "";
+    float: right !important;
+    color: inherit !important;
+  }
+  
+  .fa {
+    font-size: inherit;
+  }
+  
+  .ml {
+    margin-left: -18px;
+  }
+</style>
+<div class="gr-clr"></div>
+<nav class="navbar-demo navbar-default header-space">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+        aria-expanded="false"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span
+          class="icon-bar"></span> </button>
+        <a class="navbar-brand" href="javascript:void(0)"><img src="images/fugue.png" class="fuguelogo" alt="Fugue Logo" /> </a>
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav ml" auto-active>
+        <li ng-class="{'active':MainMenuTitle=='2'}"><a href="#/SearchPR">Purchase Request</a> </li>
+        <li ng-class="{'active':MainMenuTitle=='1'}"><a href="#/SearchPO">Purchase Order</a> </li>
+        <li ng-class="{'active':MainMenuTitle=='3'}" ng-if="CheckPrivilage('MyApprovals','View')"><a href="#/MyApprovals">My Approvals</a> </li>
+		<li ng-class="{'active':MainMenuTitle=='4'}" class="dropdown" ng-if="CheckPrivilage('PO Masters','View')"> <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Masters<span class="caret"></span></a>
+			<ul class="dropdown-menu">
+				<li ng-class="{'active':SubmenuMenuTitle=='4a'}" ng-if="CheckPrivilage('POVendorMasters','View')"><a href="#/VendorMaster">Vendor</a> </li>
+				<li ng-class="{'active':SubmenuMenuTitle=='4b'}" ng-if="CheckPrivilage('WBSFUNDCENTERMapping','View')"><a href="#/WBSFundCenter">WBS Fund Center</a> </li>
+				<li ng-class="{'active':SubmenuMenuTitle=='4c'}" ng-if="CheckPrivilage('FundCenterPOMgrMaster','View')"><a href="#/poMasterApprovers">PO Approvers</a> </li>
+				<li ng-class="{'active':SubmenuMenuTitle=='4d'}" ng-if="CheckPrivilage('PlantStorageMaster','View')"><a href="#/plantStorage">Plant Storage Details</a> </li>
+        <li ng-class="{'active':SubmenuMenuTitle=='4d'}" ng-if="CheckPrivilage('FundCenterPOMgrMaster','View')"><a href="#/FundCenterPOManagerMap">Fund center PO Manager</a> </li>
+        <li ng-class="{'active':SubmenuMenuTitle=='4d'}" ng-if="CheckPrivilage('FundCenterPOMgrMaster','View')"><a href="#/FundCenterUserMap">User - Fund Center Mapping</a> </li>
+        <li ng-class="{'active':SubmenuMenuTitle=='4d'}" ng-if="CheckPrivilage('POHSNRatesMaster','View')"><a href="#/HSNTaxCodeMap">HSN Tax Rate</a> </li>
+        <li ng-class="{'active':SubmenuMenuTitle=='4d'}" ng-if="CheckPrivilage('POUserRoleMapping','View')"><a href="#/UserRoleMapping">User Role Mapping</a> </li>
+			</ul>
+		</li>
+
+
+          <!--<li ng-class="{'active':MainMenuTitle=='4'}" class="dropdown" >
+              <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Masters<span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                  <li ng-class="{'active':SubmenuMenuTitle=='4a'}"><a href="#/VendorMaster">Vendor</a> </li>
+                  <li ng-class="{'active':SubmenuMenuTitle=='4b'}" ><a href="#/WBSFundCenter">WBS Fund Center</a> </li>
+                  <li ng-class="{'active':SubmenuMenuTitle=='4c'}" ><a href="#/poMasterApprovers">PO Approvers</a> </li>
+                  <li ng-class="{'active':SubmenuMenuTitle=='4d'}" ><a href="#/plantStorage">Plant Storage Details</a> </li>
+                  <li ng-class="{'active':SubmenuMenuTitle=='4d'}" ><a href="#/FundCenterPOManagerMap">Fund center PO Manager</a> </li>
+              </ul>
+          </li>-->
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"
+            tooltip-placement="left" uib-tooltip="{{UserDetails.currentUser.CallName}}"> <span class=""><img src="images/profile.png" class="img-circle" width="30px" border="0" style="border:solid 2px #646572; background-color:#585966" /><span class="caret"></span></span>
+            </a>
+            <ul class="dropdown-menu">
+              <li><a href="javascript:void(0)" ng-click="Logout();"><span class="fa fa-power-off" aria-hidden="true"></span> Logout</a>                </li>
+            </ul>
+        </li>
+      </ul>
+    </div>
+</nav>
+<script>
+  $(document).ready(function () {
+    $('.dropdown-submenu a.test').on("click", function (e) {
+      $('.dropdown-submenu .dropdown-menu').hide();
+      $(this).next('ul').toggle();
+      e.stopPropagation();
+      e.preventDefault();
+    });
+    $('.dropdown-sub-submenu a.test1').on("click", function (e) {
+      $('.dropdown-sub-submenu .dropdown-menu').hide();
+      $(this).next('ul').toggle();
+      e.stopPropagation();
+      e.preventDefault();
+    });
+  });
+
+</script>

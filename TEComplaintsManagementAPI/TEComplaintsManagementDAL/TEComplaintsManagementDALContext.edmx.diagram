@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="16f36c551d0b4b88a6f8ea195d3e563c" Name="Diagram1">
+        <EntityTypeShape EntityType="TEComplaintsManagementDAL.ApplicationErrorLog" Width="1.5" PointX="0.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEComplaintsManagementDAL.DataBaseLog" Width="1.5" PointX="2.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEComplaintsManagementDAL.sysdiagram" Width="1.5" PointX="4.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEComplaintsManagementDAL.TEActivityTimelineInfo" Width="1.5" PointX="6.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEComplaintsManagementDAL.TEAnswer" Width="1.5" PointX="8.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEComplaintsManagementDAL.TEBandsAndGrade" Width="1.5" PointX="3.75" PointY="12.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEComplaintsManagementDAL.TECampaign" Width="1.5" PointX="10.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEComplaintsManagementDAL.TECategory" Width="1.5" PointX="10.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEComplaintsManagementDAL.TEChangeLog" Width="1.5" PointX="5.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEComplaintsManagementDAL.TEComment" Width="1.5" PointX="10.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEComplaintsManagementDAL.TECompany" Width="1.5" PointX="1.5" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEComplaintsManagementDAL.TEContact" Width="1.5" PointX="11.75" PointY="30" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEComplaintsManagementDAL.TEContactAddress" Width="1.5" PointX="14" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEComplaintsManagementDAL.TEContactAlumni" Width="1.5" PointX="14" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEComplaintsManagementDAL.TEContactEmail" Width="1.5" PointX="14" PointY="15" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEComplaintsManagementDAL.TEContactGPA" Width="1.5" PointX="14" PointY="19.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEComplaintsManagementDAL.TEContactIdentification" Width="1.5" PointX="14" PointY="27" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEComplaintsManagementDAL.TEContactInterest" Width="1.5" PointX="14" PointY="32" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEComplaintsManagementDAL.TEContactMobile" Width="1.5" PointX="14" PointY="36.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEComplaintsManagementDAL.TEContactOrganisation" Width="1.5" PointX="7.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEComplaintsManagementDAL.TEContactProfession" Width="1.5" PointX="14" PointY="41.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEComplaintsManagementDAL.TEContactRelation" Width="1.5" PointX="14" PointY="46.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEComplaintsManagementDAL.TEContactSocial" Width="1.5" PointX="14" PointY="51" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEComplaintsManagementDAL.TEDepartment" Width="1.5" PointX="3.75" PointY="84.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEComplaintsManagementDAL.TEDocument" Width="1.5" PointX="16.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEComplaintsManagementDAL.TEEmailStatu" Width="1.5" PointX="8" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEComplaintsManagementDAL.TEEmailTemplate" Width="1.5" PointX="5.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEComplaintsManagementDAL.TEEmailTemplateAttachment" Width="1.5" PointX="16.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEComplaintsManagementDAL.TEEMPAddress" Width="1.5" PointX="3" PointY="23.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEComplaintsManagementDAL.TEEmpAssignmentDetail" Width="1.5" PointX="6" PointY="50.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEComplaintsManagementDAL.TEEmpAttendence" Width="1.5" PointX="3" PointY="38" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEComplaintsManagementDAL.TEEmpBankDetail" Width="1.5" PointX="3" PointY="44.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEComplaintsManagementDAL.TEEmpBasicInfo" Width="1.5" PointX="0.75" PointY="48.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEComplaintsManagementDAL.TEEmpEducationDetail" Width="1.5" PointX="3" PointY="50.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEComplaintsManagementDAL.TEEmpEmergencyContact" Width="1.5" PointX="3" PointY="56.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEComplaintsManagementDAL.TEEmpExperienceDetail" Width="1.5" PointX="3" PointY="61.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEComplaintsManagementDAL.TEEmpFamilyDetail" Width="1.5" PointX="3" PointY="67.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEComplaintsManagementDAL.TEEmpInsuranceDetail" Width="1.5" PointX="3" PointY="72.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEComplaintsManagementDAL.TEEmpLanguage" Width="1.5" PointX="3" PointY="78" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEComplaintsManagementDAL.TEEmpLeaveApplication" Width="1.5" PointX="9" PointY="51.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEComplaintsManagementDAL.TEEmpLeavesSummary" Width="1.5" PointX="9" PointY="44.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEComplaintsManagementDAL.TEEmpOtherDetail" Width="1.5" PointX="6" PointY="45.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEComplaintsManagementDAL.TEEmpReference" Width="1.5" PointX="3" PointY="101.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEComplaintsManagementDAL.TEEmpWorkSchedule" Width="1.5" PointX="6" PointY="59.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEComplaintsManagementDAL.TEESCALATION" Width="1.5" PointX="16.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEComplaintsManagementDAL.TEESCALATIONMATRIX" Width="1.5" PointX="16.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEComplaintsManagementDAL.TEHoliday_TEWorkLocation_Mappings" Width="1.5" PointX="6" PointY="106.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEComplaintsManagementDAL.TEHoliday" Width="1.5" PointX="3.75" PointY="128.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEComplaintsManagementDAL.TEIssue" Width="1.5" PointX="5.75" PointY="17.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEComplaintsManagementDAL.TELead" Width="1.5" PointX="14" PointY="56.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEComplaintsManagementDAL.TELeadInterestedProjectid" Width="1.5" PointX="7.75" PointY="17.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEComplaintsManagementDAL.TELeadSalesCoassignman" Width="1.5" PointX="9.75" PointY="17.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEComplaintsManagementDAL.TELeadStatusTrack" Width="1.5" PointX="18.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEComplaintsManagementDAL.TELeaveType" Width="1.5" PointX="6.75" PointY="30" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEComplaintsManagementDAL.TELineOfBusiness" Width="1.5" PointX="1.5" PointY="84.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEComplaintsManagementDAL.TENote" Width="1.5" PointX="18.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEComplaintsManagementDAL.TEOffer" Width="1.5" PointX="18.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEComplaintsManagementDAL.TEOtherDetail" Width="1.5" PointX="3.75" PointY="18.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEComplaintsManagementDAL.TEPickListItem" Width="1.5" PointX="4.5" PointY="31.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEComplaintsManagementDAL.TEPickList" Width="1.5" PointX="2.25" PointY="31.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEComplaintsManagementDAL.TEProject" Width="1.5" PointX="3" PointY="116" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEComplaintsManagementDAL.TEProjects_TOWER" Width="1.5" PointX="0.75" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEComplaintsManagementDAL.TEProjects_UNIT" Width="1.5" PointX="20.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEComplaintsManagementDAL.TEQuestion" Width="1.5" PointX="20.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEComplaintsManagementDAL.TEQueue" Width="1.5" PointX="20.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEComplaintsManagementDAL.TEQueueDepartment" Width="1.5" PointX="20.75" PointY="17.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEComplaintsManagementDAL.TERequestAssignment" Width="1.5" PointX="22.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEComplaintsManagementDAL.TERule" Width="1.5" PointX="22.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEComplaintsManagementDAL.TESubFunction" Width="1.5" PointX="3.75" PointY="89.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEComplaintsManagementDAL.TESurvey" Width="1.5" PointX="7.75" PointY="22.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEComplaintsManagementDAL.TETask" Width="1.5" PointX="9.75" PointY="22.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEComplaintsManagementDAL.TEUnit_Onboarding" Width="1.5" PointX="22.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEComplaintsManagementDAL.TEVisitorPass" Width="1.5" PointX="22.75" PointY="17.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEComplaintsManagementDAL.TEWorkingDesignation" Width="1.5" PointX="3.75" PointY="107.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEComplaintsManagementDAL.TEWorkLocation" Width="1.5" PointX="3.75" PointY="123" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEComplaintsManagementDAL.UserProfile" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEComplaintsManagementDAL.webpages_Membership" Width="1.5" PointX="24.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEComplaintsManagementDAL.webpages_OAuthMembership" Width="1.5" PointX="12.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEComplaintsManagementDAL.webpages_Roles" Width="1.5" PointX="0.75" PointY="2.625" IsExpanded="true" />
+        <AssociationConnector Association="TEComplaintsManagementDAL.FK__TEBandsAn__TECom__7D439ABD" ManuallyRouted="false" />
+        <AssociationConnector Association="TEComplaintsManagementDAL.FK__TEEmpAssi__TEBan__02FC7413" ManuallyRouted="false" />
+        <AssociationConnector Association="TEComplaintsManagementDAL.FK__TEDepartm__TECom__00200768" ManuallyRouted="false" />
+        <AssociationConnector Association="TEComplaintsManagementDAL.FK__TEEmpAssi__TECom__03F0984C" ManuallyRouted="false" />
+        <AssociationConnector Association="TEComplaintsManagementDAL.FK__TESubFunc__TECom__245D67DE" ManuallyRouted="false" />
+        <AssociationConnector Association="TEComplaintsManagementDAL.fk_TECompTELOB" ManuallyRouted="false" />
+        <AssociationConnector Association="TEComplaintsManagementDAL.fk_Tecontact_TeContactAddress" ManuallyRouted="false" />
+        <AssociationConnector Association="TEComplaintsManagementDAL.fk_Tecontact_TEContactAlumni" ManuallyRouted="false" />
+        <AssociationConnector Association="TEComplaintsManagementDAL.fk_Tecontact_tecontactEmail" ManuallyRouted="false" />
+        <AssociationConnector Association="TEComplaintsManagementDAL.fk_Tecontact_TEContactGPA" ManuallyRouted="false" />
+        <AssociationConnector Association="TEComplaintsManagementDAL.fk_Tecontact_TEContactIdentification" ManuallyRouted="false" />
+        <AssociationConnector Association="TEComplaintsManagementDAL.fk_Tecontact_TEContactInterest" ManuallyRouted="false" />
+        <AssociationConnector Association="TEComplaintsManagementDAL.fk_Tecontact_TEContactMobile" ManuallyRouted="false" />
+        <AssociationConnector Association="TEComplaintsManagementDAL.fk_Tecontact_TEContactProfession" ManuallyRouted="false" />
+        <AssociationConnector Association="TEComplaintsManagementDAL.fk_Tecontact_TEContactRelation" ManuallyRouted="false" />
+        <AssociationConnector Association="TEComplaintsManagementDAL.fk_Tecontact_TEContactSocial" ManuallyRouted="false" />
+        <AssociationConnector Association="TEComplaintsManagementDAL.fk_TELead_TeContact" ManuallyRouted="false" />
+        <AssociationConnector Association="TEComplaintsManagementDAL.FK__TEDepartm__TELin__01142BA1" ManuallyRouted="false" />
+        <AssociationConnector Association="TEComplaintsManagementDAL.FK__TEEmpAssi__TEDep__04E4BC85" ManuallyRouted="false" />
+        <AssociationConnector Association="TEComplaintsManagementDAL.FK__TESubFunc__TEDep__25518C17" ManuallyRouted="false" />
+        <AssociationConnector Association="TEComplaintsManagementDAL.fk_TEEmailTemplate_TEEmailStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="TEComplaintsManagementDAL.FK__TEEMPAddr__TEEmp__02084FDA" ManuallyRouted="false" />
+        <AssociationConnector Association="TEComplaintsManagementDAL.FK__TEEmpAssi__TEEmp__05D8E0BE" ManuallyRouted="false" />
+        <AssociationConnector Association="TEComplaintsManagementDAL.FK__TEEmpAssi__TEEmp__06CD04F7" ManuallyRouted="false" />
+        <AssociationConnector Association="TEComplaintsManagementDAL.FK__TEEmpAssi__TEWor__07C12930" ManuallyRouted="false" />
+        <AssociationConnector Association="TEComplaintsManagementDAL.FK__TEEmpAssi__TEWor__08B54D69" ManuallyRouted="false" />
+        <AssociationConnector Association="TEComplaintsManagementDAL.teempassign_TESubFunction" ManuallyRouted="false" />
+        <AssociationConnector Association="TEComplaintsManagementDAL.FK__TEEmpAtte__TEEmp__0A9D95DB" ManuallyRouted="false" />
+        <AssociationConnector Association="TEComplaintsManagementDAL.FK__TEEmpAtte__TEEmp__7B264821" ManuallyRouted="false" />
+        <AssociationConnector Association="TEComplaintsManagementDAL.FK__TEEmpBank__TEEmp__019E3B86" ManuallyRouted="false" />
+        <AssociationConnector Association="TEComplaintsManagementDAL.FK__TEEmpEduc__TEEmp__0B91BA14" ManuallyRouted="false" />
+        <AssociationConnector Association="TEComplaintsManagementDAL.FK__TEEmpEmer__TEEmp__0C85DE4D" ManuallyRouted="false" />
+        <AssociationConnector Association="TEComplaintsManagementDAL.FK__TEEmpExpe__TEEmp__0D7A0286" ManuallyRouted="false" />
+        <AssociationConnector Association="TEComplaintsManagementDAL.FK__TEEmpFami__TEEmp__0E6E26BF" ManuallyRouted="false" />
+        <AssociationConnector Association="TEComplaintsManagementDAL.FK__TEEmpInsu__TEEmp__7EC1CEDB" ManuallyRouted="false" />
+        <AssociationConnector Association="TEComplaintsManagementDAL.FK__TEEmpLang__TEEmp__0F624AF8" ManuallyRouted="false" />
+        <AssociationConnector Association="TEComplaintsManagementDAL.FK__TEEmpLeav__TEEmp__10566F31" ManuallyRouted="false" />
+        <AssociationConnector Association="TEComplaintsManagementDAL.FK__TEEmpLeav__TEEmp__123EB7A3" ManuallyRouted="false" />
+        <AssociationConnector Association="TEComplaintsManagementDAL.FK__TEEmpOthe__TEEmp__14270015" ManuallyRouted="false" />
+        <AssociationConnector Association="TEComplaintsManagementDAL.FK__TEEmpRefe__TEEmp__18EBB532" ManuallyRouted="false" />
+        <AssociationConnector Association="TEComplaintsManagementDAL.FK__TEEmpWork__TEEmp__19DFD96B" ManuallyRouted="false" />
+        <AssociationConnector Association="TEComplaintsManagementDAL.FK__TEProject__HeadU__208CD6FA" ManuallyRouted="false" />
+        <AssociationConnector Association="TEComplaintsManagementDAL.FK_teempleaveapplications_TEEmpLeaveSummary" ManuallyRouted="false" />
+        <AssociationConnector Association="TEComplaintsManagementDAL.FK_TEmpLeaveSummary_TELeaveType" ManuallyRouted="false" />
+        <AssociationConnector Association="TEComplaintsManagementDAL.FK__TEEmpOthe__TEOth__151B244E" ManuallyRouted="false" />
+        <AssociationConnector Association="TEComplaintsManagementDAL.FK__TEEmpOthe__TEOth__160F4887" ManuallyRouted="false" />
+        <AssociationConnector Association="TEComplaintsManagementDAL.FK__TEEmpWork__TESub__1AD3FDA4" ManuallyRouted="false" />
+        <AssociationConnector Association="TEComplaintsManagementDAL.FK__TEHoliday__TEHol__1BC821DD" ManuallyRouted="false" />
+        <AssociationConnector Association="TEComplaintsManagementDAL.FK__TEHoliday__TEWor__1CBC4616" ManuallyRouted="false" />
+        <AssociationConnector Association="TEComplaintsManagementDAL.FK_TEHoliday_TEWorkLocation_Mappings" ManuallyRouted="false" />
+        <AssociationConnector Association="TEComplaintsManagementDAL.fk_TELeaveTypes_Picklistitem" ManuallyRouted="false" />
+        <AssociationConnector Association="TEComplaintsManagementDAL.FK__TESubFunc__TELin__2645B050" ManuallyRouted="false" />
+        <AssociationConnector Association="TEComplaintsManagementDAL.fk_TEPickListItems_Picklist" ManuallyRouted="false" />
+        <AssociationConnector Association="TEComplaintsManagementDAL.FK__TESubFunc__Paren__236943A5" ManuallyRouted="false" />
+        <AssociationConnector Association="TEComplaintsManagementDAL.webpages_UsersInRoles" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,57 @@
+/* print style */
+@media print {
+table{  font-family: TENumber, aller_lightregular;border-collapse: collapse !important; color: #000;}
+#printablediv {margin: 0 0 720px 0;}
+.no-print, .no-print *{display: none !important;}
+.pdftable table{width:700px;margin:0 auto;}
+.pdf-format td.heading{background-color:#808080; color:#fff; font-size:9pt; text-align:center; font-weight:bold;padding:2px 0;}
+.pdftable .pdfbordertable{display:table;	border:1px solid #c0c0c0;}
+ .pdfbordertable td{display:table-cell;	border:1px solid #c0c0c0;font-size:9pt;}
+.txtalgncenter{text-align:center;}
+.txtalgnright{text-align:right;}
+.boldborder{border:2px solid #000 !important; color:#000 !important;}
+.color_f79646{background-color:#f79646 !important;color:#fff;}
+.pdftitle{ color:#fff; font-size:10pt; text-align:center; font-weight:bold;}
+.bgcolor_808080{background-color:#808080 !important;-webkit-print-color-adjust: exact;}
+.color_f79646{background-color:#f79646 !important;color:#fff !important; -webkit-print-color-adjust: exact; }
+.bgcolor_fdeada{background-color:#fdeada !important; -webkit-print-color-adjust: exact;}
+.pdftitle{background-color:#808080 !important;  -webkit-print-color-adjust: exact;  color:#fff !important; font-size:9pt; text-align:center; font-weight:bold;}
+.bgcolor_98c93c{background-color:#98c93c !important;  -webkit-print-color-adjust: exact;  color:#fff !important;}
+.mInput{width:100%;border: none;margin-bottom: 0px !important;}
+.pull-left {float: left;}
+.pull-right {float: right;}
+.watermark{position:absolute;min-height: 50%;min-width: 100%;color: yellow;top: 70px;z-index: 0;}
+.watermark-text{color:lightgrey;font-size:280px; transform:rotate(300deg); -webkit-transform:rotate(300deg); opacity:0.9 !important;
+
+    z-index: 1 !important;}
+
+ .watermark-img
+{
+  background: url('https://fugue-server.total-environment.com/TEProcurement/assets/images/draft-img.png') repeat-y 100px 1000px;
+  /*width:600px;
+  height: 800px;
+  background-position: center;*/
+}
+    #Header
+    {
+    	position: fixed;
+    }
+   thead {display: table-header-group;}
+   tfoot {display: table-footer-group;}
+}
+/* screen style */
+.watermark{position:absolute;min-height: 50%;min-width: 100%;color: yellow;top: 70px;z-index: 0;}
+.watermark-text{color:lightgrey;font-size:280px; transform:rotate(300deg); -webkit-transform:rotate(300deg); opacity:0.9 !important;
+    z-index: 1 !important;}
+.pdftable{z-index: 0;}
+.pdftable table{position: relative;}
+ thead   {display: table-header-group;   }
+ tfoot   {display: table-footer-group;   }
+ .watermark-img
+{
+  background: url('https://fugue-server.total-environment.com/TEProcurement/assets/images/draft-img.png') repeat-y 200px 1000px;
+  /*width:600px;
+  height: 800px;
+  background-position: center;
+  */
+}

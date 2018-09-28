@@ -1,0 +1,50 @@
+﻿@using System.Text.RegularExpressions
+@{
+    Layout = null;
+}
+<html>
+    <head>
+        <link href="~/PurchaseOrderStyle.css" rel="stylesheet" />
+        <style>
+            body::before {
+                content: "@ViewBag.WaterMark";
+                font-size: 150pt;
+                position: fixed;
+                margin-top: 500px;
+                margin-left: 22%;
+                z-index: 0;
+                ms-transform: rotate(-40deg); /* IE 9 */
+                -webkit-transform: rotate(-40deg); /* Safari 3-8 */
+                transform: rotate(-40deg);
+                color: rgba(0,0,0,0.2);
+            }
+            ul {
+    list-style: outside disc;
+    margin-left: 1em;
+}
+ul li {
+    position: relative;
+    left: 1em;
+    padding-right: 1em;
+}
+  ol {
+    margin-left: 1em;
+}
+
+ol li {
+        position: relative;
+    left: 1em;
+    padding-right: 1em;
+
+}
+
+
+            .BreakTr {
+
+}
+        </style>
+    </head>
+    <body>
+        @Html.Raw((String)ViewBag.htmlText)
+    </body>
+</html>

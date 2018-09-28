@@ -1,0 +1,393 @@
+<style>
+        .nicEdit-main {
+            width: 100% !important;
+            margin: 0px !important;
+        }
+        
+        .form-block .richTxt {
+            width: 100% !important;
+        }
+        
+        .templatelengthtext {
+            white-space: nowrap;
+            width: 25em;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            margin: 0;
+        }
+        .height200px{
+            height: 200px;
+        }
+        
+        .limitText {
+            font-size: 13px;
+            width: 20em;
+            height: 18px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            -webkit-box-orient: vertical;
+            position: absolute;
+            padding: 0 5px;
+            font-weight: normal;
+        }
+        
+        .modal-dialog {
+            margin: 70px auto;
+        }
+        
+        .well {
+            margin-bottom: 0;
+        }
+        .sd{
+            width: 145px;
+            margin-left: -33%;
+        }
+        .mt div:first:child{
+            margin-top:-4%;
+        }
+    </style>
+    <header ng-include="'views/header.html'"></header>
+    <div ng-controller="poMasterApproversCtrl">
+        <div ng-include="'views/Delete.html'"></div>
+        <div class="wrapper" style="background-color:#fff;width: 100% !important;">
+            <div class="row selcproject" style="margin:0;">
+                <div class="col-md-12" style="padding:0;">
+                    <div class="portfolio-page">
+                        <div class="wizard" style="margin:0 auto;">
+                            <div class="head-panel-grey">
+                                <div class="pull-left">
+                                    <h4>PO Approver Master</h4>
+                                </div>
+                                <div class="pull-right"> <a ng-if="CheckPrivilage('FundCenterPOMgrMaster','Save')" class="btn btn-sm btn-primary mt33" href="javascript:void(0)" data-toggle="modal" data-target="#addapprovalMaster"><i class="fa fa-plus"></i> ADD NEW</a> </div>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="table-content">
+                                <div class="main-table filterable">
+                                    <div class="panel">
+                                        <div class="panel-body">
+                                            <table class="table table-bordered">
+                                                <thead>
+                                                    <tr class="filters">
+                                                            <th></th>
+                                                            <th class="text-center">
+                                                                    <label>FundCenter</label>
+                                                            </th>
+                                                            <th class="text-center">
+                                                                <label>#</label>
+                                                            </th>
+                                                            <th class="text-center">
+                                                                    <label>Approver</label>
+                                                            </th>
+                                                            <th class="text-center">
+                                                                <label>Min Amount</label>
+                                                            </th>
+                                                            <th class="text-center">
+                                                                <label>Max Amount</label>
+                                                            </th>
+                                                            <th class="text-center">
+                                                                    <label>Last Modified By</label>
+                                                            </th>
+                                                            <th class="text-center">
+                                                                <label>Last Modified On</label>
+                                                            </th>
+                                                            <th class="text-center" style="width: 6%">
+                                                                 <label>Options</label>
+                                                            </th>
+                                                    </tr>
+                                                    <tr class="filtersLight">
+                                                        <th></th>
+                                                        <th class="text-center">
+                                                            <input class="form-control" type="text" placeholder="Search" ng-model="FC"> </th>
+                                                        <th class="text-center">
+                                                            <input class="form-control" type="text" placeholder="Search" ng-model="seqno"> </th>                                                       
+                                                        <th class="text-center">
+                                                            <input class="form-control" type="text" placeholder="Search" ng-model="Approv"> </th>
+                                                        <th class="text-center">
+                                                            <input class="form-control" type="text" placeholder="Search" ng-model="MinA"> </th>
+                                                        <th class="text-center">
+                                                            <input class="form-control" type="text" placeholder="Search" ng-model="MaxA"> </th>                                                      
+                                                        <th class="text-center">
+                                                         <input class="form-control" type="text" placeholder="Search" ng-model="LMB"> </th>
+                                                        <th class="text-center"></th>
+                                                        <th class="text-center"></th>                                                        
+                                                    </tr>
+                                                </thead>
+                                                <tbody ng-if="masterAppronerList.info.listcount<='0'">
+                                                    <tr>
+                                                        <td colspan="1000" class="text-center">No Records</td>
+                                                    </tr>
+                                                </tbody>
+                                                <tbody>
+                                                        <tr ng-repeat-start="(sno,approver) in masterAppronerList.result|filter:{POApprovalConditionDTO: {FundCenterCode:FC,SequenceId:seqno,MinAmount:MinA,MaxAmount:MaxA,LastModifiedBy:LMB}}">
+                                                            <td ng-init="MAL=false">
+                                                                <a ng-click="MAL=!MAL">
+                                                                    <span class="glyphicon glyphicon-plus" aria-hidden="true" title="Show Details" style="font-size:12pt;margin:2px"></span>
+                                                                </a>
+                                                            </td>
+                                                            <td>{{approver.POApprovalConditionDTO.FundCenterCode?approver.POApprovalConditionDTO.FundCenterCode:'NA'}}</td>
+                                                            <td style="text-align: center">{{approver.POApprovalConditionDTO.SequenceId?approver.POApprovalConditionDTO.SequenceId:'-'}}</td>
+                                                            <td>{{approver.POApprovalConditionDTO.ApproverName?approver.POApprovalConditionDTO.ApproverName:'-'}}</td>
+                                                            <td>{{approver.POApprovalConditionDTO.MinAmount?approver.POApprovalConditionDTO.MinAmount:'0'}}</td>
+                                                            <td>{{approver.POApprovalConditionDTO.MaxAmount?approver.POApprovalConditionDTO.MaxAmount:'NA'}}</td>
+                                                            <td>{{approver.POApprovalConditionDTO.LastModifiedBy?approver.POApprovalConditionDTO.LastModifiedBy:approver.ApprovalCondition.CreatedBy}}</td>
+                                                            <td>{{approver.POApprovalConditionDTO.LastModifiedOn | date:"dd-MM-yyyy"}}</td>
+                                                            <td>
+                                                                <a ng-click="FromView(approver)" data-toggle="modal" data-target="#updateapprovalMaster" title="Edit" class=""><i class="fa fa-pencil-square-o"></i></a>
+                                                                <a ng-click="$parent.FinalDelete=vendor.Uniqueid;" class="ng-hide" data-toggle="modal" data-target="#DeletePopUp" title="Delete"><i class="fa fa-trash-o"></i></a>
+                                                                <!--<a><i class="fa fa-cog" data-toggle="modal" data-target="#SendForApprovalPage"></i></a>-->
+                                                            </td>
+                                                        </tr>
+                                                        <tr style="background-color:aliceblue" ng-repeat-start="(sno1,subApprover) in approver.MasterApproverlist" ng-show="MAL">
+                                                             <td colspan="2"></td>
+                                                            <td  style="text-align: center">{{subApprover.SequenceId?subApprover.SequenceId:'-'}}</td>
+                                                            <td class="text-left" colspan="5">{{subApprover.ApproverName?subApprover.ApproverName:'-'}}</td>
+                                                            <!--<td>{{subApprover.MinAmount?subApprover.MinAmount:'0'}}</td>
+                                                            <td>{{subApprover.MaxAmount?subApprover.MaxAmount:'NA'}}</td>
+                                                            <td colspan="6"></td>-->
+                                                        </tr>
+                                                        <tr ng-repeat-end></tr>
+                                                        <tr ng-repeat-end></tr>
+                                                </tbody>
+                                                <tfoot class="footer">
+                                                    <tr>
+                                                        <td colspan="12" align="right" style="text-align: right;">
+                                                            <label ng-if="masterAppronerList.info.listcount>'0'">Now Showing: {{masterAppronerList.info.fromrecords}} - {{masterAppronerList.info.torecords}} of {{masterAppronerList.info.totalrecords}}</label> &nbsp;&nbsp;
+                                                            <label>Go To Page : &nbsp;
+                                                                <input type="text" size="2" value="1" class="form-control inline-in intvalid pageInput" ng-model="pagenumber" ng-change="pagenationss(pagenumber)" /> </label> &nbsp;&nbsp;
+                                                            <label> Show Rows : </label>
+                                                            <label>
+                                                                <select ng-model="pageprecounts" name="pageprecounts" class="pageCount inline-in" ng-change="pagenationss(pagenumber,pageprecounts)">
+                                                                    <option value="" disabled="disabled">Select</option>
+                                                                    <option value="10"  ng-selected="true">10</option>
+                                                                    <option value="20">20</option>
+                                                                    <option value="50">50</option>
+                                                                    <option value="100">100</option>
+                                                                    <option value="200">200</option>
+                                                                    <option value="400">400</option>
+                                                                    <option value="500">500</option>
+                                                                    <option value="700">700</option>
+                                                                    <option value="1000">1000</option>
+                                                                    <option value="9999999">All</option>
+                                                                </select>
+                                                            </label> &nbsp;&nbsp;
+                                                            <label><a class="btn btn-default btn-xs" ng-click="pagenationss_clk(pagenumber,0)" style="padding:1px 8px;"><i class="fa fa-caret-left"></i></a> </label>
+                                                            <label ng-if="masterAppronerList.info.listcount>'0'"><a class="btn btn-default btn-xs" ng-click="pagenationss_clk(pagenumber,1)" style="padding:1px 8px;" ng-if="result.info.listcount!=0"><i class="fa fa-caret-right"></i></a> </label>
+                                                        </td>
+                                                    </tr>
+                                                </tfoot>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>    
+        <div id="DeleteBroadcastPopUp" class="modal fade pop-modal" role="dialog">
+            <div class="modal-dialog modal-md">
+                <div class="modal-content">
+                    <div class="modal-header padpop">
+                        <h5 class="modal-title pull-left mt7">Are you sure you want delete?</h5>
+                        <div class="pull-right">
+                            &nbsp;
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="modal-body">
+                        <div class="main-content text-right">
+                            <form name="deleteForm" class="deleteForm">
+                                <input type="hidden" ng-model="broadcastDeleteData.UniqueID" value="{{broadcastDeleteData.UniqueID}}" name="UniqueID">
+                                <input type="hidden" name="LastModifiedBy" ng-model="UserDetails.currentUser.UserId" value="{{UserDetails.currentUser.UserId}}" />
+                            </form>
+                            <button class="btn btn-warning btn-sm" data-dismiss="modal" type="button">No, Cancel</button>
+                            <button class="btn btn-success btn-sm" ng-click="FormDelete()" type="button">Yes, Delete</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="addapprovalMaster" class="modal pop-modal fade" role="dialog">
+            <div class="modal-dialog">
+                        <!-- Modal content-->
+              <div class="modal-content">
+                    <div class="modal-header padpop">
+                        <h5 class="modal-title pull-left mt7">Add PO Approver</h5>
+                        <div class="pull-right">
+                            <button class="btn btn-warning btn-sm" type="button" data-dismiss="modal">Cancel</button>
+                            <button class="btn btn-success btn-sm" type="button" ng-click="FromCreate()">Create</button>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="modal-body">
+                        <div class="main-content">
+                            <form name="addForm" class="addForm ng-pristine ng-valid" enctype="multipart/form-data" method="post">
+                                <input type="hidden" name="WBSCODE" ng-model="WBSCODE" />
+                                <input type="hidden" name="FundCentreCode" ng-model="FundCentreCode" />
+                                <input value="0" type="hidden" name="ApproverName">
+                                <input type="hidden" name="LastModifiedBy" value="0" />
+                                <div class="row">
+                                    <!-- <div class="col-md-6 mb10">
+                                        <div class="form-block">
+                                            <label>Order Type</label>
+                                            <select class="form-control" ng-model="OrdType" name="OrdType" >
+                                                <option value="">Select Order Type</option>
+                                                <option ng-repeat="data in OrderType" value="{{data.UniqueId}}">{{data.Description}}</option>
+                                            </select>
+                                        </div>
+                                    </div> -->
+                                    <div class="col-md-6 mb10">
+                                        <div class="form-block">
+                                            <label>Fund Center</label>
+                                            <select class="form-control" name="FundCenter" ng-model="FundCenter_Description">
+                                                <option value="">Select Fund Center</option>
+                                                <option ng-repeat="data in FundCenter" value="{{data.Uniqueid}}">{{data.FundCenter_Code+' '+data.FundCenter_Description}}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 mb10">
+                                        <div class="form-block">
+                                            <label>Approval Condition</label>
+                                            <select class="form-control" name="Approval" ng-model="value" ng-change="AppCond(value)">
+                                                <option value="">Select Approval Condition</option>
+                                                <!--<option value="1">o to 10,00,000</option>
+                                                <option value="2">10,00,000 to 50,00,000</option>
+                                                <option value="3">Above 50,00,000</option>-->
+                                                <option value="1">o to 9,99,999</option>
+                                                <option value="2">10,00,000 to 49,99,999</option>
+                                                  <option value="3">50,00,000 & Above </option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <!-- <div class="col-md-6 mb10">
+                                        <div class="form-block">
+                                            <label>Submitter</label>
+                                            <select class="form-control" name="SubmitterName" ng-model="Submitter.UserId" ng-change="getSubmitter(Submitter.UserId)">
+                                                <option value="">Select Submitter</option>
+                                                <option ng-repeat="data in Submitter" value="{{data.UserId}}">{{data.UserName}}</option>
+                                            </select>
+                                        </div>
+                                    </div> -->
+                                    <div class="col-lg-12 col-md-3 col-sm-6 col-xs-12">
+                                        <div class="row" style="margin-right: -45%;margin-left: 15px;width:99%">
+                                            <div class="col-sm-3 plr2" style="margin-left: -6%;margin-top: 4px;">
+                                                <label><span>Select  Approver</span></label>
+                                            </div>
+                                            <div class="col-sm-4 plr2" style="margin-left:-8%">
+                                                <select class="form-control" name="ApproverName" ng-model="UserId" ng-change="getApprover(UserId,1)">
+                                                    <option value="">Select Approver</option>
+                                                    <option ng-repeat="data in Submitter" value="{{data.UserId}}">{{data.UserName}}</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-sm-1 plr2" style="margin-left:-4%;"> <a href="javascript:void(0);" style="margin-left:5px; margin-top:2px;float:left;" ng-click="AddApproverList();"><i class="fa fa-plus" style="font-size:10pt;"></i></a> </div>
+                                        </div>
+                                        <div class="internalScroll">
+                                            <multiple-approval></multiple-approval>
+                                        </div>
+                                    </div> 
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+               </div>
+            </div>
+        </div>
+        <div id="updateapprovalMaster" class="modal pop-modal fade" role="dialog">
+            <div class="modal-dialog">
+                        <!-- Modal content-->
+              <div class="modal-content">
+                    <div class="modal-header padpop">
+                        <h5 class="modal-title pull-left mt7">Update PO Approver</h5>
+                        <div class="pull-right">
+                            <button class="btn btn-warning btn-sm" type="button" data-dismiss="modal">Cancel</button>
+                            <button class="btn btn-success btn-sm" type="button" ng-click="FromUpdate()">Update</button>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="modal-body">
+                        <div class="main-content">
+                            <form name="updateForm" class="updateForm ng-pristine ng-valid" enctype="multipart/form-data" method="post">                             
+                                
+                                <input type="hidden" name="uniqueid"  value="{{getMasterAppList[0].ApprovalConditionId}}">
+                                <input type="hidden" name="Type" value="{{getMasterAppList[0].Type}}">
+                                <input type="hidden" name="ApproverName" value="0">
+                                <input type="hidden" name="ApproverName" value="0">
+                                
+                                
+                                <input type="hidden" name="LastModifiedBy" ng-model="UserDetails.currentUser.UserId" value="{{UserDetails.currentUser.UserId}}" />
+                                
+                                
+                               
+                              
+                                <div class="row">
+                                    <div class="col-md-6 mb10">
+                                        <div class="form-block" >
+                                            <label>Fund Center</label>
+                                            <select class="form-control" name="FundCenter" ng-model="FundCenter_Description" ng-disabled="true">
+                                                <option value="" >Select Fund Center</option>
+                                                <!--<option ng-repeat="data in FundCenter" value="{{data.Uniqueid}}" ng-selected="data.Uniqueid == getApproverView.FundCenter">{{data.FundCenter_Code+' '+data.FundCenter_Description}}</option>-->
+                                                <!--<option ng-repeat="data in FundCenter" value="{{data.Uniqueid}}" ng-selected="data.Uniqueid == getApproverView.FundCenter"></option>-->
+                                                <option ng-repeat="data in FundCenter" value="{{data.Uniqueid}}" ng-selected="data.FundCenter_Code == POApprovalConditionDTO.FundCenterCode">{{data.FundCenter_Code+' '+data.FundCenter_Description}}</option>
+
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 mb10">
+                                        <div class="form-block">
+                                            <label>Approval Condition</label>
+                                            <select class="form-control" name="Approval" ng-model="value" ng-change="AppCond(value)" ng-disabled="true">
+                                                <option value="" readonly>Select Approval Condition</option>
+                                                <!--<option value="1" ng-selected="getApproverView.MaxAmount <= 1000000">o to 10,00,000</option>
+                                                <option value="2" ng-selected="getApproverView.MaxAmount > 1000000 && getApproverView.MaxAmount <= 5000000">10,00,000 to 50,00,000</option>
+                                                <option value="3" ng-selected="getApproverView.MaxAmount > 5000000">Above 50,00,000</option>-->
+                                                <option value="1" ng-selected="POApprovalConditionDTO.MaxAmount <= 1000000">o to 9,99,999</option>
+                                                <option value="2" ng-selected="POApprovalConditionDTO.MaxAmount > 1000000 && POApprovalConditionDTO.MaxAmount <= 5000000">10,00,000 to 49,99,999</option>
+                                                <option value="3" ng-selected="POApprovalConditionDTO.MaxAmount > 5000000">50,00,000 & Above</option>
+                                                <!--<option value="1" ng-selected="POApprovalConditionDTO.MaxAmount <= 1000000">o to 10,00,000</option>
+                                                <option value="2" ng-selected="POApprovalConditionDTO.MaxAmount > 1000000 && POApprovalConditionDTO.MaxAmount <= 5000000">10,00,000 to 50,00,000</option>
+                                                <option value="3" ng-selected="POApprovalConditionDTO.MaxAmount > 5000000">Above 50,00,000</option>-->
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <!-- <div class="col-md-6 mb10">
+                                        <div class="form-block">
+                                                <label>Approver</label>
+                                                <select class="form-control" name="ApproverId" ng-model="Approver.UserId">
+                                                    <option value="">Select Approver</option>
+                                                    <option ng-repeat="data in Submitter" value="{{data.UserId}}" ng-selected="data.UserId == getApproverView.ApproverId">{{data.UserName}}</option>
+                                                </select>
+                                        </div>
+                                    </div>  -->
+                                    <div class="col-lg-12 col-md-3 col-sm-6 col-xs-12">
+                                            <div class="row" style="margin-right: -45%;margin-left: 1px;width:99%">
+                                                <div class="col-sm-5 plr2" style="margin-left: -3%;margin-top: 1px;">
+                                                    <label><span>Select  Approver</span></label>
+                                                </div>
+                                                <div ng-repeat="dataMA in getMasterAppList">
+                                                   <span>
+                                                    <div class="col-sm-6 plr2" style="margin-left: 30%;" ng-style="{'margin-top':($first?'-4%':'2%')}">
+                                                        <select class="form-control sd" name="ApproverName" ng-model="dataMA.ApproverId" ng-change="(dataMA.ApproverId,$index+1)">
+                                                            <option value="">Select Approver</option>
+                                                            <option ng-repeat="data in Submitter" value="{{data.UserId}}" ng-selected="data.UserId == dataMA.ApproverId">{{data.UserName}}</option>
+                                                        </select>
+                                                        <div class="col-sm-1 plr2" style="margin-left: 20%;margin-top: -11%;"> 
+                                                            <a href="javascript:void(0);" ng-if="$index==0" style="margin-left:5px; margin-top:2px;float:left;" ng-click="AddApproverListUpd();"><i class="fa fa-plus" style="font-size:10pt;"></i></a> 
+                                                            <a href="javascript:void(0);" ng-if="$index!=0" style="margin-left:5px; margin-top:2px;float:left;" ng-click="RemoveApprovalListUpd(null,$index);"><i class="fa fa-times" style="font-size:10pt;"></i></a>
+                                                        </div>
+                                                    </div>
+                                                   </span>
+                                               </div>
+                                            </div>
+                                            <div class="internalScroll">
+                                                <multiple-approval-upd></multiple-approval-upd>
+                                            </div>
+                                   </div> 
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+               </div>
+            </div>
+        </div>
+    </div>

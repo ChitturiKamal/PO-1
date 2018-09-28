@@ -1,0 +1,75 @@
+<!-- <div class="row search-background">
+    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+    </div>
+    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+        <div class="row ContactProfileListOption">
+            <a href="javascript:void(0);">
+                <div class="icon-align">
+                    <span class="fa fa-envelope-o" style="font-size:15pt;display:block;"></span> Email
+                </div>
+            </a>
+            <a href="javascript:void(0);" data-ng-click="vm.viewPdf(vm.selectedPONumber)" ng-if="false">
+                <div class="icon-align">
+                    <span class="fa fa-file-pdf-o" style="font-size:15pt;display:block;"></span> PDF
+                </div>
+            </a>
+        </div>
+    </div>
+</div> -->
+<div class="row" resize>
+    <div class="col-lg-12 cnt-list-panel-bg">
+        <div class="cnt-list-add" style="height:44px;">
+            <div class="col-md-12">
+                <div class="input-group search-box-width" id="adv-search" style="width:100%;">
+                    <input type="text" class="form-control" placeholder="Search for PO" data-ng-model="vm.searchText" data-ng-keyup="($event.which === 13 || (vm.searchText == '' && vm.isNewSearchText)) && vm.searchPO();" />
+                    <div class="input-group-btn" style="padding-top: 1px;">
+                        <div class="btn-group" role="group">
+                            <button type="button" class="btn" style="height: 34px;" data-ng-if="vm.searchText" data-ng-click="vm.searchText='';vm.searchPO()"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+                            <button type="button" class="btn btn-warning" style="height: 34px;" data-ng-click="vm.searchPO()"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="scorlbar ContactProfileList" style="background-color:#fff;" when-scroll-ends="vm.loadMoreRecords()">
+            <div class="profile-bg" data-ng-repeat="item in vm.poList" ng-class="{'leftpan-button-active':vm.selectedPONumber == item.Purchasing_Order_Number}">
+                <div class="row" ui-sref="main.poList.poFinalize" data-ng-click="vm.selectedPONumber = item.Purchasing_Order_Number;vm.selectedPOId=item.HeaderUniqueid;vm.WbsHeads=item.WbsHeads;vm.getSelectedPO();">
+                    <div class="col-md-12" style="line-height:22px;">
+                        <div class="pull-left headtxt txt_ellipsis" style="width:80%;" title="PO Title: {{item.PoTitle}}" data-ng-bind="item.PoTitle">PoTitle</div>
+                        <div class="fa fa-envelope-o pull-right" title="Send Mail" data-ng-click="vm.sendEmail(item.Purchasing_Order_Number);$event.stopPropagation();" style="color:#ff6a00;font-size:10pt;margin-right:5px;"></div>
+                        <span ng-if="item.pendingApprovers" class="fa fa-check-square-o pull-right" style="color:#ff6a00;font-size:11pt;margin-right:5px;"  title="{{'Pending Approvers:&#13;' + item.pendingApprovers}}" ng-click="$event.stopPropagation();">
+                        </span>
+                        <span title="{{item.ReleaseCodeStatus}}" style="font-size:11pt;margin-right:5px;" class="pull-right fa {{vm.statusIcon[item.ReleaseCodeStatus]}}" ng-click="$event.stopPropagation();"></span>
+                        <div style="clear:both;"></div>
+                        <div class="pull-left headtxt txt_ellipsis" style="width:33%;" title="PO Number: {{item.Purchasing_Order_Number}}" data-ng-bind="item.Purchasing_Order_Number">PO Number</div>
+                        <div class="pull-left headtxt txt_ellipsis" title="PO Date: {{item.Purchasing_Document_Date | date : 'dd-MMM-yyyy'}}" data-ng-bind="item.Purchasing_Document_Date | date : vm.dateFormate" style="width:22%;text-align:center;">PO Date </div>
+                        <div class="pull-left headtxt txt_ellipsis" style="width:43%;text-align:right;" title="Value: {{item.Amount | currencyFormat }} {{item.Currency_Key}}">
+                            <span data-ng-bind="item.Amount | currencyFormat"></span> <span ng-bind="item.Currency_Key"></span>
+                        </div>
+                        <div style="clear:both;"></div>
+                        <div class="pull-left headtxt txt_ellipsis" title="Project Codes: {{item.ProjectCodes}}" data-ng-bind="item.ProjectCodes" style="width:98%;">Vendor Number </div>
+                        <div style="clear:both;"></div>
+                        <div class="pull-left headtxt txt_ellipsis" title="Vendor Name: {{item.VendorName || 'NA'}}" style="width:98%;">{{item.VendorName || 'NA'}}</div>
+                        <div style="clear:both;"></div>
+                        
+                        <div class="pull-left headtxt txt_ellipsis" title="Status: {{item.ReleaseCodeStatus}}" data-ng-bind="item.ReleaseCodeStatus" style="width:50%;">Status </div>
+                        
+                        <!-- <div class="pull-left headtxt txt_ellipsis" title="{{item.pendingApprovers}}" style="width:50%;">Pending Approvers</div>
+                        <div style="clear:both;"></div> -->
+                    </div>
+                </div>
+            </div>
+            <div class="text-center" style="padding:10px;" ng-if="vm.poList.length == 0">
+                <p ng-if="!vm.isNewSearchText">No Purchase Order</p>
+                <p ng-if="vm.isNewSearchText">No Purchase Order Found</p>
+            </div>
+            <br />
+        </div>
+    </div>
+    <div class="col-lg-9 padding0">
+        <div class="containerHeight" style="overflow-y:auto;">
+            <div ui-view>
+            </div>
+        </div>
+    </div>
+</div>

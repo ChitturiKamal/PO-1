@@ -1,0 +1,69 @@
+
+<style>
+        .table-responsive .head-panel-grey {
+         background-color: #646572;
+         padding: 19px 10px !important;
+         font-weight: bold;
+         color: #fff;
+         border-radius: 3px;
+         margin: 0;
+     }
+     .pull-left{
+         float:left !important;
+     }
+     
+     .pull-right{
+         float:right !important;
+     }
+     
+     h4, .h4, h5, .h5, h6, .h6 {
+         margin-top: -8px;
+         margin-bottom: 10px;
+     }
+     
+     .mt33 {
+         margin-top: -25px !important;
+         background-color: #85a520;
+         border: 1px solid #85a520;
+     }
+     </style>
+     
+     <div class="row" resize>
+         <div class="col-md-12 padding0">
+             <div class="containerHeight" style="overflow-y:auto;">
+                 <div class="table-responsive report-table" style="margin:auto;">
+                   <div class="head-panel-grey">
+                         <div class="pull-left">
+                            <h4>Vendor Category Master</h4>
+                         </div>
+                  
+                 <!-- <div class="pull-right">
+                     <h4>Vendor Master</h4>
+                 </div> -->
+                 <div class="pull-right"><a  class="btn btn-sm btn-success mt33 ng-scope" href="javascript:void(0)" data-toggle="modal" data-target="#addProjectMas"><i class="fa fa-plus"></i> ADD NEW</a></div>
+             </div> 
+                 <table class="table table-striped table-hover" data-page-length='10' style="margin-bottom:0;border:1px solid #ccc;">
+                         <thead style="background-color: #85a520; color:#fff;">
+                             <tr style="width:98%;">
+                                 <th style="width:20%;">Vendor Code</th>
+                                 <th style="width:50%;">Vendor Name</th>
+                                 <th style="width:20%;">Status</th>
+                                 <th style="width:10%;">option</th>
+                             </tr>
+                         </thead>
+                         <tbody when-scroll-ends="vm.loadMoreRecords()" style="height:440px;">
+                             <tr ng-repeat="vendor in vm.vendorList">
+                                 <td style="width:20%;"><label data-ng-bind="vendor.Vendor_Code">NA</label></td>
+                                 <td style="width:50%;">{{vendor.Vendor_Owner}}</td>
+                                 <td style="width:20%;">{{vendor.Status}}</td>
+                                 <td style="width:10%;">
+                                   <a ng-click="FromView(product.ProductID)" data-toggle="modal" data-target="#editProductMas" title="Edit" class=""><i class="fa fa-pencil-square-o"></i></a>
+                                   <a ng-click="$parent.FinalDelete=product.ProductID;" data-toggle="modal" data-target="#DeletePopUp" title="Delete"><i class="fa fa-trash-o"></i></a>
+                                </td>
+                             </tr>
+                         </tbody>
+                     </table>
+                 </div>
+             </div>
+         </div>
+     </div>

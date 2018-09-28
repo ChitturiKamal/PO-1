@@ -1,0 +1,62 @@
+<div class="padding15">
+<script>
+	$(document).ready(function () {
+	$("#txtEditor").Editor();
+	$('.Editor-editor').html()
+	});		    
+</script>
+<link href="editor.css" type="text/css" rel="stylesheet"/>
+<script src="editor.js"></script>
+
+   <div class="row">
+		<div class="col-md-12">
+            <div class="pull-right btn-big" data-ng-click="vm.showPreview()">Preview</div>
+			<div class="pull-right btn-big" ui-sref = "main.poTerms.DetailTerms">Cancel</div>
+			<!-- <div class="pull-right btn-big" ng-click="sendData()">Save</div> -->
+			
+			<!-- <span class="error" ng-if="myForm.$submitted && myForm.Title.$error.required">Please fill field above<br></span> -->
+			<button type="submit" href="main.poTerms.DetailTerms" ng-click="sendData($event)">Submit</button>
+			
+        </div>
+    </div>
+    <br />
+
+<form name="myForm" action="action.do" method="Post" novalidate>	
+
+    <div class="row">
+        <div class="col-md-9">
+            <div class="form-group text-left">
+                <label for="">Title:</label>
+            </div>
+			<div class="form-group">
+                <input type="text" class="form-control" placeholder="Title" ng-model="Title" id="termTitle" validationType="2" validationMsg="t&c Name must be characters only">
+            </div>
+        </div>
+    </div>
+
+     <div class="row">
+        <div class="col-md-9">
+            <div class="form-group text-left">
+                <label for="">Type:</label>
+            </div>
+			<div class="form-group">
+			 <select class="form-control" ng-model="selectedItem" id="termType">
+			 <option  value="">Choose List</option>
+			  <option ng-repeat="operator in operators" value="{{operator.PickListId}}">{{operator.ChildDescription}}</option>
+			</select>
+            </div>
+        </div>
+    </div>
+	  
+	 <div class="row readonly" ng-readonly="">																
+		<div class="col-lg-12 ">
+				<textarea class="Editor-editor" id="txtEditor" ng-model="Condition">sdgsdgsd</textarea>
+		</div>															
+	</div>
+	
+	
+</form>	
+	
+<div class="ng-view"></div>
+	
+</div>

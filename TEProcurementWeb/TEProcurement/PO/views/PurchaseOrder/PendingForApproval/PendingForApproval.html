@@ -1,0 +1,171 @@
+<style>
+    .modal-dialog {
+        margin-top: 90px;
+    }
+    .well {
+        margin-bottom: 0;
+    }
+    .vertical-text {
+	transform: rotate(270deg);
+    height: 130px;
+    }
+</style>
+<header ng-include="'views/header.html'"></header>
+<div class="wrapper" ng-controller="POPendingForApprovalCtrl">
+    <div class="row">
+        <div class="container wrapper" style="background: #fff;">
+            <div class="row">
+                <section>
+                    <div style="margin: 70px auto 0 auto;">
+                            <div class="title-panel">Purchase Order
+                                <span class="pull-right"><a class="btn btn-xs btn-success" style="margin-right: 4px;margin-bottom: 3px" href="#/CreatePO"> <i class="fa fa-plus"></i> &nbsp; Create PO</a></span>
+                            </div>
+                            <div class="clearfix"></div>
+                            <a id='pdfDownloadId' download='Receipt{{CurrentDateTime}}.pdf' ng-show="false" />
+                            <div class="projlisttabs">
+                                <!-- <div ng-include="'views/Trackers/TrackersMain.html'"></div>   -->
+                                <ul class="nav nav-tabs" id="tabs" auto-active>                                  
+                                        <li class="tabPadding"><a href="#/SearchPO" data-toggle="tab">Search</a></li> 
+                                        <li class="tabPadding"><a href="#/MyPO" data-toggle="tab">Draft</a></li> 
+                                        <li class="tabPadding"><a href="#/POPending" data-toggle="tab">Pending For Approval</a></li> 
+                                        <!-- <li class="tabPadding"><a href="#/POUpcomming" data-toggle="tab">Up Coming</a></li>  -->
+                                        <li class="tabPadding"><a href="#/POApproved" data-toggle="tab">Approved</a></li> 
+                                        <!-- <li class="tabPadding"><a href="#/PORejected" data-toggle="tab">Rejected</a></li>
+                                        <li class="tabPadding"><a href="#/CreatePO" data-toggle="tab">Create PO</a></li>   -->
+                                    <div class="col-xs-3 pull-right" >
+                                        <div class="input-group" style="margin:5px;margin-right:-17px;">
+                                            <input type="text" class="form-control ng-pristine ng-valid ng-empty ng-touched" ng-model="serachList" placeholder="Search" ng-keydown="$event.keyCode === 13 && filterSearchList(serachList)">
+                                            <div class="input-group-btn">
+                                                <div class="btn-group" role="group">
+                                                    <button type="button" class="btn filtbtn" ng-click="filterSearchList(serachList);" style="background-color:#f68c02; color:#fff;"><span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                                    </button>
+                                                </div>
+                                            </div>  
+                                        </div>
+                                    </div>
+                                </ul>
+                            </div>
+                        <div style="width:99%; margin:0px;">
+                            <div class="salestracker_container ng-scope">
+                                <div class="saleorder_detailsbox">                                        
+                                    <div class="row">
+                                        <div class="gridStyle hgt" ng-grid="finalresultGrid" style="margin-top:0; min-height:444px"></div>
+                                        <div ng-if="TempCustList.length<='0' && count==0">
+                                            <div style="top: -294px;left: 45%; position: relative;">No PO(s) Found For Approval</div>
+                                        </div>
+                                        <div ng-if="TempCustList.length<='0' && count==1">
+                                            <div style="top: -294px;left: 45%; position: relative;">No Matching PO(s) Found For Approval</div>
+                                        </div>
+                                        <div class="pageNfoot">
+                                            <label ng-if="result.info.listcount>'0'">Now Showing: {{result.info.fromrecords}} - {{result.info.torecords}} Of {{result.info.totalrecords}}</label> &nbsp;&nbsp;
+                                            <label>Go To Page: </label>
+                                            <label>
+                                                <input type="text" size="2" value="1" ng-init="pagenumber=1;" class="form-control" ng-model="pagenumber" ng-change="pagenationss(pagenumber)" style="height:25px;display: inline;" />
+                                            </label> &nbsp;&nbsp;
+                                            <label>Show Rows: </label>
+                                            <label>
+                                                <select ng-model="pagepercount" name="pageprecounts" class="form-control" ng-change="pagenationss(1,pageprecounts)" style="height:25px;padding:0 12px;">
+                                                    <option value="" disabled="disabled">Select</option>
+                                                    <option value="10" ng-selected="true">10</option>
+                                                    <option value="20">20</option>
+                                                    <option value="50">50</option>
+                                                    <option value="100">100</option>
+                                                    <option value="200">200</option>
+                                                    <option value="400">400</option>
+                                                    <option value="500">500</option>
+                                                    <option value="700">700</option>
+                                                    <option value="1000">1000</option>
+                                                    <option value="9999999">All</option>
+                                                </select>
+                                            </label> &nbsp;&nbsp;
+                                            <label><a class="btn btn-default splbtn" ng-click="pagenationss_clk(pagenumber,0)"><i class="glyphicon glyphicon-triangle-left"></i></a> </label>
+                                            <label ng-if="result.info.listcount>'0'"><a class="btn btn-default splbtn1" ng-click="pagenationss_clk(pagenumber,1)"><i class="glyphicon glyphicon-triangle-right"></i></a> </label> &nbsp;&nbsp;
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>    
+                    </div>
+                 </section>
+            </div>
+        </div>
+    </div>
+    <div id="PendingForApprovalPagePopUp" class="modal fade pop-modal" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header padpop">
+                    <h5 class="modal-title pull-left mt7">Approve/Reject</h5>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="modal-body">
+                    <form name="appoff1" class="PendingForApprovalForm">
+                        <div class="row">
+                            <input type="hidden" name="UserId" ng-model="UserDetails.currentUser.UserId" value="{{UserDetails.currentUser.UserId}}" />
+                            <input type="hidden" name="PurchaseOrderNumber" ng-model="PurchaseOrderNumber" value="{{PurchaseOrderNumber}}" />
+                            <input type="hidden" name="POUniqueId" ng-model="POUniqueId" value="{{POUniqueId}}" />
+                        </div>
+                        <div class="row" style="margin: 8px"></div>
+                        <div class="form-group">
+                            <label>Remarks</label>
+                            <textarea ng-model="SubmitterComments" name="SubmitterComments" class="form-control ng-pristine ng-valid ng-empty ng-touched"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-warning" type="button" data-dismiss="modal">Cancel</button>
+                    <button class="btn btn-warning" type="button" ng-click="PendingForApprovalRejectBtn();">Reject</button>
+                    <button class="btn btn-primary" type="button" ng-click="PendingForApprovalApproveBtn();">Approve</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="genPOPDFPagePopUp" class="modal fade pop-modal" role="dialog">
+        <div class="modal-dialog modal-lg" style="width: 80%;">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header padpop">
+            <h5 class="modal-title pull-left mt7">{{titleStatus}} PDF</h5>
+            <div class="pull-right">
+                <button class="btn btn-warning btn-sm" type="button" data-dismiss="modal">Cancel</button>
+                <!-- <button class="btn btn-success btn-sm" type="button" ng-click="CreateNewBtn()">Generate</button> -->
+            </div>
+            <div class="clearfix"></div>
+            </div>
+            <div class="modal-body">
+            <div class="main-content">
+                <form class="NewTemplateCreateForm" name="NewTemplateCreateForm">
+                    <div class="col-lg-12 mb10 pr0 pl0">
+                        <div class="form-block">
+                            <object data="{{PDFUrl}}" style="width: 100%;min-height: 450px;"></object>
+                        </div>
+                    </div>           
+                </form>
+                <div class="clearfix"></div>
+            </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    
+    <div id="infoPagePopUp" class="modal fade pop-modal" role="dialog">
+            <div class="modal-dialog modal-lg" style="width: 50%;">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header padpop">
+                <h5 class="modal-title pull-left mt7">Approvers</h5>
+                <div class="pull-right">
+                    <button class="btn btn-warning btn-sm" type="button" data-dismiss="modal">Cancel</button>
+                </div>
+                <div class="clearfix"></div>
+                </div>
+                <div class="modal-body">
+                <div class="main-content">
+                        <div class="gridStyle hgt" ng-grid="infoGrid" style="margin-top:0; height:480px"></div>   
+                    <div class="clearfix"></div>
+                </div>
+                </div>
+            </div>
+            </div>
+        </div>
+</div>

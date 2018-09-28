@@ -1,0 +1,152 @@
+<style>.form-block .richTxt,.nicEdit-main{width:100%!important}.limitText,.templatelengthtext{overflow:hidden;text-overflow:ellipsis}.nicEdit-main{margin:0!important}.templatelengthtext{white-space:nowrap;width:25em;margin:0}.height200px{height:200px}.limitText{font-size:13px;width:20em;height:18px;-webkit-box-orient:vertical;position:absolute;padding:0 5px;font-weight:400}.modal-dialog{margin:70px auto}.well{margin-bottom:0}</style>
+<header ng-include="'views/header.html'"></header>
+<div ng-controller="UserRoleMappingCtrl">
+  <div class="wrapper" style="background-color:#fff;width: 100% !important;">
+    <div class="row selcproject" style="margin:0;">
+      <div class="col-md-6 col-md-offset-3" style="padding:0;">
+        <div class="portfolio-page">
+          <div class="wizard" style="margin:0 auto;">
+            <div class="head-panel-grey">
+              <div class="pull-left">
+                <h4>User Role Mapping</h4>
+              </div>
+              <div class="pull-right">
+                <a ng-if="CheckPrivilage('POUserRoleMapping','Save')" class="btn btn-sm btn-primary mt33" href="javascript:void(0)" data-toggle="modal" data-target="#addUserRole" ng-click="cleanInformation();" ><i class="fa fa-plus"></i> ADD NEW</a>
+              </div>
+              <div class="clearfix"></div>
+            </div>
+            <div class="table-content">
+              <div class="main-table filterable">
+                <div class="panel">
+                  <div class="panel-body" style="max-height: 700px;overflow: hidden;overflow-y: auto;">
+                    <table class="table table-bordered">
+                      <thead>
+                        <tr class="filters">
+                          <th class="text-center"><label>User Name</label></th>
+                          <th class="text-center"><label>Role Name</label></th>
+                          <th class="text-center" width="80"><label>Options</label></th>
+                        </tr>
+                        <tr class="filtersLight">
+                          <th><input type="text" class="form-control" ng-model="UserNameF" placeholder="Search"></th>
+                          <th><input type="text" class="form-control" ng-model="RoleNameF" placeholder="Search"></th>
+                          <th></th>
+                        </tr>
+                      </thead>
+                      <tbody ng-if="result.info.listcount<='0'">
+                        <tr>
+                          <td colspan="1000" style="text-align: center">No Records</td>
+                        </tr>
+                      </tbody>
+                      <tbody>
+                        <tr ng-repeat="(key,user) in result.result|filter:{UserName:UserNameF,RoleName:RoleNameF}" ng-if="(user.RoleName).indexOf('PO') > -1">
+                          <td>{{user.UserName}}</td>
+                          <td>{{user.RoleName}}</td>
+                          <td class="options" align="center"> <a  href="javascript:void(0)"  data-toggle="modal" data-target="#DeletePopUp" title="Delete" ng-click="ForDelete(user.RoleID,user.UserID)" ng-if="CheckPrivilage('POUserRoleMapping','Delete')" ><i class="fa fa-trash-o"></i></a></td>
+                        </tr>
+                      </tbody>
+                      <tfoot ng-if="false">
+                        <tr>
+                          <td colspan="15" class="footer" align="right" style="text-align: right;">
+                            <label ng-if="result.info.listcount>'0'">Now Showing: {{result.info.fromrecords}} - {{result.info.torecords}} of {{result.info.totalrecords}}</label>&nbsp;&nbsp;
+                            <label>Go To Page : &nbsp;
+                            <input type="text" size="2" value="1" class="form-control inline-in intvalid pageInput" ng-model="pagenumber" ng-change="pagenationss(pagenumber)" /> </label>&nbsp;&nbsp;
+                            <label> Show Rows : </label>
+                            <label>
+                              <select ng-model="pageprecounts" name="pageprecounts" class="pageCount inline-in" ng-change="pagenationss(1,pageprecounts)">
+                                <option value="" disabled="disabled">Select</option>
+                                <option value="10">10</option>
+                                <option value="20">20</option>
+                                <option value="50">50</option>
+                                <option value="100" ng-selected="true">100</option>
+                                <option value="200">200</option>
+                                <option value="400">400</option>
+                                <option value="500">500</option>
+                                <option value="700">700</option>
+                                <option value="1000">1000</option>
+                                <option value="9999999">All</option>
+                              </select>
+                            </label>
+                            &nbsp;&nbsp;
+                            <label><a class="btn btn-default btn-xs" ng-click="pagenationss_clk(pagenumber,0)" style="padding:1px 8px;"><i class="fa fa-caret-left"></i></a>
+                            </label>
+                            <label ng-if="result.info.listcount>'0'"><a class="btn btn-default btn-xs" ng-click="pagenationss_clk(pagenumber,1)" style="padding:1px 8px;"><i class="fa fa-caret-right"></i></a>
+                            </label>
+                          </td>
+                        </tr>
+                      </tfoot>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="addUserRole" class="modal fade pop-modal" role="dialog">
+    <div class="modal-dialog modal-md">
+      <div class="modal-content">
+        <div class="modal-header padpop">
+          <h5 class="modal-title pull-left mt7">Create User/Role Mapping</h5>
+          <div class="pull-right">
+            <button class="btn btn-warning btn-sm" type="button" data-dismiss="modal">Cancel</button>
+            <button class="btn btn-success btn-sm" type="button" ng-click="FromCreate()">Create</button>
+          </div>
+          <div class="clearfix"></div>
+        </div>
+        <div class="modal-body">
+          <div class="main-content">
+            <form name="addForm" class="addForm">
+              <input type="hidden" name="LastModifiedBy" ng-model="UserDetails.currentUser.UserId" value="{{UserDetails.currentUser.UserId}}" />
+              <input type="hidden" name="CreatedBy" ng-model="UserDetails.currentUser.UserId" value="{{UserDetails.currentUser.UserId}}" />
+              <input type="hidden" value="" name="LastModifiedDate">
+              <input type="hidden" value="0" name="RoleID" />
+              <div class="row">
+                <div class="col-sm-6 mb10">
+                  <div class="form-block">
+                    <label>User Name<span class="mandatory">*</span>
+                    </label>
+                    <select class="form-control" name="userID" ng-model="UserID" ng-change="GetUserRoles(UserID);">
+                      <option value="" selected="selected">Select User Name</option>
+                      <option ng-repeat="user in UserProfilesDb.result" value="{{user.UserId}}">{{user.UserName}}</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-sm-6 mb10">
+                  <div class="form-block">
+                    <label>Role Name<span class="mandatory">*</span>
+                    </label>
+                    <select class="form-control" name="RoleID" multiple="multiple">
+                      <option value="" selected="selected" disabled>Select Role Name</option>
+                      <option ng-repeat="role in resultNotAssigned.result" value="{{role.RoleId}}" ng-if="(role.RoleName).indexOf('PO') > -1" >{{role.RoleName}}</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="DeletePopUp" class="modal fade pop-modal" role="dialog">
+    <div class="modal-dialog modal-md">
+      <div class="modal-content">
+        <div class="modal-header padpop">
+          <h5 class="modal-title pull-left mt7">Are you sure you want to delete?</h5>
+          <div class="pull-right">
+            &nbsp;
+          </div>
+          <div class="clearfix"></div>
+        </div>
+        <div class="modal-body">
+          <div class="main-content text-right">
+            <button class="btn btn-warning btn-sm" data-dismiss="modal" type="button">No, Cancel</button>
+            <button class="btn btn-success btn-sm" ng-click="FromDeleteFinal(SelRoleId,SelUserId)" data-dismiss="modal" type="button">Yes, Delete</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

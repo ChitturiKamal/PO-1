@@ -1,0 +1,1814 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{4C1C8B61-6879-44DB-B02D-DD44A781B8C6}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PurchaseOrder</RootNamespace>
+    <AssemblyName>PurchaseOrder</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.AI.Agent.Intercept, Version=2.0.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.2.0.6\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.2.0\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.2.0\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.2.0\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.2.2.0\lib\net45\Microsoft.AI.Web.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.2.2.0\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.2.2.0\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Swashbuckle.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cd1bb07a5ac7c7bc, processorArchitecture=MSIL">
+      <HintPath>..\packages\Swashbuckle.Core.5.6.0\lib\net40\Swashbuckle.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebActivatorEx, Version=2.0.0.0, Culture=neutral, PublicKeyToken=7b26dc2a43f6a0d4, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebActivatorEx.2.0\lib\net40\WebActivatorEx.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin">
+      <HintPath>..\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security">
+      <HintPath>..\packages\Microsoft.Owin.Security.3.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Facebook">
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.3.0.1\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.3.0.1\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.0.1\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google">
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.3.0.1\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter">
+      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.3.0.1\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount">
+      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.3.0.1\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Owin.5.2.3\lib\net45\System.Web.Http.Owin.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="App_Start\SwaggerConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Areas\HelpPage\ApiDescriptionExtensions.cs" />
+    <Compile Include="Areas\HelpPage\App_Start\HelpPageConfig.cs" />
+    <Compile Include="Areas\HelpPage\Controllers\HelpController.cs" />
+    <Compile Include="Areas\HelpPage\HelpPageAreaRegistration.cs" />
+    <Compile Include="Areas\HelpPage\HelpPageConfigurationExtensions.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\CollectionModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ComplexTypeModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\DictionaryModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\EnumTypeModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\EnumValueDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\IModelDocumentationProvider.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\KeyValuePairModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelDescriptionGenerator.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelNameAttribute.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelNameHelper.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ParameterAnnotation.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ParameterDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\SimpleTypeModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\Models\HelpPageApiModel.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\HelpPageSampleGenerator.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\HelpPageSampleKey.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\ImageSample.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\InvalidSample.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\ObjectGenerator.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
+    <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="BAL\PurchaseApproversDTO.cs" />
+    <Compile Include="BAL\PurchaseOrders.cs" />
+    <Compile Include="BAL\RecordExceptions.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PurchaseOrderController.cs" />
+    <Compile Include="Controllers\ValuesController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AccountBindingModels.cs" />
+    <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\ActionsRole.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ADALAuthenticationTable.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ApplicationErrorLog.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CATEGORYMASTER.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CENTRALCOMMENT.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CITYMASTER.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CPRMASTER.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBaseLog.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EBUILDPRICEBOOK.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EBUILDPRICING.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EmployeeInfoLog.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\empnew.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\FailInfo.cs" />
+    <Compile Include="Models\FeedbackEntry.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\FeedbackQuestion.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\intlist_to_tbl_Result.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LeadTransaction.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LeadTransactionWithAttachment.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MyTeamReport.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\pdfDummy.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PlantStorageDetail.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PRICEPUSHDETAIL.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\productmaster.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\projectMaster.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\RATEMASTER.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\RATEMASTERPRICING.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\RATEMASTERUSERSESSION.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\RMPRICEDUMMY.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\R_TEContactOrganisationRepresentatives.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\R_TEEmailMessage_TEEdmTemplate.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\R_TERecipient_TEEmailSuppression.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\R_TERelationshipsOfContact.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SaleOfferSpecificationMigrationTable.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SA_Relationship.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ScheduleDetail.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SERVERDETAIL.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Service_Acceptance.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Service_Acceptance_Items.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SUBCATEGORYMASTER.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SuccessInfo.cs" />
+    <Compile Include="Models\sysdiagram.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEAboutu.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEAccountTransfer.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEAction.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEActivityTimelineInfo.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEAgreementTemplate.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEAnswer.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEApplicant.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEApprovalEntity.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEApprovalProcess.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEApprovalProcessing.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEApprovalTransaction.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEApproveBox.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEApproveGroup.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEApproveGroupUser.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEApproveLevel.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEApproveObject.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEApproveStage.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEAssestRequestation.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEAssestRequestationItem.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEAsset.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEAssetAllocation.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEAssetCategory.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEAssetClass.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEAssetLoss.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEAssetReturn.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEAssetScrapping.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEAssetSubCategory.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEAssetVariantMapping.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEAssetVariantType.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEAssetVariantValue.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TeAssignSalesConsultant.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEAttendanceEntry.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEAttendanceSourcePriorityRule.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEAttendenceDevicemaster.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEAttendenceLog.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEBandsAndGrade.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEBankDetail.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEBankDetails_HistoryAudit.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEBOQCategoryMaster.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEBOQItem.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEBOQMaster.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEBusinessPartner.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEBusinessPartnerAgreement.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEBusinessPartnerBrokerFee.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEBusinessPartnersRepresentative.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEBusinessSegmentMaster.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TECampaign.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TECampaignMaster.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TECampusCoordinatesMaster.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TECancellation.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TECancellationBreakup.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TECarPark.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TECarParkInventory.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TECarParksMaster.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TECarParksMaster_HistoryAudit.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TECarParkSummary.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TECategory.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TECategory_UOMMapping.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TECEMEDM.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TECEMEDM.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TECEMEDM.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TECEMEDM.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TECEMEDM1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEChangeLog.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEChangeOrder.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEClaimApprover.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEClaimBook.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEClaimBookLog.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEClaimBookLogs_Visibility.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEClaimBook_TEClaimItem.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEClaimCategory.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEClaimCategoryGLMapping.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEClaimFundCenter.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEClaimItem.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEClaimLimitUOM.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEClaimType.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEClearanceMaster.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TECollateral.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TECollection.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEComment.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TECompany.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TECompanyGSTNDetail.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEConstructionRateBook.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEConstructionRateBook_HistoryAudit.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEContact.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEContact1.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEContactAddress.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEContactAlumni.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEContactApprover.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEContactEducation.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEContactEmail.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEContactFamilyRelation.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEContactGPA.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEContactIdentification.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEContactImportReport.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEContactInterest.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEContactMobile.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEContactNote.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEContactOrderFund.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEContactOrganisation.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEContactProfession.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEContactRegisteredCorrespondanceAddress.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEContactSelfUpdationTracking.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEContactSocial.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEContOrgCategoryMaster.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TECustomerBOQ.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TECustomerBOQDetail.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TECustomerEmailTemplate.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TECustomisationDataToEBuild.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TECustomizationMileStone.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEDCBreakUp.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEDcoumentCatMaster.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEDefaultCarPark.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEDelayCompensation.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEDepartment.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEDiscountThresholdRule.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEDMSDocument.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEDmsUploadBatchUtilityDetail.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEDocument.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEDocumentSubTypeMaster.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEDocumentTypeMaster.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEDynamicGroupQuery.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEEDMTemplate.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEEmailEvent.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEEmailGunEventCallBackLog.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEEMailLink.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEEmailLog.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEEmailMessage.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEEmailStatu.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEEmailSuppression.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEEmailTemplate.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEEmailTemplate1.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEEmailTemplateAttach.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEEmailTemplateAttachment.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEEmailTriggerEvent.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEEmailTriggerEvents_History.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEEMPAddress.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEEmpAssignmentDetail.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEEmpAttendancePayrollProcessLog.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEEmpAttendence.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEEmpBankDetail.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEEmpBasicInfo.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEEmpBasicInfoPendingDetail.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEEmpBasicInfo_data.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEEmpBenefit.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEEmpClearanceDetail.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEEmpEducationDetail.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEEmpEmergencyContact.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEEmpExperienceDetail.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEEmpFamilyDetail.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEEmpFinalLeaveNAttendStatu.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEEmpInsuranceDetail.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEEmpLanguage.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEEmpLeaveApplication.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEEmpLeavesSummary.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEEmpMobileEligibility.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEEmpNotification.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEEmpOtherDetail.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEEmpReference.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEEmpSeparation.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEEmpSeparationLog.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEEmpSeparationQuestionBucket.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEEmpSeparationQuestionNResponse.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEEmpSpecialLeaveApplication.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEEmpWorkSchedule.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEESCALATION.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEESCALATIONMATRIX.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEEvaluation.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEEvaluationQuestionMaster.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEEventList.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEException.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEExchangeRate.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEFBVO_Vendor_Header_.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEFBVO_Vendor_Item.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEFBVO_Vendor_Tax.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEFBVO_Vendor_WTH.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEFinalSOA.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEFloorTypeMaster.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEGenaralNote.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEGlobalParameter.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEGlobalReassignment.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEGoodsReceipt.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEGoodsReceiptItem.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEGSTNStateMaster.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEHoliday.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEHoliday_TEWorkLocation_Mappings.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEImportantContact.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEIncentiveSlab.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEIncentiveSlabMaster.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEIncentivesMaster.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEInterestInvoice.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEInterestInvoiceBreakup.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEInvoice.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEInvoiceApprover.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEInVoiceBreakUp.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEInvoiceBusinessPlace.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEInvoiceCancellationAdvice.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEInvoiceCancellationAdviceBreakUp.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEInvoiceSectionCode.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEIssue.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEIssuesDisposition.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TELandParcelBreakupDetail.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TELandParcelDetail.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TELead.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TELeadActivityLog.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TELeadAllocationRatio.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TELeadInterestedProjectid.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TELeadSalesCoassignman.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TELeadStatusTrack.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TELeadTag.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TELeaveType.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TELineOfBusiness.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TELocation.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEMasterRule.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEMasterSmsTemplate.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEMasterSpecialCondition.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEMasterTermsCondition.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEMileStonesMaster.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEMileStonesMaster_HistoryAudit.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEMIR4_VendorTax.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEMIR4_Vendor_Header.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEMIR4_Vendor_Item_GL.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEMIR4_Vendor_Item_PO.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEMobileBillDetail.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEMobileBillSummary.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEMobileEligibility.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEModule.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEMultiplePremium.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TENote.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TENotification.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TENotificationsTemplate.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TENotification_History.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEOffer.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEOfferApplicant.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEOfferApprovalCheck.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEOfferApprovalsHistory.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEOfferApprover.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEOfferCarPark.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEOfferDocument.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEOfferEventsDate.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEOfferExpireExtension.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEOfferExtension.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEOfferMileStone.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEOfferPremium.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEOfferPriceBreakUpDetail.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEOfferScheme.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEOfferSpecial.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEOfferSpecialCondition.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEOfferSpecification.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEOfferSpecificationMaster.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEOfferSubMileStone.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEOfferTC.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEOfferTerm.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEOfferTermsMaster.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEOfferTETaxElementDetail.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEOfferThreshold.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEOrderPaymentSchedule.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEOrgRule.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEOtherDetail.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEParameter.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEPartnerMaster.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEPaymentAllocation.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEPayRollAbscondingReport.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEPayRollBankAcReport.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEPayRollFFReport.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEPayRollFinancialYear.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEPayRollInputFile.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEPayRollLeaveEncashmentReport.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEPayRollLeaveReport.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEPayRollLOPReport.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEPayRollNewJoineeReport.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEPayRollReportingPeriod.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEPayRollResignationReport.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEPayRollTransferReport.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEPDFTemplate.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEPersonalInformationData.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEPickList.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEPickListItem.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEPOApprovalCondition.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEPOMasterApprover.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEPreLeadData.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEPremiumMaster.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEPriceBook.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEPriceBookElement.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEPriceBookMaster.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEPriceBookMaster_HistoryAudit.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEPriceElementMaster.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEPrimarySource.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEProduct.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEProductSpecification.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEProductSpecMapping.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEProducts_HistoryAudit.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEProject.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEProjectCarPark.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEProjectDetail.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEProjectDetails_HistoryAudit.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEProjectPremium.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEProjectProductMapping.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEProjectRule.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEProjects_HistoryAudit.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEProjects_TOWER.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEProjects_UNIT.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEProjectUnitPremium.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEPurchaseOrderApprover.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEPurchase_Annexure_OtherCharges.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEPurchase_Assignment.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEPurchase_FundCenter.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEPurchase_header.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEPurchase_header_condition.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEPurchase_header_structure.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEPurchase_Itemwise.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEPurchase_Item_Structure.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEPurchase_OrderTypes.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEPurchase_ReleaseCode.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEPurchase_Service.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEPurchase_Service_Condition.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEPurchase_Terms.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEPurchase_Vendor.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEPurchase_WBSFundCentreMapping.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEPurchasingGroup.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEQuestion.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEQuestionsMaster.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEQueue.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEQueueDepartment.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEReimbursement.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TERelationshipCategory.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TERequestAssignment.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TERule.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TESACCodeMaster.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TESaleMasterTermsandCondition.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TESaleMasterTermsandConditions_HistoryAudit.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TESalesPlanandTarget.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TESalesUserMapping.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TESaleTermsANDCondition.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TESAPGlobalRule.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TESAPInvoice.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TESAPReceipt.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEScheduleMaster.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEScheduleMasterNew.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TESchemaMaster.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TESecondarySource.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEServiceEntry.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEServiceEntryItem.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TESGCampaign.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TESGOption.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TESGParticipant.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TESGQuestion.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TESGSurvey.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TESGSurveyContactResponse.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TESGSurveyResponse.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEShareDetail.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TESiteVisit.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TESmsDetail.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TESMSTemplate.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TESMSTriggerEvent.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TESpecificationCategory.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TESpecificationDetailed.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TESpecificationLibrary.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TESpecificationMaster.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TESpecificationMaster_HistoryAudit.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TESpecificatonSubCategory.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEStampDuty.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEStandardSchemeTermsAndCondition.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TESubFunction.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TESubProductDetail.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TESubProductDetails_HistoryAudit.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TESurvey.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TESurveyLeadership_Master.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TESurveyList.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TESurveyStatu.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TETag.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tetandccategorymaster.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TETargetAllocation.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TETask.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TETaskFeedBack.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TETaxBook.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TETaxCodeMaster.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TETaxDetail.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TETaxDetails_HistoryAudit.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TETaxElementDetail.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TETermsAndCondition.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TETimeLine.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TETowerMaster.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TETowerMaster_HistoryAudit.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TETransferOrder.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEUIAuditMaster.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEUIAuditTransaction.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEUnit.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEUnitPricingShareDetail.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEUnitQue.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEUnitShareDetial.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEUnit_Onboarding.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEUserModule.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEUserPrevilege.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEUserPrevilegeMapping.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEUserProfile.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEUserRoleThresholdMapping.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEUserRoleThresholdMaster.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEUserSalesEngineMapping.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TeUsersRole.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEUsersThreshold.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEVendorPaymentMilestone.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEVisitorDetail.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEVisitorPass.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEWebpagesMembership.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEWebpagesRole.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEWebpagesUsersInRole.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEWmCGuestVisitsHistory.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEWmCGuestVisitsSelectedItem.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEWorkingDesignation.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEWorkLocation.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TE_Document_Templates.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TE_Ref_Document_Type.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TE_Ref_Methods.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TE_Ref_Template_Type.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TE_Ref_Variables.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TE_Templates_Mapping.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TE_VendorInvoice_Header.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TE_VendorInvoice_Item.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TFUserSurvey.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TRANSITIONTOCEMMEASURE.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ufn_GetAttendanceReportByReprotingMgr_Result.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ufn_GetLeaveReportByReprotingMgr_Result.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ufn_Split_Result.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UserProfile.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UsersToken.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\VisitorFeedbackSummary.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\WBSMASTER.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\WebPageAudit.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\webpages_Membership.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\webpages_OAuthMembership.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\webpages_Roles.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\webpages_UsersInRoles.cs">
+      <DependentUpon>TECEMEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Providers\ApplicationOAuthProvider.cs" />
+    <Compile Include="Results\ChallengeResult.cs" />
+    <Compile Include="Startup.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\HelpPage\HelpPage.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Models\TECEMEDM.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>TECEMEDM.edmx</DependentUpon>
+      <LastGenOutput>TECEMEDM.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\TECEMEDM.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>TECEMEDM.edmx</DependentUpon>
+      <LastGenOutput>TECEMEDM1.cs</LastGenOutput>
+    </Content>
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Areas\HelpPage\Views\Web.config" />
+    <Content Include="Areas\HelpPage\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\ResourceModel.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\Index.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\TextSample.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\SimpleTypeModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\Samples.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\Parameters.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ModelDescriptionLink.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\KeyValuePairModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\InvalidSample.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ImageSample.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\HelpPageApiModel.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\EnumTypeModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\DictionaryModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ComplexTypeModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\CollectionModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <EntityDeploy Include="Models\TECEMEDM.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>TECEMEDM.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\TECEMEDM.edmx.diagram">
+      <DependentUpon>TECEMEDM.edmx</DependentUpon>
+    </Content>
+    <None Include="Properties\PublishProfiles\PurchaseOrder.pubxml" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Areas\HelpPage\Views\_ViewStart.cshtml" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="packages.config" />
+    <None Include="Project_Readme.html" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>50282</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:50282/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

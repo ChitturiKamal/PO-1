@@ -1,0 +1,138 @@
+@font-face {
+      font-family: 'Neue Haas Unica Pro Medium';
+      src: url('../font/NeueHaasUnicaPro-Medium.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+
+@page{size:A4;margin:0;}
+@media print {
+body {-webkit-print-color-adjust: exact;}
+.page {margin: 0;border: initial;border-radius: initial;width: initial;min-height: initial;box-shadow: initial;background: initial;}
+.subpage{padding:0;border: 1px solid rgba(202, 202, 202,0);height: 276mm;}
+.page {page-break-after: always;}
+}
+b,th{font-family: 'Neue Haas Unica Pro Light' !important;font-weight: bold;}
+b,th{font-family: 'Neue Haas Unica Pro Medium' !important;font-weight: normal;}
+.txtind10{text-indent: 10px;}
+table{width: 100%;}
+*{box-sizing: border-box;-moz-box-sizing: border-box;}
+.borderYes{border: 1px solid rgb(202, 202, 202);}
+.whiteTbl td, .whiteTbl th{border: 1px solid rgb(256,256,256) !important;}
+.text-right{text-align: right !important;}
+.text-left{text-align: left !important;}
+.text-center{text-align: center !important;}
+.text-justify{text-align: justify !important;}
+.pull-right{float: right;}
+.bCollapse{border-collapse:collapse;}
+.VTop{vertical-align: top !important;}
+.vMiddle{vertical-align: middle !important;}
+.btop{border-top: 1px solid rgb(202, 202, 202);}
+.fullpad5{padding: 5px !important;}
+.UltraGrey{background: #bfbfbf !important;;-webkit-print-color-adjust: exact !important;}
+.LightGrey{background: #7f7f7f !important;;-webkit-print-color-adjust: exact !important;}
+.DarkGrey{background: #5a5a5a !important;;-webkit-print-color-adjust: exact !important;}
+.tenumber{font-family: 'Neue Haas Unica Pro Light' !important;font-weight:normal !important; text-align:right !important;}
+.page, .pdftable{width: 21cm;padding: 0.5cm;margin: 0.5cm auto;border-radius:0px;background: white;}
+.subpage{padding:0;border: 1px solid rgba(202, 202, 202,0);min-height: 276mm;}
+.page1{width: 21cm;padding: 0.5cm;margin: 0.5cm auto;border-radius: 5px;background: white;}
+.subpage1{padding:0;border: 1px solid rgba(202, 202, 202,1);}
+.OfferFullSheet{width:96%;color:#262626;margin: 0 auto; padding:5px;border-collapse:collapse;}
+.OfferFullSheet td,.OfferFullSheet th{border: 1px solid rgb(202, 202, 202);}
+.namecus{font-size:9.2pt;margin: 0;padding: 2px;}
+
+.hei550{height:765px;max-height:765px;}
+.hei650{height:765px;max-height:765px;}
+.hei695{height:695px;max-height:695px;}
+.hei830{height: 830px;max-height:830px;}
+
+.minhei550{min-height:765px;margin-bottom: 10px !important;}
+.minhei650{min-height:765px;margin-bottom: 10px !important;}
+.minhei695{min-height:695px;margin-bottom: 10px !important;}
+.minhei830{min-height:830px;margin-bottom: 10px !important;}
+
+
+.w96p{width: 96.5%;margin: 0 auto; padding:5px;}
+.w33P{width: 33.2%;margin: 0 auto;}
+.OffDiv1{width: 10%;display: inline-block;text-align: center;border-right: 1px solid rgb(202, 202, 202);}
+.OffDiv2{width: 11%;display: inline-block;text-align: center;border-right: 1px solid rgb(202, 202, 202);}
+.OffDiv3{width: 12%;display: inline-block;text-align: center;border-right: 1px solid rgb(202, 202, 202);}
+.OffDiv4{width: 16%;display: inline-block;text-align: center;border-right: 1px solid rgb(202, 202, 202);}
+.OffDiv5{width: 12%;display: inline-block;text-align: center;border-right: 1px solid rgb(202, 202, 202);}
+.OffDiv6{width: 12%;display: inline-block;text-align: center;border-right: 1px solid rgb(202, 202, 202);}
+.OffDiv7{width: 13%;display: inline-block;text-align: center;border-right: 1px solid rgb(202, 202, 202);}
+.OffDiv8{width: 85px;display: inline-block;text-align: right;}
+
+.OffDiv21{width: 54%;display: inline-block;text-align: left;border-right: 1px solid rgb(202, 202, 202);}
+.OffDiv22{width: 20%;display: inline-block;text-align: center;}
+.OffDiv23{width: 15%;display: inline-block;text-align: left;}
+.OffDiv24{width: 10%;display: inline-block;text-align: center;}
+.OffDiv21 p,.OffDiv22 p,.OffDiv23 p,.OffDiv24 p{font-size: 9.2pt;margin: 0;padding: 3px;}
+
+.offinflabel{font-size:9.2pt;margin: 0;padding: 2px;border-bottom: 0px solid rgb(202, 202, 202);text-align: center;font-family: 'Neue Haas Unica Pro Light' !important; font-weight: bold;}
+.offinflabel{font-size:9.2pt;margin: 0;padding: 2px;border-bottom: 0px solid rgb(202, 202, 202);text-align: center;font-family: 'Neue Haas Unica Pro Medium' !important; font-weight:normal;}
+
+.offinflabel1{font-size:9.2pt;margin: 0;padding:0 2px;font-family: 'Neue Haas Unica Pro Light' !important; font-weight: bold;}
+.offinflabel1{font-size:9.2pt;margin: 0;padding:0 2px;font-family: 'Neue Haas Unica Pro Medium' !important; font-weight:normal;}
+
+
+.offinftext{font-size:10pt;margin: 0;padding:0 2px;text-align: left;}
+.w10p{width: 10%;}
+.w20p{width: 20%;}
+.w50p{width: 50%;}
+
+.w17{width: 17%;}
+.w15{width: 15%;}
+.w20{width: 20px;}
+.w60{width: 60px;}
+.w70{width: 70px;}
+
+.w80{width: 85px;}
+.w81{width: 80px;}
+.w90{width: 87px;}
+.w100{width: 94px;}
+.w120{width: 85px;}
+.w125{width: 125px;}
+.h30{height: 30px;}
+.h3{height: 3px;}
+.p0{padding: 0 !important;}
+.b2black{border: 0px solid #000 !important;}
+.m20{margin: 10px 0 !important;}
+.mt2px{margin-top: 2px !important;}
+.mt20px{margin-top: 20px !important;}
+.mb10px{margin-bottom: 10px !important;}
+.borderNone{border: none !important;}
+.specMainTab{font-size:10pt;text-indent: 5px;}
+.SpecLabel{font-size: 9.2pt;text-align: right;font-family: 'Neue Haas Unica Pro light' !important;margin: 0;padding:0 5px; font-weight:bold;}
+.SpecLabel{font-size: 9.2pt;text-align: right;font-family: 'Neue Haas Unica Pro Medium' !important;margin: 0;padding:0 5px; font-weight:normal;}
+
+.Spectext{font-size: 9.2pt;text-align: left;margin: 0;padding: 0 5px;}
+.Sheethead{padding:4px 0;color: #fff !important;font-size: 9.2pt;text-align: center;font-family: 'Neue Haas Unica Pro Light' !important;-webkit-print-color-adjust: exact; font-weight: bold;}
+.Sheethead{padding:4px 0;color: #fff !important;font-size: 9.2pt;text-align: center;font-family: 'Neue Haas Unica Pro Medium' !important;-webkit-print-color-adjust: exact;font-weight: normal; }
+
+.ProjectName{width:100%;color:#262626;margin: 0 auto; padding:0;border-collapse:collapse;}
+.ProjectName td,.ProjectName th{border: 1px solid rgb(202, 202, 202);}
+.ProjectLabel{padding:0;color: #fff !important;font-size:11pt;text-align: center; font-weight:bold; font-family: 'Neue Haas Unica Pro Light' !important;-webkit-print-color-adjust: exact;text-transform: uppercase;font-weight: bold;}
+.ProjectLabel{padding:0;color: #fff !important;font-size:11pt;text-align: center; font-weight:normal; font-family: 'Neue Haas Unica Pro Medium' !important;-webkit-print-color-adjust: exact;text-transform: uppercase;}
+
+.subsequentHeader td{
+  font-size: 10pt;
+}
+.PriceTermsAndConditions td,.PriceTermsAndConditions th{border: none;}
+.PriceTermsAndConditions .Sheethead{padding: 2px 0;margin: 4px;}
+.rotate{
+-webkit-transform: rotate(-90deg);
+-moz-transform: rotate(-90deg);
+-ms-transform: rotate(-90deg);
+-o-transform: rotate(-90deg);
+filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+}
+.specHe{background:#5a5a5a !important;color: #ffffff;text-transform: uppercase;font-size: 17px; font-weight: 400;}
+.specOptionLabel{width: 30px;max-width: 30px;vertical-align: bottom;}
+.specOptionLabel p{color: #ffffff;text-transform: uppercase;line-height: 30px;font-size: 8pt;letter-spacing: 1px;margin: 0 0 3px;}
+.SelDOt{margin: 0 auto; display: block; width: 10px;height: 25px;font-size: 12px;}
+.greyBG{background: #cacaca;}
+.lessFont{font-size: 8pt !important;}
+.whiteText{color: #FFFFFF !important;}
+.LightGreyText{color: #7f7f7f !important;}
+.Speclegend{float: right;margin-right: 14px;}

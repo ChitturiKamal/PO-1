@@ -1,0 +1,75 @@
+﻿<html>
+  <head>
+  <link rel="stylesheet" href="lead/css/bootstrap.min.css">
+  <style>
+    html, *{overflow: hidden;}
+    .noAuth, .yesAuth{display:none;}
+    .mb0{margin-bottom: 0;}
+    .border-danger{border:2px sold red !important;}
+  </style>
+  </head>
+<body style="background: #333;">
+<div class="fluid-controller">
+  <div class="row">
+    <div class="col-sm-6 col-sm-offset-3" style="margin-top: 10%;">
+      <div class="onAuth"></div>
+      <div class="yesAuth"></div>
+      <div class="alert alert-danger text-center noAuth" role="alert"><h4>You are not Having Privilege to access this Application</h4><button class="btn btn-primary btn-sm" onclick="authContext.logOut();">Logout</button></div>
+    </div>
+  </div>
+</div> 
+
+</div>
+<script src="PO/scripts/jquery.min.js"></script>
+<script src="https://secure.aadcdn.microsoftonline-p.com/lib/1.0.11/js/adal.min.js"></script>
+<script>
+  var authContext = new AuthenticationContext({clientId: '7b32c697-48e5-4046-a507-25acb1eb8f2a',postLogoutRedirectUri: 'https://fugue-server.total-environment.com/TEPOProcurement'});
+  if (authContext.isCallback(window.location.hash)) {
+    authContext.handleWindowCallback();
+    var err = authContext.getLoginError();
+    if(err){}
+  }else{
+    credentials = authContext.getCachedUser();
+    if(credentials){
+      login(credentials);
+      authContext.acquireToken('https://graph.microsoft.com',function(error,token){
+        if(error || !token){console.log(token);return;}
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', 'https://graph.microsoft.com/v1.0/me', true);
+        xhr.open('GET', '', true);
+        xhr.setRequestHeader('Authorization', 'Bearer ' + token);
+        xhr.onreadystatechange=function(){
+          if(xhr.readyState === 4 && xhr.status === 200){console.log(xhr.responseText);}
+          else{}
+        };
+        xhr.send();
+      });
+    }else{authContext.login();}
+    //authContext.login();
+  }  
+  function login(e){
+    $.ajax({
+      url: 'https://fugue-server.total-environment.com/portfolio/api/TEUserProfileAPI/AuthUserEmail',
+      type: "POST",
+      data:{"UserName":e.userName,"Password":'1234'},
+      cache: false,
+      async: false,
+      error: function() {$('.onAuth').fadeOut();$('.yesAuth').fadeOut();$('.noAuth').fadeIn();},
+      success: function(response) {
+        if(response.info.errorcode =='0'){
+            $('.onAuth').fadeOut();$('.noAuth').fadeOut();$('.yesAuth').fadeIn();
+            var roles = [];
+            for(var i=0;i<response.result.length;i++){roles.push(response.result[i].RoleName);}
+            var currentUser={};
+            localStorage.setItem('ngStorage-globals',JSON.stringify({currentUser:{loginID:response.Token.UserID,CallName:response.result[0].CallName,UserId:response.Token.UserID,UserEmailID:response.result[0].Email,AuthToken:response.Token.Token,RoleNames:roles,}}));
+            localStorage.setItem('ngStorage-privilages',JSON.stringify(response.privilages));
+            setTimeout(function(){window.location="https://fugue-server.total-environment.com/TEPOProcurement/PO";},300);
+        }else{$('.onAuth').fadeOut();$('.yesAuth').fadeOut();$('.noAuth').fadeIn();}
+      }
+    });
+  }
+</script>
+
+</body>
+
+</html>

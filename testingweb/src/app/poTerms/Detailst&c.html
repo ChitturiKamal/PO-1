@@ -1,0 +1,59 @@
+<div class="padding15" >
+
+<style>
+
+.ta-editor {
+  min-height: 300px;
+  height: auto;
+  overflow: auto;
+  font-family: inherit;
+  font-size: 100%;
+}
+
+</style>
+<script>
+	$(document).ready(function () {
+	$("#txtEditor").Editor();
+	});		    
+</script>
+<link href="editor.css" type="text/css" rel="stylesheet"/>
+<script src="editor.js"></script>
+
+<div data-ng-repeat="dataterms in getmaster">       
+   <div class="row">
+        <div class="col-md-12">
+            <div class="pull-right btn-big" data-ng-click="vm.showPreview()">Preview</div>
+			<div class="pull-right btn-big" ui-sref = "main.poTerms.CreateTerms">Create</div>
+			<div class="pull-right btn-big" ui-sref = "main.poTerms.editTerms">Edit</div>
+        </div>
+   </div>
+    <br /><br><br>
+    <div class="row">
+        <div class="col-md-2">
+            <div class="form-group text-right">
+                <label for=""><b>SequenceID:</b></label> <label data-ng-bind="dataterms.SequenceId">Total Environment</label>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group text-right">
+                <label for="">Title:</label> <label data-ng-bind="dataterms.Title">Total Environment</label>
+            </div>
+        </div>
+		<div class="col-md-4">
+            <div class="form-group text-right">
+                <label for="">Type:</label> <label data-ng-bind="dataterms.Type">Total Environment</label>
+            </div>
+        </div>
+    </div>
+
+	<div class="row">																
+		<div class="col-lg-12">
+			<div class="form-group text-left">
+			  <textarea id="txtEditor" data-ng-bind="dataterms.Condition">Total Environment</textarea> 
+			 </div>		
+		</div>																
+	</div>
+	
+	
+</div>	
+</div>

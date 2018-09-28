@@ -1,0 +1,85 @@
+<div class="container-fluid">
+    <div class="main-body-space"> 
+            <div class="head-panel-grey">
+                <h4>WBS & Fund Center 
+                    <div class="pull-right">
+                            <button class="btn btn-primary btn-sm" type="button" ng-click="vm.FromSave()">Save</button>
+                    </div>
+                </h4>
+            </div>
+        </div>
+<div id="purchaseDetails">
+<form name="addForm" class="addForm ng-pristine ng-valid" enctype="multipart/form-data" method="post">
+    <input type="hidden" name="WBSCODE" ng-model="vm.WBSCODE" />
+    <input type="hidden" name="FundCentreCode" ng-model="vm.FundCentreCode" />
+    <input type="hidden" name="LastModifiedBy" value="0" />
+    <div class="row" style="margin-top: -30px;margin-left: 19px;">
+        <div class="col-xs-12">
+            <div style="background-color:#fff">
+                <div class="row" style="background-color:#fff; padding:10px;margin: 20px 0%;">
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                        <div class="form-group">
+                            <label>Category</label>
+                            <select class="form-control" ng-model="CATEGORYID" name="CATEGORY" ng-change="vm.getSubCategoryCall(CATEGORYID)" >
+                                <option value="">Select Category</option>
+                                <option ng-repeat="data in vm.Categories" value="{{data.CATEGORYID}}">{{data.NAME}}</option>
+                            </select>
+                            
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                        <div class="form-group">
+                            <label>Sub Category</label>
+                            <select class="form-control" name="SUBCATEGORY" ng-model="SUBCATEGORYID" ng-change="vm.getWBSCodeCall(CATEGORYID,SUBCATEGORYID)">
+                                <option value="">Select Sub Category</option>
+                                <option ng-repeat="data in vm.getSubCategory" value="{{data.SUBCATEGORYID}}">{{data.NAME}}</option>
+                            </select>
+                            <!-- <select class="form-control" ng-model="SUBCATEGORYID" name="SUBCATEGORY" ng-change="vm.getWBSCodeCall(CATEGORYID,SUBCATEGORYID)" >
+                                <option value="">Select Category</option>
+                                <option ng-repeat="data in vm.getSubCategory" value="{{data.CATEGORYID}}">{{data.NAME}}</option>
+                            </select> -->
+                        </div>
+                    </div> 
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                        <div class="form-group">
+                            <label>WBS Code</label>
+                            <select class="form-control" name="WBSID" ng-model="WBSID" ng-change="vm.getWBSID(WBSID)">
+                                <option value="">Select WBS Code</option>
+                                <option ng-repeat="data in vm.getWBSCode" value="{{data.WBSID}}">{{data.WBSCODE}}</option>
+                            </select>
+                        </div>
+                    </div> 
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">WBS Name</label>
+                            <input type="email" class="form-control" name="WBSName" ng-model="vm.NAME" placeholder="Enter WBS Name">
+                        </div>
+                    </div> 
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Select Fund Center Code</label>
+                            <select class="form-control" name="FundCentreID" ng-model="Uniqueid" ng-change="vm.getFCCode(Uniqueid)">
+                                <option value="">Select Fund Center</option>
+                                <option ng-repeat="data in vm.getFundCenterCode" value="{{data.Uniqueid}}">{{data.FundCenter_Code}}</option>
+                            </select>
+                        </div>
+                    </div> 
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Fund Center Description</label>
+                            <input type="email" class="form-control" name="FundCenterDescription" ng-model="vm.FundCenterDescription"  placeholder="Enter Fund Center Description">
+                        </div>
+                    </div> 
+            <!-- <div class="row">
+                    <div class="col-md-6 col-md-offset-3" style="text-align:right; margin-top:20px;"><button type="button" class="btn btn-md btn-primary btn-block">Next</button></div>                                           
+                </div>   -->
+
+            </div>
+
+        </div>
+    </div>
+</div>
+</form>
+    </div>
+</div>
+</div>

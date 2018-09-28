@@ -1,0 +1,119 @@
+/* print style */
+@media print {
+/* #header, #footer, #nav { display: none !important; }  */
+#printablediv {margin: 0 0 auto 0; }
+.notdisplay{display:block !important;}
+ .no-print, .no-print *
+    {
+        display: none !important;
+    } 
+	.inline-edit{background-color:#fff !important; }
+.pdftable table{
+	width:100%;
+	position:relative;
+	margin:0 auto;
+	background:none;
+	border-collapse:collapse;
+}
+
+	
+.watermark{  position:absolute !important;
+    display:block;
+    min-height: 50%;
+    min-width: 100%;
+    color:#1c1c1c !important;
+    top: 120px !important;
+	-webkit-print-color-adjust: exact; 
+	z-index:10 !important; opacity:0.3 !important;}
+	.pdftable {z-index:0;}
+.pdf-format td.heading{
+	background-color:#808080; color:#fff; font-size:14px; text-align:center; font-weight:bold;
+	padding:2px 0;
+}
+/* .pagebreak {
+    display: block;
+    page-break-after: always;
+  } */
+ .tableslist .tables tfoot{visibility:visible !important;} 
+ /* .tableslist .tables tfoot { page-break-after: always; display: table-footer-group;
+                 position: fixed;        
+                 bottom: 0px;
+left:0;				 } */
+.dotline{
+	display:block;
+	width:100%; border-bottom:1px solid #e1e1e1;margin:10px 0;
+}
+.pdftable .pdfbordertable{
+	display:table;
+	border:1px solid #c0c0c0;
+}
+ .pdfbordertable td{
+	display:table-cell;	border:1px solid #c0c0c0;font-size:9pt;
+}
+.txtalgncenter{
+	text-align:center;
+}
+.txtalgnright{
+	text-align:right;
+}
+
+.boldborder{border:1px solid #000 !important; color:#000 !important;}
+.color_f79646{
+	background-color:#f79646 !important;
+	color:#fff;
+}
+.pdftitle{ color:#fff; font-size:10pt; text-align:center; font-weight:bold;}
+.bgcolor_808080{
+	background-color:#808080 !important;
+	-webkit-print-color-adjust: exact;
+}
+.color_f79646{
+	background-color:#f79646 !important;
+	color:#fff !important;
+	-webkit-print-color-adjust: exact; 
+}
+.color_76913a{
+	background-color:#76913a !important;
+	color:#fff !important;
+	-webkit-print-color-adjust: exact; 
+}
+.color_224162{
+	background-color:#224162 !important;
+	color:#fff !important;
+	-webkit-print-color-adjust: exact; 
+}
+.color_60477a{
+	background-color:#60477a !important;
+	color:#fff !important;
+	-webkit-print-color-adjust: exact; 
+}
+
+.bgcolor_fdeada{background-color:#fdeada !important; -webkit-print-color-adjust: exact;}
+.pdftitle{ -webkit-print-color-adjust: exact;  color:#fff !important; font-size:9pt; text-align:center; font-weight:bold;}
+.bgcolor_98c93c{
+	background-color:#98c93c !important;  -webkit-print-color-adjust: exact;  color:#fff !important;
+}
+.bgcolor_76913a{background-color:#76913a !important; -webkit-print-color-adjust: exact; color:#fff !important;} /* background green*/
+.bgcolor_f79647{background-color:#f79647 !important; -webkit-print-color-adjust: exact; color:#fff !important;} /* background orange */
+.bgcolor_224162{background-color:#224162 !important; -webkit-print-color-adjust: exact; color:#fff !important;} /* background blue */
+.bgcolor_60477a{background-color:#60477a !important; -webkit-print-color-adjust: exact; color:#fff !important;} /* background purple*/
+.bgcolor_fdeada{background-color:#fdeada !important; -webkit-print-color-adjust: exact; color:#fff !important;}
+.bgcolor_98c93c{background-color:#98c93c !important; -webkit-print-color-adjust: exact; color:#fff !important;}
+.pdftitle{background-color:#808080 !important;  -webkit-print-color-adjust: exact;  color:#fff !important; font-size:9pt; text-align:center; font-weight:bold;}
+
+.tableboxleft, .tableboxright{width:500px !important;}
+.separatedline{border:1px solid #000 !important; width:100% !important;}
+.specific_color_one span{color:#fff !important;-webkit-print-color-adjust: exact;	 }
+.separatedline{border:1px solid #000; -webkit-print-color-adjust: exact;}
+.removecarpark{display:none;}
+span.caret{display:none;}
+.hiddendate{visibility:hidden;}
+ul.dropdown-menu{display:none !important;}
+}
+
+
+@page {
+    @bottom-left {
+        content: counter(page);
+     }
+ }

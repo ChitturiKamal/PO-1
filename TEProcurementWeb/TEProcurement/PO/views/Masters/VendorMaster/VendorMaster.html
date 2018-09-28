@@ -1,0 +1,1474 @@
+<style>.form-block .richTxt,.nicEdit-main{width:100%!important}.limitText,.templatelengthtext{overflow:hidden;text-overflow:ellipsis}.nicEdit-main{margin:0!important}.templatelengthtext{white-space:nowrap;width:25em;margin:0}.height200px{height:200px}.p5{padding:5px}.limitText{font-size:13px;width:20em;height:18px;-webkit-box-orient:vertical;position:absolute;padding:0 5px;font-weight:400}.modal-dialog{margin:70px auto}.well{margin-bottom:0}.cds-panel{background:#92af3d;font-size:12pt;width:100%;color:#fff;margin-bottom:3px;padding:5px 0 5px 10px;margin-left:-1px}.cdsflow{position:fixed;top:30%;background:#92af3d;padding:0;right:0;width:50px;height:50px;opacity:.9;z-index:100;border-radius:25px}.cds-button{background-color:#ff4500;color:#fff;margin-bottom:12px}.headd{background-color:#92af3d;color:#fff;font-weight:700;padding:5px;cursor:pointer;margin-left:-2px}.panel{margin-bottom:5px;background-color:#fff;border:1px solid transparent;border-radius:4px!important}.panel-primary{border-color:#337ab7}.SecHead1{background: #ddd;margin: 0 !important;padding: 5px 10px;font-size: 16px;}</style>
+<header ng-include="'views/header.html'"></header>
+<div ng-controller="VendorMasterCtrl">
+    <div ng-include="'views/Delete.html'"></div>
+    <div class="wrapper" style="background-color:#fff;position: absolute;width: 100% !important;">
+        <div class="row selcproject" style="margin:0;">
+            <div class="col-md-12" style="padding:0;">
+                <div class="portfolio-page">
+                    <div class="wizard" style="margin:0 auto;">
+                        <div class="head-panel-grey">
+                            <div class="pull-left">
+                                <h4>Vendor Master</h4>
+                            </div>
+                            <div class="pull-right"><a class="btn btn-sm btn-primary mt33" ng-if="CheckPrivilage('POVendorMasters','Save')" href="javascript:void(0)" data-toggle="modal" data-target="#addvendorMaster" ng-click="OnCreation();"><i class="fa fa-plus"></i> ADD NEW</a></div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="table-content">
+                            <div class="main-table filterable">
+                                <div class="panel">
+                                    <div class="panel-body">
+                                        <div class="col-sm-12">
+                                            <table class="table table-bordered">
+                                                <thead>
+                                                    <tr class="filters">
+                                                        <th>#</th>
+                                                        <th width="100"><label>Vendor Code</label></th>
+                                                        <th><label>Vendor</label></th>
+                                                        <th width="100"><label>Service Tax</label></th>
+                                                        <th width="65"><label>Currency</label></th>
+                                                        <th width="120"><label>Pan Number</label></th>
+                                                        <th width="130"><label>Region</label></th>
+                                                        <th width="130"><label>GSTIN</label></th>
+                                                        <th width="80"><label>Active</label></th>
+                                                        <th width="60"><label>Options</label></th>
+                                                    </tr>
+                                                    <tr class="filtersLight">
+                                                        <th></th>
+                                                        <th class="text-center"><input class="form-control" type="text" placeholder="Search" ng-model="code"></th>
+                                                        <th class="text-center"><input class="form-control" type="text" placeholder="Search" ng-model="owner"></th>
+                                                        <th class="text-center"><input class="form-control" type="text" placeholder="Search" ng-model="stax"></th>
+                                                        <th class="text-center"><input class="form-control" type="text" placeholder="Search" ng-model="currency"></th>
+                                                        <th class="text-center"><input class="form-control" type="text" placeholder="Search" ng-model="pan"></th>
+                                                        <th class="text-center"><input class="form-control" type="text" placeholder="Search" ng-model="RGn"></th>
+                                                        <th class="text-center"><input class="form-control" type="text" placeholder="Search" ng-model="gtinn"></th>
+                                                        <th></th>
+                                                        <th></th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody ng-if="result.info.listcount<='0'">
+                                                    <tr>
+                                                        <td colspan="100" style="text-align: center">No Records</td>
+                                                    </tr>
+                                                </tbody>
+                                                <tbody>
+                                                    <tr ng-repeat="(key,vendor) in result.result|filter:{VendorCode:code,VendorName:owner,ServiceTax:stax,Currency:currency,PAN:pan,StateName:RGn,GSTIN:gtinn}">
+                                                        <td>{{key+1}}</td>
+                                                        <td class="text-left">{{vendor.VendorCode}}</td>
+                                                        <td class="text-left"><a ng-click="getVendorDetailsById(vendor.POVendorMasterId,1)" title="View" class="anchorText">{{vendor.VendorName}}</a></td>
+                                                        <td class="text-left">{{vendor.ServiceTax}}</td>
+                                                        <td class="text-left">{{vendor.Currency}}</td>
+                                                        <td class="text-left">{{vendor.PAN}}</td>
+                                                        <td class="text-left">{{vendor.StateCode}}-{{vendor.StateName}}</td>
+                                                        <td class="text-left">{{vendor.GSTIN}}</td>
+                                                        <td class="text-left">{{vendor.IsActive?'Active':'InActive'}}</td>
+                                                        <td class="text-center">
+                                                            <a ng-click="getVendorDetailsById(vendor.POVendorMasterId,2)" title="Update"><i class="fa fa-pencil-square-o"></i></a>
+                                                            <a ng-click="ForDeleteVendor(vendor)" data-toggle="modal" data-target="#DeleteVendorPopUp" title="Delete"><i class="fa fa-trash-o"></i></a>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                                <tfoot class="footer">
+                                                    <tr>
+                                                        <td colspan="16" align="right" style="text-align: right;">
+                                                            <label ng-if="result.info.listcount>'0'">Now Showing: {{result.info.fromrecords}} - {{result.info.torecords}} of {{result.info.totalrecords}}</label>                                                        &nbsp;&nbsp;
+                                                            <label>Go To Page : &nbsp;
+                                                            <input type="text" size="2" value="1" class="form-control inline-in intvalid pageInput" ng-model="pagenumber" ng-change="pagenationss(pagenumber)" /> </label>                                                        &nbsp;&nbsp;
+                                                            <label> Show Rows : </label>
+                                                            <label>
+                                                                <select ng-model="pageprecounts" name="pageprecounts" class="pageCount inline-in" ng-change="pagenationss(pagenumber,pageprecounts)">
+                                                                    <option value="" disabled="disabled">Select</option>
+                                                                    <option value="10">10</option>
+                                                                    <option value="20" ng-selected="true">20</option>
+                                                                    <option value="50">50</option>
+                                                                    <option value="100">100</option>
+                                                                    <option value="200">200</option>
+                                                                    <option value="400">400</option>
+                                                                    <option value="500">500</option>
+                                                                    <option value="700">700</option>
+                                                                    <option value="1000">1000</option>
+                                                                    <option value="9999999">All</option>
+                                                                </select>
+                                                            </label>
+                                                            &nbsp;&nbsp;
+                                                            <label><a class="btn btn-default btn-xs" ng-click="pagenationss_clk(pagenumber,0)" style="padding:1px 8px;"><i class="fa fa-caret-left"></i></a> </label>
+                                                            <label ng-if="result.info.listcount>'0'"><a class="btn btn-default btn-xs" ng-click="pagenationss_clk(pagenumber,1)" style="padding:1px 8px;" ng-if="result.info.listcount!=0"><i class="fa fa-caret-right"></i></a> </label>
+                                                        </td>
+                                                    </tr>
+                                                </tfoot>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="addvendorMaster" class="modal fade pop-modal" role="dialog">
+        <div class="modal-dialog modal-lg" style="width:95%">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header padpop">
+                    <h5 class="modal-title pull-left mt7">Create Vendor</h5>
+                    <div class="pull-right">
+                        <button class="btn btn-warning btn-sm" type="button" data-dismiss="modal">Cancel</button>
+                        <button class="btn btn-success btn-sm" type="button" ng-click="saveVendordetails()">Create</button>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="modal-body">
+                    <div class="main-content">
+                        <form name="addForm" class="addForm">
+                            <input type="hidden" value="0" name="VendorCode" />
+                            <input type="hidden" value="0" name="BillingAddress" />
+                            <input type="hidden" value="0" name="BillingCity" />
+                            <input type="hidden" value="0" name="BillingPostalCode" />
+                            <input type="hidden" value="0" name="ShippingAddress" />
+                            <input type="hidden" value="0" name="ShippingCity" />
+                            <input type="hidden" value="0" name="ShippingPostalCode" />
+                            <input type="hidden" value="0" name="RegionId" />
+                            <input type="hidden" value="0" name="Region" />
+                            <input type="hidden" value="0" name="CountryId" />
+                            <input type="hidden" value="0" name="Country" />
+                            <input type="hidden" value="0" name="GSTApplicabilityId" />
+                            <input type="hidden" value="0" name="GSTApplicability" />
+                            <input type="hidden" value="0" name="GSTIN" />
+                            <input type="hidden" value="0" name="VendorAccountGroupId" />
+                            <input type="hidden" value="0" name="VendorAccountGroup" />
+                            <input type="hidden" value="0" name="VendorCategoryId" />
+                            <input type="hidden" value="0" name="VendorCategory" />
+                            <input type="hidden" value="0" name="SchemaGroupId" />
+                            <input type="hidden" value="0" name="SchemaGroup" />
+                            <input type="hidden" value="0" name="GLAccountId" />
+                            <input type="hidden" value="0" name="GLAccount" />
+                            <input type="hidden" value="0" name="BankAccountName" />
+                            <input type="hidden" value="0" name="BankAccountNumber" />
+                            <input type="hidden" value="0" name="BankName" />
+                            <input type="hidden" value="0" name="IFSCCode" />
+                            <input type="hidden" value="0" name="RepresentName" />
+                            <input type="hidden" value="0" name="Designation" />
+                            <input type="hidden" value="0" name="RepresentContactNumber" />
+                            <input type="hidden" value="0" name="RepresentEmailID" />
+                            <input type="hidden" value="0" name="CancelledChequeRef" />
+                            <input type="hidden" value="0" name="RepresentContactId" />
+                            <input type="hidden" value="0" name="GSTNRegnCertificateRef" />
+                            <input type="hidden" value="0" name="IncorporationCertificateRef" />
+
+                            <input type="hidden" value="0" name="VendorCode" />
+                            <input type="hidden" value="0" name="BillingAddress" />
+                            <input type="hidden" value="0" name="BillingCity" />
+                            <input type="hidden" value="0" name="BillingPostalCode" />
+                            <input type="hidden" value="0" name="ShippingAddress" />
+                            <input type="hidden" value="0" name="ShippingCity" />
+                            <input type="hidden" value="0" name="ShippingPostalCode" />
+                            <input type="hidden" value="0" name="RegionId" />
+                            <input type="hidden" value="0" name="Region" />
+                            <input type="hidden" value="0" name="CountryId" />
+                            <input type="hidden" value="0" name="Country" />
+                            <input type="hidden" value="0" name="GSTApplicabilityId" />
+                            <input type="hidden" value="0" name="GSTApplicability" />
+                            <input type="hidden" value="0" name="GSTIN" />
+                            <input type="hidden" value="0" name="VendorAccountGroupId" />
+                            <input type="hidden" value="0" name="VendorAccountGroup" />
+                            <input type="hidden" value="0" name="VendorCategoryId" />
+                            <input type="hidden" value="0" name="VendorCategory" />
+                            <input type="hidden" value="0" name="SchemaGroupId" />
+                            <input type="hidden" value="0" name="SchemaGroup" />
+                            <input type="hidden" value="0" name="GLAccountId" />
+                            <input type="hidden" value="0" name="GLAccount" />
+                            <input type="hidden" value="0" name="BankAccountName" />
+                            <input type="hidden" value="0" name="BankAccountNumber" />
+                            <input type="hidden" value="0" name="BankName" />
+                            <input type="hidden" value="0" name="IFSCCode" />
+                            <input type="hidden" value="0" name="RepresentName" />
+                            <input type="hidden" value="0" name="Designation" />
+                            <input type="hidden" value="0" name="RepresentContactNumber" />
+                            <input type="hidden" value="0" name="RepresentEmailID" />
+                            <input type="hidden" value="0" name="CancelledChequeRef" />
+                            <input type="hidden" value="0" name="RepresentContactId" />
+                            <input type="hidden" value="0" name="GSTNRegnCertificateRef" />
+                            <input type="hidden" value="0" name="IncorporationCertificateRef" />
+
+                            <input type="hidden" value="0" name="WithholdTaxTypeId">
+                            <input type="hidden" value="0" name="WithholdTaxCodeId">
+                            <input type="hidden" value="false" name="WithholdApplicability">
+                            <input type="hidden" name="WithholdFor" value="1">
+
+                            <input type="hidden" value="0" name="WithholdTaxTypeId">
+                            <input type="hidden" value="0" name="WithholdTaxCodeId">
+                            <input type="hidden" value="false" name="WithholdApplicability">
+                            <input type="hidden" name="WithholdFor" value="1">
+                            <div class="panel panel-primary">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title pull-left">Vendor Details</h3>
+                                    <div class="pull-right">
+                                        <button class="btn btn-warning btn-xs" style="margin:3px;" type="button" ng-click="AddShippingDetails()"><i title="Add Details" class="fa fa-plus"></i> Add Shipping Details</button>
+                                    </div>
+                                    <div class="clearfix" ></div>
+                                </div>
+                                <div class="panel-body p5">
+                                    <div class="row">
+                                        <div class="col-sm-3 mb10">
+                                            <label>Vendor Name<span class="mandatory">*</span> </label>
+                                            <div class="input-group input-group-sm">
+                                                <input type="hidden" name="VendorContactId" ng-model="TransferContact.UniqueID" value="{{TransferContact.UniqueID}}">
+                                                <input type="text" name="VendorName" class="form-control" ng-model="TransferContact.ContactName" ng-readonly="true" placeholder="Select Vendor Name" style="height:33px;">
+                                                <div class="input-group-addon" data-toggle="modal" data-target="#ContactSelectingPop" ng-click="SetContactType('Vendor',0);GetContactList('','','')"><i class="fa fa-plus"></i></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-1 mb10">
+                                            <div class="form-block">
+                                                <label>Currency<span class="mandatory">*</span></label>
+                                                <select class="form-control" name="Currency">
+                                                    <option value="" selected="selected">Select</option>
+                                                    <option ng-repeat="data in currencyList" value="{{data.Currency}}" ng-selected="data.Currency=='INR'">{{data.Currency}}</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-2 mb10">
+                                            <div class="form-block">
+                                                <label>PAN Number</label>
+                                                <input class="form-control" ng-keypress="prevent($event)" type="text" placeholder="PAN Number" name="PAN" />
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3 mb10">
+                                            <div class="form-block">
+                                                <label>Tax Registration/Firm Incorporation No</label>
+                                                <input class="form-control" type="text" placeholder="SSN/FCC Number" name="SSN" />
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-2 mb10">
+                                            <div class="form-block">
+                                                <label>CIN</label>
+                                                <input class="form-control" type="text" placeholder="CIN" name="CIN" /> 
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-2 mb10">
+                                            <div class="form-block">
+                                                <label>Service Tax</label>
+                                                <input class="form-control" type="text" placeholder="Service Tax" name="ServiceTax" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div style="height:500px;overflow-y:scroll">
+                                <div class="panel panel-primary" ng-repeat="(key,vndrdata) in vendorBillingDetails" >
+                                    <div class="panel-heading">
+                                        <h3 class="panel-title pull-left"><i class="fa" ng-class="{'fa-chevron-down':ShwDet[key],'fa-chevron-up':!ShwDet[key]}"  ng-click="$parent.ShwDet[key]=!ShwDet[key]"></i> Vendor Shipping / Billing & Accounting Details - {{key+1}}</h3>
+                                        <div class="pull-right">
+                                            <button class="btn btn-danger btn-xs" style="margin:3px;" type="button" ng-click="RemoveElementList(key)"><i title="Remove Shipping Details" class="fa fa-times"></i> Delete</button>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                    <div  ng-show="!ShwDet[key]">
+                                        <div class="panel-body p5">
+                                            <div class="row">
+                                                <div class="col-sm-12"><h4 class="SecHead1">Billing  Details</h4></div>
+                                                <div class="col-sm-3 mb10">
+                                                    <label>Representative<span class="mandatory">*</span> </label>
+                                                    <div class="input-group input-group-sm">
+                                                        <input type="hidden" name="RepresentContactNumber" ng-model="RepresentorData[key].ContactMobile" value="{{RepresentorData[key].ContactMobile}}">
+                                                        <input type="hidden" name="RepresentEmailID" ng-model="RepresentorData[key].ContactEmail" value="{{RepresentorData[key].ContactEmail}}">
+                                                        <input type="hidden" name="RepresentContactId" ng-model="RepresentorData[key].UniqueID" value="{{RepresentorData[key].UniqueID}}">
+                                                        <input type="text" name="RepresentName" class="form-control" ng-model="RepresentorData[key].ContactName" ng-readonly="true" placeholder="Select Representative" style="height:33px;">
+                                                        <div class="input-group-addon" data-toggle="modal" data-target="#RepresentSelectingPop" ng-click="SetContactType('Representor',key);GetRepresntList('','','')"><i class="fa fa-plus"></i> </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3 mb10">
+                                                    <div class="form-block">
+                                                        <label>Vendor Code</label>
+                                                        <input placeholder="Vendor Code" class="form-control" ng-disabled="true" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-3 mb10">
+                                                    <div class="form-block">
+                                                        <label>Billing Zip/Postal Code<span class="mandatory">*</span> </label>
+                                                        <input class="form-control" type="text" placeholder="Billing Zip/Postal Code" name="BillingPostalCode" /> 
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3 mb10">
+                                                    <div class="form-block">
+                                                        <label>Billing City<span class="mandatory">*</span> </label>
+                                                        <input class="form-control" type="text" placeholder="Billing City" name="BillingCity" /> 
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-6 mb10">
+                                                    <div class="form-block">
+                                                        <label>Billing Address<span class="mandatory">*</span> </label>
+                                                        <input class="form-control" type="text" placeholder="Billing Address" name="BillingAddress" /> 
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-3 mb10">
+                                                    <div class="form-block">
+                                                        <label>Shipping Zip/Postal Code<span class="mandatory">*</span> </label>
+                                                        <input type="checkbox" ng-change="VndrShippingChange(key,vndrData.BilZipSam,vndrdata)" ng-model="vndrData.BilZipSam">Same As Above
+                                                        <input class="form-control ShipCode_{{key}}"  type="text" placeholder="Shipping Zip/Postal Code" name="ShippingPostalCode" /> 
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3 mb10">
+                                                    <div class="form-block">
+                                                        <label>Shipping City<span class="mandatory">*</span> </label>
+                                                        <input class="form-control ShipCity_{{key}}" type="text" placeholder="Shipping City" name="ShippingCity" /> 
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-6 mb10">
+                                                    <div class="form-block">
+                                                        <label>Shipping Address<span class="mandatory">*</span></label>
+                                                        <input class="form-control ShipAdd_{{key}}" type="text" placeholder="Shipping Address" name="ShippingAddress" /> 
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-3 mb10">
+                                                    <div class="form-block">
+                                                        <label>Country<span class="mandatory">*</span> </label>
+                                                        <select class="form-control" name="CountryId">
+                                                            <option value="" selected="selected">Select</option>
+                                                            <option ng-repeat="data in countryList" value="{{data.UniqueID}}" ng-selected="data.Description=='India'">{{data.Description}}</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3 mb10">
+                                                    <div class="form-block">
+                                                        <label>Region</label>
+                                                        <select class="form-control" name="RegionId">
+                                                            <option value="" selected="selected">Select</option>
+                                                            <option ng-repeat="data in statesList" value="{{data.StateID}}">{{data.StateName}}</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3 mb10">
+                                                    <div class="form-block">
+                                                        <label>GST Applicability<span class="mandatory">*</span></label>
+                                                        <select class="form-control" name="GSTApplicabilityId" ng-model="GSTApplicabilityVAl">
+                                                            <option value="" selected="selected">Select</option>
+                                                            <option ng-repeat="data in GSTApplicabilityList" value="{{data.UniqueID}}">{{data.Description}}</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3 mb10">
+                                                    <div class="form-block">
+                                                        <!-- <label>GSTIN<span ng-if="GSTApplicabilityVAl=='5'" class="mandatory">*</span></label> -->
+                                                        <label>GSTIN<span class="mandatory">*</span></label>
+                                                        <input class="form-control" type="text" placeholder="GSTIN" name="GSTIN"/> 
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="panel-body p5">
+                                            <div class="row">
+                                                <div class="col-sm-12"><h4 class="SecHead1">Accounting Details</h4></div>
+                                                <div class="col-sm-3 mb10">
+                                                    <div class="form-block">
+                                                        <label>Accounting Group<span class="mandatory">*</span></label>
+                                                        <select class="form-control" name="VendorAccountGroupId">
+                                                            <option value="" selected="selected">Select</option>
+                                                            <option ng-repeat="data in VendorGroupsList" value="{{data.UniqueID}}">({{data.VendorAccountGroupCode}})&nbsp;-&nbsp; {{data.Description}}</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3 mb10">
+                                                    <div class="form-block">
+                                                        <label>Vendor Category<span class="mandatory">*</span> </label>
+                                                        <select class="form-control" name="VendorCategoryId">
+                                                            <option value="" selected="selected">Select</option>
+                                                            <option ng-repeat="data in VendorCategoryList" value="{{data.UniqueID}}">{{data.Description}}</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3 mb10">
+                                                    <div class="form-block">
+                                                        <label>GL Account<span class="mandatory">*</span> </label>
+                                                        <select class="form-control" name="GLAccountId">
+                                                            <option value="" selected="selected">Select</option>
+                                                            <option ng-repeat="data in GLAccountList" value="{{data.UniqueID}}">{{data.GLAccountCode+'-'+data.GLAccountShortName}}</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3 mb10">
+                                                    <div class="form-block">
+                                                        <label>Scehma group for vendor<span class="mandatory">*</span> </label>
+                                                        <select class="form-control" name="SchemaGroupId">
+                                                            <option value="" selected="selected">Select</option>
+                                                            <option ng-repeat="data in VendorSchemaList" value="{{data.SchemaGroupId}}">{{data.SchemaDescription}}</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="panel-body p5">
+                                            <div class="row">
+                                                <div class="col-sm-12"><h4 class="SecHead1">Bank Details</h4></div>
+                                                <div class="col-sm-3 mb10">
+                                                    <div class="form-block">
+                                                        <label>Account Name</label>
+                                                        <input class="form-control" type="text" placeholder="Account Name" name="BankAccountName" /> 
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3 mb10">
+                                                    <div class="form-block">
+                                                        <label>Account Number</label>
+                                                        <input class="form-control" type="text" placeholder="Account Number" name="BankAccountNumber" /> 
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3 mb10">
+                                                    <div class="form-block">
+                                                        <label>IFSC Code</label>
+                                                        <input class="form-control" type="text" placeholder="IFSC Code" name="IFSCCode" /> 
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3 mb10">
+                                                    <div class="form-block">
+                                                        <label>Bank Name</label>
+                                                        <input class="form-control" type="text" placeholder="Bank Name" name="BankName" /> 
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="panel-body p5">
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                    <h4 class="SecHead1">Withholding Tax Details
+                                                        <div class="pull-right">
+                                                            <button class="btn btn-success btn-xs" type="button" ng-click="PushNewTaxDetMul(key)"><i class="fa fa-plus" ></i> Add New</button>
+                                                        </div><div class="clearfix"></div>                                                    
+                                                    </h4>
+                                                    <input type="hidden" name="WithholdFor" ng-model="WithholdingTaxDetailsListMUl[key].length" value="{{WithholdingTaxDetailsListMUl[key].length}}">
+                                                </div>
+                                                <div ng-repeat="dat in WithholdingTaxDetailsListMUl[key]">
+                                                    <div class="col-sm-3 mb10">
+                                                        <div class="form-block">
+                                                            <label>With holding Tax Type</label>
+                                                            <select class="form-control" name="WithholdTaxTypeId">
+                                                                <option value="" selected="selected">Select</option>
+                                                                <option ng-repeat="data in VendorWithHoldTaxList" value="{{data.UniqueID}}">{{data.WithholdingTaxCode}} - {{data.Description}}</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-3 mb10">
+                                                        <div class="form-block">
+                                                            <label>With holding Code</label>
+                                                            <select class="form-control" name="WithholdTaxCodeId">
+                                                                <option value="" selected="selected">Select</option>
+                                                                <option ng-repeat="data in VendorWithHoldTaxList" value="{{data.UniqueID}}">{{data.WithholdingTaxCode}} - {{data.Description}}</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-3 mb10">
+                                                        <div class="form-block">
+                                                            <label>With holding Applicability</label>
+                                                            <select class="form-control" name="WithholdApplicability">
+                                                                <option value="" selected="selected">Select</option>
+                                                                <option value="true">Yes</option>
+                                                                <option value="false">No</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-3 mb10 form-block text-left pl0"><i class="fa fa-times" style="margin-top: 24px;font-size: 20px;" ng-if="$index!=0" ng-click="RemoveNewTaxDetMul($index,key)"></i></div>
+                                                    <div class="clearfix" ></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div><br><br>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="EditvendorMaster" class="modal fade pop-modal" role="dialog">
+        <div class="modal-dialog modal-lg" style="width:95%">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header padpop">
+                    <h5 class="modal-title pull-left mt7">Update Vendor</h5>
+                    <div class="pull-right">
+                        <button class="btn btn-warning btn-sm" type="button" data-dismiss="modal">Cancel</button>
+                        <button class="btn btn-success btn-sm" type="button" ng-click="UpdateVendordetails()">Update</button>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="modal-body">
+                    <div class="main-content">
+                        <form name="updateForm" class="updateForm">
+                            <input type="hidden" value="0" name="POVendorDetailId" />
+                            <input type="hidden" value="0" name="VendorCode" />
+                            <input type="hidden" value="false" name="IsActive" />
+                            <input type="hidden" value="0" name="BillingAddress" />
+                            <input type="hidden" value="0" name="BillingCity" />
+                            <input type="hidden" value="0" name="BillingPostalCode" />
+                            <input type="hidden" value="0" name="ShippingAddress" />
+                            <input type="hidden" value="0" name="ShippingCity" />
+                            <input type="hidden" value="0" name="ShippingPostalCode" />
+                            <input type="hidden" value="0" name="RegionId" />
+                            <input type="hidden" value="0" name="Region" />
+                            <input type="hidden" value="0" name="CountryId" />
+                            <input type="hidden" value="0" name="Country" />
+                            <input type="hidden" value="0" name="GSTApplicabilityId" />
+                            <input type="hidden" value="0" name="GSTApplicability" />
+                            <input type="hidden" value="0" name="GSTIN" />
+                            <input type="hidden" value="0" name="VendorAccountGroupId" />
+                            <input type="hidden" value="0" name="VendorAccountGroup" />
+                            <input type="hidden" value="0" name="VendorCategoryId" />
+                            <input type="hidden" value="0" name="VendorCategory" />
+                            <input type="hidden" value="0" name="SchemaGroupId" />
+                            <input type="hidden" value="0" name="SchemaGroup" />
+                            <input type="hidden" value="0" name="GLAccountId" />
+                            <input type="hidden" value="0" name="GLAccount" />
+                            <input type="hidden" value="0" name="BankAccountName" />
+                            <input type="hidden" value="0" name="BankAccountNumber" />
+                            <input type="hidden" value="0" name="BankName" />
+                            <input type="hidden" value="0" name="IFSCCode" />
+                            <input type="hidden" value="0" name="RepresentName" />
+                            <input type="hidden" value="0" name="Designation" />
+                            <input type="hidden" value="0" name="RepresentContactNumber" />
+                            <input type="hidden" value="0" name="RepresentEmailID" />
+                            <input type="hidden" value="0" name="CancelledChequeRef" />
+                            <input type="hidden" value="0" name="RepresentContactId" />
+                            <input type="hidden" value="0" name="GSTNRegnCertificateRef" />
+                            <input type="hidden" value="0" name="IncorporationCertificateRef" />
+
+                            <input type="hidden" value="0" name="POVendorDetailId" />
+                            <input type="hidden" value="0" name="VendorCode" />
+                            <input type="hidden" value="false" name="IsActive" />
+                            <input type="hidden" value="0" name="BillingAddress" />
+                            <input type="hidden" value="0" name="BillingCity" />
+                            <input type="hidden" value="0" name="BillingPostalCode" />
+                            <input type="hidden" value="0" name="ShippingAddress" />
+                            <input type="hidden" value="0" name="ShippingCity" />
+                            <input type="hidden" value="0" name="ShippingPostalCode" />
+                            <input type="hidden" value="0" name="RegionId" />
+                            <input type="hidden" value="0" name="Region" />
+                            <input type="hidden" value="0" name="CountryId" />
+                            <input type="hidden" value="0" name="Country" />
+                            <input type="hidden" value="0" name="GSTApplicabilityId" />
+                            <input type="hidden" value="0" name="GSTApplicability" />
+                            <input type="hidden" value="0" name="GSTIN" />
+                            <input type="hidden" value="0" name="VendorAccountGroupId" />
+                            <input type="hidden" value="0" name="VendorAccountGroup" />
+                            <input type="hidden" value="0" name="VendorCategoryId" />
+                            <input type="hidden" value="0" name="VendorCategory" />
+                            <input type="hidden" value="0" name="SchemaGroupId" />
+                            <input type="hidden" value="0" name="SchemaGroup" />
+                            <input type="hidden" value="0" name="GLAccountId" />
+                            <input type="hidden" value="0" name="GLAccount" />
+                            <input type="hidden" value="0" name="BankAccountName" />
+                            <input type="hidden" value="0" name="BankAccountNumber" />
+                            <input type="hidden" value="0" name="BankName" />
+                            <input type="hidden" value="0" name="IFSCCode" />
+                            <input type="hidden" value="0" name="RepresentName" />
+                            <input type="hidden" value="0" name="Designation" />
+                            <input type="hidden" value="0" name="RepresentContactNumber" />
+                            <input type="hidden" value="0" name="RepresentEmailID" />
+                            <input type="hidden" value="0" name="CancelledChequeRef" />
+                            <input type="hidden" value="0" name="RepresentContactId" />
+                            <input type="hidden" value="0" name="GSTNRegnCertificateRef" />
+                            <input type="hidden" value="0" name="IncorporationCertificateRef" />
+                            
+                            <input type="hidden" value="0" name="POVendorWithHoldApplicabilityDetailId">
+                            <input type="hidden" value="0" name="WithholdTaxTypeId">
+                            <input type="hidden" value="0" name="WithholdTaxCodeId">
+                            <input type="hidden" value="false" name="WithholdApplicability">
+                            <input type="hidden" name="WithholdFor" value="1">
+
+                            <input type="hidden" value="0" name="POVendorWithHoldApplicabilityDetailId">
+                            <input type="hidden" value="0" name="WithholdTaxTypeId">
+                            <input type="hidden" value="0" name="WithholdTaxCodeId">
+                            <input type="hidden" value="false" name="WithholdApplicability">
+                            <input type="hidden" name="WithholdFor" value="1">
+                            <div class="panel panel-primary">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title pull-left">Vendor Details</h3>
+                                    <div class="pull-right">
+                                        <button class="btn btn-warning btn-xs" style="margin:3px;" type="button" ng-click="AddShippingDetails()"><i title="Add Details" class="fa fa-plus"></i> Add Shipping Details</button>
+                                    </div>
+                                    <div class="clearfix" ></div>
+                                </div>
+                                <div class="panel-body p5">
+                                    <div class="row">
+                                        <div class="col-sm-3 mb10">
+                                            <label>Vendor Name<span class="mandatory">*</span> </label>
+                                            <div class="input-group input-group-sm">
+                                                <input type="hidden" name="POVendorMasterId" ng-model="VMData.POVendorMasterId" value="{{VMData.POVendorMasterId}}">
+                                                <input type="hidden" name="VendorContactId" ng-model="TransferContact.UniqueID" value="{{TransferContact.UniqueID}}">
+                                                <input type="text" name="VendorName" class="form-control" ng-model="TransferContact.ContactName" placeholder="Select Vendor Name" style="height:33px;width:165%; font-size:14px;">
+                                                <!-- <div class="input-group-addon" data-toggle="modal" data-target="#ContactSelectingPop" ng-click="SetContactType('Vendor',0);GetContactList('','','')"><i class="fa fa-plus"></i></div> -->
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-2 mb10">
+                                            <div class="form-block">
+                                                <label>Currency<span class="mandatory">*</span></label>
+                                                <select class="form-control" name="Currency">
+                                                    <option value="" selected="selected">Select</option>
+                                                    <option ng-repeat="data in currencyList" value="{{data.Currency}}" ng-selected="data.Currency==VMData.Currency">{{data.Currency}}</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-2 mb10">
+                                            <div class="form-block">
+                                                <label>PAN Number</label>
+                                                <input class="form-control" type="text" ng-keypress="prevent($event)" placeholder="PAN Number" name="PAN" ng-model="VMData.PAN" />
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3 mb10">
+                                            <div class="form-block">
+                                                <label>Tax Registration/Firm Incorporation No</label>
+                                                <input class="form-control" type="text" placeholder="SSN/FCC Number" name="SSN" ng-model="VMData.SSN" />
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-2 mb10">
+                                            <div class="form-block">
+                                                <label>CIN</label>
+                                                <input class="form-control" type="text" placeholder="CIN" name="CIN" ng-model="VMData.CIN" /> 
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-3 mb10">
+                                            <div class="form-block">
+                                                <label>Service Tax</label>
+                                                <!-- <input type=hidden name="SAPStatus" ng-model="VMData.IsActive" value="{{VMData.IsActive}}" /> -->
+                                                <input class="form-control" type="text" placeholder="Service Tax" name="ServiceTax" ng-model="VMData.ServiceTax" style="height:33px;width:84%; font-size:14px;" />
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-2 mb10">
+                                            <div class="form-block">
+                                                    <label>Fugue Status</label>
+                                                    <select class="form-control" name="IsActiveFugue">
+                                                        <option value="">Select</option>
+                                                        <option value="true" ng-selected="VMData.IsActive==true">Active</option>
+                                                        <option value="false" ng-selected="VMData.IsActive==false">InActive</option>
+                                                    </select>
+                                             </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div style="height:500px;overflow-y:scroll">
+                                <div class="panel panel-primary" ng-repeat="(key,vndrdata) in vendorBillingDetails" >
+                                    <input type="hidden" name="POVendorDetailId" ng-model="vndrdata.POVendorDetailId" value="{{vndrdata.POVendorDetailId}}">
+                                    <div class="panel-heading">
+                                        <h3 class="panel-title pull-left"><i class="fa" ng-class="{'fa-chevron-down':ShwDet[key],'fa-chevron-up':!ShwDet[key]}"  ng-click="$parent.ShwDet[key]=!ShwDet[key]"></i> Vendor Shipping / Billing & Accounting Details - {{key+1}}</h3>
+                                        <div class="pull-right">
+                                            <button class="btn btn-danger btn-xs" style="margin:3px;" ng-if="!vndrdata.POVendorDetailId" type="button" ng-click="RemoveElementList(key)"><i title="Remove Shipping Details" class="fa fa-times"></i> Delete</button>
+                                        </div>                                        
+                                        <div class="clearfix"></div>
+                                    </div>
+                                    <div  ng-show="!ShwDet[key]">
+                                        <div class="panel-body p5">
+                                            <div class="row">
+                                                <div class="col-sm-12"><h4 class="SecHead1">Billing  Details</h4></div>
+                                                <div class="col-sm-3 mb10">
+                                                    <label>Representative<span class="mandatory">*</span> </label>
+                                                    <div class="input-group input-group-sm">
+                                                        <input type="hidden" name="RepresentContactNumber" ng-model="RepresentorData[key].ContactMobile" value="{{RepresentorData[key].ContactMobile}}">
+                                                        <input type="hidden" name="RepresentEmailID" ng-model="RepresentorData[key].ContactEmail" value="{{RepresentorData[key].ContactEmail}}">
+                                                        <input type="hidden" name="RepresentContactId" ng-model="RepresentorData[key].UniqueID" value="{{RepresentorData[key].UniqueID}}">
+                                                        <input type="text" name="RepresentName" class="form-control" ng-model="RepresentorData[key].ContactName" placeholder="Select Representative" style="height:33px;">
+                                                        <div class="input-group-addon" data-toggle="modal" data-target="#RepresentSelectingPop" ng-click="SetContactType('Representor',key);GetRepresntList('','','')"><i class="fa fa-plus"></i> </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3 mb10">
+                                                    <div class="form-block">
+                                                        <label>Vendor Code</label>
+                                                        <input placeholder="Vendor Code" class="form-control" ng-readonly="true" name="VendorCode" ng-model="vndrdata.VendorCode" value="{{vndrdata.VendorCode}}" />
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3 mb10">
+                                                    <div class="form-block">
+                                                            <label>SAP Status<span class="mandatory">*</span></label>
+                                                            <select class="form-control" name="IsActive">
+                                                                <option value="">Select</option>
+                                                                <option value="true" ng-selected="vndrdata.IsActive==true">Active</option>
+                                                                <option value="false" ng-selected="vndrdata.IsActive==false">InActive</option>
+                                                            </select>
+                                                     </div>
+                                                </div>                                                
+											</div>
+                                            <div class="row">
+                                                <div class="col-sm-3 mb10">
+                                                    <div class="form-block">
+                                                        <label>Billing Zip/Postal Code<span class="mandatory">*</span> </label>
+                                                        <input class="form-control" type="text" placeholder="Billing Zip/Postal Code" ng-model="vndrdata.BillingPostalCode"  name="BillingPostalCode" /> 
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3 mb10">
+                                                    <div class="form-block">
+                                                        <label>Billing City<span class="mandatory">*</span> </label>
+                                                        <input class="form-control" type="text" placeholder="Billing City" ng-model="vndrdata.BillingCity" name="BillingCity" /> 
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-6 mb10">
+                                                    <div class="form-block">
+                                                        <label>Billing Address<span class="mandatory">*</span> </label>
+                                                        <input class="form-control" type="text" placeholder="Billing Address" ng-model="vndrdata.BillingAddress" name="BillingAddress" /> 
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-3 mb10">
+                                                    <div class="form-block">
+                                                        <label>Shipping Zip/Postal Code<span class="mandatory">*</span> </label>
+                                                        <input type="checkbox" ng-change="VndrShippingChangeUpdate(key,vndrData.BilZipSam,vndrData)" ng-model="vndrData.BilZipSam">Same As Above
+                                                        <input class="form-control ShipCode_Up_{{key}}" type="text" placeholder="Shipping Zip/Postal Code" ng-model="vndrdata.ShippingPostalCode" value="{{vndrdata.ShippingPostalCode}}" name="ShippingPostalCode" /> 
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3 mb10">
+                                                    <div class="form-block">
+                                                        <label>Shipping City<span class="mandatory">*</span> </label>
+                                                        <input class="form-control ShipCity_Up_{{key}}" type="text" placeholder="Shipping City" ng-model="vndrdata.ShippingCity" name="ShippingCity" /> 
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-6 mb10">
+                                                    <div class="form-block">
+                                                        <label>Shipping Address<span class="mandatory">*</span></label>
+                                                        <input class="form-control ShipAdd_Up_{{key}}" type="text" placeholder="Shipping Address" ng-model="vndrdata.ShippingAddress" name="ShippingAddress" /> 
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-3 mb10">
+                                                    <div class="form-block">
+                                                        <label>Country<span class="mandatory">*</span> </label>
+                                                        <select class="form-control" name="CountryId">
+                                                            <option value="" selected="selected">Select</option>
+                                                            <option ng-repeat="data in countryList" value="{{data.UniqueID}}" ng-selected="data.UniqueID==vndrdata.CountryId">{{data.Description}}</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3 mb10">
+                                                    <div class="form-block">
+                                                        <label>Region</label>
+                                                        <select class="form-control" name="RegionId">
+                                                            <option value="" selected="selected">Select</option>
+                                                            <option ng-repeat="data in statesList" value="{{data.StateID}}" ng-selected="data.StateID==vndrdata.RegionId">{{data.StateName}}</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3 mb10">
+                                                    <div class="form-block">
+                                                        <label>GST Applicability<span class="mandatory">*</span></label>
+                                                        <select class="form-control" name="GSTApplicabilityId">
+                                                            <option value="" selected="selected">Select</option>
+                                                            <option ng-repeat="data in GSTApplicabilityList" value="{{data.UniqueID}}" ng-selected="data.UniqueID==vndrdata.GSTApplicabilityId">{{data.Description}}</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3 mb10">
+                                                    <div class="form-block">
+                                                        <!-- <label>GSTIN<span ng-if="GSTApplicabilityVAl=='5'" class="mandatory">*</span></label> -->
+                                                        <label>GSTIN<span class="mandatory">*</span></label>
+                                                        <input class="form-control" type="text" placeholder="GSTIN" name="GSTIN" ng-model="vndrdata.GSTIN"/> 
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="panel-body p5">
+                                            <div class="row">
+                                                <div class="col-sm-12"><h4 class="SecHead1">Accounting Details</h4></div>
+                                                <div class="col-sm-3 mb10">
+                                                    <div class="form-block">
+                                                        <label>Accounting Group<span class="mandatory">*</span></label>
+                                                        <select class="form-control" name="VendorAccountGroupId" ng-disabled="vndrdata.VendorAccountGroupId != null">
+                                                            <option value="" selected="selected">Select</option>
+                                                            <option ng-repeat="data in VendorGroupsList" value="{{data.UniqueID}}"  ng-selected="data.UniqueID==vndrdata.VendorAccountGroupId">{{data.Description}}</option>
+                                                        </select>
+                                                        <input type="hidden" ng-if="vndrdata.VendorAccountGroupId != null" name="VendorAccountGroupId" value="{{vndrdata.VendorAccountGroupId}}" ng-model="vndrdata.VendorAccountGroupId"/>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3 mb10">
+                                                    <div class="form-block">
+                                                        <label>Vendor Category<span class="mandatory">*</span> </label>
+                                                        <select class="form-control" name="VendorCategoryId">
+                                                            <option value="" selected="selected">Select</option>
+                                                            <option ng-repeat="data in VendorCategoryList" value="{{data.UniqueID}}" ng-selected="data.UniqueID==vndrdata.VendorCategoryId">{{data.Description}}</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3 mb10">
+                                                    <div class="form-block">
+                                                        <label>GL Account<span class="mandatory">*</span> </label>
+                                                        <select class="form-control" name="GLAccountId">
+                                                            <option value="" selected="selected">Select</option>
+                                                            <option ng-repeat="data in GLAccountList" value="{{data.UniqueID}}" ng-selected="data.UniqueID==vndrdata.GLAccountId">{{data.GLAccountCode+'-'+data.GLAccountShortName}}</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3 mb10">
+                                                    <div class="form-block">
+                                                        <label>Scehma group for vendor<span class="mandatory">*</span> </label>
+                                                        <select class="form-control" name="SchemaGroupId">
+                                                            <option value="" selected="selected">Select</option>
+                                                            <option ng-repeat="data in VendorSchemaList" value="{{data.SchemaGroupId}}"  ng-selected="data.SchemaGroupId==vndrdata.SchemaGroupId">{{data.SchemaDescription}}</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="panel-body p5">
+                                            <div class="row">
+                                                <div class="col-sm-12"><h4 class="SecHead1">Bank Details</h4></div>
+                                                <div class="col-sm-3 mb10">
+                                                    <div class="form-block">
+                                                        <label>Account Name</label>
+                                                        <input class="form-control" type="text" placeholder="Account Name" name="BankAccountName"  ng-model="vndrdata.BankAccountName"/> 
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3 mb10">
+                                                    <div class="form-block">
+                                                        <label>Account Number</label>
+                                                        <input class="form-control" type="text" placeholder="Account Number" name="BankAccountNumber"  ng-model="vndrdata.BankAccountNumber"/> 
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3 mb10">
+                                                    <div class="form-block">
+                                                        <label>IFSC Code</label>
+                                                        <input class="form-control" type="text" placeholder="IFSC Code" name="IFSCCode"  ng-model="vndrdata.IFSCCode"/> 
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3 mb10">
+                                                    <div class="form-block">
+                                                        <label>Bank Name</label>
+                                                        <input class="form-control" type="text" placeholder="Bank Name" name="BankName"  ng-model="vndrdata.BankName"/> 
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="panel-body p5">
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                    <h4 class="SecHead1">Withholding Tax Details
+                                                        <div class="pull-right">
+                                                            <button class="btn btn-success btn-xs" type="button" ng-click="PushNewTaxDetMul(key)"><i class="fa fa-plus" ></i> Add New</button>
+                                                        </div><div class="clearfix"></div>                                                    
+                                                    </h4>
+                                                    <input type="hidden" name="WithholdFor" ng-model="WithholdingTaxDetailsListMUl[key].length" value="{{WithholdingTaxDetailsListMUl[key].length}}">
+                                                </div>
+                                                <div ng-repeat="dat in WithholdingTaxDetailsListMUl[key]">
+                                                    <input type="hidden" name="POVendorWithHoldApplicabilityDetailId" ng-model="dat.POVendorWithHoldApplicabilityDetailId" value="{{dat.POVendorWithHoldApplicabilityDetailId}}">
+                                                    <div class="col-sm-3 mb10">
+                                                        <div class="form-block">
+                                                            <label>With holding Tax Type</label>
+                                                            <select class="form-control" name="WithholdTaxTypeId">
+                                                                <option value="" selected="selected">Select</option>
+                                                                <option ng-repeat="data in VendorWithHoldTaxList" value="{{data.UniqueID}}" ng-selected="data.UniqueID==dat.WithHoldingTaxTypeId">{{data.WithholdingTaxCode}} - {{data.Description}}</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-3 mb10">
+                                                        <div class="form-block">
+                                                            <label>With holding Code</label>
+                                                            <select class="form-control" name="WithholdTaxCodeId">
+                                                                <option value="" selected="selected">Select</option>
+                                                                <option ng-repeat="data in VendorWithHoldTaxList" value="{{data.UniqueID}}" ng-selected="data.UniqueID==dat.WithHoldingCodeId">{{data.WithholdingTaxCode}} - {{data.Description}}</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-3 mb10">
+                                                        <div class="form-block">
+                                                            <label>With holding Applicability</label>
+                                                            <select class="form-control" name="WithholdApplicability">
+                                                                <option value="" selected="selected">Select</option>
+                                                                <option value="true" ng-selected="dat.WithHoldingApplicability">Yes</option>
+                                                                <option value="false" ng-selected="!dat.WithHoldingApplicability">No</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <!-- <div class="col-sm-3 mb10 form-block text-left pl0"><i class="fa fa-times" style="margin-top: 24px;font-size: 20px;" ng-if="$index!=0" ng-click="RemoveNewTaxDetMul($index,key)"></i></div> -->
+                                                    <div class="clearfix" ></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div><br><br>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="viewvendorMaster" class="modal fade pop-modal" role="dialog">
+        <div class="modal-dialog modal-lg" style="width:95%">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header padpop">
+                    <h5 class="modal-title pull-left mt7">Vendor Details</h5>
+                    <div class="pull-right">
+                        <button class="btn btn-warning btn-sm" type="button" data-dismiss="modal">Cancel</button>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="modal-body">
+                    <div class="main-content">
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">
+                                <h3 class="panel-title pull-left">Vendor Details</h3>
+                                <div class="clearfix" ></div>
+                            </div>
+                            <div class="panel-body p5">
+                                <div class="row">
+                                    <div class="col-sm-2 mb10">
+                                        <div class="form-block">
+                                            <label>Vendor Name</label>
+                                            <input class="form-control" ng-model="VMData.VendorName" ng-readonly="true"/>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-1 mb10">
+                                        <div class="form-block">
+                                            <label>Currency<span class="mandatory">*</span></label>
+                                            <input class="form-control" ng-model="VMData.Currency" ng-readonly="true"/>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-2 mb10">
+                                        <div class="form-block">
+                                            <label>PAN Number</label>
+                                            <input class="form-control" placeholder="PAN Number" ng-model="VMData.PAN" ng-readonly="true"/>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-2 mb10">
+                                        <div class="form-block">
+                                            <label>CIN</label>
+                                            <input class="form-control" placeholder="CIN" ng-model="VMData.CIN" ng-readonly="true"/> 
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-2 mb10">
+                                        <div class="form-block">
+                                            <label>Service Tax</label>
+                                            <input class="form-control" placeholder="Service Tax" ng-model="VMData.ServiceTax" ng-readonly="true"/>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-2 mb10">
+                                        <div class="form-block">
+                                           <label>Fugue Status</label>
+                                            <input class="form-control" placeholder="Service Tax" ng-model="VMData.IsActive" ng-readonly="true"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="height:500px;overflow-y:scroll">
+                            <div class="panel panel-primary" ng-repeat="(key,vndrdata) in VMData.VendorMasterDetails" >
+                                <div class="panel-heading">
+                                    <h3 class="panel-title"><i class="fa" ng-class="{'fa-chevron-down':ShwDet[key],'fa-chevron-up':!ShwDet[key]}"  ng-click="$parent.ShwDet[key]=!ShwDet[key]"></i> Vendor Shipping / Billing & Accounting Details - {{key+1}}</h3>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div  ng-show="!ShwDet[key]">
+                                    <div class="panel-body p5">
+                                        <div class="row">
+                                            <div class="col-sm-12"><h4 class="SecHead1">Billing  Details</h4></div>
+                                            <div class="col-sm-3 mb10">
+                                                <div class="form-block">
+                                                    <label>Representative</label>
+                                                    <input class="form-control" ng-model="vndrdata.RepresentName" ng-readonly="true"/>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3 mb10">
+                                                <div class="form-block">
+                                                    <label>Vendor Code</label>
+                                                    <input class="form-control" ng-model="vndrdata.VendorCode" ng-readonly="true"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-3 mb10">
+                                                <div class="form-block">
+                                                    <label>Billing Zip/Postal Code<span class="mandatory">*</span> </label>
+                                                    <input class="form-control" ng-model="vndrdata.BillingPostalCode" ng-readonly="true"/> 
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3 mb10">
+                                                <div class="form-block">
+                                                    <label>Billing City<span class="mandatory">*</span> </label>
+                                                    <input class="form-control" ng-model="vndrdata.BillingCity" ng-readonly="true"/> 
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6 mb10">
+                                                <div class="form-block">
+                                                    <label>Billing Address<span class="mandatory">*</span> </label>
+                                                    <input class="form-control" ng-model="vndrdata.BillingAddress" ng-readonly="true"/> 
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-3 mb10">
+                                                <div class="form-block">
+                                                    <label>Shipping Zip/Postal Code<span class="mandatory">*</span> </label>
+                                                    <input class="form-control" ng-model="vndrdata.ShippingPostalCode" ng-readonly="true"/>  
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3 mb10">
+                                                <div class="form-block">
+                                                    <label>Shipping City<span class="mandatory">*</span> </label>
+                                                    <input class="form-control" ng-model="vndrdata.ShippingCity" ng-readonly="true"/> 
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6 mb10">
+                                                <div class="form-block">
+                                                    <label>Shipping Address<span class="mandatory">*</span></label>
+                                                    <input class="form-control" ng-model="vndrdata.ShippingAddress" ng-readonly="true"/> 
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-3 mb10">
+                                                <div class="form-block">
+                                                    <label>Country<span class="mandatory">*</span> </label>
+                                                    <input class="form-control" ng-model="vndrdata.Country" ng-readonly="true"/>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3 mb10">
+                                                <div class="form-block">
+                                                    <label>Region</label>
+                                                    <input class="form-control" ng-model="vndrdata.Region" ng-readonly="true"/>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3 mb10">
+                                                <div class="form-block">
+                                                    <label>GST Applicability<span class="mandatory">*</span></label>
+                                                    <input class="form-control" ng-model="vndrdata.GSTApplicability" ng-readonly="true"/>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3 mb10">
+                                                <div class="form-block">
+                                                    <label>GSTIN</label>
+                                                    <input class="form-control" ng-model="vndrdata.GSTIN" ng-readonly="true"/> 
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="panel-body p5">
+                                        <div class="row">
+                                            <div class="col-sm-12"><h4 class="SecHead1">Accounting Details</h4></div>
+                                            <div class="col-sm-3 mb10">
+                                                <div class="form-block">
+                                                    <label>Accounting Group<span class="mandatory">*</span></label>
+                                                    <input class="form-control" ng-model="vndrdata.VendorAccountGroup" ng-readonly="true"/>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3 mb10">
+                                                <div class="form-block">
+                                                    <label>Vendor Category<span class="mandatory">*</span> </label>
+                                                    <input class="form-control" ng-model="vndrdata.VendorCategory" ng-readonly="true"/>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3 mb10">
+                                                <div class="form-block">
+                                                    <label>GL Account<span class="mandatory">*</span> </label>
+                                                    <input class="form-control" ng-model="vndrdata.GLAccount" ng-readonly="true"/>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3 mb10">
+                                                <div class="form-block">
+                                                    <label>Scehma group for vendor</label>
+                                                    <input class="form-control" ng-model="vndrdata.SchemaGroup" ng-readonly="true"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="panel-body p5">
+                                        <div class="row">
+                                            <div class="col-sm-12"><h4 class="SecHead1">Bank Details</h4></div>
+                                            <div class="col-sm-3 mb10">
+                                                <div class="form-block">
+                                                    <label>Account Name</label>
+                                                    <input class="form-control" ng-model="vndrdata.BankAccountName" ng-readonly="true"/> 
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3 mb10">
+                                                <div class="form-block">
+                                                    <label>Account Number</label>
+                                                    <input class="form-control" ng-model="vndrdata.BankAccountNumber" ng-readonly="true"/>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3 mb10">
+                                                <div class="form-block">
+                                                    <label>IFSC Code</label>
+                                                    <input class="form-control" ng-model="vndrdata.IFSCCode" ng-readonly="true"/> 
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3 mb10">
+                                                <div class="form-block">
+                                                    <label>Bank Name</label>
+                                                    <input class="form-control" ng-model="vndrdata.BankName" ng-readonly="true"/> 
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="panel-body p5">
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <h4 class="SecHead1">Withholding Tax Details</h4>
+                                            </div>
+                                            <div ng-repeat="dat in vndrdata.WithHoldApplicabilityDetails">
+                                                <div class="col-sm-3 mb10">
+                                                    <div class="form-block">
+                                                        <label>With holding Tax Type</label>
+                                                        <input class="form-control" ng-model="dat.WithHoldingTaxType" ng-readonly="true"/>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3 mb10">
+                                                    <div class="form-block">
+                                                        <label>With holding Code</label>
+                                                        <input class="form-control" ng-model="dat.WithHoldingCode" ng-readonly="true"/>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3 mb10">
+                                                    <div class="form-block">
+                                                        <label>With holding Applicability</label>
+                                                        <input class="form-control" value="{{dat.WithHoldingApplicability?'Yes':'No'}}" ng-readonly="true"/>
+                                                    </div>
+                                                </div><div class="clearfix"></div>                                          
+                                            </div><div class="clearfix"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div><br><br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="ContactSelectingPop" class="modal fade pop-modal" role="dialog" style="z-index:9999999;">
+        <div class="modal-dialog modal-md" style="margin-top:80px;">
+            <div class="modal-content">
+                <div class="modal-header padpop">
+                    <h5 class="modal-title pull-left mt7">Contact List</h5>
+                    <div class="pull-right">
+                        <button class="btn btn-primary btn-sm" type="button" ng-show="!CnewCon" ng-click="CnewCon=true"><i class="fa fa-plus"></i> Add New</button>
+                        <button class="btn btn-warning btn-sm" type="button" data-dismiss="modal">Close</button>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="modal-body">
+                    <div class="col-md-12 padnone">
+                        <form name="CreateNewContactFormTO" class="CreateNewContactFormTO" ng-show="CnewCon">
+                            <input type="hidden" name="AgentID" value="" />
+                            <input type="hidden" name="UniqueID" value="" />
+                            <input type="hidden" name="CallName" value="{{callname}}" />
+                            <input type="hidden" name="RelationShipID" value="{{RelationShipID}}" />
+                            <input type="hidden" name="Status" value="active" />
+                            <input type="hidden" name="ContactType" value="Vendor" />
+                            <input type="hidden" name="Contactid" value="" />
+                            <input type="hidden" name="LastModifiedBy" ng-model="UserDetails.currentUser.UserId" value="{{UserDetails.currentUser.UserId}}"/>
+                            <input type="hidden" name="LastModifiedBy_Id" ng-model="UserDetails.currentUser.UserId" value="{{UserDetails.currentUser.UserId}}"/>
+                            <input type="hidden" name="CreatedBy" ng-model="UserDetails.currentUser.UserId" value="{{UserDetails.currentUser.UserId}}"/>
+                            <div class="row">
+                                <div class="col-md-2 mb10 pr0">
+                                    <div class="form-block">
+                                        <label>Title</label>
+                                        <select class="form-control" ng-model="salutation" name="Salutation" ng-change="setCalName();">
+                                            <option value="">Title</option>
+                                            <option value="Mr">Mr</option>
+                                            <option value="Mrs">Mrs</option>
+                                            <option value="Ms">Ms</option>
+                                            <option value="M/S">M/S</option>
+                                            <option value="Dr">Dr.</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-5 mb10 pr0" ng-if="salutation!='M/S'">
+                                    <div class="form-block">
+                                        <label>First Name<span class="mandatory">*</span> </label>
+                                        <input type="text" class="form-control" placeholder="First Name" name="FirstName" ng-model="firstname" ng-change="setCalName();"
+                                            /> 
+                                    </div>
+                                </div>
+                                <div class="col-md-5 mb10" ng-if="salutation!='M/S'">
+                                    <div class="form-block">
+                                        <label>Last Name</label>
+                                        <input type="text" class="form-control" placeholder="Last Name" name="LastName" ng-model="lastname" ng-change="setCalName();"
+                                            /> 
+                                    </div>
+                                </div>
+                                <div class="col-md-10 mb10" ng-if="salutation=='M/S'">
+                                    <div class="form-block">
+                                        <label>Company Name<span class="mandatory">*</span> </label>
+                                        <input type="hidden" name="LastName" value="" />
+                                        <input type="text" class="form-control" placeholder="Company Name" name="FirstName" ng-model="firstname" ng-change="setCalName();"
+                                            /> 
+                                    </div>
+                                </div>
+                                <div class="col-md-2 mb10 pr0">
+                                    <div class="form-block">
+                                        <label>Code<span class="mandatory">*</span> </label>
+                                        <input type="hidden" name="CountryCode" value="{{CountryCode}}" />
+                                        <ui-select ng-model="CountryCode" name="CountryCode" theme="bootstrap" ng-change="CountryChange($select.selected.callingCode)">
+                                            <ui-select-match placeholder="Code">{{$select.selected.callingCode}}</ui-select-match>
+                                            <ui-select-choices repeat="item in CountryDrop.countries | filter: $select.search">
+                                                <div ng-bind-html="item.name | highlight: $select.search"></div>
+                                            </ui-select-choices>
+                                        </ui-select>
+                                    </div>
+                                </div>
+                                <div class="col-md-5 mb10 pr0">
+                                    <div class="form-block">
+                                        <label>Mobile Number<span class="mandatory">*</span> </label>
+                                        <input type="text" class="form-control" placeholder="Mobile Number" name="Mobile" ng-model="NewMobil" ng-change="GetContactList(callname,NewMobil,NewEmail)"
+                                            /> 
+                                    </div>
+                                </div>
+                                <div class="col-md-5 mb10">
+                                    <div class="form-block">
+                                        <label>Email ID<span class="mandatory">*</span> </label>
+                                        <input type="text" class="form-control" placeholder="Email ID" name="Emailid" ng-model="NewEmail" ng-change="GetContactList(callname,NewMobil,NewEmail)"
+                                            /> 
+                                    </div>
+                                </div>
+                                <div class="col-md-12 mb10 text-right">
+                                    <p class="mandatory">Mobile Number/Email any one is Mandatory</p>
+                                    <button class="btn btn-warning btn-sm" type="button" ng-click="CnewCon=false">Close</button>
+                                    <button class="btn btn-success btn-sm" ng-click="SaveNewContactTO()">Create New Contact</button>
+                                </div>
+                            </div>
+                        </form>
+                        <table class="table table-bordered main-table mb0" cellspacing="0">
+                            <thead>
+                                <tr class="filters">
+                                    <th>#</th>
+                                    <th>Contact Name</th>
+                                    <th>Contact Mobile</th>
+                                    <th>Contact Email ID</th>
+                                </tr>
+                                <tr class="filtersLight">
+                                    <th></th>
+                                    <th><input type="text" placeholder="Search" class="form-control" ng-model="CName" ng-change="GetContactList(CName,Cmobile,CEmail)"></th>
+                                    <th><input type="text" placeholder="Search" class="form-control" ng-model="Cmobile" ng-change="GetContactList(CName,Cmobile,CEmail)"></th>
+                                    <th><input type="text" placeholder="Search" class="form-control" ng-model="CEmail" ng-change="GetContactList(CName,Cmobile,CEmail)"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="data in ContactsListTransfer.result">
+                                    <td><button class="btn btn-xs btn-primary" ng-click="SetValueForTOData(data);"><i class="fa fa-check"></i></button></td>
+                                    <td class="txtalignleft">{{data.ContactName?data.ContactName:'NA'}}</td>
+                                    <td class="txtalignleft">{{data.ContactMobile?data.ContactMobile:'NA'}}</td>
+                                    <td class="txtalignleft">{{data.ContactEmail?data.ContactEmail:'NA'}}</td>
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td class="footer" colspan="6">
+                                        <label ng-if="ContactsListTransfer.info.listcount>'0'">Now Showing: {{ContactsListTransfer.info.fromrecords}} - {{ContactsListTransfer.info.torecords}} of {{ContactsListTransfer.info.totalrecords}}</label>                                        &nbsp;&nbsp;
+                                        <label>Go To Page :</label> &nbsp;
+                                        <label>
+                                        <input type="text" style="width:auto;" size="2" class="form-control inline-in intvalid pageInput" ng-model="pagenumberCAT" ng-change="pagenationssCAT(pagenumberCAT)" /> </label>                                        &nbsp;&nbsp;
+                                        <label> Show Rows : </label>
+                                        <label style="color: #000 !important;">
+                                            <select ng-model="pageprecountsCAT" name="pageprecountsCAT" id="pagePerCountCAT" class="pageCount inline-in" ng-change="pagenationssCAT(1,pageprecountsCAT)">
+                                                <option value="" disabled="disabled">Select</option>
+                                                <option value="10">10</option>
+                                                <option value="20">20</option>
+                                                <option value="50">50</option>
+                                                <option value="100">100</option>
+                                                <option value="200">200</option>
+                                                <option value="400">400</option>
+                                                <option value="500">500</option>
+                                                <option value="700">700</option>
+                                                <option value="1000">1000</option>
+                                            <option value="0">All</option>
+                                            </select>
+                                        </label>
+                                        &nbsp;&nbsp;
+                                        <label><a class="btn btn-default btn-xs" ng-click="pagenationss_clkCAT(pagenumberCAT,0)" style="padding:0px 8px;margin-bottom: 3px;"><i class="fa fa-caret-left"></i></a> </label>
+                                        <label ng-if="ContactsListTransfer.info.listcount>'0'"><a class="btn btn-default btn-xs" ng-click="pagenationss_clkCAT(pagenumberCAT,1)" style="padding:0px 8px;margin-bottom: 3px;"><i class="fa fa-caret-right"></i></a> </label>
+                                    </td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                        <span class="text-danger"><b>Select any one Contact</b></span>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+    <div id="RepresentSelectingPop" class="modal fade pop-modal" role="dialog" style="z-index:9999999;">
+        <div class="modal-dialog modal-md" style="margin-top:80px;">
+            <div class="modal-content">
+                <div class="modal-header padpop">
+                    <h5 class="modal-title pull-left mt7">Representative Contact List</h5>
+                    <div class="pull-right">
+                        <button class="btn btn-primary btn-sm" type="button" ng-show="!CnewCon" ng-click="CnewCon=true"><i class="fa fa-plus"></i> Add New</button>
+                        <button class="btn btn-warning btn-sm" type="button" data-dismiss="modal">Close</button>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="modal-body">
+                    <div class="col-md-12 padnone">
+                        <form name="CreateNewRepresnetFormTO" class="CreateNewRepresnetFormTO" ng-show="CnewCon">
+                            <input type="hidden" name="AgentID" value="" />
+                            <input type="hidden" name="UniqueID" value="" />
+                            <input type="hidden" name="CallNameRE" value="{{callname}}" />
+                            <input type="hidden" name="RelationShipID" value="{{RelationShipID}}" />
+                            <input type="hidden" name="Status" value="active" />
+                            <input type="hidden" name="ContactType" value="Vendor" />
+                            <input type="hidden" name="Contactid" value="" />
+                            <input type="hidden" name="LastModifiedBy" ng-model="UserDetails.currentUser.UserId" value="{{UserDetails.currentUser.UserId}}"/>
+                            <input type="hidden" name="LastModifiedBy_Id" ng-model="UserDetails.currentUser.UserId" value="{{UserDetails.currentUser.UserId}}"/>
+                            <input type="hidden" name="CreatedBy" ng-model="UserDetails.currentUser.UserId" value="{{UserDetails.currentUser.UserId}}"/>
+                            <div class="row">
+                                <div class="col-md-2 mb10 pr0">
+                                    <div class="form-block">
+                                        <label>Title</label>
+                                        <select class="form-control" ng-model="salutation" name="SalutationRE" ng-change="setCalNameRE();">
+                                            <option value="">Title</option>
+                                            <option value="Mr">Mr</option>
+                                            <option value="Mrs">Mrs</option>
+                                            <option value="Ms">Ms</option>
+                                            <option value="M/S">M/S</option>
+                                            <option value="Dr">Dr.</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-5 mb10 pr0" ng-if="salutation!='M/S'">
+                                    <div class="form-block">
+                                        <label>First Name<span class="mandatory">*</span> </label>
+                                        <input type="text" class="form-control" placeholder="First Name" name="FirstNameRE" ng-model="firstname" ng-change="setCalNameRE();"
+                                            /> 
+                                    </div>
+                                </div>
+                                <div class="col-md-5 mb10" ng-if="salutation!='M/S'">
+                                    <div class="form-block">
+                                        <label>Last Name</label>
+                                        <input type="text" class="form-control" placeholder="Last Name" name="LastNameRE" ng-model="lastname" ng-change="setCalNameRE();"
+                                            /> 
+                                    </div>
+                                </div>
+                                <div class="col-md-10 mb10" ng-if="salutation=='M/S'">
+                                    <div class="form-block">
+                                        <label>Company Name<span class="mandatory">*</span> </label>
+                                        <input type="hidden" name="LastName" value="" />
+                                        <input type="text" class="form-control" placeholder="Company Name" name="FirstNameRE" ng-model="firstname" ng-change="setCalNameRE();"
+                                            /> 
+                                    </div>
+                                </div>
+                                <div class="col-md-2 mb10 pr0">
+                                    <div class="form-block">
+                                        <label>Code<span class="mandatory">*</span> </label>
+                                        <input type="hidden" name="CountryCode" value="{{CountryCode}}" />
+                                        <ui-select ng-model="CountryCode" name="CountryCode" theme="bootstrap" ng-change="CountryChange($select.selected.callingCode)">
+                                            <ui-select-match placeholder="Code">{{$select.selected.callingCode}}</ui-select-match>
+                                            <ui-select-choices repeat="item in CountryDrop.countries | filter: $select.search">
+                                                <div ng-bind-html="item.name | highlight: $select.search"></div>
+                                            </ui-select-choices>
+                                        </ui-select>
+                                    </div>
+                                </div>
+                                <div class="col-md-5 mb10 pr0">
+                                    <div class="form-block">
+                                        <label>Mobile Number<span class="mandatory">*</span> </label>
+                                        <input type="text" class="form-control" placeholder="Mobile Number" name="Mobile" ng-model="NewMobil" ng-change="GetRepresntList(callname,NewMobil,NewEmail)"
+                                            /> 
+                                    </div>
+                                </div>
+                                <div class="col-md-5 mb10">
+                                    <div class="form-block">
+                                        <label>Email ID<span class="mandatory">*</span> </label>
+                                        <input type="text" class="form-control" placeholder="Email ID" name="Emailid" ng-model="NewEmail" ng-change="GetRepresntList(callname,NewMobil,NewEmail)"
+                                            /> 
+                                    </div>
+                                </div>
+                                <div class="col-md-12 mb10 text-right">
+                                    <p class="mandatory">Mobile Number/Email any one is Mandatory</p>
+                                    <button class="btn btn-warning btn-sm" type="button" ng-click="CnewCon=false">Close</button>
+                                    <button class="btn btn-success btn-sm" ng-click="SaveNewRepresentTO()">Create New Representative</button>
+                                </div>
+                            </div>
+                        </form>
+                        <table class="table table-bordered main-table mb0" cellspacing="0">
+                            <thead>
+                                <tr class="filters">
+                                    <th>#</th>
+                                    <th>Contact Name</th>
+                                    <th>Contact Mobile</th>
+                                    <th>Contact Email ID</th>
+                                </tr>
+                                <tr class="filtersLight">
+                                    <th></th>
+                                    <th><input type="text" placeholder="Search" class="form-control" ng-model="CName" ng-change="GetRepresntList(CName,Cmobile,CEmail)"></th>
+                                    <th><input type="text" placeholder="Search" class="form-control" ng-model="Cmobile" ng-change="GetRepresntList(CName,Cmobile,CEmail)"></th>
+                                    <th><input type="text" placeholder="Search" class="form-control" ng-model="CEmail" ng-change="GetRepresntList(CName,Cmobile,CEmail)"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="data in ContactsListTransferRe.result">
+                                    <td><button class="btn btn-xs btn-primary" ng-click="SetValueForRETOData(data);"><i class="fa fa-check"></i></button></td>
+                                    <td class="txtalignleft">{{data.ContactName?data.ContactName:'NA'}}</td>
+                                    <td class="txtalignleft">{{data.ContactMobile?data.ContactMobile:'NA'}}</td>
+                                    <td class="txtalignleft">{{data.ContactEmail?data.ContactEmail:'NA'}}</td>
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td class="footer" colspan="6">
+                                        <label ng-if="ContactsListTransferRe.info.listcount>'0'">Now Showing: {{ContactsListTransferRe.info.fromrecords}} - {{ContactsListTransferRe.info.torecords}} of {{ContactsListTransferRe.info.totalrecords}}</label>                                        &nbsp;&nbsp;
+                                        <label>Go To Page :</label> &nbsp;
+                                        <label>
+                                        <input type="text" style="width:auto;" size="2" class="form-control inline-in intvalid pageInput" ng-model="pagenumberCATRE" ng-change="pagenationssCATRepresent(pagenumberCAT)" /> </label>                                        &nbsp;&nbsp;
+                                        <label> Show Rows : </label>
+                                        <label style="color: #000 !important;">
+                                            <select ng-model="pageprecountsCATRE" name="pageprecountsCATRE" id="pagePerCountCAT" class="pageCount inline-in" ng-change="pagenationssCATRepresent(1,pageprecountsCAT)">
+                                                <option value="" disabled="disabled">Select</option>
+                                                <option value="10">10</option>
+                                                <option value="20">20</option>
+                                                <option value="50">50</option>
+                                                <option value="100">100</option>
+                                                <option value="200">200</option>
+                                                <option value="400">400</option>
+                                                <option value="500">500</option>
+                                                <option value="700">700</option>
+                                                <option value="1000">1000</option>
+                                                <option value="0">All</option>
+                                            </select>
+                                        </label>
+                                        &nbsp;&nbsp;
+                                        <label><a class="btn btn-default btn-xs" ng-click="pagenationss_clkCAT(pagenumberCAT,0)" style="padding:0px 8px;margin-bottom: 3px;"><i class="fa fa-caret-left"></i></a> </label>
+                                        <label ng-if="ContactsListTransfer.info.listcount>'0'"><a class="btn btn-default btn-xs" ng-click="pagenationss_clkCATRepresent(pagenumberCAT,1)" style="padding:0px 8px;margin-bottom: 3px;"><i class="fa fa-caret-right"></i></a> </label>
+                                    </td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                        <span class="text-danger"><b>Select any one Contact</b></span>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+    <div id="DeleteVendorPopUp" class="modal fade pop-modal" role="dialog">
+        <div class="modal-dialog modal-md">
+            <div class="modal-content">
+                <div class="modal-header padpop">
+                    <h5 class="modal-title pull-left mt7">Are you sure you want delete?</h5>
+                    <div class="pull-right">
+                        &nbsp;
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="modal-body">
+                    <div class="main-content text-right">
+                        <form name="deleteForm" class="deleteForm">
+                            <input type="text" name="LastModifiedBy" value="{{UserDetails.currentUser.UserId}}" hidden="true" />
+                            <input type="text" name="POVendorMasterId" value="{{VendorMainDetails.POVendorMasterId}}" hidden="true" />
+                        </form>
+                        <button class="btn btn-warning btn-sm" data-dismiss="modal" type="button">Cancel</button>
+                        <button class="btn btn-success btn-sm" ng-click="deleteVendor()" type="button">Delete</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

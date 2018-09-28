@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:p1="http://total-environment/PI/PORelease" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" name="PORelease_Out" targetNamespace="http://total-environment/PI/PORelease" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:documentation />
+  <wsp:UsingPolicy wsdl:required="true" />
+  <wsp:Policy wsu:Id="OP_PORelease_Out" />
+  <wsdl:types>
+    <xsd:schema xmlns="http://total-environment/PI/PORelease" targetNamespace="http://total-environment/PI/PORelease" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <xsd:element name="POReleaseRes" type="p1:POReleaseRes" />
+      <xsd:element name="POReleaseReq" type="p1:POReleaseReq" />
+      <xsd:complexType name="POReleaseReq">
+        <xsd:annotation>
+          <xsd:appinfo source="http://sap.com/xi/VersionID">86622e1b3a7b11e5c94200000041000a</xsd:appinfo>
+        </xsd:annotation>
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="Item">
+            <xsd:annotation>
+              <xsd:appinfo source="http://sap.com/xi/TextID">932fe94b3a7d11e589740060733a37a2</xsd:appinfo>
+            </xsd:annotation>
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element minOccurs="0" name="PURCHASEORDER" type="xsd:string">
+                  <xsd:annotation>
+                    <xsd:appinfo source="http://sap.com/xi/TextID">70e14af43a7b11e58f6a0060733a37a2</xsd:appinfo>
+                    <xsd:documentation>Purchasing Document Number</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+                <xsd:element minOccurs="0" name="REL_CODE" type="xsd:string">
+                  <xsd:annotation>
+                    <xsd:appinfo source="http://sap.com/xi/TextID">70e14af53a7b11e5b5360060733a37a2</xsd:appinfo>
+                    <xsd:documentation>Release Code</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+                <xsd:element minOccurs="0" name="REMARKS" type="xsd:string">
+                  <xsd:annotation>
+                    <xsd:appinfo source="http://sap.com/xi/TextID">70e14af63a7b11e59bf00060733a37a2</xsd:appinfo>
+                    <xsd:documentation>Approver Remarks</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+                <xsd:element minOccurs="0" name="APPROVER" type="xsd:string">
+                  <xsd:annotation>
+                    <xsd:appinfo source="http://sap.com/xi/TextID">70e14af73a7b11e5aa1a0060733a37a2</xsd:appinfo>
+                    <xsd:documentation>Fund Center/PO approver Name</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+                <xsd:element minOccurs="0" name="FUGUE_ID" type="xsd:string">
+                  <xsd:annotation>
+                    <xsd:appinfo source="http://sap.com/xi/TextID">70e14af83a7b11e5ce920060733a37a2</xsd:appinfo>
+                    <xsd:documentation>Fugue Reference ID</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+              </xsd:sequence>
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="POReleaseRes">
+        <xsd:annotation>
+          <xsd:appinfo source="http://sap.com/xi/VersionID">0e45b6d13a7d11e5bbff00000041000a</xsd:appinfo>
+        </xsd:annotation>
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="Item">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element minOccurs="0" name="PO_NUMBER" type="xsd:string">
+                  <xsd:annotation>
+                    <xsd:appinfo source="http://sap.com/xi/TextID">f8d07b8f3a7c11e5cf5d0060733a37a2</xsd:appinfo>
+                    <xsd:documentation>Purchasing Document Number</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+                <xsd:element minOccurs="0" name="RETCODE" type="xsd:string">
+                  <xsd:annotation>
+                    <xsd:appinfo source="http://sap.com/xi/TextID">f8d07b903a7c11e5954b0060733a37a2</xsd:appinfo>
+                    <xsd:documentation>Return Code</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+                <xsd:element minOccurs="0" name="MESSAGE" type="xsd:string">
+                  <xsd:annotation>
+                    <xsd:appinfo source="http://sap.com/xi/TextID">f8d07b913a7c11e5b0ae0060733a37a2</xsd:appinfo>
+                    <xsd:documentation>Return Message</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+                <xsd:element minOccurs="0" name="FUGUE_ID" type="xsd:string">
+                  <xsd:annotation>
+                    <xsd:appinfo source="http://sap.com/xi/TextID">f8d07b923a7c11e5ae550060733a37a2</xsd:appinfo>
+                    <xsd:documentation>Fugue Reference ID</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+              </xsd:sequence>
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="POReleaseReq">
+    <wsdl:documentation />
+    <wsdl:part name="POReleaseReq" element="p1:POReleaseReq" />
+  </wsdl:message>
+  <wsdl:message name="POReleaseRes">
+    <wsdl:documentation />
+    <wsdl:part name="POReleaseRes" element="p1:POReleaseRes" />
+  </wsdl:message>
+  <wsdl:portType name="PORelease_Out">
+    <wsdl:documentation />
+    <wsdl:operation name="PORelease_Out">
+      <wsdl:documentation />
+      <wsp:Policy>
+        <wsp:PolicyReference URI="#OP_PORelease_Out" />
+      </wsp:Policy>
+      <wsdl:input message="p1:POReleaseReq" />
+      <wsdl:output message="p1:POReleaseRes" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="PORelease_OutBinding" type="p1:PORelease_Out">
+    <binding transport="http://schemas.xmlsoap.org/soap/http" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+    <wsdl:operation name="PORelease_Out">
+      <operation soapAction="http://sap.com/xi/WebService/soap1.1" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <wsdl:input>
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </wsdl:input>
+      <wsdl:output>
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="PORelease_OutService">
+    <wsdl:port name="HTTP_Port" binding="p1:PORelease_OutBinding">
+      <address location="http://sapqty.total-environment.com:50100/XISOAPAdapter/MessageServlet?senderParty=&amp;senderService=BS_Fugue_QTY&amp;receiverParty=&amp;receiverService=&amp;interface=PORelease_Out&amp;interfaceNamespace=http%3A%2F%2Ftotal-environment%2FPI%2FPORelease" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+    </wsdl:port>
+    <wsdl:port name="HTTPS_Port" binding="p1:PORelease_OutBinding">
+      <address location="https://sapqty.total-environment.com:50101/XISOAPAdapter/MessageServlet?senderParty=&amp;senderService=BS_Fugue_QTY&amp;receiverParty=&amp;receiverService=&amp;interface=PORelease_Out&amp;interfaceNamespace=http%3A%2F%2Ftotal-environment%2FPI%2FPORelease" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

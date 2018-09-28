@@ -1,0 +1,680 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="PurchaseOrder_Out" targetNamespace="http://total-environment/PI/PurchaseOrder" xmlns:p1="http://total-environment/PI/PurchaseOrder" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:documentation/>
+  <wsp:UsingPolicy wsdl:required="true"/>
+  <wsp:Policy wsu:Id="OP_PurchaseOrder_Out"/>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://total-environment/PI/PurchaseOrder" xmlns="http://total-environment/PI/PurchaseOrder" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <xsd:element name="PurchaseOrderReq" type="PurchaseOrderReq"/>
+      <xsd:element name="PurchaseOrderRes" type="PurchaseOrderRes"/>
+      <xsd:complexType name="PurchaseOrderReq">
+        <xsd:annotation>
+          <xsd:appinfo source="http://sap.com/xi/VersionID">34d517ba47a911e8833f00000041000a</xsd:appinfo>
+        </xsd:annotation>
+        <xsd:sequence>
+          <xsd:element name="Header" minOccurs="0">
+            <xsd:annotation>
+              <xsd:appinfo source="http://sap.com/xi/TextID">4384cc0d40b511e58d460060733a37a2</xsd:appinfo>
+            </xsd:annotation>
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="TESTRUN" type="xsd:string" minOccurs="0">
+                  <xsd:annotation>
+                    <xsd:appinfo source="http://sap.com/xi/TextID">43826ac340b511e589b20060733a37a2</xsd:appinfo>
+                    <xsd:documentation>Test Indicator</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="PO_NUMBER" type="xsd:string" minOccurs="0">
+                  <xsd:annotation>
+                    <xsd:appinfo source="http://sap.com/xi/TextID">6cbbcd1a47a911e883c2b083fe9848d0</xsd:appinfo>
+                    <xsd:documentation>Purchasing Document Number</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="F_PONUMBER" type="xsd:string" minOccurs="0">
+                  <xsd:annotation>
+                    <xsd:appinfo source="http://sap.com/xi/TextID">43826ac440b511e5b7980060733a37a2</xsd:appinfo>
+                    <xsd:documentation>Future Purchase Ordering  Number</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="COMP_CODE" type="xsd:string" minOccurs="0">
+                  <xsd:annotation>
+                    <xsd:appinfo source="http://sap.com/xi/TextID">43826ac540b511e5bfb90060733a37a2</xsd:appinfo>
+                    <xsd:documentation>Company Code</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="DOC_TYPE" type="xsd:string" minOccurs="0">
+                  <xsd:annotation>
+                    <xsd:appinfo source="http://sap.com/xi/TextID">43826ac640b511e5864c0060733a37a2</xsd:appinfo>
+                    <xsd:documentation>Purchasing Document Type</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="VENDOR" type="xsd:string" minOccurs="0">
+                  <xsd:annotation>
+                    <xsd:appinfo source="http://sap.com/xi/TextID">43826ac740b511e5b0b90060733a37a2</xsd:appinfo>
+                    <xsd:documentation>Vendor Account Number</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="PURCH_ORG" type="xsd:string" minOccurs="0">
+                  <xsd:annotation>
+                    <xsd:appinfo source="http://sap.com/xi/TextID">43826ac840b511e59ab90060733a37a2</xsd:appinfo>
+                    <xsd:documentation>Purchasing Organization</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="PUR_GROUP" type="xsd:string" minOccurs="0">
+                  <xsd:annotation>
+                    <xsd:appinfo source="http://sap.com/xi/TextID">43826ac940b511e5c2c70060733a37a2</xsd:appinfo>
+                    <xsd:documentation>Purchasing Group</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="CURRENCY" type="xsd:string" minOccurs="0">
+                  <xsd:annotation>
+                    <xsd:appinfo source="http://sap.com/xi/TextID">43826aca40b511e5cd510060733a37a2</xsd:appinfo>
+                    <xsd:documentation>Currency Key</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="DOC_DATE" type="xsd:string" minOccurs="0">
+                  <xsd:annotation>
+                    <xsd:appinfo source="http://sap.com/xi/TextID">43826acb40b511e5c85f0060733a37a2</xsd:appinfo>
+                    <xsd:documentation>Purchasing Document Date</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="PMNTTRMS" type="xsd:string" minOccurs="0">
+                  <xsd:annotation>
+                    <xsd:appinfo source="http://sap.com/xi/TextID">43826acc40b511e5b6e00060733a37a2</xsd:appinfo>
+                    <xsd:documentation>Terms of Payment Key</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="REF_1" type="xsd:string" minOccurs="0">
+                  <xsd:annotation>
+                    <xsd:appinfo source="http://sap.com/xi/TextID">43826acd40b511e5c18c0060733a37a2</xsd:appinfo>
+                    <xsd:documentation>Your Reference</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="OUR_REF" type="xsd:string" minOccurs="0">
+                  <xsd:annotation>
+                    <xsd:appinfo source="http://sap.com/xi/TextID">43826ace40b511e5be1b0060733a37a2</xsd:appinfo>
+                    <xsd:documentation>Our Reference</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="TELEPHONE" type="xsd:string" minOccurs="0">
+                  <xsd:annotation>
+                    <xsd:appinfo source="http://sap.com/xi/TextID">43826acf40b511e582f10060733a37a2</xsd:appinfo>
+                    <xsd:documentation>Vendor&apos;s Telephone Number</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="COMPLETED" type="xsd:string" minOccurs="0">
+                  <xsd:annotation>
+                    <xsd:appinfo source="http://sap.com/xi/TextID">43826ad040b511e5b74c0060733a37a2</xsd:appinfo>
+                    <xsd:documentation>Status &quot;version completed&quot;</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="REASON" type="xsd:string" minOccurs="0">
+                  <xsd:annotation>
+                    <xsd:appinfo source="http://sap.com/xi/TextID">43826ad140b511e5a53f0060733a37a2</xsd:appinfo>
+                    <xsd:documentation>Reason for change</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="EXCH_RATE" type="xsd:string" minOccurs="0">
+                  <xsd:annotation>
+                    <xsd:appinfo source="http://sap.com/xi/TextID">43826ad240b511e5b9c70060733a37a2</xsd:appinfo>
+                    <xsd:documentation>Exchange Rate</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="SALES_PERS" type="xsd:string" minOccurs="0">
+                  <xsd:annotation>
+                    <xsd:appinfo source="http://sap.com/xi/TextID">43826ad340b511e5c4270060733a37a2</xsd:appinfo>
+                    <xsd:documentation>Managed by</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="ZPOTITLE" type="xsd:string" minOccurs="0">
+                  <xsd:annotation>
+                    <xsd:appinfo source="http://sap.com/xi/TextID">4384cbdf40b511e5c86e0060733a37a2</xsd:appinfo>
+                    <xsd:documentation>POTITLE</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="ZAGSIGNDT" type="xsd:string" minOccurs="0">
+                  <xsd:annotation>
+                    <xsd:appinfo source="http://sap.com/xi/TextID">4384cbe040b511e5a5030060733a37a2</xsd:appinfo>
+                    <xsd:documentation>Agreement signed date</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="FUGUE_ID" type="xsd:string" minOccurs="0">
+                  <xsd:annotation>
+                    <xsd:appinfo source="http://sap.com/xi/TextID">4384cbe140b511e5b8b00060733a37a2</xsd:appinfo>
+                    <xsd:documentation>Fugue Reference ID</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="TEXT_LINE" type="xsd:string" minOccurs="0">
+                  <xsd:annotation>
+                    <xsd:appinfo source="http://sap.com/xi/TextID">4384cbe240b511e5c8520060733a37a2</xsd:appinfo>
+                    <xsd:documentation>Text Line</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="ZPROJECT" type="xsd:string" minOccurs="0">
+                  <xsd:annotation>
+                    <xsd:appinfo source="http://sap.com/xi/TextID">ebb0714b9e6011e5a22c0060733a37a2</xsd:appinfo>
+                    <xsd:documentation>Project Name</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+              </xsd:sequence>
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="item" minOccurs="0" maxOccurs="unbounded">
+            <xsd:annotation>
+              <xsd:appinfo source="http://sap.com/xi/TextID">4384cc0840b511e5b5c10060733a37a2</xsd:appinfo>
+            </xsd:annotation>
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="PO_NUMBER" type="xsd:string" minOccurs="0">
+                  <xsd:annotation>
+                    <xsd:appinfo source="http://sap.com/xi/TextID">86dc88619cb611e5b3810060733a37a2</xsd:appinfo>
+                    <xsd:documentation>Purchase Document Number</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="PO_ITEM" type="xsd:string" minOccurs="0">
+                  <xsd:annotation>
+                    <xsd:appinfo source="http://sap.com/xi/TextID">4384cbe340b511e590400060733a37a2</xsd:appinfo>
+                    <xsd:documentation>Item Number of Purchasing Document</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="DEL_IND" type="xsd:string" minOccurs="0">
+                  <xsd:annotation>
+                    <xsd:appinfo source="http://sap.com/xi/TextID">e01116a8884a11e59b370060733e3b84</xsd:appinfo>
+                    <xsd:documentation>Deletion Indicator in Purchasing Document</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="ITEM_CAT" type="xsd:string" minOccurs="0">
+                  <xsd:annotation>
+                    <xsd:appinfo source="http://sap.com/xi/TextID">4384cbe440b511e5ab770060733a37a2</xsd:appinfo>
+                    <xsd:documentation>Item Category in Purchasing Document</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="ACCTASSCAT" type="xsd:string" minOccurs="0">
+                  <xsd:annotation>
+                    <xsd:appinfo source="http://sap.com/xi/TextID">4384cbe540b511e5c1120060733a37a2</xsd:appinfo>
+                    <xsd:documentation>Account Assignment Category</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="MATERIAL" type="xsd:string" minOccurs="0">
+                  <xsd:annotation>
+                    <xsd:appinfo source="http://sap.com/xi/TextID">4384cbe640b511e587360060733a37a2</xsd:appinfo>
+                    <xsd:documentation>Material Number</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="SHORT_TEXT" type="xsd:string" minOccurs="0">
+                  <xsd:annotation>
+                    <xsd:appinfo source="http://sap.com/xi/TextID">4384cbe740b511e590ba0060733a37a2</xsd:appinfo>
+                    <xsd:documentation>Short Text</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="QUANTITY" type="xsd:string" minOccurs="0">
+                  <xsd:annotation>
+                    <xsd:appinfo source="http://sap.com/xi/TextID">4384cbe840b511e5864f0060733a37a2</xsd:appinfo>
+                    <xsd:documentation>Purchase Order Quantity</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="PO_UNIT" type="xsd:string" minOccurs="0">
+                  <xsd:annotation>
+                    <xsd:appinfo source="http://sap.com/xi/TextID">4384cbe940b511e5c9470060733a37a2</xsd:appinfo>
+                    <xsd:documentation>Purchase Order Unit of Measure</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="DELIVERY_DATE" type="xsd:string" minOccurs="0">
+                  <xsd:annotation>
+                    <xsd:appinfo source="http://sap.com/xi/TextID">4384cbea40b511e5a97d0060733a37a2</xsd:appinfo>
+                    <xsd:documentation>Delivery Date</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="NET_PRICE" type="xsd:string" minOccurs="0">
+                  <xsd:annotation>
+                    <xsd:appinfo source="http://sap.com/xi/TextID">4384cbeb40b511e5b25b0060733a37a2</xsd:appinfo>
+                    <xsd:documentation>Currency amount for BAPIS (with 9 decimal places)</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="MATL_GROUP" type="xsd:string" minOccurs="0">
+                  <xsd:annotation>
+                    <xsd:appinfo source="http://sap.com/xi/TextID">4384cbec40b511e5c7670060733a37a2</xsd:appinfo>
+                    <xsd:documentation>Material Group</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="PLANT" type="xsd:string" minOccurs="0">
+                  <xsd:annotation>
+                    <xsd:appinfo source="http://sap.com/xi/TextID">4384cbed40b511e5cedd0060733a37a2</xsd:appinfo>
+                    <xsd:documentation>Plant</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="TRACKINGNO" type="xsd:string" minOccurs="0">
+                  <xsd:annotation>
+                    <xsd:appinfo source="http://sap.com/xi/TextID">4384cbee40b511e5c6f20060733a37a2</xsd:appinfo>
+                    <xsd:documentation>Requirement Tracking Number</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="GL_ACCOUNT" type="xsd:string" minOccurs="0">
+                  <xsd:annotation>
+                    <xsd:appinfo source="http://sap.com/xi/TextID">4384cbef40b511e5b3890060733a37a2</xsd:appinfo>
+                    <xsd:documentation>G/L Account Number</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="ASSET_NO" type="xsd:string" minOccurs="0">
+                  <xsd:annotation>
+                    <xsd:appinfo source="http://sap.com/xi/TextID">4384cbf040b511e592c00060733a37a2</xsd:appinfo>
+                    <xsd:documentation>Main Asset Number</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="WBS_ELEMENT" type="xsd:string" minOccurs="0">
+                  <xsd:annotation>
+                    <xsd:appinfo source="http://sap.com/xi/TextID">4384cbf140b511e5ae8b0060733a37a2</xsd:appinfo>
+                    <xsd:documentation>Work Breakdown Structure Element (WBS Element)</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="ORDER" type="xsd:string" minOccurs="0">
+                  <xsd:annotation>
+                    <xsd:appinfo source="http://sap.com/xi/TextID">e0115b79884a11e593410060733e3b84</xsd:appinfo>
+                    <xsd:documentation>Order Number</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="TAX_CODE" type="xsd:string" minOccurs="0">
+                  <xsd:annotation>
+                    <xsd:appinfo source="http://sap.com/xi/TextID">4384cbf240b511e596560060733a37a2</xsd:appinfo>
+                    <xsd:documentation>Tax on sales/purchases code</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="PREQ_NO" type="xsd:string" minOccurs="0">
+                  <xsd:annotation>
+                    <xsd:appinfo source="http://sap.com/xi/TextID">4384cbf340b511e582420060733a37a2</xsd:appinfo>
+                    <xsd:documentation>Purchase Requisition Number</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="PREQ_ITEM" type="xsd:string" minOccurs="0">
+                  <xsd:annotation>
+                    <xsd:appinfo source="http://sap.com/xi/TextID">4384cbf440b511e5859c0060733a37a2</xsd:appinfo>
+                    <xsd:documentation>Item Number of Purchase Requisition</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="STGE_LOC" type="xsd:string" minOccurs="0">
+                  <xsd:annotation>
+                    <xsd:appinfo source="http://sap.com/xi/TextID">4384cbf540b511e5c43e0060733a37a2</xsd:appinfo>
+                    <xsd:documentation>Storage Location</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="SERVICE" type="xsd:string" minOccurs="0">
+                  <xsd:annotation>
+                    <xsd:appinfo source="http://sap.com/xi/TextID">4384cbf640b511e5b8640060733a37a2</xsd:appinfo>
+                    <xsd:documentation>Activity Number</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="SQUANTITY" type="xsd:string" minOccurs="0">
+                  <xsd:annotation>
+                    <xsd:appinfo source="http://sap.com/xi/TextID">4384cbf740b511e5a35e0060733a37a2</xsd:appinfo>
+                    <xsd:documentation>Quantity with Sign</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="GR_PRICE" type="xsd:string" minOccurs="0">
+                  <xsd:annotation>
+                    <xsd:appinfo source="http://sap.com/xi/TextID">4384cbf840b511e5a5e40060733a37a2</xsd:appinfo>
+                    <xsd:documentation>Gross price</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="PRE_VENDOR" type="xsd:string" minOccurs="0">
+                  <xsd:annotation>
+                    <xsd:appinfo source="http://sap.com/xi/TextID">4384cbf940b511e5c1680060733a37a2</xsd:appinfo>
+                    <xsd:documentation>Prior Vendor</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="LIMIT" type="xsd:string" minOccurs="0">
+                  <xsd:annotation>
+                    <xsd:appinfo source="http://sap.com/xi/TextID">4384cbfa40b511e5a20a0060733a37a2</xsd:appinfo>
+                    <xsd:documentation>Overall limit</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="EXP_VALUE" type="xsd:string" minOccurs="0">
+                  <xsd:annotation>
+                    <xsd:appinfo source="http://sap.com/xi/TextID">4384cbfb40b511e5cba90060733a37a2</xsd:appinfo>
+                    <xsd:documentation>Expected value</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="NO_LIMIT" type="xsd:string" minOccurs="0">
+                  <xsd:annotation>
+                    <xsd:appinfo source="http://sap.com/xi/TextID">4384cbfc40b511e595fe0060733a37a2</xsd:appinfo>
+                    <xsd:documentation>No Limit</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="EXT_LINE" type="xsd:string" minOccurs="0">
+                  <xsd:annotation>
+                    <xsd:appinfo source="http://sap.com/xi/TextID">4384cbfd40b511e5c5a60060733a37a2</xsd:appinfo>
+                    <xsd:documentation>Line Number</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="BASE_UOM" type="xsd:string" minOccurs="0">
+                  <xsd:annotation>
+                    <xsd:appinfo source="http://sap.com/xi/TextID">4384cbfe40b511e59f040060733a37a2</xsd:appinfo>
+                    <xsd:documentation>Base Unit of Measure</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="LINE_TEXT" type="xsd:string" minOccurs="0">
+                  <xsd:annotation>
+                    <xsd:appinfo source="http://sap.com/xi/TextID">4384cbff40b511e5bf280060733a37a2</xsd:appinfo>
+                    <xsd:documentation>Short Text</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="NETWORK" type="xsd:string" minOccurs="0">
+                  <xsd:annotation>
+                    <xsd:appinfo source="http://sap.com/xi/TextID">4384cc0040b511e5c5f10060733a37a2</xsd:appinfo>
+                    <xsd:documentation>Network Number for Account Assignment</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="OVF_TOL" type="xsd:string" minOccurs="0">
+                  <xsd:annotation>
+                    <xsd:appinfo source="http://sap.com/xi/TextID">4384cc0140b511e5cd120060733a37a2</xsd:appinfo>
+                    <xsd:documentation>Overdelivery Tolerance Limit</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="OVF_UNLIM" type="xsd:string" minOccurs="0">
+                  <xsd:annotation>
+                    <xsd:appinfo source="http://sap.com/xi/TextID">4384cc0240b511e5a5820060733a37a2</xsd:appinfo>
+                    <xsd:documentation>Underdelivery Tolerance Limit</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="NO_MORE_GR" type="xsd:string" minOccurs="0">
+                  <xsd:annotation>
+                    <xsd:appinfo source="http://sap.com/xi/TextID">4384cc0340b511e5ce1c0060733a37a2</xsd:appinfo>
+                    <xsd:documentation>&quot;Delivery Completed&quot; Indicator</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="RET_ITEM" type="xsd:string" minOccurs="0">
+                  <xsd:annotation>
+                    <xsd:appinfo source="http://sap.com/xi/TextID">4384cc0440b511e5cf890060733a37a2</xsd:appinfo>
+                    <xsd:documentation>Return Item</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="FUNDS_CTR" type="xsd:string" minOccurs="0">
+                  <xsd:annotation>
+                    <xsd:appinfo source="http://sap.com/xi/TextID">4384cc0540b511e595290060733a37a2</xsd:appinfo>
+                    <xsd:documentation>Funds Center</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="CMMT_ITEM_LONG" type="xsd:string" minOccurs="0">
+                  <xsd:annotation>
+                    <xsd:appinfo source="http://sap.com/xi/TextID">4384cc0640b511e5cc660060733a37a2</xsd:appinfo>
+                    <xsd:documentation>Commitment Item</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="TEXT_LINE" type="xsd:string" minOccurs="0">
+                  <xsd:annotation>
+                    <xsd:appinfo source="http://sap.com/xi/TextID">4384cc0740b511e5a42f0060733a37a2</xsd:appinfo>
+                    <xsd:documentation>Text Line</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="KOSTL" type="xsd:string" minOccurs="0">
+                  <xsd:annotation>
+                    <xsd:appinfo source="http://sap.com/xi/TextID">f121ad8c520a11e597080060733a37a2</xsd:appinfo>
+                    <xsd:documentation>Cost Center</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="STEUC" type="xsd:string" minOccurs="0">
+                  <xsd:annotation>
+                    <xsd:appinfo source="http://sap.com/xi/TextID">a99c7937ad6b11e7851900155d01f505</xsd:appinfo>
+                    <xsd:documentation>HSN/SAC Code</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+              </xsd:sequence>
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="item1" minOccurs="0" maxOccurs="unbounded">
+            <xsd:annotation>
+              <xsd:appinfo source="http://sap.com/xi/TextID">28c51c2840b611e5c8cc0060733a37a2</xsd:appinfo>
+            </xsd:annotation>
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="PO_ITEM" type="xsd:string" minOccurs="0">
+                  <xsd:annotation>
+                    <xsd:appinfo source="http://sap.com/xi/TextID">e011819f884a11e5a7770060733e3b84</xsd:appinfo>
+                    <xsd:documentation>Item Number of Purchasing Document</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="KPOSN" type="xsd:string" minOccurs="0">
+                  <xsd:annotation>
+                    <xsd:appinfo source="http://sap.com/xi/TextID">28c51c2540b611e58d100060733a37a2</xsd:appinfo>
+                    <xsd:documentation>Condition item number</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="KSCHL" type="xsd:string" minOccurs="0">
+                  <xsd:annotation>
+                    <xsd:appinfo source="http://sap.com/xi/TextID">28c51c2640b611e589aa0060733a37a2</xsd:appinfo>
+                    <xsd:documentation>Condition Type</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="KBETR" type="xsd:string" minOccurs="0">
+                  <xsd:annotation>
+                    <xsd:appinfo source="http://sap.com/xi/TextID">28c51c2740b611e5c14f0060733a37a2</xsd:appinfo>
+                    <xsd:documentation>Condition rate</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="LIFNR" type="xsd:string" minOccurs="0">
+                  <xsd:annotation>
+                    <xsd:appinfo source="http://sap.com/xi/TextID">1bb02c529cbf11e597510060733a37a2</xsd:appinfo>
+                    <xsd:documentation>Vendor Account Number</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+              </xsd:sequence>
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="Item2" minOccurs="0" maxOccurs="unbounded">
+            <xsd:annotation>
+              <xsd:appinfo source="http://sap.com/xi/TextID">dab9bec5885311e58aa90060733e3b84</xsd:appinfo>
+            </xsd:annotation>
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="PO_ITEM" type="xsd:string" minOccurs="0">
+                  <xsd:annotation>
+                    <xsd:appinfo source="http://sap.com/xi/TextID">0aeb97d6885311e598ae0060733e3b84</xsd:appinfo>
+                    <xsd:documentation>Item Number of Purchasing Document</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="LINES" type="xsd:string" minOccurs="0">
+                  <xsd:annotation>
+                    <xsd:appinfo source="http://sap.com/xi/TextID">0aeb97d7885311e5cc880060733e3b84</xsd:appinfo>
+                    <xsd:documentation>Line Number</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="SERVICE" type="xsd:string" minOccurs="0">
+                  <xsd:annotation>
+                    <xsd:appinfo source="http://sap.com/xi/TextID">dab97de3885311e597ea0060733e3b84</xsd:appinfo>
+                    <xsd:documentation>Activity Number</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="SQUANTITY" type="xsd:string" minOccurs="0">
+                  <xsd:annotation>
+                    <xsd:appinfo source="http://sap.com/xi/TextID">dab97de4885311e5a0e20060733e3b84</xsd:appinfo>
+                    <xsd:documentation>Quantity with Sign</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="GR_PRICE" type="xsd:string" minOccurs="0">
+                  <xsd:annotation>
+                    <xsd:appinfo source="http://sap.com/xi/TextID">dab97de5885311e581810060733e3b84</xsd:appinfo>
+                    <xsd:documentation>Gross price</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="BASE_UOM" type="xsd:string" minOccurs="0">
+                  <xsd:annotation>
+                    <xsd:appinfo source="http://sap.com/xi/TextID">dab9bec0885311e5cd5a0060733e3b84</xsd:appinfo>
+                    <xsd:documentation>Base Unit of Measure</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="LINE_TEXT" type="xsd:string" minOccurs="0">
+                  <xsd:annotation>
+                    <xsd:appinfo source="http://sap.com/xi/TextID">dab9bec1885311e59cb90060733e3b84</xsd:appinfo>
+                    <xsd:documentation>Short Text</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="OVF_TOL" type="xsd:string" minOccurs="0">
+                  <xsd:annotation>
+                    <xsd:appinfo source="http://sap.com/xi/TextID">dab9bec2885311e5bd8f0060733e3b84</xsd:appinfo>
+                    <xsd:documentation>Overdelivery Tolerance Limit</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="OVF_UNLIM1" type="xsd:string" minOccurs="0">
+                  <xsd:annotation>
+                    <xsd:appinfo source="http://sap.com/xi/TextID">dab9bec3885311e58dcf0060733e3b84</xsd:appinfo>
+                    <xsd:documentation>Underdelivery Tolerance Limit</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="MATKL" type="xsd:string" minOccurs="0">
+                  <xsd:annotation>
+                    <xsd:appinfo source="http://sap.com/xi/TextID">dab9bec4885311e59b470060733e3b84</xsd:appinfo>
+                    <xsd:documentation>Material Group</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="WBS_ELEMENT" type="xsd:string" minOccurs="0">
+                  <xsd:annotation>
+                    <xsd:appinfo source="http://sap.com/xi/TextID">ebb2d5bb9e6011e58f560060733a37a2</xsd:appinfo>
+                    <xsd:documentation>WBS Element</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="GL_ACCOUNT" type="xsd:string" minOccurs="0">
+                  <xsd:annotation>
+                    <xsd:appinfo source="http://sap.com/xi/TextID">9d2e2aba9f1f11e5c83e0060733a37a2</xsd:appinfo>
+                    <xsd:documentation>G/L Account Number</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="ORDER" type="xsd:string" minOccurs="0">
+                  <xsd:annotation>
+                    <xsd:appinfo source="http://sap.com/xi/TextID">9d2e2abb9f1f11e5987d0060733a37a2</xsd:appinfo>
+                    <xsd:documentation>Order Number</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="FUNDS_CTR" type="xsd:string" minOccurs="0">
+                  <xsd:annotation>
+                    <xsd:appinfo source="http://sap.com/xi/TextID">9d2e2abc9f1f11e5b1570060733a37a2</xsd:appinfo>
+                    <xsd:documentation>Funds Center</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="CMMT_ITEM_LONG" type="xsd:string" minOccurs="0">
+                  <xsd:annotation>
+                    <xsd:appinfo source="http://sap.com/xi/TextID">9d2e2abd9f1f11e5c1a30060733a37a2</xsd:appinfo>
+                    <xsd:documentation>Commitment Item</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="LONG_TEXT" type="xsd:string" minOccurs="0">
+                  <xsd:annotation>
+                    <xsd:appinfo source="http://sap.com/xi/TextID">23e36e43a24411e5a49a0060733a37a2</xsd:appinfo>
+                    <xsd:documentation>Text Line</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+              </xsd:sequence>
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="PurchaseOrderRes">
+        <xsd:annotation>
+          <xsd:appinfo source="http://sap.com/xi/VersionID">73fa64ec885211e5a00b00000041000a</xsd:appinfo>
+        </xsd:annotation>
+        <xsd:sequence>
+          <xsd:element name="item" minOccurs="0" maxOccurs="unbounded">
+            <xsd:annotation>
+              <xsd:appinfo source="http://sap.com/xi/TextID">1fa0caeae35711e4ad6b00ff224f13bb</xsd:appinfo>
+            </xsd:annotation>
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="PO_NUMBER" type="xsd:string" minOccurs="0">
+                  <xsd:annotation>
+                    <xsd:appinfo source="http://sap.com/xi/TextID">2381c716c48911e3a97e000b6adfcc55</xsd:appinfo>
+                    <xsd:documentation>Purchasing Document Number</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="F_PONUMBER" type="xsd:string" minOccurs="0">
+                  <xsd:annotation>
+                    <xsd:appinfo source="http://sap.com/xi/TextID">2381c717c48911e3c57d000b6adfcc55</xsd:appinfo>
+                    <xsd:documentation>Future Purchase Ordering  Number</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="PO_ITEM" type="xsd:string" minOccurs="0">
+                  <xsd:annotation>
+                    <xsd:appinfo source="http://sap.com/xi/TextID">1fa0cae5e35711e4964800ff224f13bb</xsd:appinfo>
+                    <xsd:documentation>Item Number of Purchasing Document</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="NETWR" type="xsd:string" minOccurs="0">
+                  <xsd:annotation>
+                    <xsd:appinfo source="http://sap.com/xi/TextID">1fa0cae6e35711e49e0800ff224f13bb</xsd:appinfo>
+                    <xsd:documentation>Net Order Value in PO Currency</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="BRTWR" type="xsd:string" minOccurs="0">
+                  <xsd:annotation>
+                    <xsd:appinfo source="http://sap.com/xi/TextID">1fa0cae7e35711e482ee00ff224f13bb</xsd:appinfo>
+                    <xsd:documentation>Gross order value in PO currency</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="NAVNW" type="xsd:string" minOccurs="0">
+                  <xsd:annotation>
+                    <xsd:appinfo source="http://sap.com/xi/TextID">1fa0cae8e35711e49d8700ff224f13bb</xsd:appinfo>
+                    <xsd:documentation>Non-deductible input tax</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="RETCODE" type="xsd:string" minOccurs="0">
+                  <xsd:annotation>
+                    <xsd:appinfo source="http://sap.com/xi/TextID">2381c718c48911e382ad000b6adfcc55</xsd:appinfo>
+                    <xsd:documentation>Return Code</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="MESSAGE" type="xsd:string" minOccurs="0">
+                  <xsd:annotation>
+                    <xsd:appinfo source="http://sap.com/xi/TextID">2381c719c48911e39028000b6adfcc55</xsd:appinfo>
+                    <xsd:documentation>Return Message</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="FUGUE_ID" type="xsd:string" minOccurs="0">
+                  <xsd:annotation>
+                    <xsd:appinfo source="http://sap.com/xi/TextID">1fa0cae9e35711e4840100ff224f13bb</xsd:appinfo>
+                    <xsd:documentation>Fugue Reference ID</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+              </xsd:sequence>
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="PurchaseOrderReq">
+    <wsdl:documentation/>
+    <wsdl:part name="PurchaseOrderReq" element="p1:PurchaseOrderReq"/>
+  </wsdl:message>
+  <wsdl:message name="PurchaseOrderRes">
+    <wsdl:documentation/>
+    <wsdl:part name="PurchaseOrderRes" element="p1:PurchaseOrderRes"/>
+  </wsdl:message>
+  <wsdl:portType name="PurchaseOrder_Out">
+    <wsdl:documentation/>
+    <wsdl:operation name="PurchaseOrder_Out">
+      <wsdl:documentation/>
+      <wsp:Policy>
+        <wsp:PolicyReference URI="#OP_PurchaseOrder_Out"/>
+      </wsp:Policy>
+      <wsdl:input message="p1:PurchaseOrderReq"/>
+      <wsdl:output message="p1:PurchaseOrderRes"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="PurchaseOrder_OutBinding" type="p1:PurchaseOrder_Out">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+    <wsdl:operation name="PurchaseOrder_Out">
+      <soap:operation soapAction="http://sap.com/xi/WebService/soap1.1" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      <wsdl:input>
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="PurchaseOrder_OutService">
+    <wsdl:port name="HTTP_Port" binding="p1:PurchaseOrder_OutBinding">
+      <soap:address location="http://sappiprd:50000/XISOAPAdapter/MessageServlet?senderParty=&amp;senderService=BS_Fugue_PRD&amp;receiverParty=&amp;receiverService=&amp;interface=PurchaseOrder_Out&amp;interfaceNamespace=http%3A%2F%2Ftotal-environment%2FPI%2FPurchaseOrder" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+    </wsdl:port>
+    <wsdl:port name="HTTPS_Port" binding="p1:PurchaseOrder_OutBinding">
+      <soap:address location="https://sappiprd:50001/XISOAPAdapter/MessageServlet?senderParty=&amp;senderService=BS_Fugue_PRD&amp;receiverParty=&amp;receiverService=&amp;interface=PurchaseOrder_Out&amp;interfaceNamespace=http%3A%2F%2Ftotal-environment%2FPI%2FPurchaseOrder" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

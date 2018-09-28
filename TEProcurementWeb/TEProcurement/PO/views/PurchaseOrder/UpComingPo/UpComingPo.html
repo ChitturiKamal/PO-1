@@ -1,0 +1,68 @@
+<style>
+    .modal-dialog {
+        margin-top: 90px;
+    }
+    .well {
+        margin-bottom: 0;
+    }
+    .vertical-text {
+	transform: rotate(270deg);
+    height: 130px;
+    }
+</style>
+<header ng-include="'views/header.html'"></header>
+<div class="wrapper" ng-controller="UpCommingPo">
+    <div class="row">
+        <div class="container wrapper" style="background: #fff;">
+            <div class="row">
+                <section>
+                    <div style="margin: 70px auto 0 auto;">
+                        <div class="title-panel">Tracking</div>
+                            <div class="clearfix"></div>
+                            <a id='pdfDownloadId' download='Receipt{{CurrentDateTime}}.pdf' ng-show="false" />
+                            <div class="projlisttabs">
+                                <!-- <div ng-include="'views/Trackers/TrackersMain.html'"></div>   -->
+                                <ul class="nav nav-tabs" id="tabs" auto-active>
+                                  
+                                    <li class="tabPadding"><a href="#/PurchaseOrder" data-toggle="tab">Purchase Order</a></li> 
+									<li class="tabPadding"><a href="#/MyPO" data-toggle="tab">My Po</a></li> 
+									<li class="tabPadding"><a href="#/POPending" data-toggle="tab">Pending For Approval</a></li> 
+									<li class="tabPadding"><a href="#/POUpcomming" data-toggle="tab">Up Coming</a></li> 
+									<li class="tabPadding"><a href="#/POApproved" data-toggle="tab">Approved</a></li> 
+									<li class="tabPadding"><a href="#/PORejected" data-toggle="tab">Rejected</a></li> 
+                                      <li class="tabPadding"><a href="#/CreatePO" data-toggle="tab">CreatePO</a></li>   
+                                    <div class="col-xs-3 pull-right" >
+                                        <div class="input-group" style="margin:5px;margin-right:-17px;">
+                                            <input type="text" class="form-control ng-pristine ng-valid ng-empty ng-touched" ng-model="serachList" placeholder="Search" ng-keydown="$event.keyCode === 13 && filterSearchList(serachList)">
+                                            <div class="input-group-btn">
+                                                <div class="btn-group" role="group">
+                                                    <button type="button" class="btn filtbtn" ng-click="filterSearchList(serachList);" style="background-color:#f68c02; color:#fff;"><span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                                    </button>
+                                                </div>
+                                            </div>  
+                                        </div>
+                                    </div>
+                                </ul>
+                            </div>
+                        <div style="width:99%; margin:0px;">
+                           
+                            <div class="salestracker_container ng-scope">
+                                <div class="saleorder_detailsbox">                                        
+                                    <div class="row">                                  
+                                            <div class="gridStyle hgt" ng-grid="finalresultGrid" style="margin-top:0; height:480px"></div>   
+                                        <div ng-if="TempCustList.result.length<='0'&& count==0">
+                                            <div style="top: -294px;left: 45%; position: relative;">No Customers Found</div>
+                                        </div>
+                                        <div ng-if="TempCustList.result.length<='0' && count==1">
+                                            <div style="top: -294px;left: 45%; position: relative;">No Matching Customer(s) Found</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>    
+                    </div>
+                 </section>
+            </div>
+        </div>
+    </div>
+</div>

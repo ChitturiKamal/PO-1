@@ -1,0 +1,473 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f34f64c49c254ef9b8d70d21925d4796" Name="Diagram1">
+        <EntityTypeShape EntityType="Fuguev3_DevModel.ApplicationErrorLog" Width="1.5" PointX="5.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.CATEGORYMASTER" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.CENTRALCOMMENT" Width="1.5" PointX="5.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.CITYMASTER" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.ConsultantIncentive" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.CPRMASTER" Width="1.5" PointX="7.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.DataBaseLog" Width="1.5" PointX="16.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.EBUILDPRICEBOOK" Width="1.5" PointX="30.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.EBUILDPRICING" Width="1.5" PointX="23.75" PointY="30.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.EmployeeInfoLog" Width="1.5" PointX="18.75" PointY="25.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.empnew" Width="1.5" PointX="20.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.JDPriceBook" Width="1.5" PointX="20.75" PointY="25.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.JDPriceBookElement" Width="1.5" PointX="25.75" PointY="30.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.LeadTransaction" Width="1.5" PointX="33.75" PointY="21.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.LeadTransactionWithAttachment" Width="1.5" PointX="33.75" PointY="29.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.MyTeamReport" Width="1.5" PointX="33.75" PointY="33.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.pdfDummy" Width="1.5" PointX="25.75" PointY="34.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.POApprovalCondition" Width="1.5" PointX="35.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.POMasterApprover" Width="1.5" PointX="35.75" PointY="20.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.PRICEPUSHDETAIL" Width="1.5" PointX="22.75" PointY="35.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.PRODUCTMASTER" Width="1.5" PointX="35.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.projectMaster" Width="1.5" PointX="22.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.R_TEContactOrganisationRepresentatives" Width="1.5" PointX="35.75" PointY="25.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.R_TEEmailMessage_TEEdmTemplate" Width="1.5" PointX="35.75" PointY="29.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.R_TERecipient_TEEmailSuppression" Width="1.5" PointX="35.75" PointY="35.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.R_TERelationshipsOfContact" Width="1.5" PointX="37.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.RATEMASTER" Width="1.5" PointX="37.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.RATEMASTERPRICING" Width="1.5" PointX="37.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.RATEMASTERUSERSESSION" Width="1.5" PointX="25.75" PointY="19.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.ScheduleDetail" Width="1.5" PointX="15.75" PointY="37.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.SERVERDETAIL" Width="1.5" PointX="17.75" PointY="37.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.SUBCATEGORYMASTER" Width="1.5" PointX="19.75" PointY="37.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.sysdiagram" Width="1.5" PointX="37.75" PointY="20.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TE_Customer_Templates" Width="1.5" PointX="25.75" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TE_Doc_Prj_Templates" Width="1.5" PointX="37.75" PointY="23.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TE_Document_Templates" Width="1.5" PointX="37.75" PointY="28.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TE_Ref_Document_Type" Width="1.5" PointX="17.75" PointY="34" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TE_Ref_Methods" Width="1.5" PointX="30.75" PointY="37.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TE_Ref_ProjVarMapping" Width="1.5" PointX="37.75" PointY="32.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TE_Ref_Template_Type" Width="1.5" PointX="37.75" PointY="35.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TE_Ref_Variables" Width="1.5" PointX="20" PointY="34" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TE_Ref_VarTempMapping" Width="1.5" PointX="38.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TE_Templates_Mapping" Width="1.5" PointX="24.75" PointY="38.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TE_VendorInvoice_Header" Width="1.5" PointX="37.75" PointY="38.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEAboutu" Width="1.5" PointX="39.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEAccountTransfer" Width="1.5" PointX="39.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEAction" Width="1.5" PointX="38.75" PointY="17.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEActivityTimelineInfo" Width="1.5" PointX="39.75" PointY="20.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEAgreementsAndTemplate" Width="1.5" PointX="39.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEAgreementTemplate" Width="1.5" PointX="21.75" PointY="39.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEAnswer" Width="1.5" PointX="39.75" PointY="25.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEApplicantAddressDetail" Width="1.5" PointX="39.75" PointY="31.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEApplicantBasicDetail" Width="1.5" PointX="39.75" PointY="36.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEApplicantComAddress" Width="1.5" PointX="5.75" PointY="40.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEApplicantEmailDetail" Width="1.5" PointX="7.75" PointY="40.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEApplicantFundingDetail" Width="1.5" PointX="40.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEApplicantIdentityDetail" Width="1.5" PointX="17.75" PointY="40.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEApplicantMobileDetail" Width="1.5" PointX="41.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEApplicant" Width="1.5" PointX="41.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEApprovalEntity" Width="1.5" PointX="0.75" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEApprovalProcess" Width="1.5" PointX="5.25" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEApprovalProcessing" Width="1.5" PointX="41.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEApprovalTransaction" Width="1.5" PointX="41.75" PointY="20.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEApproveBox" Width="1.5" PointX="41.75" PointY="26.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEApproveGroup" Width="1.5" PointX="41.75" PointY="29.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEApproveGroupUser" Width="1.5" PointX="3" PointY="18" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEApproveLevel" Width="1.5" PointX="3" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEApproveObject" Width="1.5" PointX="3" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEApproveStage" Width="1.5" PointX="3" PointY="31.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEBalanceTransfer" Width="1.5" PointX="30.75" PointY="41.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEBankDetail" Width="1.5" PointX="11" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEBankDetails_HistoryAudit" Width="1.5" PointX="41.75" PointY="33.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEBOQCategoryMaster" Width="1.5" PointX="41.75" PointY="40.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEBOQItem" Width="1.5" PointX="42.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEBOQMaster" Width="1.5" PointX="42.75" PointY="17.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEBPLeadsStaging" Width="1.5" PointX="23.75" PointY="42.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEBroadcast" Width="1.5" PointX="30.75" PointY="26" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEBroadcastDetail" Width="1.5" PointX="33" PointY="26.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEBusinessPartner" Width="1.5" PointX="33.75" PointY="15.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEBusinessPartnerAgreement" Width="1.5" PointX="25.75" PointY="42.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEBusinessPartnerB2CAccountDetails" Width="1.5" PointX="32.75" PointY="42.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEBusinessPartnerBrokerFee" Width="1.5" PointX="34.75" PointY="42.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEBusinessPartnersRepresentative" Width="1.5" PointX="36" PointY="16.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEBusinessSegmentMaster" Width="1.5" PointX="43.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TECampaignMaster" Width="1.5" PointX="43.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TECancellationBreakup" Width="1.5" PointX="43.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TECancellation" Width="1.5" PointX="13.25" PointY="30.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TECarParkInventory" Width="1.5" PointX="14" PointY="86.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TECarPark" Width="1.5" PointX="13.25" PointY="26.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TECarParksMaster" Width="1.5" PointX="11.75" PointY="86" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TECarParksMaster_HistoryAudit" Width="1.5" PointX="19.75" PointY="43.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TECarParkSummary" Width="1.5" PointX="43.75" PointY="20.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEChangeOrder" Width="1.5" PointX="13.25" PointY="44" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TECollateral" Width="1.5" PointX="43.75" PointY="24.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TECollection" Width="1.5" PointX="27.75" PointY="43.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TECompany" Width="1.5" PointX="43.75" PointY="30.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TECompanyGSTNDetail" Width="1.5" PointX="43.75" PointY="37.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEConstructionRateBook" Width="1.5" PointX="43.75" PointY="41.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEConstructionRateBook_HistoryAudit" Width="1.5" PointX="7.75" PointY="44.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEContact" Width="1.5" PointX="0.75" PointY="30" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEContactAddress" Width="1.5" PointX="39.75" PointY="44.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEContactAlumni" Width="1.5" PointX="3" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEContactEmail" Width="1.5" PointX="44.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEContactFamilyRelation" Width="1.5" PointX="3" PointY="38" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEContactGPA" Width="1.5" PointX="3" PointY="43.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEContactIdentification" Width="1.5" PointX="3" PointY="62.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEContactInterest" Width="1.5" PointX="3" PointY="69.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEContactMobile" Width="1.5" PointX="45.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEContactNote" Width="1.5" PointX="3" PointY="74.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEContactOrderFund" Width="1.5" PointX="45.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEContactOrganisation" Width="1.5" PointX="3.75" PointY="108.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEContactProfession" Width="1.5" PointX="6" PointY="34.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEContactRegisteredCorrespondanceAddress" Width="1.5" PointX="45.75" PointY="20.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEContact1" Width="1.5" PointX="45.75" PointY="26.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEContactSocial" Width="1.5" PointX="3" PointY="80.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TECreditDebitDetail" Width="1.5" PointX="45.75" PointY="37.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TECreditDebitGLMapping" Width="1.5" PointX="45.75" PointY="42.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TECurrencyMaster" Width="1.5" PointX="46.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TECustomerB2CAccountDetails" Width="1.5" PointX="15.75" PointY="46.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TECustomerBOQ" Width="1.5" PointX="34.75" PointY="46.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TECustomerBOQDetail" Width="1.5" PointX="41.75" PointY="46.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TECustomerEmailTemplate" Width="1.5" PointX="43.75" PointY="46.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TECustomerEvent" Width="1.5" PointX="45.75" PointY="46.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TECustomisationDataToEBuild" Width="1.5" PointX="47.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TECustomizationMileStone" Width="1.5" PointX="47.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEDCBreakUp" Width="1.5" PointX="47.75" PointY="17.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEDcoumentCatMaster" Width="1.5" PointX="3" PointY="22" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEDeedOfCancellationDate" Width="1.5" PointX="28" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEDefaultCarPark" Width="1.5" PointX="47.75" PointY="22.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEDelayCompensation" Width="1.5" PointX="47.75" PointY="26.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEDiscountThresholdRule" Width="1.5" PointX="29.75" PointY="47.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEDMSDocument" Width="1.5" PointX="31.75" PointY="47.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEDmsUploadBatchUtilityDetail" Width="1.5" PointX="47.75" PointY="34.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEDocument" Width="1.5" PointX="47.75" PointY="39.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEDocumentSubTypeMaster" Width="1.5" PointX="7.5" PointY="22" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEDocumentTypeMaster" Width="1.5" PointX="5.25" PointY="21.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEEDesignEmployeeSync" Width="1.5" PointX="47.75" PointY="45.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEEDesignProductSync" Width="1.5" PointX="17.75" PointY="48.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEEDesignProjectSync" Width="1.5" PointX="48.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEEDesignUnitSync" Width="1.5" PointX="19.75" PointY="48.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEEMailLink" Width="1.5" PointX="49.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEEmailMessage" Width="1.5" PointX="49.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEEmailStatu" Width="1.5" PointX="26" PointY="22.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEEmailTemplateAttach" Width="1.5" PointX="26" PointY="26.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEEmailTemplate" Width="1.5" PointX="23.75" PointY="23.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEEmailTriggerEvent" Width="1.5" PointX="5.75" PointY="49.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEEmpBasicInfo" Width="1.5" PointX="49.75" PointY="17.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEEmpNotification" Width="1.5" PointX="49.75" PointY="27.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEEvaluation" Width="1.5" PointX="5.25" PointY="90.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEEvaluationQuestionMaster" Width="1.5" PointX="3" PointY="114.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEEventList" Width="1.5" PointX="49.75" PointY="32.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEException" Width="1.5" PointX="7.75" PointY="49.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEFinalSOA" Width="1.5" PointX="49.75" PointY="39.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEFloorTypeMaster" Width="1.5" PointX="49.75" PointY="44.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEGenaralNote" Width="1.5" PointX="49.75" PointY="48.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEGlobalParameter" Width="1.5" PointX="50.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEGlobalReassignment" Width="1.5" PointX="21.75" PointY="50.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEGSTNStateMaster" Width="1.5" PointX="23.75" PointY="50.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEHandoverDate" Width="1.5" PointX="28" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEIncentiveSlab" Width="1.5" PointX="18.25" PointY="12.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEIncentiveSlabMaster" Width="1.5" PointX="36.75" PointY="50.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEIncentivesMaster" Width="1.5" PointX="16" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEIncrementalPriceBook" Width="1.5" PointX="43.75" PointY="50.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEIncrementalSchemePriceBook" Width="1.5" PointX="45.75" PointY="50.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEInterestInvoice" Width="1.5" PointX="51.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEInterestInvoiceBreakup" Width="1.5" PointX="51.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEInvoice" Width="1.5" PointX="51.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEInVoiceBreakUp" Width="1.5" PointX="51.75" PointY="25.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEInvoiceCancellationAdvice" Width="1.5" PointX="51.75" PointY="31.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEInvoiceCancellationAdviceBreakUp" Width="1.5" PointX="38.75" PointY="51.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEInvoiceCreditNote" Width="1.5" PointX="32.75" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEInvoiceCreditNoteBreakUp" Width="1.5" PointX="35" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TELandParcelBreakupDetail" Width="1.5" PointX="13.25" PointY="12" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TELandParcelDetail" Width="1.5" PointX="11" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TELead" Width="1.5" PointX="3" PointY="85.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TELeadAllocationRatio" Width="1.5" PointX="51.75" PointY="39.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TELeadStageMaster" Width="1.5" PointX="51.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TELeadTag" Width="1.5" PointX="40.75" PointY="51.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TELocation" Width="1.5" PointX="51.75" PointY="43.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEMasterRule" Width="1.5" PointX="51.75" PointY="47.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEMasterSmsTemplate" Width="1.5" PointX="51.75" PointY="50.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEMasterSpecialCondition" Width="1.5" PointX="25.75" PointY="52.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEMasterTermsCondition" Width="1.5" PointX="47.75" PointY="52.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEMileStonesMaster" Width="1.5" PointX="53.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEMileStonesMaster_HistoryAudit" Width="1.5" PointX="53.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEMobileAppVersionMgmt" Width="1.5" PointX="5.75" PointY="53.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEMultiplePremium" Width="1.5" PointX="53.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TENote" Width="1.5" PointX="3" PointY="25.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TENotification_History" Width="1.5" PointX="53.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TENotification" Width="1.5" PointX="53.75" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEOffer" Width="1.5" PointX="11" PointY="45.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEOfferApprovalCheck" Width="1.5" PointX="53.75" PointY="24.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEOfferApprovalsHistory" Width="1.5" PointX="15.75" PointY="53.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEOfferDocument" Width="1.5" PointX="13.25" PointY="48.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEOfferEventsDate" Width="1.5" PointX="53.75" PointY="29.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEOfferExpireExtension" Width="1.5" PointX="13.25" PointY="52.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEOfferMileStone" Width="1.5" PointX="13.25" PointY="56.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEOfferPremium" Width="1.5" PointX="31.75" PointY="53.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEOfferPriceBreakUpDetail" Width="1.5" PointX="13.25" PointY="64.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEOfferRefund" Width="1.5" PointX="53.75" PointY="33.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEOfferScheme" Width="1.5" PointX="13.25" PointY="69.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEOfferSpecialCondition" Width="1.5" PointX="13.25" PointY="73.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEOfferSpecification" Width="1.5" PointX="13.25" PointY="77" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEOfferSubMileStone" Width="1.5" PointX="15.5" PointY="58" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEOfferTC" Width="1.5" PointX="13.25" PointY="81.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEOfferTETaxElementDetail" Width="1.5" PointX="53.75" PointY="39.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEOfferThreshold" Width="1.5" PointX="53.75" PointY="45.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEOrderApplicant" Width="1.5" PointX="53.75" PointY="49.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEOrderPaymentSchedule" Width="1.5" PointX="31" PointY="20" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEOrgRule" Width="1.5" PointX="53.75" PointY="53.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEPartnerMaster" Width="1.5" PointX="49.75" PointY="54.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEPaymentAllocation" Width="1.5" PointX="55.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEPDFTemplate" Width="1.5" PointX="55.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEPersonalDetail" Width="1.5" PointX="55.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEPersonalInformationData" Width="1.5" PointX="55.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEPickListItem" Width="1.5" PointX="33" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEPickList" Width="1.5" PointX="30.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEPOAnnexure" Width="1.5" PointX="17.75" PointY="55.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEPOAnnexureSpecification" Width="1.5" PointX="19.75" PointY="55.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEPOApprover" Width="1.5" PointX="55.75" PointY="21.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEPOAssignment" Width="1.5" PointX="21.75" PointY="55.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEPOCountryMaster" Width="1.5" PointX="55.75" PointY="27.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEPOCurrencyCodeMaster" Width="1.5" PointX="55.75" PointY="31.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEPOFundCenter" Width="1.5" PointX="5.75" PointY="10.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEPOFundCenterPOMgrMapping" Width="1.5" PointX="6" PointY="26.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEPOFundCenterUserMapping" Width="1.5" PointX="8" PointY="18.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEPOGLCodeMaster" Width="1.5" PointX="55.75" PointY="35.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEPOGSTApplicabilityMapping" Width="1.5" PointX="21" PointY="30" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEPOGSTApplicabilityMaster" Width="1.5" PointX="18.75" PointY="30" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEPOHeaderStructure" Width="1.5" PointX="28.75" PointY="26.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEPOHSNMaster" Width="1.5" PointX="55.75" PointY="40.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEPOHSNTaxCodeMapping" Width="1.5" PointX="40.75" PointY="55.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEPOItemStructure" Width="1.5" PointX="42.75" PointY="55.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEPOItemwise" Width="1.5" PointX="55.75" PointY="44.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEPOLinkedPO" Width="1.5" PointX="44.75" PointY="55.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEPOPlantStorageDetail" Width="1.5" PointX="55.75" PointY="50.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEPOProjectCompanyPlantMappingMaster" Width="1.5" PointX="36.75" PointY="56.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEPORegionCodeMaster" Width="1.5" PointX="55.75" PointY="56.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEPOReleaseCode" Width="1.5" PointX="57.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEPOService" Width="1.5" PointX="5.75" PointY="57.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEPOServiceAnnexure" Width="1.5" PointX="57.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEPOServiceBreakUp" Width="1.5" PointX="57.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEPOServiceHeader" Width="1.5" PointX="57.75" PointY="19.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEPOSpecificationAnnexure" Width="1.5" PointX="57.75" PointY="23.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEPOSpecificTandCMaster" Width="1.5" PointX="23.75" PointY="57.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEPOSpecificTCDetail" Width="1.5" PointX="31" PointY="33" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEPOSpecificTCSubTitleMaster" Width="1.5" PointX="25.75" PointY="57.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEPOSpecificTCTitleMaster" Width="1.5" PointX="27.75" PointY="57.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEPOTerm" Width="1.5" PointX="57.75" PointY="28.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEPOVendorAccountGroupMaster" Width="1.5" PointX="29.75" PointY="57.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEPOVendorCategoryMaster" Width="1.5" PointX="31.75" PointY="57.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEPOVendorMaster" Width="1.5" PointX="57.75" PointY="33.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEPOVendorMasterDetail" Width="1.5" PointX="33.75" PointY="57.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEPOVendorPaymentMilestone" Width="1.5" PointX="57.75" PointY="37.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEPOVendorSchemaGroup" Width="1.5" PointX="57.75" PointY="42.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEPOVendorWithHoldApplicabilityDetail" Width="1.5" PointX="57.75" PointY="45.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEPOWBSFundCentreMapping" Width="1.5" PointX="46.75" PointY="57.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEPOWBSMaster" Width="1.5" PointX="57.75" PointY="49.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEPOWithholdingTaxMaster" Width="1.5" PointX="51.75" PointY="57.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEPreLeadData" Width="1.5" PointX="57.75" PointY="53.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEPremiumMaster" Width="1.5" PointX="20.75" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEPriceBook" Width="1.5" PointX="8.75" PointY="53.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEPriceBookElement" Width="1.5" PointX="7.75" PointY="58.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEPriceBookMaster" Width="1.5" PointX="48.75" PointY="58.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEPriceBookMaster_HistoryAudit" Width="1.5" PointX="59.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEPriceElementMaster" Width="1.5" PointX="59.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEPrimarySource" Width="1.5" PointX="27.75" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEPRItemsDeliverySchedule" Width="1.5" PointX="12.5" PointY="102.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEPRItemStructure" Width="1.5" PointX="10.25" PointY="96.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEProduct" Width="1.5" PointX="11.75" PointY="91.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEProducts_HistoryAudit" Width="1.5" PointX="59.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEProductSpecification" Width="1.5" PointX="23.25" PointY="17.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEProductSpecMapping" Width="1.5" PointX="59.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEProjectCarPark" Width="1.5" PointX="14" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEProjectDetail" Width="1.5" PointX="11" PointY="32.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEProjectDetails_HistoryAudit" Width="1.5" PointX="59.75" PointY="19.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEProjectPremium" Width="1.5" PointX="23" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEProjectProductMapping" Width="1.5" PointX="59.75" PointY="25.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEProjectRule" Width="1.5" PointX="59.75" PointY="29.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEProject" Width="1.5" PointX="8.75" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEProjects_HistoryAudit" Width="1.5" PointX="59.75" PointY="33.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEProjectScheme" Width="1.5" PointX="59.75" PointY="40.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEProjectUnitPremium" Width="1.5" PointX="25.25" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEPRServiceHeader" Width="1.5" PointX="59.75" PointY="43.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEPRSpecificationAnnexure" Width="1.5" PointX="59.75" PointY="47.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEPurchase_OrderTypes" Width="1.5" PointX="59.75" PointY="52.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEPurchaseRequest" Width="1.5" PointX="8" PointY="101.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEReimbursement" Width="1.5" PointX="59.75" PointY="56.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TESACCodeMaster" Width="1.5" PointX="17.75" PointY="60.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TESaleMasterTermsandCondition" Width="1.5" PointX="35.75" PointY="60.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TESaleMasterTermsandConditions_HistoryAudit" Width="1.5" PointX="37.75" PointY="60.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TESalesPlanandTarget" Width="1.5" PointX="9" PointY="25.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TESaleTermsANDCondition" Width="1.5" PointX="53.75" PointY="60.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TESAPGlobalRule" Width="1.5" PointX="55.75" PointY="60.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TESAPInvoice" Width="1.5" PointX="61.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TESAPReceipt" Width="1.5" PointX="61.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEScheduleMaster" Width="1.5" PointX="28.75" PointY="20.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEScheduleMasterNew" Width="1.5" PointX="61.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TESchemaMaster" Width="1.5" PointX="25.75" PointY="15.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TESecondarySource" Width="1.5" PointX="30" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TESection" Width="1.5" PointX="61.75" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEShareDetail" Width="1.5" PointX="20.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TESmsDetail" Width="1.5" PointX="19.75" PointY="61.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TESMSTemplate" Width="1.5" PointX="61.75" PointY="20.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TESMSTriggerEvent" Width="1.5" PointX="21.75" PointY="61.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TESpecificationCategory" Width="1.5" PointX="18.75" PointY="19.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TESpecificationDetailed" Width="1.5" PointX="23.75" PointY="61.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TESpecificationLibrary" Width="1.5" PointX="21" PointY="17.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TESpecificationMaster" Width="1.5" PointX="13.75" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TESpecificationMaster_HistoryAudit" Width="1.5" PointX="61.75" PointY="24.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TESpecificatonSubCategory" Width="1.5" PointX="21" PointY="21.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEStampDuty" Width="1.5" PointX="25.75" PointY="61.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEStandardSchemeTermsAndCondition" Width="1.5" PointX="28" PointY="15" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TESubProductDetail" Width="1.5" PointX="14" PointY="17.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TESubProductDetails_HistoryAudit" Width="1.5" PointX="27.75" PointY="61.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.tesubvention_scheme" Width="1.5" PointX="61.75" PointY="29.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.tesubventionscheme_bank" Width="1.5" PointX="29.75" PointY="61.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.tetandccategorymaster" Width="1.5" PointX="61.75" PointY="39.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TETargetAllocation" Width="1.5" PointX="11" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TETask" Width="1.5" PointX="3" PointY="101.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TETaskFeedBack" Width="1.5" PointX="39.75" PointY="61.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TETaxBook" Width="1.5" PointX="61.75" PointY="43.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TETaxCodeMaster" Width="1.5" PointX="44.75" PointY="61.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TETaxDetail" Width="1.5" PointX="16.25" PointY="24.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TETaxDetails_HistoryAudit" Width="1.5" PointX="61.75" PointY="49.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TETaxElementDetail" Width="1.5" PointX="50.75" PointY="61.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TETermsAndCondition" Width="1.5" PointX="61.75" PointY="56.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TETimeLine" Width="1.5" PointX="57.75" PointY="61.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TETodaysVisit" Width="1.5" PointX="59.75" PointY="62.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TETowerMaster" Width="1.5" PointX="11" PointY="38.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TETowerMaster_HistoryAudit" Width="1.5" PointX="61.75" PointY="62.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TETransferOrder" Width="1.5" PointX="63.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEUIAuditMaster" Width="1.5" PointX="63.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEUIAuditTransaction" Width="1.5" PointX="7.75" PointY="63.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEUnitPricingShareDetail" Width="1.5" PointX="23" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEUnitQue" Width="1.5" PointX="63.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEUnit" Width="1.5" PointX="63.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEUnitShareDetial" Width="1.5" PointX="23" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEUserModule" Width="1.5" PointX="15.75" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEUserPrevilegeMapping" Width="1.5" PointX="18" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEUserPrevilege" Width="1.5" PointX="15.75" PointY="31.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEUserRoleThresholdMapping" Width="1.5" PointX="6" PointY="30.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEUserRoleThresholdMaster" Width="1.5" PointX="3.75" PointY="34.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEUsersRole" Width="1.5" PointX="3" PointY="54.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEUsersThreshold" Width="1.5" PointX="3" PointY="58.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEWebpagesMembership" Width="1.5" PointX="15.75" PointY="63.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TFUserSurvey" Width="1.5" PointX="63.75" PointY="26.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TRANSITIONTOCEMMEASURE" Width="1.5" PointX="63.75" PointY="31.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.UserProfile" Width="1.5" PointX="0.75" PointY="20.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.UsersToken" Width="1.5" PointX="63.75" PointY="35.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.WBSMASTER" Width="1.5" PointX="63.75" PointY="38.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.WebPageAudit" Width="1.5" PointX="63.75" PointY="46.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.webpages_Membership" Width="1.5" PointX="46.75" PointY="63.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.webpages_OAuthMembership" Width="1.5" PointX="63.75" PointY="50.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.webpages_Roles" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.webpages_UsersInRoles" Width="1.5" PointX="27.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.ADALAuthenticationTable" Width="1.5" PointX="63.75" PointY="53.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.FeedbackQuestion" Width="1.5" PointX="63.75" PointY="56.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.RMPRICEDUMMY" Width="1.5" PointX="63.75" PointY="59.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fuguev3_DevModel.TEEmailTriggerEvents_History" Width="1.5" PointX="65.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="Fuguev3_DevModel.fk_DOC_tecustomertemplates" ManuallyRouted="false" />
+        <AssociationConnector Association="Fuguev3_DevModel.fk_tecustomertemplates" ManuallyRouted="false" />
+        <AssociationConnector Association="Fuguev3_DevModel.FK__TE_Ref_Va__RefDo99__2453463D" ManuallyRouted="false" />
+        <AssociationConnector Association="Fuguev3_DevModel.FK_TEApproveObjects_TEApprovalEntities" ManuallyRouted="false" />
+        <AssociationConnector Association="Fuguev3_DevModel.FK_TEApprovalProcess_TEApproveGroupUsers" ManuallyRouted="false" />
+        <AssociationConnector Association="Fuguev3_DevModel.FK_TEApprovalProcess_TEApproveLevels1" ManuallyRouted="false" />
+        <AssociationConnector Association="Fuguev3_DevModel.FK_TEApprovalProcess_TEApproveObjects1" ManuallyRouted="false" />
+        <AssociationConnector Association="Fuguev3_DevModel.FK_TEApprovalProcess_TEApproveStages" ManuallyRouted="false" />
+        <AssociationConnector Association="Fuguev3_DevModel.FK_TEApproveGroupUsers_UserProfile" ManuallyRouted="false" />
+        <AssociationConnector Association="Fuguev3_DevModel.FK_TEBankDetails_TEProjects" ManuallyRouted="false" />
+        <AssociationConnector Association="Fuguev3_DevModel.FK_TEBroadcastDetails_BroadcastID" ManuallyRouted="false" />
+        <AssociationConnector Association="Fuguev3_DevModel.FK_TEBusinessPartnersRepresentative_TEBusinessPartner" ManuallyRouted="false" />
+        <AssociationConnector Association="Fuguev3_DevModel.FK_TECancellations_TEOffer" ManuallyRouted="false" />
+        <AssociationConnector Association="Fuguev3_DevModel.FK_TECarParkInventory_TECarParkSummary" ManuallyRouted="false" />
+        <AssociationConnector Association="Fuguev3_DevModel.FK_TECarParks_TEOffer" ManuallyRouted="false" />
+        <AssociationConnector Association="Fuguev3_DevModel.FK_TEProjectCarParks_TECarParksMaster" ManuallyRouted="false" />
+        <AssociationConnector Association="Fuguev3_DevModel.CurrentOfferId" ManuallyRouted="false" />
+        <AssociationConnector Association="Fuguev3_DevModel.FK__TEContact__TECon__394E6323" ManuallyRouted="false" />
+        <AssociationConnector Association="Fuguev3_DevModel.FK__TEContact__TECon__3D1EF407" ManuallyRouted="false" />
+        <AssociationConnector Association="Fuguev3_DevModel.FK__TEContact__TECon__46A85E41" ManuallyRouted="false" />
+        <AssociationConnector Association="Fuguev3_DevModel.FK__TELead__ContactI__147C05D0" ManuallyRouted="false" />
+        <AssociationConnector Association="Fuguev3_DevModel.FK__TENotes__Contact__16644E42" ManuallyRouted="false" />
+        <AssociationConnector Association="Fuguev3_DevModel.FK__TETask__ContactI__0BE6BFCF" ManuallyRouted="false" />
+        <AssociationConnector Association="Fuguev3_DevModel.fk_Tecontact_TEContactAlumni" ManuallyRouted="false" />
+        <AssociationConnector Association="Fuguev3_DevModel.fk_Tecontact_TEContactGPA" ManuallyRouted="false" />
+        <AssociationConnector Association="Fuguev3_DevModel.fk_Tecontact_TEContactIdentification" ManuallyRouted="false" />
+        <AssociationConnector Association="Fuguev3_DevModel.fk_Tecontact_TEContactInterest" ManuallyRouted="false" />
+        <AssociationConnector Association="Fuguev3_DevModel.fk_Tecontact_TEContactProfession" ManuallyRouted="false" />
+        <AssociationConnector Association="Fuguev3_DevModel.fk_Tecontact_TEContactRelation" ManuallyRouted="false" />
+        <AssociationConnector Association="Fuguev3_DevModel.fk_Tecontact_TEContactSocial" ManuallyRouted="false" />
+        <AssociationConnector Association="Fuguev3_DevModel.FK__TEContact__TECon__1411F17C" ManuallyRouted="false" />
+        <AssociationConnector Association="Fuguev3_DevModel.FK_TEDcoumentCatMaster_UserProfile" ManuallyRouted="false" />
+        <AssociationConnector Association="Fuguev3_DevModel.FK_TEDocumentTypeMaster_TEDcoumentCatMaster" ManuallyRouted="false" />
+        <AssociationConnector Association="Fuguev3_DevModel.FK_TEDocumentSubTypeMaster_TEDocumentTypeMaster" ManuallyRouted="false" />
+        <AssociationConnector Association="Fuguev3_DevModel.FK__TEEmailSt__Email__6BAEFA67" ManuallyRouted="false" />
+        <AssociationConnector Association="Fuguev3_DevModel.FK__TEEmailTe__Email__1F2F69C4" ManuallyRouted="false" />
+        <AssociationConnector Association="Fuguev3_DevModel.FK__TEEvaluat__EQMID__025D5595" ManuallyRouted="false" />
+        <AssociationConnector Association="Fuguev3_DevModel.FK__TEEvaluat__EQMID__119F9925" ManuallyRouted="false" />
+        <AssociationConnector Association="Fuguev3_DevModel.FK__TEEvaluat__EQMID__1EF99443" ManuallyRouted="false" />
+        <AssociationConnector Association="Fuguev3_DevModel.FK__TEEvaluat__LeadI__035179CE" ManuallyRouted="false" />
+        <AssociationConnector Association="Fuguev3_DevModel.FK__TEEvaluat__LeadI__1293BD5E" ManuallyRouted="false" />
+        <AssociationConnector Association="Fuguev3_DevModel.FK__TEEvaluat__LeadI__1FEDB87C" ManuallyRouted="false" />
+        <AssociationConnector Association="Fuguev3_DevModel.FK__TEIncenti__Incen__36FC065D" ManuallyRouted="false" />
+        <AssociationConnector Association="Fuguev3_DevModel.FK_TEIncentivesMaster_TEProjects" ManuallyRouted="false" />
+        <AssociationConnector Association="Fuguev3_DevModel.FK_TEIncentivesMaster_TESpecificationMaster" ManuallyRouted="false" />
+        <AssociationConnector Association="Fuguev3_DevModel.fk_inv_creditnote" ManuallyRouted="false" />
+        <AssociationConnector Association="Fuguev3_DevModel.FK_TELandParcelBreakupDetails_TELandParcelDetails" ManuallyRouted="false" />
+        <AssociationConnector Association="Fuguev3_DevModel.FK_TELandParcelDetails_TEProjects" ManuallyRouted="false" />
+        <AssociationConnector Association="Fuguev3_DevModel.FK__TEOffer__LeadID__1FF8A574" ManuallyRouted="false" />
+        <AssociationConnector Association="Fuguev3_DevModel.FK__TENotes__Context__09FE775D" ManuallyRouted="false" />
+        <AssociationConnector Association="Fuguev3_DevModel.FK__TEOffer__Project__1411F17C" ManuallyRouted="false" />
+        <AssociationConnector Association="Fuguev3_DevModel.FK__TEOfferSc__Offer__5D01B3B4" ManuallyRouted="false" />
+        <AssociationConnector Association="Fuguev3_DevModel.FK_TEOffer_TEPriceBook" ManuallyRouted="false" />
+        <AssociationConnector Association="Fuguev3_DevModel.FK_TEOfferDocuments_TEOffer" ManuallyRouted="false" />
+        <AssociationConnector Association="Fuguev3_DevModel.FK_TEOfferExpireExtension_TEOffer" ManuallyRouted="false" />
+        <AssociationConnector Association="Fuguev3_DevModel.FK_TEOfferMileStone_TEOffer" ManuallyRouted="false" />
+        <AssociationConnector Association="Fuguev3_DevModel.FK_TEOfferPriceBreakUpDetails_TEOffer" ManuallyRouted="false" />
+        <AssociationConnector Association="Fuguev3_DevModel.FK_TEOfferSpecialCondition_TEOffer" ManuallyRouted="false" />
+        <AssociationConnector Association="Fuguev3_DevModel.FK_TEOfferSpecification_TEOffer" ManuallyRouted="false" />
+        <AssociationConnector Association="Fuguev3_DevModel.FK_TEOfferTC_TEOffer" ManuallyRouted="false" />
+        <AssociationConnector Association="Fuguev3_DevModel.FK_TEOfferMileStone_MILESTONEID" ManuallyRouted="false" />
+        <AssociationConnector Association="Fuguev3_DevModel.FK_TEOrderPaymentSchedule_TEScheduleMaster" ManuallyRouted="false" />
+        <AssociationConnector Association="Fuguev3_DevModel.fk_TEPickListItems_Picklist" ManuallyRouted="false" />
+        <AssociationConnector Association="Fuguev3_DevModel.FK_TEPOFundCenterPOMgrMapping_TEPOFundCenter_FundCenterId" ManuallyRouted="false" />
+        <AssociationConnector Association="Fuguev3_DevModel.FK_TEPOFundCenterUserMapping_TEPOFundCenter_FundCenterId" ManuallyRouted="false" />
+        <AssociationConnector Association="Fuguev3_DevModel.FK_TEPurchaseRequest_PurchaseRequestId_TEPOFundCenter_FundCenterId" ManuallyRouted="false" />
+        <AssociationConnector Association="Fuguev3_DevModel.FK_TEPOFundCenterPOMgrMapping_UserProfiles_POManagerId" ManuallyRouted="false" />
+        <AssociationConnector Association="Fuguev3_DevModel.FK_TEPOFundCenterUserMapping_UserProfiles_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="Fuguev3_DevModel.FK_POGSTApplicabilityMasterId" ManuallyRouted="false" />
+        <AssociationConnector Association="Fuguev3_DevModel.FK_TEPOSpecificTCDetails_TEPOHeaderStructure_POHeaderStructureId" ManuallyRouted="false" />
+        <AssociationConnector Association="Fuguev3_DevModel.FK_TEProjectPremium_TEPremiumMaster" ManuallyRouted="false" />
+        <AssociationConnector Association="Fuguev3_DevModel.FK__TESecondar__PSID__2A01329B" ManuallyRouted="false" />
+        <AssociationConnector Association="Fuguev3_DevModel.fk_itemds_pritems" ManuallyRouted="false" />
+        <AssociationConnector Association="Fuguev3_DevModel.FK_TEPRItemStructure_TEPurchaseRequest_PurchaseRequestId" ManuallyRouted="false" />
+        <AssociationConnector Association="Fuguev3_DevModel.FK_TESubProductDetails_TEProducts" ManuallyRouted="false" />
+        <AssociationConnector Association="Fuguev3_DevModel.FK_TEProductSpecifications_TESpecificationLibrary" ManuallyRouted="false" />
+        <AssociationConnector Association="Fuguev3_DevModel.FK_TEProjectCarParks_TEProjects" ManuallyRouted="false" />
+        <AssociationConnector Association="Fuguev3_DevModel.FK_TEProjectDetails_TEProjects" ManuallyRouted="false" />
+        <AssociationConnector Association="Fuguev3_DevModel.FK_TEProjectUnitPremium_TEProjectPremium" ManuallyRouted="false" />
+        <AssociationConnector Association="Fuguev3_DevModel.FK_TESalesPlanandTargets_TEProjects" ManuallyRouted="false" />
+        <AssociationConnector Association="Fuguev3_DevModel.FK_TESubProductDetails_TEProjects" ManuallyRouted="false" />
+        <AssociationConnector Association="Fuguev3_DevModel.FK_TETargetAllocations_TEProjects" ManuallyRouted="false" />
+        <AssociationConnector Association="Fuguev3_DevModel.FK_TETaxDetails_TEProjects" ManuallyRouted="false" />
+        <AssociationConnector Association="Fuguev3_DevModel.FK_TETowerMaster_TEProjects" ManuallyRouted="false" />
+        <AssociationConnector Association="Fuguev3_DevModel.FK_TESalesPlanandTargets_UserProfile" ManuallyRouted="false" />
+        <AssociationConnector Association="Fuguev3_DevModel.FK_TESalesPlanandTargets_UserProfile1" ManuallyRouted="false" />
+        <AssociationConnector Association="Fuguev3_DevModel.FK_TEStandardSchemeTermsAndConditions_TESchemaMaster" ManuallyRouted="false" />
+        <AssociationConnector Association="Fuguev3_DevModel.FK_TEUnitPricingShareDetails_TEShareDetails" ManuallyRouted="false" />
+        <AssociationConnector Association="Fuguev3_DevModel.FK_TEUnitShareDetials_TEShareDetails" ManuallyRouted="false" />
+        <AssociationConnector Association="Fuguev3_DevModel.FK_TESpecificatonSubCategory_TESpecificatonSubCategory" ManuallyRouted="false" />
+        <AssociationConnector Association="Fuguev3_DevModel.FK_TESpecifictionLibrary_TESpecificationCategory" ManuallyRouted="false" />
+        <AssociationConnector Association="Fuguev3_DevModel.FK_TETargetAllocations_UserProfile" ManuallyRouted="false" />
+        <AssociationConnector Association="Fuguev3_DevModel.FK_TETargetAllocations_UserProfile1" ManuallyRouted="false" />
+        <AssociationConnector Association="Fuguev3_DevModel.FK_TETaxDetails_TETowerMaster" ManuallyRouted="false" />
+        <AssociationConnector Association="Fuguev3_DevModel.FK_TEUserPrevilegeMapping_TEUserModules" ManuallyRouted="false" />
+        <AssociationConnector Association="Fuguev3_DevModel.FK_TEUserPrevilegeMapping_TEUserPrevileges" ManuallyRouted="false" />
+        <AssociationConnector Association="Fuguev3_DevModel.FK__TEUserRol__URTMI__3D14070F" ManuallyRouted="false" />
+        <AssociationConnector Association="Fuguev3_DevModel.FK__TEUserRol__userI__3E082B48" ManuallyRouted="false" />
+        <AssociationConnector Association="Fuguev3_DevModel.FK_TEUsersRole_UserProfile1" ManuallyRouted="false" />
+        <AssociationConnector Association="Fuguev3_DevModel.FK_TEUsersThresholds_UserProfile" ManuallyRouted="false" />
+        <AssociationConnector Association="Fuguev3_DevModel.FK_UserProfile_UserProfile" ManuallyRouted="false" />
+        <AssociationConnector Association="Fuguev3_DevModel.FK_webpages_Roles_webpages_Roles" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

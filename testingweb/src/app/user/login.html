@@ -1,0 +1,126 @@
+<!-- header Open-->
+<!-- <div>
+    <div class="header-bg" >
+        <div class="header-width">
+            <div class="row">
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                    <img src="assets/images/fugue-logo.png" title="Fugue" alt="Fugue" class="fugue-logo" />
+                </div>
+                <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5" align="center">
+                    <img src="assets/images/logo.png" title="Total Environment" alt="Total Environment" class="te-logo" />
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                    <div class="row">
+                        <div class="login-panel" id="divLogin">
+                            <div class="row">
+                                <div class="txtbox">
+                                    <input type="text" class="input-txt-box" ng-model="vm.request.UserName" placeholder="Username">
+                                </div>
+                                <div class="txtbox">
+                                    <input type="password" class="input-txt-box" ng-model="vm.request.Password" placeholder="password" data-ng-keyup="$event.which === 13 && vm.login123()">
+                                </div>
+                                <div class="button-align">
+                                    <button type="submit" id="Login" class="btn btn-success" ng-click="vm.login123()">Sign in</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div> -->
+    <!-- header Close-->
+    
+    <!--Footer Start-->
+<!--     <div class="footer"> -->
+<!--         <div class="footerin">
+        <div class="row">
+            <div class="pull-right">
+                <a href="#"><img src="assets/images/android.png" class="img-responsive" /></a>
+            </div>
+            <div class="pull-right">
+                <a href="#"><img src="assets/images/ios.png" class="img-responsive" /></a>
+            </div>
+        </div>
+    </div> 
+    </div>-->
+
+
+
+<!--new login page-->
+  <html>
+  <head>
+  <style>
+    html, *{overflow: hidden;}
+    .noAuth, .yesAuth{display:none;}
+    .mb0{margin-bottom: 0;}
+  </style>
+  
+  </head>
+<body style="background: #333;">
+<div class="fluid-controller">
+  <div class="row">
+    <div class="col-sm-6 col-sm-offset-3" style="margin-top: 10%;">
+      <div class="alert alert-success text-center onAuth" role="alert"><h4 class="mb0">Authentication is in Process...</h4></div>
+      <div class="alert alert-success text-center yesAuth" role="alert"><h4 class="mb0">Authentication Successful...</h4></div>
+      <div class="alert alert-danger text-center noAuth" role="alert"><h4>You are not Having Privilege to access this Application</h4><button class="btn btn-primary btn-sm" onclick="authContext.logOut();">Logout</button></div>
+    </div>
+  </div>
+</div>
+</div> 
+</body>
+</html>
+
+
+
+<!-- <script>
+  var authContext = new AuthenticationContext({clientId: '7b32c697-48e5-4046-a507-25acb1eb8f2a',postLogoutRedirectUri: 'http://192.168.51.248/teexpensemanagement'});
+  if (authContext.isCallback(window.location.hash)) {
+    authContext.handleWindowCallback();
+    var err = authContext.getLoginError();
+    if(err){}
+  }else{
+    credentials = authContext.getCachedUser();
+    if(credentials){
+        login(credentials);
+        //login();
+        //window.location="/main";
+         //angular.element('#angularData').scope()
+        authContext.acquireToken('https://graph.microsoft.com',function(error,token){
+        if(error || !token){console.log(token);return;}
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', 'https://graph.microsoft.com/v1.0/me', true);
+        xhr.open('GET', '', true);
+        xhr.setRequestHeader('Authorization', 'Bearer ' + token);
+        xhr.onreadystatechange=function(){
+          if(xhr.readyState === 4 && xhr.status === 200){console.log(xhr.responseText);}
+          else{}
+        };
+        xhr.send();
+      });
+    }else{authContext.login();
+    }
+    //authContext.login();
+  }
+
+ function login(e){
+    $.ajax({
+      url: 'http://192.168.51.248/tehrisapi/api/TERule/GetUserRoles',
+      type: "GET",
+      data:{"UserName":e.userName},
+      success: function(response) {
+         if (response) {
+                        localStorage.setItem('TEUserCredentials',JSON.stringify(response));
+                        // window.location="/main";
+                        window.location="/teexpensemanagement";
+                    }
+                    else
+                    {
+
+                    }
+      }
+    });
+  }
+
+</script> -->

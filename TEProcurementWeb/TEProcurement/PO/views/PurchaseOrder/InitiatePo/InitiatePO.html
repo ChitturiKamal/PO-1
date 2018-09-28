@@ -1,0 +1,209 @@
+<style>
+    .modal-dialog {
+        margin-top: 90px;
+    }
+    .well {
+        margin-bottom: 0;
+    }
+    .vertical-text {
+	transform: rotate(270deg);
+    height: 130px;
+    }
+    .headerBorder{
+        background-color: darkgray;
+    color: #fff;
+    height: 30px;
+    line-height: 30px;
+    margin: 10px 0;
+            }
+</style>
+<header ng-include="'views/header.html'"></header>
+<div class="wrapper" ng-controller="initiatePO">
+    <div class="row">
+        <div class="container wrapper" style="background: #fff;">
+            <div class="row">
+                <section>
+                    <div style="margin: 70px auto 0 auto;">
+                        <div class="title-panel">Approved PR's
+                                <span class="pull-right"><a class="btn btn-xs btn-success" style="margin-right: 4px;margin-bottom: 3px" href="#/CreatePO"> <i class="fa fa-plus"></i> &nbsp; Create PO</a></span>
+                        </div>
+                            <div class="clearfix"></div>
+                            <div class="projlisttabs">
+                                    <!-- <div ng-include="'views/Trackers/TrackersMain.html'"></div>   -->
+                                    <ul class="nav nav-tabs" id="tabs" auto-active>                                  
+                                        <li class="tabPadding"><a href="#/SearchPO" data-toggle="tab">Search</a></li> 
+                                        <li class="tabPadding"><a href="#/initiatePO" data-toggle="tab">Approved PR's</a></li>
+                                        <li class="tabPadding"><a href="#/DraftPO" data-toggle="tab">Draft</a></li> 
+                                        <li class="tabPadding"><a href="#/MyPO" data-toggle="tab">My PO</a></li> 
+                                        <div class="col-xs-3 pull-right" >
+                                            <div class="input-group" style="margin:5px;margin-right:-17px;">
+                                                <input type="text" class="form-control ng-pristine ng-valid ng-empty ng-touched" ng-model="serachList" placeholder="Search" ng-keydown="$event.keyCode === 13 && filterSearchList(serachList)">
+                                                <div class="input-group-btn">
+                                                    <div class="btn-group" role="group">
+                                                        <button type="button" class="btn filtbtn" ng-click="filterSearchList(serachList);" style="background-color:#f68c02; color:#fff;"><span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                                        </button>
+                                                    </div>
+                                                </div>  
+                                            </div>
+                                        </div>
+                                    </ul>
+                                </div>
+                        <div style="width:99%; margin:0px;">
+                           
+                            <div class="salestracker_container ng-scope">
+                                <div class="saleorder_detailsbox">                                        
+                                    <div class="row">                                  
+                                            <div class="gridStyle hgt" ng-grid="searchDraftGrid" style="margin-top:0; min-height:444px"></div>   
+                                        <div ng-if="TempCustList.result.length<='0'&& count==0">
+                                            <div style="top: -294px;left: 45%; position: relative;">No Customers Found</div>
+                                        </div>
+                                        
+                                        <div class="pageNfoot">
+                                            <label ng-if="result.info.listcount>'0'">Now Showing: {{result.info.fromrecords}} - {{result.info.torecords}} Of {{result.info.totalrecords}}</label> &nbsp;&nbsp;
+                                            <label>Go To Page: </label>
+                                            <label>
+                                                <input type="text" size="2" value="1" ng-init="pagenumber=1;" class="form-control" ng-model="pagenumber" ng-change="pagenationss(pagenumber)" style="height:25px;display: inline;" />
+                                            </label> &nbsp;&nbsp;
+                                            <label>Show Rows: </label>
+                                            <label>
+                                                <select ng-model="pagepercount" name="pageprecounts" class="form-control" ng-change="pagenationss(1,pageprecounts)" style="height:25px;padding:0 12px;">
+                                                    <option value="" disabled="disabled">Select</option>
+                                                    <option value="10" ng-selected="true">10</option>
+                                                    <option value="20">20</option>
+                                                    <option value="50">50</option>
+                                                    <option value="100">100</option>
+                                                    <option value="200">200</option>
+                                                    <option value="400">400</option>
+                                                    <option value="500">500</option>
+                                                    <option value="700">700</option>
+                                                    <option value="1000">1000</option>
+                                                    <option value="9999999">All</option>
+                                                </select>
+                                            </label> &nbsp;&nbsp;
+                                            <label><a class="btn btn-default splbtn" ng-click="pagenationss_clk(pagenumber,0)"><i class="glyphicon glyphicon-triangle-left"></i></a> </label>
+                                            <label ng-if="result.info.listcount>'0'"><a class="btn btn-default splbtn1" ng-click="pagenationss_clk(pagenumber,1)"><i class="glyphicon glyphicon-triangle-right"></i></a> </label> &nbsp;&nbsp;
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>    
+                    </div>
+                 </section>
+            </div>
+        </div>
+    </div>
+   
+    <div id="infoPagePopUp" class="modal fade pop-modal" role="dialog">
+            <div class="modal-dialog modal-lg" style="width: 80%;">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header padpop">
+                <h5 class="modal-title pull-left mt7">Purchase Request Details</h5>
+                <div class="pull-right">
+                    <button class="btn btn-success btn-sm" type="button" ng-click="initiatePO()">Initiate PO</button>
+                    <button class="btn btn-warning btn-sm" type="button" data-dismiss="modal">Cancel</button>
+                </div>
+                <div class="clearfix"></div>
+                </div>
+                <div class="modal-body">
+                <div class="main-content">
+                        <div class="col-md-12">
+                            <div class="col-md-12 headerBorder">Basic Information</div>   
+                            <div class="col-md-12">
+                                <div class="col-md-4">
+                                        <label>PR Number</label>
+                                        <input type="text" class="form-control" value="{{prdetails.PurchaseRequestId}}" ng-disabled="true"/> 
+                                </div>
+                                <div class="col-md-4">
+                                        <label>PR Date</label>
+                                        <input type="text" class="form-control" value="{{prdetails.ApprovedOn | date: 'dd-MM-yy'}}" ng-disabled="true"/> 
+                                </div>
+                                <div class="col-md-4">
+                                        <label>Submitted By</label>
+                                        <input type="text" class="form-control" value="{{prdetails.CreatedBy}}" ng-disabled="true"/> 
+                                </div>
+                                <div class="col-md-4">
+                                    <label>Fund Center</label>
+                                    <input type="text" class="form-control" value="{{prdetails.FundCenter_Owner}}" ng-disabled="true"/> 
+                                </div>
+                                <div class="col-md-4">
+                                        <label>Title</label>
+                                        <input type="text" class="form-control" value="{{prdetails.PurchaseRequestTitle}}" ng-disabled="true"/> 
+                                </div>
+                                <div class="col-md-4">
+                                        <label>Description</label>
+                                    <input type="text" class="form-control" value="{{prdetails.PurchaseRequestDesc}}" ng-disabled="true"/> 
+                                </div>
+                            </div>
+                            <div class="col-md-12 headerBorder">Purchase Details</div> 
+                            <div class="col-md-12" style="padding: 0;overflow-x: scroll;">
+                                <table class="table table table-bordered" style="margin:10px 0 !important;white-space: nowrap;">
+                                    <thead style="font-size:9pt;">
+                                        <tr style="background-color: #192930;    color: #fff; ">
+                                            <th></th>
+                                            <th>Sl No</th>
+                                            <th>Item</th>
+                                            <th>Code</th>
+                                            <th>Short Description</th>
+                                            <th>Item Brand Name</th>
+                                            <th>HSN/SAC</th>                                                                                                 
+                                            <th>PR Quantity</th>
+                                            <th>Unordered Quantity</th>
+                                            <th>Unit Of Measure</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody ng-repeat="(key, value) in prMaterialdetails">
+                                        <td><input type="checkbox" class="cmplibrary" data="{{value}}" materialcodedata="{{material.MaterialCode}}" ng-model="material.selected"></td>
+                                        <td>{{key+1}}</td>
+                                        <td>{{value.Short_Text}}</td>
+                                        <td>{{value.Material_Number}}</td>
+                                        <td>{{value.Long_Text}}</td>
+                                        <td>{{value.Brand}}</td>
+                                        <td>{{value.HSN_Code}}</td>
+                                        <td>{{value.Order_Qty}}</td>
+                                        <td>{{value.Balance_Qty}}</td>
+                                        <td>{{value.Unit_Measure}}</td>
+                                    </tbody>
+                                    </table>
+                                </div>
+                        </div>  
+                    <div class="clearfix"></div>
+                </div>
+                </div>
+            </div>
+            </div>
+        </div>
+        <div id="PRStatusPopUp" class="modal fade pop-modal" role="dialog">
+                <div class="modal-dialog modal-lg" style="width: 27%;">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header padpop">
+                    <h5 class="modal-title pull-left mt7">Update Purchase Request Status</h5>
+                    <div class="pull-right">
+                            <button class="btn btn-sm btn-success" ng-click="updatePRStatus()" type="button" >Update</button>
+                        <button class="btn btn-warning btn-sm" type="button" data-dismiss="modal">Cancel</button>
+                    </div>
+                    <div class="clearfix"></div>
+                    </div>
+                    <div class="modal-body" style="height: 165px;width:100%;margin:10px 0 !important;">
+                    <div class="main-content">
+                            <div class="col-md-12">
+                                
+                               
+                                <div class="col-md-12" style="padding: 0;">
+                                   <select class="form-control" ng-model="PrStatus">
+                                       <option value="" ng-selected="true">Select</option>
+                                       <!-- <option value="Pending Action">Pending Action</option> -->
+                                       <option value="Partially Ordered">Partially Ordered</option>
+                                       <option value="Fully Ordered">Fully Ordered</option>
+                                       <option value="Rejected">Rejected</option>
+                                   </select>
+                                </div>
+                            </div>  
+                        <div class="clearfix"></div>
+                    </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+</div>

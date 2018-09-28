@@ -1,0 +1,1584 @@
+<style>
+    /*Begin PO Internal CSS*/
+
+    .panel-heading span {
+        font-size: 15px;
+        text-decoration: none;
+    }
+
+    .panel {
+        margin-bottom: 0;
+    }
+
+    .panel-body {
+        padding: 0 0 0 15px;
+    }
+
+    .clickable {
+        cursor: pointer;
+    }
+
+    .panel-heading {
+        padding: 0;
+    }
+
+    .navbar-form {
+        margin-top: 0px;
+    }
+
+    .panel {
+        background-color: transparent;
+    }
+
+    .panel-default {
+        border-color: transparent;
+    }
+
+    .panel-group .panel+.panel {
+        margin-top: 0;
+    }
+
+    .panel-head-org {
+        background-color: rgba(255, 102, 0, 0.973);
+        padding: 10px 10px;
+        font-weight: bold;
+        color: #fff;
+        border-radius: 0;
+        margin: 0px 0px 5px 0;
+    }
+
+    .bs-example {
+        margin: 20px;
+    }
+
+    .table {
+        margin-bottom: 0 !important;
+    }
+
+    .btn-primary {
+        color: #fff;
+        background-color: rgba(255, 102, 0, 0.863);
+        border-color: #a4752e;
+    }
+
+    /*END PO Internal CSS*/
+
+    .modal-dialog {
+        margin-top: 90px;
+    }
+
+    .well {
+        margin-bottom: 0;
+    }
+
+    .pl5 {
+        padding-left: 5px;
+    }
+
+    .buttonpadding {
+        padding-bottom: 7px;
+    }
+
+    .padding20 {
+        padding: 20px;
+    }
+
+    .btn-circle-sm {
+        width: 50px;
+        height: 50px;
+        text-align: center;
+        padding: 2px 0;
+        font-size: 16px;
+        line-height: 43px;
+        border-radius: 30px;
+        font-weight: bold;
+        letter-spacing: 1px;
+    }
+
+    .small {
+        font-size: 11px !important;
+    }
+
+    .btn-sample {
+        color: #ffffff;
+        background-color: #C2C2C2;
+        border-color: #C7C7C7;
+    }
+
+    .cmplibpadpop {
+        padding: 4px 8px !important;
+    }
+
+    .btn-sample:hover,
+    .btn-sample:focus,
+    .btn-sample:active,
+    .btn-sample.active,
+    .open .dropdown-toggle.btn-sample {
+        color: #ffffff;
+        background-color: #6E6E6E;
+        border-color: #C7C7C7;
+    }
+
+    .DMSUpload {
+        position: absolute;
+        margin-top: -4px;
+        margin-left: 2px;
+        font-size: 14px;
+        color: #337ab7;
+        cursor: pointer;
+    }
+
+    .DMSUpload:hover {
+        color: #262626;
+    }
+
+    .h110 {
+        height: 110px;
+        margin: 5px 0;
+    }
+
+    .dropdown.dropdown-scroll .dropdown-menu {
+        max-height: 200px;
+        width: 60px;
+        overflow: auto;
+    }
+
+    .search-control {
+        padding: 5px 10px;
+    }
+
+    .CLelements {
+        background-color: cadetblue;
+        height: 30px;
+        margin: 1%;
+        line-height: 20px;
+        padding: 5px;
+        color: #FFF;
+        width: 100%;
+    }
+
+    .headerBorder {
+        background-color: darkgray;
+        color: #fff;
+        height: 30px;
+        line-height: 30px;
+        margin: 10px 0;
+    }
+</style>
+<header ng-include="'views/header.html'"></header>
+<div class="wrapper" ng-controller="PRSaveCtrl">
+    <div class="row">
+        <div class="container wrapper" style="background: #fff;">
+            <div class="row">
+                <section>
+                    <div style="margin: 70px auto 0 auto;">
+                        <div class="title-panel">Purchase Request
+                            <span class="pull-right">
+                                <span style="font-size: 12px;" ng-if="prId && prId!=''">PR NO &nbsp; &nbsp; : </span>{{prId?prId:""}} &nbsp;
+                                <a class="btn btn-xs btn-success" style="margin-right: 4px;margin-bottom: 3px"
+                                    href="#/DraftPR">
+                                    <i class="fa fa-arrow-left"></i>&nbsp; Back</a>
+                            </span>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="container-fluid" ng-hide="false">
+                            <div class="main-body-space">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="row">
+                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xl-12 ">
+                                                <ul class="nav nav-tabs">
+                                                    <li ng-class="{active:IsTabSelected(1)}">
+                                                        <a data-toggle="tab" aria-expanded="false" ng-click="selectTab(1)" auto-active>Basic Information</a>
+                                                    </li>
+                                                    <li ng-class="{active:IsTabSelected(2)}">
+                                                        <a data-toggle="tab" aria-expanded="false" ng-click="selectTab(2)" auto-active>Purchase Details</a>
+                                                    </li>
+                                                    <!--<li ng-class="{active:IsTabSelected(3)}">
+                                                        <a data-toggle="tab" aria-expanded="false" ng-click="selectTab(3)" auto-active>Delivery Schedule</a>
+                                                    </li>-->
+                                                </ul>
+                                                <div class="tab-content">
+                                                    <div id="basicInformation" class="" ng-show="IsTabSelected(1)">
+                                                        <br>
+                                                        <div class="row" style="margin-top: -30px;margin-left: -14px;">
+                                                            <form name="basicInformation" class="basicInformation">
+                                                                <div class="col-xs-12">
+                                                                    <div style="background-color:#fff">
+                                                                        <div class="row" style="background-color:#fff; padding:10px;margin: 10px 0%;">
+                                                                            <input type="text" name="CreatedByID" value="{{UserDetails.currentUser.UserId}}" hidden="true" />
+                                                                            <input type="text" name="FundCenterID" value="{{FundCenterID}}" hidden="true" />
+                                                                            <input type="text" name="LastModifiedByID" value="{{UserDetails.currentUser.UserId}}" hidden="true" />
+                                                                            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                                                                                <div class="form-group">
+                                                                                    <label>WBS Head<span class="mandatory">*</span></label>
+                                                                                    <input class="form-control" name="ProjectCode" list="wbsListFilter" ng-model="wbsListFilter" ng-change="getFundCenters(wbsListFilter)" placeholder="WBS Head">
+                                                                                    <datalist id="wbsListFilter"><option ng-repeat="item in fundCentersList" ng-init="FundCenterID=item.ProjectCode" data="{{item.ProjectCode}}" value="{{item.FundCenter_Code}}"></datalist>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                                                                                <div class="form-group">
+                                                                                    <label>PR Title
+                                                                                        <span class="mandatory">*</span>
+                                                                                    </label>
+                                                                                    <input type="text" name="PRTitle" class="form-control" placeholder="PR Title">
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-xs-4">
+                                                                                <div class="form-group">
+                                                                                    <label>Description
+                                                                                        <span class="mandatory">*</span>
+                                                                                    </label>
+                                                                                    <textarea type="text" name="PRDescription" class="form-control" placeholder="Description"></textarea>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-md-6 col-md-offset-1" style="text-align:right"></div>
+                                                                            <div class="col-md-6 col-md-offset-3" style="text-align:center">
+                                                                                <button type="button" class="btn btn-md btn-primary" ng-click="basicInfoSavePO()">Save</button>
+                                                                                <button type="button" class="btn btn-md btn-primary" ng-click="selectTab(2)">Next</button>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                    <div id="purchaseDetails" class="" ng-show="IsTabSelected(2)">
+                                                        <form name="purchaseItemform" class="purchaseItemform">
+                                                            <div class="row" style="margin-top: -30px;margin-left: -14px;">
+                                                                <div class="col-xs-12">
+                                                                    <!--defining like below To send the details as array -->
+                                                                    <input type="text" name="LastModifiedBy" value="{{UserDetails.currentUser.UserId}}" hidden="true" />
+                                                                    <input type="text" name="ItemStructureID" value="0" ng-hide="true" />
+                                                                    <input type="text" name="PR_ID" value="{{prId}}" ng-hide="true" />
+                                                                    <input type="text" name="ItemType" value="0" hidden="true" />
+                                                                    <input type="text" name="Objectid" value="0" ng-hide="true" />
+                                                                    <input type="text" name="HeaderStructureID" value="{{PO_HSID}}" hidden="true" />
+                                                                    <input type="text" name="Long_Text" value="0" ng-hide="true" />
+                                                                    <input type="text" name="Material_Number" value="0" ng-hide="true" />
+                                                                    <input type="text" name="Short_Text" value="0" ng-hide="true" />
+                                                                    <input type="text" name="Line_item" value="0" ng-hide="true" />
+                                                                    <input type="text" name="HSN_Code" value="0" ng-hide="true" />
+                                                                    <input type="text" name="Unit_Measure" value="0" ng-hide="true" />
+                                                                    <input type="text" name="IGSTRate" value="0" ng-hide="true" />
+                                                                    <input type="text" name="CGSTRate" value="0" ng-hide="true" />
+                                                                    <input type="text" name="SGSTRate" value="0" ng-hide="true" />
+                                                                    <input type="text" name="IGSTAmount" value="0" ng-hide="true" />
+                                                                    <input type="text" name="SGSTAmount" value="0" ng-hide="true" />
+                                                                    <input type="text" name="CGSTAmount" value="0" ng-hide="true" />
+                                                                    <input type="text" name="TotalTaxAmount" value="0" ng-hide="true" />
+                                                                    <input type="text" name="TotalAmount" value="0" ng-hide="true" />
+                                                                    <input type="text" name="GrossAmount" value="0" ng-hide="true" />
+                                                                    <input type="text" name="WBSElementCode" value="0" ng-hide="true" />
+                                                                    <input type="text" name="WBSElementCode2" value="0" ng-hide="true" />
+                                                                    <input type="text" name="InternalOrderNumber" value="0" ng-hide="true" />
+                                                                    <input type="text" name="Order_Qty" value="0" ng-hide="true" />
+                                                                    <input type="text" name="Rate" value="0" ng-hide="true" />
+                                                                    <input type="text" name="Brand" value="0" ng-hide="true" />
+                                                                    <input type="text" name="GLAccountNo" value="0" ng-hide="true" />
+                                                                    <input type="text" name="Tax_salespurchases_code" value="0" ng-hide="true" />
+                                                                    <div style="background-color:#fff">
+                                                                        <div class="row" style="background-color:#fff; padding:10px; margin: 1px 0%;">
+                                                                            <div class="col-md-4 pull-right">
+                                                                                <div class="col-md-6">
+                                                                                    <div class="form-group" ng-show="false">
+                                                                                        <small>Total ({{PODetailsResult.VendorData.Currency
+                                                                                            ? PODetailsResult.VendorData.Currency
+                                                                                            : 'INR'}})</small>
+                                                                                        <input type="text" class="form-control" value="{{TotalGross}}" placeholder="Total Amount" ng-disabled="true">
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="col-md-6">
+                                                                                    <div class="form-group" ng-if="poCode!='ZEX'">
+                                                                                        <br>
+                                                                                        <button class="btn btn-warning btn-xs" type="button" data-toggle="modal" ng-click="emptyComponentList()" data-target="#ComponentLibraryPopup" ng-if="poCode!='NB'">
+                                                                                            <i class="fa fa-plus"></i>&nbsp;Material</button>&nbsp;
+                                                                                        <button class="btn btn-warning btn-xs" type="button" data-toggle="modal" ng-click="emptyComponentList()" data-target="#ServicePopup">
+                                                                                            <i class="fa fa-plus"></i>&nbsp;Service</button>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="row">
+                                                                                <div class="col-xs-12">
+                                                                                    <div class="table-responsive">
+                                                                                        <table class="table table table-bordered" style="margin:10px 0 !important;overflow-x: scroll;white-space: nowrap;">
+                                                                                            <thead style="font-size:9pt;">
+                                                                                                <tr style="background-color: #192930;    color: #fff; ">
+                                                                                                    <th>Sl No</th>
+                                                                                                    <th>Item</th>
+                                                                                                    <th>Code</th>
+                                                                                                    <th>Short Description</th>
+                                                                                                    <th>Item Brand Name</th>
+                                                                                                    <!--<th>HSN/SAC</th>-->
+                                                                                                    <th>WBS Code</th>
+                                                                                                    <th ng-show="false">WBS Code Part2</th>
+                                                                                                    <!-- <th class="w80">Intenal Order</th>
+                                                                                                    <th class="w100">GL Account</th> -->
+                                                                                                    <th>Quantity</th>
+                                                                                                    <th>Unit</th>
+                                                                                                    <th ng-show="false">Item Rate (Rs.)</th>
+                                                                                                    <th ng-show="false">Amount</th>
+                                                                                                    <th ng-show="false">Tax Code</th>
+                                                                                                    <th ng-show="false"> IGST</th>
+                                                                                                    <th ng-show="false">SGST</th>
+                                                                                                    <th ng-show="false">CGST</th>
+                                                                                                    <th ng-show="false">Taxes</th>
+                                                                                                    <th ng-show="false">Gross</th>
+                                                                                                    <th>
+                                                                                                        <a ng-if="poCode=='ZEX'">
+                                                                                                            <i class="fa fa-plus" ng-click="addMainMaterialElement();" aria-hidden="true" style="font-size: 16pt;color: darkseagreen;"></i>
+                                                                                                        </a>
+                                                                                                    </th>
+                                                                                                </tr>
+                                                                                            </thead>
+                                                                                            <tbody>
+                                                                                                <tr style="background-color:#FFF;" ng-repeat="(key,exsitem) in ExistpurchaseItemsResult">
+                                                                                                    <td style="text-align:right">
+                                                                                                        <!--Begin of Sending Values to backend -->
+                                                                                                        <input type="text" name="existTotalAmount" class="form-control" value="{{Qty*Rate}}" ng-hide="true" />
+                                                                                                        <input type="text" name="existTotalTaxAmount" class="form-control" value="{{((exsitem.IGSTTaxRate+exsitem.SGSTTaxRate+exsitem.CGSTTaxRate)*(exsitem.Order_Qty* exsitem.Rate))/100 ? (((exsitem.IGSTTaxRate+exsitem.SGSTTaxRate+exsitem.CGSTTaxRate)*(exsitem.Order_Qty* exsitem.Rate))/100 |number):0}}"
+                                                                                                            ng-hide="true" />
+                                                                                                        <input type="text" name="existGrossAmount" class="form-control" value="{{(exsitem.Order_Qty* exsitem.Rate)+((exsitem.IGSTTaxRate+exsitem.SGSTTaxRate+exsitem.CGSTTaxRate)*(exsitem.Order_Qty* exsitem.Rate))/100 ? ((exsitem.Order_Qty* exsitem.Rate)+((exsitem.IGSTTaxRate+exsitem.SGSTTaxRate+exsitem.CGSTTaxRate)*(exsitem.Order_Qty* exsitem.Rate))/100 |number):0}}"
+                                                                                                            ng-hide="true" />
+                                                                                                        <input type="text" class="form-control" value="{{exsitem.unit_of_measure}}" ng-hide="true" />
+                                                                                                        <!--End of Sending Values to backend -->
+                                                                                                        {{key+1}}</td>
+                                                                                                    <td ng-if="poCode!='ZEX'">{{exsitem.Short_Text?exsitem.Short_Text:'-'}}</td>
+                                                                                                    <td ng-show="poCode=='ZEX'">
+                                                                                                        <input type="text" class="form-control"
+                                                                                                            ng-model="exsitem.Short_Text"
+                                                                                                            value="{{exsitem.Short_Text}}"
+                                                                                                            ng-disabled="key!=ClickedIndexValue"
+                                                                                                        />
+                                                                                                    </td>
+                                                                                                    <td ng-if="poCode!='ZEX'">{{exsitem.Material_Number?exsitem.Material_Number:'-'}}</td>
+                                                                                                    <td ng-show="poCode=='ZEX'">
+                                                                                                        <input type="text" class="form-control"
+                                                                                                            ng-model="exsitem.Material_Number"
+                                                                                                            value="{{exsitem.Material_Number}}"
+                                                                                                            ng-disabled="key!=ClickedIndexValue"
+                                                                                                        />
+                                                                                                    </td>
+                                                                                                    <td ng-if="poCode!='ZEX'">{{exsitem.Long_Text?exsitem.Long_Text:'-'}}</td>
+                                                                                                    <td ng-show="poCode=='ZEX'">
+                                                                                                        <input type="text" class="form-control"
+                                                                                                            ng-model="exsitem.Long_Text"
+                                                                                                            value="{{exsitem.Long_Text}}"
+                                                                                                            ng-disabled="key!=ClickedIndexValue"
+                                                                                                        />
+                                                                                                    </td>
+                                                                                                    <td ng-if="poCode=='ZEX'" class="text-center">-</td>
+                                                                                                    <td ng-if="poCode!='ZEX'">
+                                                                                                        <select class="form-control" ng-model="exsitem.Brand" ng-disabled="true">
+                                                                                                            <option value="" ng-selected="true">Select</option>
+                                                                                                            <option ng-if="exsitem.Brand" value="{{exsitem.Brand}}">{{exsitem.Brand}}</option>
+                                                                                                        </select>
+                                                                                                    </td>
+                                                                                                    <!--<td ng-if="poCode!='ZEX'">{{exsitem.HSN_Code?exsitem.HSN_Code:'-'}}</td>
+                                                                                                    <td ng-show="poCode=='ZEX'">
+                                                                                                        <input type="text" class="form-control"
+                                                                                                            ng-model="exsitem.HSN_Code"
+                                                                                                            value="{{exsitem.HSN_Code}}"
+                                                                                                            ng-disabled="key!=ClickedIndexValue"
+                                                                                                        />
+                                                                                                    </td>-->
+                                                                                                    <td ng-if="poCode!='ZEX'" ng-show="false">
+                                                                                                        <div class="input-group input-group-sm">
+                                                                                                            <input type="text" class="form-control" ng-model="ExistpurchaseItemsResult[key].WBSElementCode" placeholder="Select WBS"
+                                                                                                                ng-readonly="true"
+                                                                                                            />
+                                                                                                            <div class="input-group-addon" data-toggle="modal" data-target="#WBSDetailsPart1Popup" ng-if="!(key!=ClickedIndexValue)"
+                                                                                                                ng-click="setrowclickedKey(key,true);">
+                                                                                                                <i class="fa fa-search"></i>
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                    </td>
+                                                                                                    <td ng-show="false">
+                                                                                                        <input type="text" class="form-control"
+                                                                                                            ng-model="exsitem.WBSElementCode"
+                                                                                                            value="{{exsitem.WBSElementCode}}"
+                                                                                                            ng-disabled="key!=ClickedIndexValue"
+                                                                                                        />
+                                                                                                    </td>
+                                                                                                    <td ng-if="poCode!='ZEX'" ng-show="false">
+                                                                                                        <div class="input-group input-group-sm">
+                                                                                                            <input type="text" class="form-control" ng-model="ExistpurchaseItemsResult[key].WBSElementCode2" placeholder="Select WBS Part2"
+                                                                                                                ng-readonly="true"
+                                                                                                            />
+                                                                                                            <div class="input-group-addon" data-toggle="modal" data-target="#WBSDetailsPart2Popup" ng-if="!(key!=ClickedIndexValue)"
+                                                                                                                ng-click="setrowclickedKey(key,true);">
+                                                                                                                <i class="fa fa-search"></i>
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                    </td>
+                                                                                                    <td ng-show="false">
+                                                                                                        <input type="text" class="form-control"
+                                                                                                            ng-model="exsitem.WBSElementCode2"
+                                                                                                            value="{{exsitem.WBSElementCode2}}"
+                                                                                                            ng-disabled="key!=ClickedIndexValue"
+                                                                                                        />
+                                                                                                    </td>
+                                                                                                    <td ng-show="false">
+                                                                                                        <input type="text" class="form-control intvalid " ng-model="exsitem.Order_Qty" placeholder="Quantity" ng-disabled="key!=ClickedIndexValue"
+                                                                                                        />
+                                                                                                    </td>
+                                                                                                    <td class="text-center" ng-show="false">{{exsitem.Unit_Measure?exsitem.Unit_Measure:'-'}}</td>
+                                                                                                    <td style="text-align:right" ng-show="false">
+                                                                                                        <input type="text" class="form-control" ng-model="exsitem.Rate" placeholder="Rate" ng-disabled="key!=ClickedIndexValue">
+                                                                                                    </td>
+                                                                                                    <td style="text-align:right" ng-show="false">{{(exsitem.Order_Qty
+                                                                                                        * exsitem.Rate)|number}}
+                                                                                                    </td>
+                                                                                                    <td class="text-center" ng-show="false">{{exsitem.PurchaseTaxDetails.TaxCode?exsitem.PurchaseTaxDetails.TaxCode:'-'}}</td>
+                                                                                                    <td style="text-align:right" ng-show="false">{{exsitem.IGSTRate}}</td>
+                                                                                                    <td style="text-align:right" ng-show="false">{{exsitem.SGSTRate}}</td>
+                                                                                                    <td style="text-align:right" ng-show="false">{{exsitem.CGSTRate}}</td>
+                                                                                                    <td style="text-align:right" ng-show="false" class="taxes">{{((exsitem.IGSTRate+exsitem.SGSTRate+exsitem.CGSTRate)*(exsitem.Order_Qty*
+                                                                                                        exsitem.Rate))/100
+                                                                                                        ? (((exsitem.IGSTRate+exsitem.SGSTRate+exsitem.CGSTRate)*(exsitem.Order_Qty*exsitem.Rate))/100|number):0}}
+                                                                                                    </td>
+                                                                                                    <td style="text-align:right" ng-show="false" class="gross">{{(exsitem.Order_Qty*
+                                                                                                        exsitem.Rate)+((exsitem.IGSTRate+exsitem.SGSTRate+exsitem.CGSTRate)*(exsitem.Order_Qty*
+                                                                                                        exsitem.Rate))/100
+                                                                                                        ? ((exsitem.Order_Qty*
+                                                                                                        exsitem.Rate)+((exsitem.IGSTRate+exsitem.SGSTRate+exsitem.CGSTRate)*(exsitem.Order_Qty*
+                                                                                                        exsitem.Rate))/100
+                                                                                                        |number):0}}
+                                                                                                    </td>
+                                                                                                    <td ng-show="false" ng-init="value = (ExistpurchaseItemsResult.length==key+1) ? getTotalAmountTaxGross() : 0">
+                                                                                                        <a data-toggle="modal" data-target="#purchaseRateHistoryPopUp" ng-click="purchaseRateHistory(exsitem.Material_Number);">
+                                                                                                            <i class="fa fa-database"
+                                                                                                                aria-hidden="true"
+                                                                                                                title="History"
+                                                                                                                style="font-size:12pt;margin: 2px"></i>
+                                                                                                        </a>
+                                                                                                        <a ng-click="EnableCurrentRow(key);">
+                                                                                                            <span class="glyphicon glyphicon-edit"
+                                                                                                                aria-hidden="true"
+                                                                                                                title="Edit"
+                                                                                                                style="font-size:12pt;margin: 2px"></span>
+                                                                                                        </a>
+                                                                                                        <a ng-click="UpdateCurrentPurchaseItem(
+                                                                                                            exsitem.ItemStructureID,exsitem.Short_Text,exsitem.Long_Text,exsitem.Material_Number,
+                                                                                                            exsitem.HSN_Code,ExistpurchaseItemsResult[key].WBSElementCode,
+                                                                                                            ExistpurchaseItemsResult[key].WBSElementCode2,exsitem.Brand,exsitem.Order_Qty,
+                                                                                                            exsitem.Rate,exsitem.IGSTRate,exsitem.SGSTRate,exsitem.CGSTRate,existTotalTaxAmount,existGrossAmount);">
+                                                                                                            <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true" title="Save Changes" style="font-size:12pt;margin: 2px"></span>
+                                                                                                        </a>
+                                                                                                        <!--<a ng-click="SaveUpdatePurchaseItem(exsitem.material_name,exsitem.MaterialCode,exsitem.short_description,exsitem.hsn_code,WBSElementCode,InternalOrderNumber,GLAccountNo
+                                                                                                                        ,Brand,Qty,exsitem.unit_of_measure,Rate,IGSTRate,SGSTRate,CGSTRate,IGSTAmount,SGSTAmount,CGSTAmount,TotalTaxAmount,GrossAmount);">
+                                                                                                                                <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true" title="Save" style="font-size:12pt;margin: 2px"></span>
+                                                                                                                                </a>-->
+                                                                                                        <a ng-click="deleteCurrentPurchaseItem(exsitem.ItemStructureID);" title="Delete">
+                                                                                                            <span class="glyphicon glyphicon-trash" aria-hidden="true" title="Delete" style="font-size:12pt;"></span>
+                                                                                                        </a>
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                            </tbody>
+                                                                                            <tbody addmainmaterialelement></tbody>
+                                                                                            <tbody>
+                                                                                                <tr style="background-color:#FFF;" ng-repeat="(key,mtl) in SelectedItemsList">
+                                                                                                    <td style="text-align:right">
+                                                                                                        <!--Begin of Sending Values to backend -->
+                                                                                                        <input type="text" name="ItemType" ng-model="mtl.ItemType" value="{{mtl.ItemType}}" ng-hide="true" />
+                                                                                                        <input type="text" name="ItemStructureID" class="form-control" value="0" ng-hide="true" />
+                                                                                                        <input type="text" name="Objectid" class="form-control" value="TEPurchaseMaterial" ng-hide="true" />
+                                                                                                        <input type="text" name="Short_Text" class="form-control" ng-model="mtl.material_name" value="{{mtl.material_name}}" ng-hide="true"
+                                                                                                        />
+                                                                                                        <input type="text" name="Material_Number" class="form-control" ng-model="mtl.MaterialCode" value="{{mtl.MaterialCode}}" ng-hide="true"
+                                                                                                        />
+                                                                                                        <input type="text" name="Long_Text" class="form-control" ng-model="mtl.short_description" value="{{mtl.short_description}}"
+                                                                                                            ng-hide="true" />
+                                                                                                        <input type="text" name="Line_item" class="form-control" ng-model="key" value="{{key+1}}" ng-hide="true" />
+                                                                                                        <input type="text" name="HSN_Code" class="form-control" ng-model="mtl.hsn_code" value="{{mtl.hsn_code}}" ng-hide="true" />
+                                                                                                        <input type="text" name="IGSTRate" class="form-control" ng-model="mtl.PurchaseTaxDetails.IGSTTaxRate" value="{{mtl.PurchaseTaxDetails.IGSTTaxRate}}"
+                                                                                                            ng-hide="true" />
+                                                                                                        <input type="text" name="CGSTRate" class="form-control" ng-model="mtl.PurchaseTaxDetails.CGSTTaxRate" value="{{mtl.PurchaseTaxDetails.CGSTTaxRate}}"
+                                                                                                            ng-hide="true" />
+                                                                                                        <input type="text" name="SGSTRate" class="form-control" ng-model="mtl.PurchaseTaxDetails.SGSTTaxRate" value="{{mtl.PurchaseTaxDetails.SGSTTaxRate}}"
+                                                                                                            ng-hide="true" />
+                                                                                                        <input type="text" name="IGSTAmount" class="form-control" value="{{(mtl.PurchaseTaxDetails.IGSTTaxRate*Qty*Rate)/100}}" ng-hide="true"
+                                                                                                        />
+                                                                                                        <input type="text" name="CGSTAmount" class="form-control" value="{{(mtl.PurchaseTaxDetails.CGSTTaxRate*Qty*Rate)/100}}" ng-hide="true"
+                                                                                                        />
+                                                                                                        <input type="text" name="SGSTAmount" class="form-control" value="{{(mtl.PurchaseTaxDetails.SGSTTaxRate*Qty*Rate)/100}}" ng-hide="true"
+                                                                                                        />
+                                                                                                        <input type="text" name="TotalAmount" class="form-control" value="{{Qty*Rate}}" ng-hide="true" />
+                                                                                                        <input type="text" name="TotalTaxAmount" class="form-control" value="{{((mtl.PurchaseTaxDetails.IGSTTaxRate+mtl.PurchaseTaxDetails.SGSTTaxRate+mtl.PurchaseTaxDetails.CGSTTaxRate)*(Qty * Rate))/100 ? (((mtl.PurchaseTaxDetails.IGSTTaxRate+mtl.PurchaseTaxDetails.SGSTTaxRate+mtl.PurchaseTaxDetails.CGSTTaxRate)*(Qty * Rate))/100 |number):0}}"
+                                                                                                            ng-hide="true" />
+                                                                                                        <input type="text" name="GrossAmount" class="form-control" value="{{(Qty*Rate)+((mtl.PurchaseTaxDetails.IGSTTaxRate+mtl.PurchaseTaxDetails.SGSTTaxRate+mtl.PurchaseTaxDetails.CGSTTaxRate)*(Qty * Rate))/100 ? ((Qty*Rate)+((mtl.PurchaseTaxDetails.IGSTTaxRate+mtl.PurchaseTaxDetails.SGSTTaxRate+mtl.PurchaseTaxDetails.CGSTTaxRate)*(Qty * Rate))/100 |number):0}}"
+                                                                                                            ng-hide="true" />
+                                                                                                        <input type="text" name="Tax_salespurchases_code" class="form-control" ng-model="mtl.PurchaseTaxDetails.TaxCode" value="{{mtl.PurchaseTaxDetails.TaxCode}}"
+                                                                                                            ng-hide="true" />
+                                                                                                        <input type="text" name="Unit_Measure" class="form-control" value="{{mtl.unit_of_measure}}" ng-hide="true" />
+                                                                                                        <input type="hidden" value="0" name="brandCheck">
+                                                                                                        <input type="hidden" value="{{mtl.BrandList}}" name="brandCheck">
+                                                                                                        <!--End of Sending Values to backend -->
+                                                                                                        {{key+ExistpurcItemCount+1}}</td>
+                                                                                                    <td>{{mtl.material_name?
+                                                                                                        mtl.material_name:'NA'}}</td>
+                                                                                                    <td>{{mtl.MaterialCode? mtl.MaterialCode:'NA'}}</td>
+                                                                                                    <td>{{mtl.short_description
+                                                                                                        ? mtl.short_description:'NA'}}</td>
+                                                                                                    <td>
+                                                                                                        <select class="form-control" name="Brand" ng-model="Brand">
+                                                                                                            <option value="">Select</option>
+                                                                                                            <option value="{{brand.BrandSeries}}" ng-repeat="brand in mtl.BrandList">{{brand.BrandSeries}}</option>
+                                                                                                        </select>
+                                                                                                    </td>
+                                                                                                    <!--<td style="text-align:right">{{mtl.hsn_code ? mtl.hsn_code:'NA'}}</td>-->
+                                                                                                    <td>
+                                                                                                        <div class="input-group input-group-sm">
+                                                                                                            <input type="text" class="form-control" name="WBSElementCode" ng-model="wbscodePart1[key]" placeholder="Select WBS"
+                                                                                                                ng-readonly="true"
+                                                                                                            />
+                                                                                                            <div class="input-group-addon" data-toggle="modal" data-target="#WBSDetailsPart1Popup" ng-click="setrowclickedKey(key,false);">
+                                                                                                                <i class="fa fa-search"></i>
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                    </td>
+                                                                                                    <td ng-show="false">
+                                                                                                        <div class="input-group input-group-sm">
+                                                                                                            <input type="text" class="form-control" name="WBSElementCode2" ng-model="wbscodePart2[key]" placeholder="Select WBS Part2"
+                                                                                                                ng-readonly="true"
+                                                                                                            />
+                                                                                                            <div class="input-group-addon" data-toggle="modal" data-target="#WBSDetailsPart2Popup" ng-click="setrowclickedKey(key,false);">
+                                                                                                                <i class="fa fa-search"></i>
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <input type="text" class="form-control Qty intvalid decimalPrecision2" name="Order_Qty" ng-model="Qty" ng-change="getTotalAmountTaxGross()"
+                                                                                                            placeholder="Quantity"
+                                                                                                            ng-init="Qty=0" />
+                                                                                                    </td>
+                                                                                                    <td>{{mtl.unit_of_measure?mtl.unit_of_measure:'NA'}}</td>
+                                                                                                    <td style="text-align:right" ng-show="false">
+                                                                                                        <input type="text" class="form-control Rate" name="Rate" ng-model="Rate" ng-change="getTotalAmountTaxGross()" placeholder="Rate{{ratePlaceholder ? ' limit '+ratePlaceholder : ''}}"
+                                                                                                            ng-init="Rate=0"
+                                                                                                        />
+                                                                                                    </td>
+                                                                                                    <td style="text-align:right" ng-show="false">{{(Qty * Rate)|number}}</td>
+                                                                                                    <td ng-show="false">{{mtl.PurchaseTaxDetails.TaxCode?mtl.PurchaseTaxDetails.TaxCode:'NA'}}</td>
+                                                                                                    <td style="text-align:right" ng-show="false">{{mtl.PurchaseTaxDetails.IGSTTaxRate
+                                                                                                        ? mtl.PurchaseTaxDetails.IGSTTaxRate:'0'}}</td>
+                                                                                                    <td style="text-align:right" ng-show="false">{{mtl.PurchaseTaxDetails.SGSTTaxRate
+                                                                                                        ? mtl.PurchaseTaxDetails.SGSTTaxRate:'0'}}</td>
+                                                                                                    <td style="text-align:right" ng-show="false">{{mtl.PurchaseTaxDetails.CGSTTaxRate
+                                                                                                        ? mtl.PurchaseTaxDetails.CGSTTaxRate:'0'}}</td>
+
+
+                                                                                                    <td style="text-align:right" class="taxes" ng-show="false">{{((mtl.PurchaseTaxDetails.IGSTTaxRate+mtl.PurchaseTaxDetails.SGSTTaxRate+mtl.PurchaseTaxDetails.CGSTTaxRate)*(Qty
+                                                                                                        * Rate))/100 ? (((mtl.PurchaseTaxDetails.IGSTTaxRate+mtl.PurchaseTaxDetails.SGSTTaxRate+mtl.PurchaseTaxDetails.CGSTTaxRate)*(Qty
+                                                                                                        * Rate))/100 | number):0}}</td>
+
+
+                                                                                                    <td style="text-align:right" class="gross" ng-show="false">{{(Qty*Rate)+((mtl.PurchaseTaxDetails.IGSTTaxRate+mtl.PurchaseTaxDetails.SGSTTaxRate+mtl.PurchaseTaxDetails.CGSTTaxRate)*(Qty
+                                                                                                        * Rate))/100 ? ((Qty*Rate)+((mtl.PurchaseTaxDetails.IGSTTaxRate+mtl.PurchaseTaxDetails.SGSTTaxRate+mtl.PurchaseTaxDetails.CGSTTaxRate)*(Qty
+                                                                                                        * Rate))/100 | number):0}}</td>
+                                                                                                    <td>
+
+                                                                                                        <a ng-click="RemoveBindedMaterialElement(key);" title="Remove">
+                                                                                                            <span class="glyphicon glyphicon-trash" aria-hidden="true" title="Delete" style="font-size:12pt;margin: 2px"></span>
+                                                                                                        </a>
+                                                                                                    </td>
+                                                                                                </tr>
+
+                                                                                            </tbody>
+                                                                                        </table>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-md-6 col-md-offset-3" style="text-align:center; margin-top:20px;margin-bottom: 5%">
+                                                                                <button type="button" class="btn btn-md btn-primary margin1" ng-click="selectTab(1)">Prev</button>
+                                                                                <button type="button" class="btn btn-md btn-primary margin1" ng-click="MultipleSavePurchaseItem(mtl.BrandList)">Save</button>
+                                                                                <button type="button" class="btn btn-md btn-primary margin1" ng-click="selectTab(3)">Next</button>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                    <div id="schedule" class="" ng-show="IsTabSelected(3)">
+                                                        <div class="col-md-12" style="padding: 0;overflow-x: scroll;">
+                                                            <div class="row"></div>
+                                                            <table class="table table table-bordered" style="margin:10px 0 !important;white-space: nowrap;">
+                                                                <thead style="font-size:9pt;">
+                                                                    <tr style="background-color: #192930;    color: #fff; ">
+
+                                                                        <th>Sl No</th>
+                                                                        <th>Item</th>
+                                                                        <th>Code</th>
+                                                                        <th>Short Description</th>
+                                                                        <th>Item Brand Name</th>
+                                                                        <th>HSN/SAC</th>
+                                                                        <th>PR Quantity</th>
+                                                                        <th>Unordered Quantity</th>
+                                                                        <th>Unit Of Measure</th>
+                                                                        <th>Options</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody ng-repeat="(key, value) in prMaterialdetails">
+
+                                                                    <td>{{key+1}}</td>
+                                                                    <td>{{value.Short_Text}}</td>
+                                                                    <td>{{value.Material_Number}}</td>
+                                                                    <td>{{value.Long_Text}}</td>
+                                                                    <td>{{value.Brand}}</td>
+                                                                    <td>{{value.HSN_Code}}</td>
+                                                                    <td>{{value.Order_Qty}}</td>
+                                                                    <td>{{value.Balance_Qty}}</td>
+                                                                    <td>{{value.Unit_Measure}}</td>
+                                                                    <td>
+                                                                        <a href="javascript:void(0)" data-toggle="modal" data-target="#deliverySchedule"
+                                                                            ng-click="openAddDiv(value.ItemStructureID,value.Order_Qty);"
+                                                                            title="view" style="margin:3px;">
+                                                                            <i class="fa fa-eye"></i>
+                                                                        </a>
+                                                                    </td>
+                                                                </tbody>
+                                                            </table>
+
+                                                            <div class="col-md-12 text-center" ng-if="prMaterialdetails.length==0">No Data</div>
+                                                        </div>
+
+                                                        <div class="col-md-6 col-md-offset-3" style="text-align:center; margin-top:20px;margin-bottom: 5%">
+                                                            <button type="button" class="btn btn-md btn-primary margin1" ng-click="selectTab(2)">Prev</button>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div id="deliverySchedule" class="modal fade pop-modal" role="dialog">
+                                                    <div class="modal-dialog modal-lg" style="width: 85%;">
+                                                        <!-- Modal content-->
+                                                        <div class="modal-content">
+                                                            <div class="modal-header padpop">
+                                                                <h5 class="modal-title pull-left mt7">Add / View Delivery Schedule</h5>
+                                                                <div class="pull-right">
+                                                                    <button class="btn btn-warning btn-sm" type="button" data-dismiss="modal">X</button>
+                                                                </div>
+                                                                <div class="clearfix"></div>
+                                                            </div>
+                                                            <div class="modal-body" style="height: 500px;width:100%;margin:10px 0 !important;overflow-y: scroll">
+                                                                <div class="main-content">
+                                                                    <div class="col-md-12">
+                                                                        <div class="col-md-12 headerBorder">
+                                                                            <span>Add Delivert Schedule</span>
+                                                                        </div>
+                                                                        <div class="col-md-12" style="height: 57px;">
+                                                                            <div class="col-md-3">
+                                                                                <label>Quantity</label>
+                                                                                <input type="text" ng-model="prQuantity" class="form-control intvalid" ng-disabled="disable" />
+                                                                            </div>
+                                                                            <div class="col-md-3">
+                                                                                <label>Delivery Date</label>
+                                                                                <input type="date" class="form-control" ng-model="prScheduleDate" min="26-12-2017" ng-disabled="disable" />
+                                                                            </div>
+                                                                            <div class="col-md-3">
+                                                                                <label>Delivery Remarks</label>
+                                                                                <textarea ng-model="prRemarks" class="form-control" ng-disabled="disable" />
+                                                                            </div>
+                                                                            <div class="col-md-3">
+                                                                                <div class="" style="margin: 22px 3px;">
+                                                                                    <button class="btn btn-success btn-sm" type="button" ng-click="addSchedule()" ng-disabled="disable">Add</button>
+                                                                                </div>
+                                                                            </div>
+
+                                                                        </div>
+                                                                        <div class="col-md-12 headerBorder">Delivery Schedule Details</div>
+                                                                        <div class="col-md-12" style="padding: 0;overflow-x: scroll;">
+                                                                            <table class="table table table-bordered" style="margin:10px 0 !important;white-space: nowrap;">
+                                                                                <thead style="font-size:9pt;">
+                                                                                    <tr style="background-color: #192930;    color: #fff; ">
+
+                                                                                        <th>Sl No</th>
+                                                                                        <th>Quantity</th>
+                                                                                        <th>Delivery Date</th>
+                                                                                        <th>Remarks</th>
+                                                                                        <th></th>
+
+                                                                                    </tr>
+                                                                                </thead>
+                                                                                <tbody ng-repeat="(key, value) in DeliverySchedulesByPRItemId">
+
+                                                                                    <td>{{key+1}}</td>
+                                                                                    <td>{{value.DeliveryQty}}</td>
+                                                                                    <td>{{value.DeliveryDate | date:'dd-MM-yyyy'}}</td>
+                                                                                    <td>{{value.Remarks}}</td>
+                                                                                    <td>
+                                                                                        <i class="fa fa-trash pull-right" ng-click="deletedeliverySchedule(value.DeliveryScheduleId)"
+                                                                                            title="Delete Schedule" style="line-height: 10px;"></i>
+                                                                                    </td>
+                                                                                </tbody>
+                                                                            </table>
+                                                                            <div ng-if="DeliverySchedulesByPRItemId.length==0"> No Data</div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="clearfix"></div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+            </section>
+        </div>
+    </div>
+    <div id="ComponentLibraryPopup" class="modal fade pop-modal" role="dialog">
+    <div class="modal-dialog modal-lg" style="width: 95% !important">
+        <!-- Modal content-->
+        <div class="modal-content" style="width:100% ">
+            <div class="modal-header padpop" style="background-color: #646572; color:#fff">
+                <h5 class="modal-title pull-left mt7">Select Material Item</h5>
+                <div class="pull-right">
+                    <button class="btn btn-warning btn-sm" type="button" data-dismiss="modal" ng-click="swapTempMaterialData();">Cancel</button>
+                    <button class="btn btn-success btn-sm" type="button" ng-click="AddMaterial()">Add</button>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="modal-body" style="height: 500px;width:100%;margin:10px 0 !important;overflow-y: scroll">
+                <div class="row" style="background-color:#fff;margin-top:-20px; border-bottom:dotted 1px #ccc;">
+                    <div class="col-xs-3">
+                        <div class="input-group" style="margin:5px;margin-right:-25px;">
+                            <input type="text" class="form-control ng-pristine ng-valid ng-empty ng-touched" ng-model="searchObj" placeholder="Search to get Material Categories">
+                            <div class="input-group-btn">
+                                <div class="btn-group" role="group">
+                                    <button type="button" class="btn filtbtn" ng-click="searchMaterial(searchObj);" style="background-color:#f68c02; color:#fff;"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-3"></div>
+                    <div class="col-xs-3"></div>
+                    <div class="col-xs-3">
+                        <div class="form-group">
+                            <label>Material Category Filter</label>
+                            <select class="form-control" name="grpName" ng-model="grpName" ng-change="searchwithinGroup(grpName,searchObj)">
+                                <option value="" selected="selected">Select</option>
+                                <option ng-repeat="searchdata in SearchedMaterialGroupList" ng-selected="grpName==searchdata.GroupName" value="{{searchdata.GroupName}}">{{searchdata.GroupName}}</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" style="background-color:#fff; padding:0 10px; margin:0 0%;">
+                    <div class="col-xs-12">
+                        <form name="selectedmaterialsform" class="selectedmaterialsform">
+                             <div class="table-responsive" style="width:100%;margin-bottom: 0">
+                                <table class="table table table-bordered">
+                                    <thead style="font-size:9pt;">
+                                        <tr class="filters">
+                                            <th style="width: 3% !important;text-align: center"></th>
+                                            <th style="width: 8% !important;text-align: center">Material Code</th>
+                                            <th style="width: 20% !important;text-align: center">Material Name</th>
+                                            <th style="width: 10% !important;text-align: center">Shade Number</th>
+                                            <th style="width: 10% !important;text-align: center">Shade Description</th>
+                                            <th style="width: 9% !important;text-align: center">Unit of Measure</th>
+                                            <th style="width: 7% !important;text-align: center">HSN Code</th>
+                                            <th style="width: 8% !important;text-align: center">Available Till</th>
+                                            <th style="width: 25% !important;text-align: center">Technical Specifications</th>
+                                        </tr>
+                                    </thead>
+                                </table>
+                             </div> 
+                                <div class="table-responsive" style="width:100%;height: 400px;overflow-y: scroll">
+                                <table class="table table table-bordered table-striped">
+                                <tbody ng-repeat="material in MaterialLists">
+                                    <tr style="background-color:#FFF;">
+                                        <td class="text-center" style="vertical-align:middle;width: 3% !important;">
+                                            <input type="checkbox" class="cmplibrary" data="{{material}}" materialcodedata="{{material.MaterialCode}}" hsncode="{{material.hsn_code}}" ng-model="material.selected">
+                                        </td>
+                                       <td style="width: 8% !important;">
+                                            <a data-toggle="modal" data-target="#materialInformationPopUp" ng-click="materialInformation(material)">{{material.MaterialCode ? material.MaterialCode : '-'}}</a>
+                                       </td>
+                                        <td style="width: 20% !important;">{{material.short_description ? material.short_description : '-'}}
+                                        </td>
+                                      <td style="width: 10% !important;">{{material.shade_number ? material.shade_number : '-'}}                                            
+                                        </td>
+                                       <td style="width: 10% !important;">{{material.shade_description ? material.shade_description : '-'}}
+                                        </td>
+                                        <td style="width: 9% !important;;text-align: center">{{material.unit_of_measure ? material.unit_of_measure : '-'}}
+                                        </td>
+                                       <td style="width: 7% !important;;text-align: center">{{material.hsn_code ? material.hsn_code : '-'}}
+                                        </td>
+                                       <td style="width: 8% !important;">{{material.available_till ?(material.available_till|date:'dd-MM-yyyy') : '-'}}
+                                        </td>                                        
+                                      <td style="width: 25% !important;">
+                                      <span ng-repeat="spec in material.Mtl_Specs_Info" ng-if="spec.value!=null && spec.value!='' && spec.value!='-- NA --'">
+                                        {{spec.name}}:                                            
+                                            <span ng-if="spec.dataType.name!='CheckList'">
+                                                <span ng-if="spec.dataType.subType!=null">{{spec.value.value +' '+spec.value.type}} |</span>
+                                                <span ng-if="spec.dataType.subType==null">{{spec.value ? spec.value :'-'}} |</span>
+                                            </span>
+                                            <span ng-if="spec.dataType.name=='CheckList'">
+                                                <span>
+                                                    <a data-toggle="modal" data-target="#MaterialCheckListPopup" ng-click="getMaterialCheckListInfo(spec.value.id);" aria-hidden="true" class="anchorText">Click To View Info</a> |
+                                                </span>
+                                            </span>
+                                         </span>
+                                    </td>
+                                    </tr>
+                                </tbody>
+                                <tbody ng-if="SearchedMaterialGroupList.length==0">
+                                    <tr style="background-color:#FFF;margin: 10%">
+                                        <td colspan="12" style="text-align: center"> No Search Results
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                             </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    <div id="materialInformationPopUp" class="modal fade pop-modal" role="dialog">
+        <div class="modal-dialog modal-lg" style="width:90% ">
+            <!-- Modal content-->
+            <div class="modal-content" style="width:100% ">
+                <div class="modal-header padpop" style="background-color: #646572; color:#fff">
+                    <h5 class="modal-title pull-left mt7">Material Information</h5>
+                    <div class="pull-right">
+                        <button class="btn btn-warning btn-sm" type="button" data-dismiss="modal">Close</button>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="modal-body" style="height: 500px;width:100%;margin:10px 0 !important;overflow-y: scroll">
+                    <div class="row" style="background-color:#fff; padding:0 10px; margin:0 0%;">
+                        <div class="col-xs-12">
+                            <div class="CLelements">Classification</div>
+                            <div class="col-xs-3" ng-repeat="classic in MaterialFullInfo.Mtl_Classific_Info">
+                                <div>
+                                    <b>{{classic.name}}</b>
+                                    <br>
+                                    <p>{{classic.value ? classic.value :'-'}}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12">
+                            <div class="CLelements">General</div>
+                            <div class="col-xs-3" ng-repeat="gen in MaterialFullInfo.Mtl_General_Info">
+                                <div>
+                                    <b>{{gen.name}}</b>
+                                    <br>
+                                    <div ng-if="gen.dataType.name=='StaticFile'">
+                                        <p>
+                                            <a href="{{gen.value.url}}" target="blank">Click Here</a>
+                                            <br>
+                                            <!-- <b> name</b>:{{gen.value.name}} <br>
+                                        <b> url</b>:{{gen.value.url}} <br>
+                                        <b>id</b>:{{gen.value.id}} <br>-->
+                                        </p>
+                                    </div>
+                                    <div ng-if="gen.dataType.name=='Array' && gen.dataType.subType.name=='StaticFile'">
+                                        <div ng-repeat="val in gen.value">
+                                            <p>
+                                                <a href="{{val.url}}" target="blank">Click Here</a>
+                                                <br>
+                                                <!--<br> <b> name</b>:{{val.name}} <br>
+                                            <b> url</b>:{{val.url}} <br>
+                                            <b>id</b>:{{val.id}} <br>-->
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div ng-if="(gen.dataType.name=='MasterData'|| gen.dataType.name=='String' || gen.dataType.name=='Autogenerated' || gen.dataType.name=='Boolean') && gen.dataType.subType.name!='StaticFile' ">
+                                        <p ng-if="gen.value==true">Yes</p>
+                                        <p ng-if="gen.value==false">No</p>
+                                        <p ng-if="gen.value!=true && gen.value!=false">{{gen.value?gen.value:'-'}}</p>
+                                    </div>
+                                    <div ng-if="gen.dataType.name=='Date'">
+                                        <p>{{gen.value?(gen.value|date:'dd-MM-yyyy'):'-'}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12">
+                            <div class="CLelements">Purchase</div>
+                            <div class="col-xs-3" ng-repeat="purchase in MaterialFullInfo.Mtl_Purchase_Info">
+                                <div>
+                                    <b>{{purchase.name}}</b>
+                                    <br>
+                                    <div ng-if="purchase.dataType.name=='StaticFile'">
+                                        <p ng-if="purchase.value.ui!='' && purchase.value.ui!=null">
+                                            <a href="{{purchase.value.ui}}" target="blank">Click Here</a>
+                                            <br>
+                                            <!--<b> ui</b>:{{purchase.value.ui}}  <br>
+                                            <br> <b> name</b>:{{purchase.value.url}} <br>
+                                            <b>id</b>:{{purchase.value.id}} <br>-->
+                                        </p>
+                                        <p ng-if="purchase.value=='' || purchase.value==null">-</p>
+                                    </div>
+                                    <!--<div ng-if="purchase.dataType.name=='MasterData' &&  purchase.dataType.name!='Approved Vendors'">
+                                        <p>{{purchase.value}}</p>
+                                    </div>-->
+                                    <!--<div ng-if="purchase.value==null ||  purchasedataType.name=='MasterData' ||  purchasedataType.name=='Approved Vendors'">
+                                        <p>{{purchase.value}}</p>
+                                    </div>-->
+                                    <div ng-if="purchase.dataType.name=='CheckList'">
+                                        <p ng-if="purchase.value.url!='' && purchase.value.url!=null">
+                                            <a data-toggle="modal" data-target="#MaterialCheckListPopup" ng-click="getMaterialCheckListInfo(purchase.value.id);" aria-hidden="true"
+                                                class="anchorText">Click To View Info</a>
+                                            <!--<b> ui</b>:{{purchase.value.ui}} <br>
+                                            <b> url</b>:{{purchase.value.url}} <br>
+                                            <b>id</b>:{{purchase.value.id}} <br>-->
+                                        </p>
+                                        <p ng-if="purchase.value=='' || purchase.value==null">-</p>
+                                    </div>
+                                    <div ng-if="purchase.dataType.name!='StaticFile' && purchase.dataType.name!='CheckList'">
+                                        <p ng-if="purchase.dataType.subType!=null">{{purchase.value.value +' '+purchase.value.type}}</p>
+                                        <p ng-if="purchase.dataType.subType==null">{{purchase.value ? purchase.value :'-'}}</p>
+                                        <p ng-if="purchase.dataType.subType!=null && purchase.dataType.name=='MasterData'">{{purchase.value ? purchase.value :'-'}}</p>
+
+                                    </div>
+                                    <div ng-if="purchase.dataType.name=='Array' && purchase.dataType.subType.name=='Brand'">
+                                        <div ng-repeat="valArray in purchase.value">
+                                            <div ng-repeat="val in valArray.columns">
+                                                <div ng-if="val.dataType.name=='StaticFile'">
+                                                    <p ng-if="val.value.url!='' && val.value.url!=null">
+                                                        {{val.name}} :
+                                                        <a href="{{val.value.url}}" target="blank">Click Here</a>
+                                                        <br>
+                                                    </p>
+                                                    <p ng-if="val.value=='' || val.value==null">-</p>
+                                                </div>
+                                                <div ng-if="val.dataType.name!='StaticFile' && val.name!='Technical Drawing'">
+                                                    <p>
+                                                        {{val.name}} &nbsp; : &nbsp; {{val.value ? val.value :'-'}}
+                                                    </p>
+                                                </div>
+                                                <div ng-if="val.dataType.name!='StaticFile' && val.name=='Technical Drawing'">
+                                                    <div ng-if="val.dataType.name=='Array' && val.dataType.subType.name=='StaticFile'">{{val.name}} :
+                                                        <div ng-repeat="res in val.value">
+                                                            <p ng-if="res.url!='' && res.url!=null">
+                                                                <a href="{{res.url}}" target="blank">Click Here</a>
+                                                                <br>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12">
+                            <div class="CLelements">Specifications</div>
+                            <div class="col-xs-2" ng-repeat="spec in MaterialFullInfo.Mtl_Specs_Info">
+                                <div>
+                                    <b>{{spec.name}}</b>
+                                    <br>
+                                    <div ng-if="spec.dataType.name!='CheckList'">
+                                        <p ng-if="spec.dataType.subType!=null">{{spec.value.value +' '+spec.value.type}}</p>
+                                        <p ng-if="spec.dataType.subType==null">{{spec.value ? spec.value :'-'}}</p>
+                                    </div>
+                                    <div ng-if="spec.dataType.name=='CheckList'">
+                                        <p>
+                                            <br>
+                                            <a data-toggle="modal" data-target="#MaterialCheckListPopup" ng-click="getMaterialCheckListInfo(spec.value.id);" aria-hidden="true"
+                                                class="anchorText">Click To View Info</a>
+                                            <!--<b> ui</b>:{{spec.value.ui}} <br>
+                                        <b> url</b>:{{spec.value.url}} <br>
+                                        <b>id</b>:{{spec.value.id}} <br>-->
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12">
+                            <div class="CLelements">Planning</div>
+                            <div class="col-xs-3" ng-repeat="plan in MaterialFullInfo.Mtl_Planning_Info">
+                                <div>
+                                    <b>{{plan.name}}</b>
+                                    <br>
+                                    <div ng-if="plan.dataType.name!='StaticFile' && plan.dataType.name!='Boolean'">
+                                        <p ng-if="plan.dataType.subType!=null">{{plan.value.value +' '+plan.value.type}}</p>
+                                        <p ng-if="plan.dataType.subType==null">{{plan.value ? plan.value :'-'}}</p>
+                                    </div>
+                                    <div ng-if="plan.dataType.name=='StaticFile'">
+                                        <p>
+                                            <br>
+                                            <b> name</b>:{{plan.value.name}}
+                                            <br>
+                                            <b> url</b>:{{plan.value.url}}
+                                            <br>
+                                            <b>id</b>:{{plan.value.id}}
+                                            <br>
+                                        </p>
+                                    </div>
+                                    <div ng-if="plan.value!=null || plan.dataType.name=='MasterData' || plan.dataType.name=='Boolean'">
+                                        <p ng-if="plan.value==true">Yes</p>
+                                        <p ng-if="plan.value==false">No</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12">
+                            <div class="CLelements">Quality</div>
+                            <div class="col-xs-3" ng-repeat="quality in MaterialFullInfo.Mtl_Quality_Info">
+                                <div>
+                                    <b>{{quality.name}}</b>
+                                    <br>
+                                    <div ng-if="quality.dataType.name=='StaticFile'">
+                                        <p ng-if="quality.value!='' && quality.value!=null">
+                                            <br>
+                                            <a href="{{quality.value.url}}" target="blank">Click Here</a>
+                                            <br>
+                                            <!--<br> <b> name</b>:{{quality.value.name}} <br>
+                                            <b> url</b>:{{quality.value.url}}  <br>
+                                            <b>id</b>:{{quality.value.id}} <br>-->
+                                        </p>
+                                        <p ng-if="quality.value=='' || quality.value==null">-</p>
+                                    </div>
+                                    <div ng-if="quality.dataType.name=='CheckList'">
+                                        <p ng-if="quality.value!='' || quality.value!=null">
+                                            <br>
+                                            <a data-toggle="modal" data-target="#MaterialCheckListPopup" ng-click="getMaterialCheckListInfo(quality.value.id);" aria-hidden="true"
+                                                class="anchorText">Click To View Info</a>
+                                            <!--<b> ui</b>:{{quality.value.ui}}  <br>
+                                            <b> url</b>:{{quality.value.url}}  <br>
+                                            <b>id</b>:{{quality.value.id}}    <br>-->
+                                        </p>
+                                        <p ng-if="quality.value=='' || quality.value==null">-</p>
+                                    </div>
+                                    <div ng-if="quality.dataType.name!='CheckList' && quality.dataType.name!='StaticFile'">
+                                        <p ng-if="quality.dataType.subType!=null">{{quality.value.value +' '+quality.value.type}}</p>
+                                        <p ng-if="quality.dataType.subType==null">{{quality.value ? quality.value :'-'}}</p>
+                                    </div>
+                                    <div ng-if="quality.value==null|| quality.dataType.name=='MasterData'">
+                                        <p>{{quality.value}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12">
+                            <div class="CLelements">Log</div>
+                            <div class="col-xs-3" ng-repeat="log in MaterialFullInfo.Mtl_Log_Info">
+                                <div>
+                                    <b>{{log.name}}</b>
+                                    <br>
+                                    <p ng-if="log.dataType.subType=='Date Created' || log.dataType.subType=='Date Last Amended'">{{log.value?(log.value|date:'dd-MM-yyyy'):'-'}}</p>
+                                    <p ng-if="log.dataType.subType!='Date Created' && log.dataType.subType!='Date Last Amended'">{{log.value?log.value:'-'}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="WBSDetailsPart1Popup" class="modal fade pop-modal" role="dialog">
+    <div class="modal-dialog modal-lg" style="width:70%;">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header padpop">
+                <h5 class="modal-title pull-left mt7">Add WBS Element Code</h5>
+                <div class="pull-right">
+                    <button class="btn btn-warning btn-sm" type="button" data-dismiss="modal">Cancel</button>
+                    <button class="btn btn-success btn-sm" type="button" data-dismiss="modal">Add</button>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-xs-12">
+                       <div class="table-responsive" style="width:100%;margin-bottom: 0">
+                            <table class="table table table-bordered">
+                                <thead style="font-size:9pt;">
+                                    <tr class="filters">
+                                        <td style="width: 30%;">WBS Code</td>
+                                        <td style="width: 30%;">Description</td>
+                                        <td style="width: 10%;">Project</td>
+                                        <td style="width: 10%;">Fund Code</td>
+                                        <td style="width: 20%;">Fund Owner</td>
+                                    </tr>
+                                    <tr class="filtersLight">
+                                        <td class="text-center"><input class="form-control" type="text" placeholder="Search" ng-model="code"></td>
+                                        <td class="text-center"><input class="form-control" type="text" placeholder="Search" ng-model="desc"></td>
+                                        <td class="text-center"><input class="form-control" type="text" placeholder="Search" ng-model="prjcode"></td>
+                                        <td class="text-center"><input class="form-control" type="text" placeholder="Search" ng-model="fnd"></td>
+                                        <td class="text-center"><input class="form-control" type="text" placeholder="Search" ng-model="owner"></td>
+                                    </tr>
+                                </thead>
+                            </table>
+                        </div>
+                         <div class="table-responsive" style="width:100%;height: 400px;">
+                            <table class="table table table-bordered">                             
+                                <tbody>
+                                   <tr ng-repeat="(key,obj) in WBSList|filter:{wbsCode:code,ProjectCode:prjcode,fundcenterCode:fnd,fundcenterOwner:owner}" ng-style="{'background-color':wbsPart1bgColor[key]}"
+                                        ng-click="setWbsPart1Code(key,obj);">
+                                        <td style="width: 30%;">{{obj.wbsCode}}</td>
+                                        <td style="width: 30%;">{{obj.wbsDescription}}</td>
+                                        <td style="width: 10%;">{{obj.ProjectCode}}</td>
+                                        <td style="width: 10%;">{{obj.fundcenterCode}}</td>
+                                        <td style="width: 20%;">{{obj.fundcenterOwner}}</td>
+                                        </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div><div id="WBSDetailsPart1Popup" class="modal fade pop-modal" role="dialog">
+    <div class="modal-dialog modal-lg" style="width:70%;">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header padpop">
+                <h5 class="modal-title pull-left mt7">Add WBS Element Code</h5>
+                <div class="pull-right">
+                    <button class="btn btn-warning btn-sm" type="button" data-dismiss="modal">Cancel</button>
+                    <button class="btn btn-success btn-sm" type="button" data-dismiss="modal">Add</button>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-xs-12">
+                       <div class="table-responsive" style="width:100%;margin-bottom: 0">
+                            <table class="table table table-bordered">
+                                <thead style="font-size:9pt;">
+                                    <tr class="filters">
+                                        <td style="width: 30%;">WBS Head</td>
+                                        <td style="width: 30%;">Description</td>
+                                        <td style="width: 10%;">Project</td>
+                                        <td style="width: 10%;">Fund Code</td>
+                                        <td style="width: 20%;">Fund Owner</td>
+                                    </tr>
+                                    <tr class="filtersLight">
+                                        <td class="text-center"><input class="form-control" type="text" placeholder="Search" ng-model="code"></td>
+                                        <td class="text-center"><input class="form-control" type="text" placeholder="Search" ng-model="desc"></td>
+                                        <td class="text-center"><input class="form-control" type="text" placeholder="Search" ng-model="prjcode"></td>
+                                        <td class="text-center"><input class="form-control" type="text" placeholder="Search" ng-model="fnd"></td>
+                                        <td class="text-center"><input class="form-control" type="text" placeholder="Search" ng-model="owner"></td>
+                                    </tr>
+                                </thead>
+                            </table>
+                        </div>
+                         <div class="table-responsive" style="width:100%;height: 400px;">
+                            <table class="table table table-bordered">                             
+                                <tbody>
+                                   <tr ng-repeat="(key,obj) in WBSList|filter:{wbsCode:code,ProjectCode:prjcode,fundcenterCode:fnd,fundcenterOwner:owner}" ng-style="{'background-color':wbsPart1bgColor[key]}"
+                                        ng-click="setWbsPart1Code(key,obj);">
+                                        <td style="width: 30%;">{{obj.wbsCode}}</td>
+                                        <td style="width: 30%;">{{obj.wbsDescription}}</td>
+                                        <td style="width: 10%;">{{obj.ProjectCode}}</td>
+                                        <td style="width: 10%;">{{obj.fundcenterCode}}</td>
+                                        <td style="width: 20%;">{{obj.fundcenterOwner}}</td>
+                                        </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    <!--<div id="WBSDetailsPart1Popup" class="modal fade pop-modal" role="dialog">
+        <div class="modal-dialog modal-md">
+            <div class="modal-content">
+                <div class="modal-header padpop">
+                    <h5 class="modal-title pull-left mt7">Add WBS</h5>
+                    <div class="pull-right">
+                        <button class="btn btn-warning btn-sm" type="button" data-dismiss="modal">Cancel</button>
+                        <button class="btn btn-success btn-sm" type="button" data-dismiss="modal">Add Part 1</button>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="table-responsive" style="    width: 100%; overflow-y: scroll; height: 400px;">
+                                <table class="table table table-bordered">
+                                    <thead style="font-size:9pt;">
+                                        <tr class="filters">
+                                            <td>WBS Code</td>
+                                            <td>Project</td>
+                                            <td>Fund Code</td>
+                                            <td>Fund Owner</td>
+                                        </tr>
+                                        <tr class="filtersLight">
+                                            <td class="text-center">
+                                                <input class="form-control" type="text" placeholder="Search" ng-model="code">
+                                            </td>
+                                            <td class="text-center">
+                                                <input class="form-control" type="text" placeholder="Search" ng-model="prjcode">
+                                            </td>
+                                            <td class="text-center">
+                                                <input class="form-control" type="text" placeholder="Search" ng-model="fnd">
+                                            </td>
+                                            <td class="text-center">
+                                                <input class="form-control" type="text" placeholder="Search" ng-model="owner">
+                                            </td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr ng-repeat="(key,obj) in WBSList|filter:{wbsCode:code,ProjectCode:prjcode,fundcenterCode:fnd,fundcenterOwner:owner}" ng-style="{'background-color':wbsPart1bgColor[key]}"
+                                            ng-click="setWbsPart1Code(key,obj);">
+                                            <td>{{obj.wbsCode}}</td>
+                                            <td>{{obj.ProjectCode}}</td>
+                                            <td>{{obj.fundcenterCode}}</td>
+                                            <td>{{obj.fundcenterOwner}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>-->
+    <div id="VenderDetailsPopup" class="modal fade pop-modal" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header padpop">
+                    <h5 class="modal-title pull-left mt7">Add Vendor</h5>
+                    <div class="pull-right">
+                        <button class="btn btn-warning btn-sm" type="button" data-dismiss="modal">Cancel</button>
+                        <button class="btn btn-success btn-sm" type="button" data-dismiss="modal">Add</button>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="modal-body">
+                    <form name="VenderDetailsForm" class="VenderDetailsForm">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="table-responsive" style="width:100%">
+                                    <table class="table table table-bordered">
+                                        <thead style="font-size:9pt;">
+                                            <tr class="filters">
+                                                <td style="width: 50px;">Code</td>
+                                                <td style="width: 100px;">Name</td>
+                                                <td style="width: 100px;">Address</td>
+                                                <td style="width: 100px;">Region Code</td>
+                                                <td style="width: 100px;">GSTIN</td>
+                                            </tr>
+                                            <tr class="filtersLight">
+                                                <td class="text-center">
+                                                    <input class="form-control" type="text" placeholder="Search" ng-model="code">
+                                                </td>
+                                                <td class="text-center">
+                                                    <input class="form-control" type="text" placeholder="Search" ng-model="name">
+                                                </td>
+                                                <td class="text-center">
+                                                    <input class="form-control" type="text" placeholder="Search" ng-model="address">
+                                                </td>
+                                                <td class="text-center">
+                                                    <input class="form-control" type="text" placeholder="Search" ng-model="regcode">
+                                                </td>
+                                                <td class="text-center">
+                                                    <input class="form-control" type="text" placeholder="Search" ng-model="gstin">
+                                                </td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr ng-repeat="(key,obj) in VendorsList|filter:{Vendor_Code:code,Vendor_Owner:name,Address:address,RegionCode:regcode,GSTIN:gstin}"
+                                                ng-style="{'background-color':bgcolor[key]}" ng-click="setVendorData(key,obj);">
+                                                <td>{{obj.Vendor_Code}}</td>
+                                                <td>{{obj.Vendor_Owner}}</td>
+                                                <td>{{obj.Address}}</td>
+                                                <td>{{obj.RegionCode}}</td>
+                                                <td>{{obj.GSTIN}}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    
+<div id="WBSDetailsPart2Popup" class="modal fade pop-modal" role="dialog">
+        <div class="modal-dialog modal-md">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header padpop">
+                    <h5 class="modal-title pull-left mt7">Add WBS Part 2</h5>
+                    <div class="pull-right">
+                        <button class="btn btn-warning btn-sm" type="button" data-dismiss="modal">Cancel</button>
+                        <button class="btn btn-success btn-sm" type="button" data-dismiss="modal">Add WBS 2</button>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="table-responsive" style="width:100%">
+                                <table class="table table table-bordered">
+                                    <thead style="font-size:9pt;">
+                                        <tr class="filters">
+                                            <!--<td>Sl No</td>-->
+                                            <td>WBS Code</td>
+                                            <td>Project</td>
+                                            <td>Fund Code</td>
+                                            <td>Fund Owner</td>
+                                        </tr>
+                                        <tr class="filtersLight">
+                                            <!--<td></td>-->
+                                            <td class="text-center">
+                                                <input class="form-control" type="text" placeholder="Search" ng-model="code">
+                                            </td>
+                                            <td class="text-center">
+                                                <input class="form-control" type="text" placeholder="Search" ng-model="prjcode">
+                                            </td>
+                                            <td class="text-center">
+                                                <input class="form-control" type="text" placeholder="Search" ng-model="fnd">
+                                            </td>
+                                            <td class="text-center">
+                                                <input class="form-control" type="text" placeholder="Search" ng-model="owner">
+                                            </td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr ng-repeat="(key,obj) in WBSList|filter:{wbsCode:code,ProjectCode:prjcode,fundcenterCode:fnd,fundcenterOwner:owner}" ng-style="{'background-color':wbsPart2bgColor[key]}"
+                                            ng-click="setWbsPart2Code(key,obj);">
+                                            <!--<td>{{key+1}}</td>-->
+                                            <td>{{obj.wbsCode}}</td>
+                                            <td>{{obj.ProjectCode}}</td>
+                                            <td>{{obj.fundcenterCode}}</td>
+                                            <td>{{obj.fundcenterOwner}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="ServicePopup" class="modal fade pop-modal" role="dialog">
+        <div class="modal-dialog modal-lg" style="width: 95% !important">
+            <!-- Modal content-->
+            <div class="modal-content" style="width:100% ">
+                <div class="modal-header padpop" style="background-color: #646572; color:#fff">
+                    <h5 class="modal-title pull-left mt7">Select Service Item</h5>
+                    <div class="pull-right">
+                        <button class="btn btn-warning btn-sm" type="button" data-dismiss="modal" ng-click="swapTempMaterialData();">Cancel</button>
+                        <button class="btn btn-success btn-sm" type="button" ng-click="AddService()">Add</button>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="modal-body">
+                    <div class="row" style="background-color:#fff; padding:10px;margin: 10px 0%; border-bottom:dotted 1px #ccc;">
+                        <div class="col-xs-3">
+                            <div class="input-group" style="margin:5px;margin-right:-25px;">
+                                <input type="text" class="form-control ng-pristine ng-valid ng-empty ng-touched" ng-model="searchServiceObj" placeholder="Search to get Service Categories">
+                                <div class="input-group-btn">
+                                    <div class="btn-group" role="group">
+                                        <button type="button" class="btn filtbtn" ng-click="searchService(searchServiceObj);" style="background-color:#f68c02; color:#fff;">
+                                            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-3"></div>
+                        <div class="col-xs-3"></div>
+                        <div class="col-xs-3">
+                            <div class="form-group">
+                                <label>Service Category Filter</label>
+                                <select class="form-control" name="grpServName" ng-model="grpServName" ng-change="searchwithinServGroup(grpServName,searchServiceObj)">
+                                    <option value="" selected="selected">Select</option>
+                                    <option ng-repeat="searchdata in SearchedServiceGroupList" ng-selected="grpServName==searchdata.GroupName" value="{{searchdata.GroupName}}">{{searchdata.GroupName}}</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="background-color:#fff; padding:0 10px; margin:0 0%;">
+                        <div class="col-xs-12">
+                            <div style="width:95%">
+                                <!--class="table-responsive" -->
+                                <form name="selectedmaterialsform" class="selectedmaterialsform">
+                                    <input name="HeaderStructureID" type="text" value="{{PO_HSID}}" hidden="true" />
+                                    <table class="table-responsive table " style="width:100%;margin:10px 0 !important;">
+                                        <tbody ng-repeat="Service in ServiceLists">
+                                            <tr style="background-color:#FFF;">
+                                                <td>
+                                                    <input type="checkbox" class="cmplibrary_Service" data="{{Service}}" hsncode="{{Service.hsn_code}}" ng-model="Service.selected">
+                                                </td>
+                                                <td>
+                                                    <div style="margin-top: 9px;">
+                                                        <b>Service Code</b>
+                                                        <br/> {{Service.MaterialCode ? Service.MaterialCode : '-'}}</div>
+                                                </td>
+                                                <td style="background-color:#f9f7f8">
+                                                    <b>WBS Code</b>
+                                                    <br>{{Service.wbs_code ? Service.wbs_code : '-'}}
+                                                </td>
+                                                <td>
+                                                    <b>Short Description</b>
+                                                    <br>{{Service.short_description ? Service.short_description : '-'}}
+                                                </td>
+                                                <td style="background-color:#f9f7f8">
+                                                    <b>eDesign Description</b>
+                                                    <br>{{Service.edesign_description ? Service.edesign_description : '-'}}
+                                                </td>
+                                                <td>
+                                                    <b>Unit Of Measure</b>
+                                                    <br>{{Service.unit_of_measure ? Service.unit_of_measure : '-'}}
+                                                </td>
+                                                <td style="background-color:#f9f7f8">
+                                                    <b>SAC</b>
+                                                    <br>{{Service.hsn_code ? Service.hsn_code : '-'}}
+                                                </td>
+                                                <td class="text-center" style="vertical-align:middle;font-size:large;">
+                                                    <a data-toggle="modal" data-target="#serviceInformationPopUp" ng-click="serviceInformation(Service)">
+                                                        <i class="fa fa-eye" aria-hidden="true"></i>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                        <tbody ng-if="SearchedServiceGroupList.length==0">
+                                       <tr style="background-color:#FFF;margin: 10%">
+                                            <td colspan="12" style="text-align: center"> No Search Results
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    </table>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="serviceInformationPopUp" class="modal fade pop-modal" role="dialog">
+        <div class="modal-dialog modal-lg" style="width:90% ">
+            <!-- Modal content-->
+            <div class="modal-content" style="width:100% ">
+                <div class="modal-header padpop" style="background-color: #646572; color:#fff">
+                    <h5 class="modal-title pull-left mt7">Service Information</h5>
+                    <div class="pull-right">
+                        <button class="btn btn-warning btn-sm" type="button" data-dismiss="modal">Close</button>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="modal-body" style="height: 500px;width:100%;margin:10px 0 !important;overflow-y: scroll">
+                    <div class="row" style="background-color:#fff; padding:0 10px; margin:0 0%;">
+                        <div class="col-xs-12">
+                            <div class="CLelements">Classification</div>
+                            <div class="col-xs-3" ng-repeat="classic in ServiceFullInfo.Mtl_Classific_Info.columns">
+                                <div>
+                                    <b>{{classic.name}}</b>
+                                    <br>
+                                    <p>{{classic.value ? classic.value :'-'}}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12">
+                            <div class="CLelements">Classification Definition</div>
+                            <table class="table-responsive table table-striped" style="margin: 10px">
+                                <thead style="font-size:9pt;">
+                                    <tr class="filters">
+                                        <th style="width:5%;">#</th>
+                                        <th style="width: 25%;">Name</th>
+                                        <th calss="text-center">Condition</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="(key,clData) in ClassificationDefinitionResult">
+                                        <td> {{key+1}} </td>
+                                        <td> {{clData.name}} </td>
+                                        <td> {{clData.value}} </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="col-xs-12">
+                            <div class="CLelements">General</div>
+                            <div class="col-xs-3" ng-repeat="gen in ServiceFullInfo.Mtl_General_Info.columns">
+                                <div>
+                                    <b>{{gen.name}}</b>
+                                    <br>
+                                    <p>{{gen.value ? gen.value :'-'}}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12">
+                            <div class="CLelements">Purchase</div>
+                            <div class="col-xs-3" ng-repeat="purchase in ServiceFullInfo.Mtl_Purchase_Info.columns">
+                                <div>
+                                    <b>{{purchase.name}}</b>
+                                    <br>
+                                    <div ng-if="purchase.name=='General SO Terms' || purchase.name=='Special SO Terms'">
+                                        <p ng-if="purchase.value.ui!='' && purchase.value.ui!=null">
+                                            <a data-toggle="modal" data-target="#ServiceCheckListPopup" ng-click="getMaterialCheckListInfo(purchase.value.id);" aria-hidden="true"
+                                                class="anchorText">Click To View Info</a>
+                                        </p>
+                                    </div>
+                                    <div ng-if="purchase.name=='Pur. Rate Threshold'">
+                                        <p>{{plan.value.value +' '+plan.value.type}}</p>
+                                    </div>
+                                    <div ng-if="purchase.name!='Pur. Rate Threshold' && purchase.name!='General SO Terms' && purchase.name!='Special SO Terms'">
+                                        <p>{{purchase.value ? purchase.value :'-'}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12">
+                            <div class="CLelements">Planning</div>
+                            <div class="col-xs-3" ng-repeat="plan in ServiceFullInfo.Mtl_Planning_Info.columns">
+                                <div>
+                                    <b>{{plan.name}}</b>
+                                    <br>
+                                    <p ng-if="plan.name=='SO Lead Time' || plan.name=='Vendor Mobilisation Time'">{{plan.value.value +' '+plan.value.type}}</p>
+                                    <p ng-if="plan.name!='SO Lead Time' && plan.name!='Vendor Mobilisation Time'">{{plan.value ? plan.value :'-'}}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12">
+                            <div class="CLelements">Quality</div>
+                            <div class="col-xs-3" ng-repeat="quality in ServiceFullInfo.Mtl_Quality_Info.columns">
+                                <div>
+                                    <b>{{quality.name}}</b>
+                                    <br>
+                                    <p>{{gen.value ? gen.value :'-'}}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12">
+                            <div class="CLelements">Log</div>
+                            <div class="col-xs-3" ng-repeat="log in ServiceFullInfo.Mtl_Log_Info.columns">
+                                <div>
+                                    <b>{{log.name}}</b>
+                                    <br>
+                                    <p ng-if="log.name=='Date Created' || log.name=='Date Last Amended'">{{log.value?(log.value|date:'dd-MM-yyyy'):'-'}}</p>
+                                    <p ng-if="log.name!='Date Created' && log.name!='Date Last Amended'">{{log.value?log.value:'-'}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<!-- <link href="src/app/POCreate/css/style.css"/> -->
+<!-- <link href="src/app/POCreate/tab/main.css"/> -->
+<!-- <link href="src/app/POCreate/tab/tabModule.css"/> -->
+<!-- <script src="src/app/POCreate/tab/tabModule.js"></script> -->

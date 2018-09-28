@@ -1,0 +1,273 @@
+E:\Sai Kumar\work\ComplaintsApi\19-01-2016\TEComplaintsManagementAPI\bin\TEComplaintsManagementAPI.dll
+E:\Sai Kumar\work\ComplaintsApi\19-01-2016\TEComplaintsManagementAPI\bin\TEComplaintsManagementAPI.pdb
+E:\Sai Kumar\work\ComplaintsApi\19-01-2016\TEComplaintsManagementAPI\bin\AegisImplicitMail.dll
+E:\Sai Kumar\work\ComplaintsApi\19-01-2016\TEComplaintsManagementAPI\bin\Antlr3.Runtime.dll
+E:\Sai Kumar\work\ComplaintsApi\19-01-2016\TEComplaintsManagementAPI\bin\EntityFramework.dll
+E:\Sai Kumar\work\ComplaintsApi\19-01-2016\TEComplaintsManagementAPI\bin\Microsoft.Data.Edm.dll
+E:\Sai Kumar\work\ComplaintsApi\19-01-2016\TEComplaintsManagementAPI\bin\Microsoft.Data.OData.dll
+E:\Sai Kumar\work\ComplaintsApi\19-01-2016\TEComplaintsManagementAPI\bin\Microsoft.Web.Infrastructure.dll
+E:\Sai Kumar\work\ComplaintsApi\19-01-2016\TEComplaintsManagementAPI\bin\Microsoft.Web.Mvc.FixedDisplayModes.dll
+E:\Sai Kumar\work\ComplaintsApi\19-01-2016\TEComplaintsManagementAPI\bin\nunit.framework.dll
+E:\Sai Kumar\work\ComplaintsApi\19-01-2016\TEComplaintsManagementAPI\bin\PushSharp.Apple.dll
+E:\Sai Kumar\work\ComplaintsApi\19-01-2016\TEComplaintsManagementAPI\bin\PushSharp.Core.dll
+E:\Sai Kumar\work\ComplaintsApi\19-01-2016\TEComplaintsManagementAPI\bin\System.Net.Http.Formatting.dll
+E:\Sai Kumar\work\ComplaintsApi\19-01-2016\TEComplaintsManagementAPI\bin\System.Spatial.dll
+E:\Sai Kumar\work\ComplaintsApi\19-01-2016\TEComplaintsManagementAPI\bin\System.Web.Helpers.dll
+E:\Sai Kumar\work\ComplaintsApi\19-01-2016\TEComplaintsManagementAPI\bin\System.Web.Http.dll
+E:\Sai Kumar\work\ComplaintsApi\19-01-2016\TEComplaintsManagementAPI\bin\System.Web.Http.OData.dll
+E:\Sai Kumar\work\ComplaintsApi\19-01-2016\TEComplaintsManagementAPI\bin\System.Web.Http.Tracing.dll
+E:\Sai Kumar\work\ComplaintsApi\19-01-2016\TEComplaintsManagementAPI\bin\System.Web.Http.WebHost.dll
+E:\Sai Kumar\work\ComplaintsApi\19-01-2016\TEComplaintsManagementAPI\bin\System.Web.Mvc.dll
+E:\Sai Kumar\work\ComplaintsApi\19-01-2016\TEComplaintsManagementAPI\bin\System.Web.Optimization.dll
+E:\Sai Kumar\work\ComplaintsApi\19-01-2016\TEComplaintsManagementAPI\bin\System.Web.Providers.dll
+E:\Sai Kumar\work\ComplaintsApi\19-01-2016\TEComplaintsManagementAPI\bin\System.Web.Razor.dll
+E:\Sai Kumar\work\ComplaintsApi\19-01-2016\TEComplaintsManagementAPI\bin\System.Web.WebPages.Deployment.dll
+E:\Sai Kumar\work\ComplaintsApi\19-01-2016\TEComplaintsManagementAPI\bin\System.Web.WebPages.dll
+E:\Sai Kumar\work\ComplaintsApi\19-01-2016\TEComplaintsManagementAPI\bin\System.Web.WebPages.Razor.dll
+E:\Sai Kumar\work\ComplaintsApi\19-01-2016\TEComplaintsManagementAPI\bin\TECommonDTO.dll
+E:\Sai Kumar\work\ComplaintsApi\19-01-2016\TEComplaintsManagementAPI\bin\TECommonEntityLayer.dll
+E:\Sai Kumar\work\ComplaintsApi\19-01-2016\TEComplaintsManagementAPI\bin\TECommonLogicLayer.dll
+E:\Sai Kumar\work\ComplaintsApi\19-01-2016\TEComplaintsManagementAPI\bin\WebGrease.dll
+E:\Sai Kumar\work\ComplaintsApi\19-01-2016\TEComplaintsManagementAPI\bin\NPOI.OOXML.dll
+E:\Sai Kumar\work\ComplaintsApi\19-01-2016\TEComplaintsManagementAPI\bin\NPOI.dll
+E:\Sai Kumar\work\ComplaintsApi\19-01-2016\TEComplaintsManagementAPI\bin\NPOI.OpenXmlFormats.dll
+E:\Sai Kumar\work\ComplaintsApi\19-01-2016\TEComplaintsManagementAPI\bin\NPOI.OpenXml4Net.dll
+E:\Sai Kumar\work\ComplaintsApi\19-01-2016\TEComplaintsManagementAPI\bin\ICSharpCode.SharpZipLib.dll
+E:\Sai Kumar\work\ComplaintsApi\19-01-2016\TEComplaintsManagementAPI\bin\nunit.framework.xml
+E:\Sai Kumar\work\ComplaintsApi\19-01-2016\TEComplaintsManagementAPI\bin\EntityFramework.xml
+E:\Sai Kumar\work\ComplaintsApi\19-01-2016\TEComplaintsManagementAPI\bin\Newtonsoft.Json.xml
+E:\Sai Kumar\work\ComplaintsApi\19-01-2016\TEComplaintsManagementAPI\bin\System.Net.Http.Formatting.xml
+E:\Sai Kumar\work\ComplaintsApi\19-01-2016\TEComplaintsManagementAPI\bin\System.Web.Helpers.xml
+E:\Sai Kumar\work\ComplaintsApi\19-01-2016\TEComplaintsManagementAPI\bin\System.Web.Http.xml
+E:\Sai Kumar\work\ComplaintsApi\19-01-2016\TEComplaintsManagementAPI\bin\System.Web.Http.WebHost.xml
+E:\Sai Kumar\work\ComplaintsApi\19-01-2016\TEComplaintsManagementAPI\bin\System.Web.Mvc.xml
+E:\Sai Kumar\work\ComplaintsApi\19-01-2016\TEComplaintsManagementAPI\bin\System.Web.Razor.xml
+E:\Sai Kumar\work\ComplaintsApi\19-01-2016\TEComplaintsManagementAPI\bin\System.Web.WebPages.xml
+E:\Sai Kumar\work\ComplaintsApi\19-01-2016\TEComplaintsManagementAPI\bin\System.Web.WebPages.Deployment.xml
+E:\Sai Kumar\work\ComplaintsApi\19-01-2016\TEComplaintsManagementAPI\bin\System.Web.WebPages.Razor.xml
+E:\Sai Kumar\work\ComplaintsApi\19-01-2016\TEComplaintsManagementAPI\bin\System.Web.Http.Tracing.xml
+E:\Sai Kumar\work\ComplaintsApi\19-01-2016\TEComplaintsManagementAPI\bin\System.Web.Http.OData.xml
+E:\Sai Kumar\work\ComplaintsApi\19-01-2016\TEComplaintsManagementAPI\bin\Microsoft.Data.Edm.xml
+E:\Sai Kumar\work\ComplaintsApi\19-01-2016\TEComplaintsManagementAPI\bin\Microsoft.Data.OData.xml
+E:\Sai Kumar\work\ComplaintsApi\19-01-2016\TEComplaintsManagementAPI\bin\System.Spatial.xml
+E:\Sai Kumar\work\ComplaintsApi\19-01-2016\TEComplaintsManagementAPI\bin\de\Microsoft.Data.Edm.resources.dll
+E:\Sai Kumar\work\ComplaintsApi\19-01-2016\TEComplaintsManagementAPI\bin\es\Microsoft.Data.Edm.resources.dll
+E:\Sai Kumar\work\ComplaintsApi\19-01-2016\TEComplaintsManagementAPI\bin\fr\Microsoft.Data.Edm.resources.dll
+E:\Sai Kumar\work\ComplaintsApi\19-01-2016\TEComplaintsManagementAPI\bin\it\Microsoft.Data.Edm.resources.dll
+E:\Sai Kumar\work\ComplaintsApi\19-01-2016\TEComplaintsManagementAPI\bin\ja\Microsoft.Data.Edm.resources.dll
+E:\Sai Kumar\work\ComplaintsApi\19-01-2016\TEComplaintsManagementAPI\bin\ko\Microsoft.Data.Edm.resources.dll
+E:\Sai Kumar\work\ComplaintsApi\19-01-2016\TEComplaintsManagementAPI\bin\ru\Microsoft.Data.Edm.resources.dll
+E:\Sai Kumar\work\ComplaintsApi\19-01-2016\TEComplaintsManagementAPI\bin\zh-Hans\Microsoft.Data.Edm.resources.dll
+E:\Sai Kumar\work\ComplaintsApi\19-01-2016\TEComplaintsManagementAPI\bin\zh-Hant\Microsoft.Data.Edm.resources.dll
+E:\Sai Kumar\work\ComplaintsApi\19-01-2016\TEComplaintsManagementAPI\bin\de\Microsoft.Data.OData.resources.dll
+E:\Sai Kumar\work\ComplaintsApi\19-01-2016\TEComplaintsManagementAPI\bin\es\Microsoft.Data.OData.resources.dll
+E:\Sai Kumar\work\ComplaintsApi\19-01-2016\TEComplaintsManagementAPI\bin\fr\Microsoft.Data.OData.resources.dll
+E:\Sai Kumar\work\ComplaintsApi\19-01-2016\TEComplaintsManagementAPI\bin\it\Microsoft.Data.OData.resources.dll
+E:\Sai Kumar\work\ComplaintsApi\19-01-2016\TEComplaintsManagementAPI\bin\ja\Microsoft.Data.OData.resources.dll
+E:\Sai Kumar\work\ComplaintsApi\19-01-2016\TEComplaintsManagementAPI\bin\ko\Microsoft.Data.OData.resources.dll
+E:\Sai Kumar\work\ComplaintsApi\19-01-2016\TEComplaintsManagementAPI\bin\ru\Microsoft.Data.OData.resources.dll
+E:\Sai Kumar\work\ComplaintsApi\19-01-2016\TEComplaintsManagementAPI\bin\zh-Hans\Microsoft.Data.OData.resources.dll
+E:\Sai Kumar\work\ComplaintsApi\19-01-2016\TEComplaintsManagementAPI\bin\zh-Hant\Microsoft.Data.OData.resources.dll
+E:\Sai Kumar\work\ComplaintsApi\19-01-2016\TEComplaintsManagementAPI\bin\de\System.Spatial.resources.dll
+E:\Sai Kumar\work\ComplaintsApi\19-01-2016\TEComplaintsManagementAPI\bin\es\System.Spatial.resources.dll
+E:\Sai Kumar\work\ComplaintsApi\19-01-2016\TEComplaintsManagementAPI\bin\fr\System.Spatial.resources.dll
+E:\Sai Kumar\work\ComplaintsApi\19-01-2016\TEComplaintsManagementAPI\bin\it\System.Spatial.resources.dll
+E:\Sai Kumar\work\ComplaintsApi\19-01-2016\TEComplaintsManagementAPI\bin\ja\System.Spatial.resources.dll
+E:\Sai Kumar\work\ComplaintsApi\19-01-2016\TEComplaintsManagementAPI\bin\ko\System.Spatial.resources.dll
+E:\Sai Kumar\work\ComplaintsApi\19-01-2016\TEComplaintsManagementAPI\bin\ru\System.Spatial.resources.dll
+E:\Sai Kumar\work\ComplaintsApi\19-01-2016\TEComplaintsManagementAPI\bin\zh-Hans\System.Spatial.resources.dll
+E:\Sai Kumar\work\ComplaintsApi\19-01-2016\TEComplaintsManagementAPI\bin\zh-Hant\System.Spatial.resources.dll
+E:\Sai Kumar\work\ComplaintsApi\19-01-2016\TEComplaintsManagementAPI\obj\Release\TEComplaintsManagementAPI.dll
+E:\Sai Kumar\work\ComplaintsApi\19-01-2016\TEComplaintsManagementAPI\obj\Release\TEComplaintsManagementAPI.pdb
+E:\Sai Kumar\work\ComplaintsApi\19-01-2016\TEComplaintsManagementAPI\bin\Newtonsoft.Json.dll
+E:\Sai Kumar\work\ComplaintsApi\19-01-2016\TEComplaintsManagementAPI\bin\TEEmail.dll
+E:\Sai Kumar\work\ComplaintsApi\19-01-2016\TEComplaintsManagementAPI\bin\RestSharp.dll
+E:\Sai Kumar\work\ComplaintsApi\19-01-2016\TEComplaintsManagementAPI\bin\TEEmailModel.dll
+E:\Sai Kumar\work\ComplaintsApi\19-01-2016\TEComplaintsManagementAPI\bin\TEEmailLogger.dll
+E:\Sai Kumar\work\ComplaintsApi\19-01-2016\TEComplaintsManagementAPI\bin\TEContactManagementBusinessLayer.dll
+E:\Sai Kumar\work\ComplaintsApi\19-01-2016\TEComplaintsManagementAPI\bin\TEContactManagementModelLayer.dll
+E:\Sai Kumar\work\ComplaintsApi\19-01-2016\TEComplaintsManagementAPI\bin\TESms.dll
+E:\Sai Kumar\work\ComplaintsApi\19-01-2016\TEComplaintsManagementAPI\bin\TEContactMgmtValidationLayer.dll
+E:\Sai Kumar\work\ComplaintsApi\19-01-2016\TEComplaintsManagementAPI\obj\Release\TEComplaintsManagementAPI.csprojResolveAssemblyReference.cache
+E:\Solutions\TEComplaintsAPI\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\TEComplaintsManagementAPI.dll
+E:\Solutions\TEComplaintsAPI\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\TEComplaintsManagementAPI.pdb
+E:\Solutions\TEComplaintsAPI\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\AegisImplicitMail.dll
+E:\Solutions\TEComplaintsAPI\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\Antlr3.Runtime.dll
+E:\Solutions\TEComplaintsAPI\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\EntityFramework.dll
+E:\Solutions\TEComplaintsAPI\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\Microsoft.Data.Edm.dll
+E:\Solutions\TEComplaintsAPI\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\Microsoft.Data.OData.dll
+E:\Solutions\TEComplaintsAPI\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\Microsoft.Web.Infrastructure.dll
+E:\Solutions\TEComplaintsAPI\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\Microsoft.Web.Mvc.FixedDisplayModes.dll
+E:\Solutions\TEComplaintsAPI\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\Newtonsoft.Json.dll
+E:\Solutions\TEComplaintsAPI\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\nunit.framework.dll
+E:\Solutions\TEComplaintsAPI\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\RestSharp.dll
+E:\Solutions\TEComplaintsAPI\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\System.Net.Http.Formatting.dll
+E:\Solutions\TEComplaintsAPI\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\System.Spatial.dll
+E:\Solutions\TEComplaintsAPI\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\System.Web.Helpers.dll
+E:\Solutions\TEComplaintsAPI\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\System.Web.Http.dll
+E:\Solutions\TEComplaintsAPI\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\System.Web.Http.OData.dll
+E:\Solutions\TEComplaintsAPI\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\System.Web.Http.Tracing.dll
+E:\Solutions\TEComplaintsAPI\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\System.Web.Http.WebHost.dll
+E:\Solutions\TEComplaintsAPI\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\System.Web.Mvc.dll
+E:\Solutions\TEComplaintsAPI\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\System.Web.Optimization.dll
+E:\Solutions\TEComplaintsAPI\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\System.Web.Providers.dll
+E:\Solutions\TEComplaintsAPI\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\System.Web.Razor.dll
+E:\Solutions\TEComplaintsAPI\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\System.Web.WebPages.Deployment.dll
+E:\Solutions\TEComplaintsAPI\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\System.Web.WebPages.dll
+E:\Solutions\TEComplaintsAPI\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\System.Web.WebPages.Razor.dll
+E:\Solutions\TEComplaintsAPI\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\TECommonDTO.dll
+E:\Solutions\TEComplaintsAPI\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\TECommonEntityLayer.dll
+E:\Solutions\TEComplaintsAPI\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\TECommonLogicLayer.dll
+E:\Solutions\TEComplaintsAPI\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\TEEmail.dll
+E:\Solutions\TEComplaintsAPI\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\TEEmailModel.dll
+E:\Solutions\TEComplaintsAPI\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\WebGrease.dll
+E:\Solutions\TEComplaintsAPI\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\NPOI.OOXML.dll
+E:\Solutions\TEComplaintsAPI\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\NPOI.dll
+E:\Solutions\TEComplaintsAPI\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\PushSharp.Core.dll
+E:\Solutions\TEComplaintsAPI\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\PushSharp.Apple.dll
+E:\Solutions\TEComplaintsAPI\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\TEEmailLogger.dll
+E:\Solutions\TEComplaintsAPI\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\TEContactManagementBusinessLayer.dll
+E:\Solutions\TEComplaintsAPI\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\NPOI.OpenXmlFormats.dll
+E:\Solutions\TEComplaintsAPI\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\NPOI.OpenXml4Net.dll
+E:\Solutions\TEComplaintsAPI\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\ICSharpCode.SharpZipLib.dll
+E:\Solutions\TEComplaintsAPI\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\TEContactManagementModelLayer.dll
+E:\Solutions\TEComplaintsAPI\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\TESms.dll
+E:\Solutions\TEComplaintsAPI\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\TEContactMgmtValidationLayer.dll
+E:\Solutions\TEComplaintsAPI\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\Newtonsoft.Json.xml
+E:\Solutions\TEComplaintsAPI\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\nunit.framework.xml
+E:\Solutions\TEComplaintsAPI\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\EntityFramework.xml
+E:\Solutions\TEComplaintsAPI\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\System.Net.Http.Formatting.xml
+E:\Solutions\TEComplaintsAPI\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\System.Web.Helpers.xml
+E:\Solutions\TEComplaintsAPI\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\System.Web.Http.xml
+E:\Solutions\TEComplaintsAPI\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\System.Web.Http.WebHost.xml
+E:\Solutions\TEComplaintsAPI\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\System.Web.Mvc.xml
+E:\Solutions\TEComplaintsAPI\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\System.Web.Razor.xml
+E:\Solutions\TEComplaintsAPI\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\System.Web.WebPages.xml
+E:\Solutions\TEComplaintsAPI\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\System.Web.WebPages.Deployment.xml
+E:\Solutions\TEComplaintsAPI\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\System.Web.WebPages.Razor.xml
+E:\Solutions\TEComplaintsAPI\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\System.Web.Http.Tracing.xml
+E:\Solutions\TEComplaintsAPI\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\System.Web.Http.OData.xml
+E:\Solutions\TEComplaintsAPI\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\Microsoft.Data.Edm.xml
+E:\Solutions\TEComplaintsAPI\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\Microsoft.Data.OData.xml
+E:\Solutions\TEComplaintsAPI\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\System.Spatial.xml
+E:\Solutions\TEComplaintsAPI\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\de\Microsoft.Data.Edm.resources.dll
+E:\Solutions\TEComplaintsAPI\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\es\Microsoft.Data.Edm.resources.dll
+E:\Solutions\TEComplaintsAPI\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\fr\Microsoft.Data.Edm.resources.dll
+E:\Solutions\TEComplaintsAPI\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\it\Microsoft.Data.Edm.resources.dll
+E:\Solutions\TEComplaintsAPI\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\ja\Microsoft.Data.Edm.resources.dll
+E:\Solutions\TEComplaintsAPI\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\ko\Microsoft.Data.Edm.resources.dll
+E:\Solutions\TEComplaintsAPI\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\ru\Microsoft.Data.Edm.resources.dll
+E:\Solutions\TEComplaintsAPI\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\zh-Hans\Microsoft.Data.Edm.resources.dll
+E:\Solutions\TEComplaintsAPI\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\zh-Hant\Microsoft.Data.Edm.resources.dll
+E:\Solutions\TEComplaintsAPI\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\de\Microsoft.Data.OData.resources.dll
+E:\Solutions\TEComplaintsAPI\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\es\Microsoft.Data.OData.resources.dll
+E:\Solutions\TEComplaintsAPI\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\fr\Microsoft.Data.OData.resources.dll
+E:\Solutions\TEComplaintsAPI\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\it\Microsoft.Data.OData.resources.dll
+E:\Solutions\TEComplaintsAPI\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\ja\Microsoft.Data.OData.resources.dll
+E:\Solutions\TEComplaintsAPI\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\ko\Microsoft.Data.OData.resources.dll
+E:\Solutions\TEComplaintsAPI\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\ru\Microsoft.Data.OData.resources.dll
+E:\Solutions\TEComplaintsAPI\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\zh-Hans\Microsoft.Data.OData.resources.dll
+E:\Solutions\TEComplaintsAPI\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\zh-Hant\Microsoft.Data.OData.resources.dll
+E:\Solutions\TEComplaintsAPI\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\de\System.Spatial.resources.dll
+E:\Solutions\TEComplaintsAPI\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\es\System.Spatial.resources.dll
+E:\Solutions\TEComplaintsAPI\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\fr\System.Spatial.resources.dll
+E:\Solutions\TEComplaintsAPI\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\it\System.Spatial.resources.dll
+E:\Solutions\TEComplaintsAPI\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\ja\System.Spatial.resources.dll
+E:\Solutions\TEComplaintsAPI\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\ko\System.Spatial.resources.dll
+E:\Solutions\TEComplaintsAPI\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\ru\System.Spatial.resources.dll
+E:\Solutions\TEComplaintsAPI\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\zh-Hans\System.Spatial.resources.dll
+E:\Solutions\TEComplaintsAPI\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\zh-Hant\System.Spatial.resources.dll
+E:\Solutions\TEComplaintsAPI\TEComplaintsManagementAPI\TEComplaintsManagementAPI\obj\Release\TEComplaintsManagementAPI.csprojResolveAssemblyReference.cache
+E:\Solutions\TEComplaintsAPI\TEComplaintsManagementAPI\TEComplaintsManagementAPI\obj\Release\TEComplaintsManagementAPI.dll
+E:\Solutions\TEComplaintsAPI\TEComplaintsManagementAPI\TEComplaintsManagementAPI\obj\Release\TEComplaintsManagementAPI.pdb
+D:\Solution\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\TEComplaintsManagementAPI.dll
+D:\Solution\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\TEComplaintsManagementAPI.pdb
+D:\Solution\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\AegisImplicitMail.dll
+D:\Solution\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\Antlr3.Runtime.dll
+D:\Solution\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\EntityFramework.dll
+D:\Solution\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\Microsoft.Data.Edm.dll
+D:\Solution\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\Microsoft.Data.OData.dll
+D:\Solution\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\Microsoft.Web.Infrastructure.dll
+D:\Solution\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\Microsoft.Web.Mvc.FixedDisplayModes.dll
+D:\Solution\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\Newtonsoft.Json.dll
+D:\Solution\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\nunit.framework.dll
+D:\Solution\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\RestSharp.dll
+D:\Solution\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\System.Net.Http.Formatting.dll
+D:\Solution\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\System.Spatial.dll
+D:\Solution\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\System.Web.Helpers.dll
+D:\Solution\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\System.Web.Http.dll
+D:\Solution\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\System.Web.Http.OData.dll
+D:\Solution\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\System.Web.Http.Tracing.dll
+D:\Solution\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\System.Web.Http.WebHost.dll
+D:\Solution\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\System.Web.Mvc.dll
+D:\Solution\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\System.Web.Optimization.dll
+D:\Solution\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\System.Web.Providers.dll
+D:\Solution\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\System.Web.Razor.dll
+D:\Solution\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\System.Web.WebPages.Deployment.dll
+D:\Solution\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\System.Web.WebPages.dll
+D:\Solution\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\System.Web.WebPages.Razor.dll
+D:\Solution\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\TECommonDTO.dll
+D:\Solution\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\TECommonEntityLayer.dll
+D:\Solution\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\TECommonLogicLayer.dll
+D:\Solution\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\TEEmail.dll
+D:\Solution\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\TEEmailModel.dll
+D:\Solution\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\WebGrease.dll
+D:\Solution\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\NPOI.OOXML.dll
+D:\Solution\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\NPOI.dll
+D:\Solution\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\PushSharp.Core.dll
+D:\Solution\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\PushSharp.Apple.dll
+D:\Solution\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\TEEmailLogger.dll
+D:\Solution\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\TEContactManagementBusinessLayer.dll
+D:\Solution\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\NPOI.OpenXmlFormats.dll
+D:\Solution\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\NPOI.OpenXml4Net.dll
+D:\Solution\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\ICSharpCode.SharpZipLib.dll
+D:\Solution\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\TEContactManagementModelLayer.dll
+D:\Solution\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\TESms.dll
+D:\Solution\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\TEContactMgmtValidationLayer.dll
+D:\Solution\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\Newtonsoft.Json.xml
+D:\Solution\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\nunit.framework.xml
+D:\Solution\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\EntityFramework.xml
+D:\Solution\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\System.Net.Http.Formatting.xml
+D:\Solution\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\System.Web.Helpers.xml
+D:\Solution\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\System.Web.Http.xml
+D:\Solution\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\System.Web.Http.WebHost.xml
+D:\Solution\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\System.Web.Mvc.xml
+D:\Solution\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\System.Web.Razor.xml
+D:\Solution\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\System.Web.WebPages.xml
+D:\Solution\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\System.Web.WebPages.Deployment.xml
+D:\Solution\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\System.Web.WebPages.Razor.xml
+D:\Solution\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\System.Web.Http.Tracing.xml
+D:\Solution\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\System.Web.Http.OData.xml
+D:\Solution\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\Microsoft.Data.Edm.xml
+D:\Solution\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\Microsoft.Data.OData.xml
+D:\Solution\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\System.Spatial.xml
+D:\Solution\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\de\Microsoft.Data.Edm.resources.dll
+D:\Solution\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\es\Microsoft.Data.Edm.resources.dll
+D:\Solution\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\fr\Microsoft.Data.Edm.resources.dll
+D:\Solution\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\it\Microsoft.Data.Edm.resources.dll
+D:\Solution\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\ja\Microsoft.Data.Edm.resources.dll
+D:\Solution\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\ko\Microsoft.Data.Edm.resources.dll
+D:\Solution\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\ru\Microsoft.Data.Edm.resources.dll
+D:\Solution\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\zh-Hans\Microsoft.Data.Edm.resources.dll
+D:\Solution\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\zh-Hant\Microsoft.Data.Edm.resources.dll
+D:\Solution\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\de\Microsoft.Data.OData.resources.dll
+D:\Solution\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\es\Microsoft.Data.OData.resources.dll
+D:\Solution\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\fr\Microsoft.Data.OData.resources.dll
+D:\Solution\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\it\Microsoft.Data.OData.resources.dll
+D:\Solution\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\ja\Microsoft.Data.OData.resources.dll
+D:\Solution\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\ko\Microsoft.Data.OData.resources.dll
+D:\Solution\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\ru\Microsoft.Data.OData.resources.dll
+D:\Solution\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\zh-Hans\Microsoft.Data.OData.resources.dll
+D:\Solution\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\zh-Hant\Microsoft.Data.OData.resources.dll
+D:\Solution\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\de\System.Spatial.resources.dll
+D:\Solution\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\es\System.Spatial.resources.dll
+D:\Solution\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\fr\System.Spatial.resources.dll
+D:\Solution\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\it\System.Spatial.resources.dll
+D:\Solution\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\ja\System.Spatial.resources.dll
+D:\Solution\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\ko\System.Spatial.resources.dll
+D:\Solution\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\ru\System.Spatial.resources.dll
+D:\Solution\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\zh-Hans\System.Spatial.resources.dll
+D:\Solution\TEComplaintsManagementAPI\TEComplaintsManagementAPI\bin\zh-Hant\System.Spatial.resources.dll
+D:\Solution\TEComplaintsManagementAPI\TEComplaintsManagementAPI\obj\Release\TEComplaintsManagementAPI.csprojResolveAssemblyReference.cache
+D:\Solution\TEComplaintsManagementAPI\TEComplaintsManagementAPI\obj\Release\TEComplaintsManagementAPI.dll
+D:\Solution\TEComplaintsManagementAPI\TEComplaintsManagementAPI\obj\Release\TEComplaintsManagementAPI.pdb

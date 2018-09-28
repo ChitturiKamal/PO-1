@@ -1,0 +1,1819 @@
+<div id="ComponentLibraryPopup" class="modal fade pop-modal" role="dialog">
+    <div class="modal-dialog modal-lg" style="width: 95% !important">
+    <!-- Modal content-->
+    <div class="modal-content" style="width:100% ">
+        <div class="modal-header padpop" style="background-color: #646572; color:#fff">
+        <h5 class="modal-title pull-left mt7">Select Material Item</h5>
+        <div class="pull-right">
+            <button class="btn btn-warning btn-sm" type="button" data-dismiss="modal" ng-click="swapTempMaterialData();">Cancel</button>
+            <button class="btn btn-success btn-sm" type="button" ng-click="AddMaterial()">Add</button>
+        </div>
+        <div class="clearfix"></div>
+        </div>
+        <div class="modal-body" style="width:100%;margin:10px 0 !important;">
+        <div class="row" style="background-color:#fff;margin-top:-20px; border-bottom:dotted 1px #ccc;">
+           
+            <div class="col-xs-3">
+                <div class="input-group" style="margin:5px;margin-right:-25px;">
+                        <!-- <input type="text"  id="SearchMatID" ng-model="MaterialHeadID" ng-show="false"> -->
+                    <input type="text" class="form-control ng-pristine ng-valid ng-empty ng-touched SearchMatID" id="SearchMatbyID" ng-model="searchbyObj" placeholder="Search by Material Code">
+                    <div class="input-group-btn">
+                    <div class="btn-group" role="group">
+                        <button type="button" class="btn filtbtn" ng-click="searchbyMaterial(searchbyObj);" style="background-color:#f68c02; color:#fff;"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+                    </div>
+                    </div>
+                </div>
+                </div>
+                <div class="col-xs-3"></div>
+            <div class="col-xs-3" >
+            <div class="input-group" style="margin:5px;margin-right:-25px;">
+                <input type="text" class="form-control ng-pristine ng-valid ng-empty ng-touched SearchMatID" id="SearchMatID" ng-model="searchObj" placeholder="Search to get Material Categories">
+                <div class="input-group-btn">
+                <div class="btn-group" role="group">
+                    <button type="button" class="btn filtbtn" ng-click="searchMaterial(searchObj);" style="background-color:#f68c02; color:#fff;"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+                </div>
+                </div>
+            </div>
+            </div>
+            
+           
+            <div class="col-xs-3">
+            <div class="form-group">
+                
+                <select class="form-control" id ="grpName" name="grpName" style="margin-top: 2%" ng-model="grpName" ng-change="searchwithinGroup(grpName,searchObj)">
+                <option value="" selected="selected">Select Material Category</option>
+                <option ng-repeat="searchdata in SearchedMaterialGroupList" ng-selected="grpName==searchdata.GroupName" value="{{searchdata.GroupName}}">{{searchdata.GroupName}}</option>
+                </select>
+            </div>
+            </div>
+        </div>
+        <div class="row" style="background-color:#fff; padding:0 10px; margin:0 0%;">
+            <div class="col-xs-12">
+            <form name="selectedmaterialsform" class="selectedmaterialsform">
+                <input name="HeaderStructureID" type="text" value="{{PO_HSID}}" hidden="true" />
+                <div class="table-responsive" style="width:100%;margin-bottom: 0">
+                <table class="table table table-bordered">
+                    <thead style="font-size:9pt;">
+                    <tr class="filters">
+                        <th style="width: 2.9% !important;text-align: center">&nbsp;&nbsp;</th>
+                        <th style="width: 7.8% !important;text-align: center">Material Code</th>
+                        <th style="width: 14.8% !important;text-align: center">Material Name</th>
+                        <th style="width: 9.9% !important;text-align: center">Shade Number</th>
+                        <th style="width: 9.9% !important;text-align: center">Shade Description</th>
+                        <th style="width: 8.9% !important;text-align: center">Unit of Measure</th>
+                        <th style="width: 6.9% !important;text-align: center">HSN Code</th>
+                        <th style="width: 7.9% !important;text-align: center">Available Till</th>
+                        <th style="width: 19.8% !important;text-align: center">Technical Specifications</th>
+                        <th style="width: 11.2% !important;text-align: center">Manufactures</th>
+                    </tr>
+                    </thead>
+                </table>
+                </div>
+                <div class="table-responsive" style="width:100%;height: 400px;overflow-y: auto">
+                <table class="table table table-bordered table-striped" ng-model ="MatClas">
+                    <tbody ng-repeat="material in MaterialLists">
+                    <tr style="background-color:#FFF;">
+                        <td class="text-center" style="vertical-align:middle;width: 2.9% !important;">
+                        <input type="checkbox" class="cmplibrary" data="{{material}}" materialcodedata="{{material.MaterialCode}}" hsncode="{{material.hsn_code}}" ng-model="material.selected">
+                        </td>
+                        <td style="width: 7.8% !important;">
+                        <a data-toggle="modal" data-target="#materialInformationPopUp" ng-click="materialInformation(material)">{{material.MaterialCode ? material.MaterialCode : '-'}}</a>
+                        </td>
+                        <td style="width: 14.8% !important;">{{material.short_description ? material.short_description : '-'}}
+                        </td>
+                        <td style="width: 9.9% !important;">{{material.shade_number ? material.shade_number : '-'}}                                            
+                        </td>
+                        <td style="width: 9.9% !important;">{{material.shade_description ? material.shade_description : '-'}}
+                        </td>
+                        <td style="width: 8.9% !important;;text-align: center">{{material.unit_of_measure ? material.unit_of_measure : '-'}}
+                        </td>
+                        <td style="width: 6.9% !important;;text-align: center">{{material.hsn_code ? material.hsn_code : '-'}}
+                        </td>
+                        <td style="width: 7.9% !important;">{{material.available_till ?(material.available_till|date:'dd-MM-yyyy') : '-'}}
+                        </td>
+                        <td style="width: 19.8% !important;">
+                        <span ng-repeat="spec in material.Mtl_Specs_Info" ng-if="spec.value!=null && spec.value!='' && spec.value!='-- NA --'">
+                        {{spec.name}}:                                            
+                        <span ng-if="spec.dataType.name!='CheckList'">
+                        <span ng-if="spec.dataType.subType!=null">{{spec.value.value +' '+spec.value.type}} |</span>
+                        <span ng-if="spec.dataType.subType==null">{{spec.value ? spec.value :'-'}} |</span>
+                        </span>
+                        <span ng-if="spec.dataType.name=='CheckList'">
+                        <span>
+                        <a data-toggle="modal" data-target="#MaterialCheckListPopup" ng-click="getMaterialCheckListInfo(spec.value.id);" aria-hidden="true" class="anchorText">Click To View Info</a> |
+                        </span>
+                        </span>
+                        </span>
+                        </td>
+                        <td style="width: 11.2% !important;">
+                            <span ng-if="material.BrandList.length > 0">
+                                <span ng-repeat="(key, manu) in material.BrandList" ng-if="manu.ManufactureCode != null && manu.code != ''">Manufacturer’s Code:-&nbsp;{{manu.ManufactureCode}}<br/>
+                                    Manufacturer/Brand:-&nbsp;{{manu.ManufactureName}}
+                                    <span ng-if="material.BrandList.length-1!=key">,&nbsp; </span>
+                                </span>
+                            </span>
+                        </td>
+                    </tr>
+                    </tbody>
+                    <tbody ng-if="SearchedMaterialGroupList.length==0">
+                    <tr style="background-color:#FFF;margin: 10%">
+                        <td colspan="12" style="text-align: center"> No Search Results
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                </div>
+            </form>
+            </div>
+        </div>
+        </div>
+    </div>
+    </div>
+</div>
+<div id="ServicePopup" class="modal fade pop-modal" role="dialog">
+    <div class="modal-dialog modal-lg" style="width: 95% !important">
+    <!-- Modal content-->
+    <div class="modal-content" style="width:100% ">
+        <div class="modal-header padpop" style="background-color: #646572; color:#fff">
+        <h5 class="modal-title pull-left mt7">Select Service Item</h5>
+        <div class="pull-right">
+            <button class="btn btn-warning btn-sm" type="button" data-dismiss="modal" ng-click="swapTempMaterialData();">Cancel</button>
+            <button class="btn btn-success btn-sm" type="button" ng-click="AddService(serviceHeadID)">Add</button>
+        </div>
+        <div class="clearfix"></div>
+        </div>
+        <div class="modal-body" style="width:100%;margin:10px 0 !important;">
+        <div class="row" style="background-color:#fff;margin-top:-20px; border-bottom:dotted 1px #ccc;">
+                <div class="col-xs-3">
+                        <div class="input-group" style="margin:5px;margin-right:-25px;">
+                                <input type="text"  id="SearchServID" ng-model="serviceHeadID" ng-show="false">
+                            <input type="text" class="form-control ng-pristine ng-valid ng-empty ng-touched SearchServID" id="SearchServID" ng-model="searchbyServObj" placeholder="Search by Service Code">
+                            <div class="input-group-btn">
+                            <div class="btn-group" role="group">
+                                <button type="button" class="btn filtbtn" ng-click="searchbyService(searchbyServObj);" style="background-color:#f68c02; color:#fff;"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+                            </div>
+                            </div>
+                        </div>
+                        </div>
+                        <div class="col-xs-3"></div>
+
+            <div class="col-xs-3">
+            <div class="input-group" style="margin:5px;margin-right:-25px;">
+                <input type="text" class="form-control ng-pristine ng-valid ng-empty ng-touched SearchServID" id="SearchServiceID" ng-model="searchServiceObj" placeholder="Search to get Service Categories">
+                <div class="input-group-btn">
+                <div class="btn-group" role="group">
+                    <button type="button" class="btn filtbtn" ng-click="searchService(searchServiceObj);" style="background-color:#f68c02; color:#fff;"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+                </div>
+                </div>
+            </div>
+            </div>
+          
+            <div class="col-xs-3">
+                <select class="form-control" name="grpServName" ng-model="grpServName" style="margin-top: 2%;" ng-change="searchwithinServGroup(grpServName,searchServiceObj)">
+                <option value="" selected="selected">Select by Service Category</option>
+                <option ng-repeat="searchdata in SearchedServiceGroupList" ng-selected="grpServName==searchdata.GroupName" value="{{searchdata.GroupName}}">{{searchdata.GroupName}}</option>
+                </select>
+            </div>
+            </div>
+        </div>
+        <div class="row" style="background-color:#fff; padding:0 10px; margin:0 0%;">
+            <div class="col-xs-12">
+            <!--class="table-responsive" -->
+            <form name="selectedmaterialsform" class="selectedmaterialsform">
+                <input name="HeaderStructureID" type="text" value="{{PO_HSID}}" hidden="true" />
+                <div class="table-responsive" style="width:100%;margin-bottom: 0">
+                <table class="table table table-bordered">
+                    <thead style="font-size:9pt;">
+                    <tr class="filters">
+                        <th style="width: 3% !important;text-align: center"></th>
+                        <th style="width: 10% !important;text-align: center">Service Code</th>
+                        <th style="width: 15% !important;text-align: center">WBS Code</th>
+                        <th style="width: 35% !important;text-align: center">Short Description</th>
+                        <th style="width: 20% !important;text-align: center">eDesign Description</th>
+                        <th style="width: 9% !important;text-align: center">Unit of Measure</th>
+                        <th style="width: 8% !important;text-align: center">SAC Code</th>
+                    </tr>
+                    </thead>
+                </table>
+                </div>
+                <div class="table-responsive" style="width:100%;height: 400px;overflow-y: scroll">
+                <table class="table table table-bordered table-striped">
+                    <tbody ng-repeat="Service in ServiceLists">
+                    <tr style="background-color:#FFF;">
+                        <td style="width: 3% !important;text-align: center">
+                        <input type="checkbox" class="cmplibrary_Service" data="{{Service}}" hsncode="{{Service.hsn_code}}" ng-model="Service.selected">
+                        </td>
+                        <td style="width: 10% !important;">
+                        <a data-toggle="modal" data-target="#serviceInformationPopUp" ng-click="serviceInformation(Service)">{{Service.MaterialCode ? Service.MaterialCode : '-'}}</a>
+                        </td>
+                        <td style="width: 15% !important;">{{Service.wbs_code ? Service.wbs_code : '-'}}</td>
+                        <td style="width: 35% !important;">{{Service.short_description ? Service.short_description : '-'}}</td>
+                        <td style="width: 20% !important;">{{Service.edesign_description ? Service.edesign_description : '-'}}</td>
+                        <td style="width: 9% !important;text-align: center">{{Service.unit_of_measure ? Service.unit_of_measure : '-'}}</td>
+                        <td style="width: 8% !important;">{{Service.hsn_code ? Service.hsn_code : '-'}}</td>
+                    </tr>
+                    </tbody>
+                    <tbody ng-if="SearchedServiceGroupList.length==0">
+                    <tr style="background-color:#FFF;margin: 10%">
+                        <td colspan="12" style="text-align: center"> No Search Results
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                </div>
+            </form>
+            </div>
+        </div>
+        </div>
+    </div>
+    </div>
+</div>
+
+<div id = "ServiceHeadPopup" class=" modal fade pop-modal" role="dialog">
+    <div class="modal-dialog modal-lg" style="width: 50% !important">
+        <div class="modal-content" style="width:100% ">
+
+            <div class="modal-header padpop" style="background-color: #646572; color:#fff">
+                <h5 class="modal-title pull-left mt7">Add Service Header</h5>
+                
+                <div class="pull-right">
+                    <button class="btn btn-warning btn-sm" type="button" ng-click="CancelServiceHeader()" data-dismiss="modal">Cancel</button>
+                    <button class="btn btn-success btn-sm" type="submit"  ng-click="AddServiceHeader()" >Add</button>
+                </div>
+                <div class="clearfix"></div>
+                </div>
+                <form name="ServIDHead" class="ServIDHead" >
+                <div class="modal-body" style="width:100%;margin:10px 0 !important;">
+                    <div class="row" style="background-color:#fff;margin-top:-20px; border-bottom:dotted 1px #ccc;">
+                            
+                        <div class="col-xs-6">
+                                    <div class="form-block">
+                                            <label>Service Header<span class="mandatory">*</span></label>
+                                            <input type="text" class="form-control ServHead" limit-to="40"   name="ServHead" ng-model="ServHead">
+                                           
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-12">
+                                            <div class="form-block">
+                                                    <label>Description<span class="mandatory">*</span></label>
+                                                    <!-- <input class="form-control"  name="ServHeadDesc" ng-maxlength="2" ng-model="ServHeadDesc"> -->
+                                                   <textarea class="form-control ServHeadDesc" limit-to="132"  name="ServHeadDesc"  ng-model="ServHeadDesc" rows="100" ></textarea>
+                                                </div>
+                                            </div>
+                                    <div class="col-xs-12">
+
+                                    </div>
+                    </div>
+                </div>
+            </form>
+               <div class="bg-dark"> &nbsp; Note: Header is 40 Characters and Description is 132 Characters</div>
+        </div>
+    </div>
+
+</div>
+
+
+<div id = "ServiceHeadUpdatePopup" class=" modal fade pop-modal" role="dialog">
+        <div class="modal-dialog modal-lg" style="width: 50% !important">
+            <div class="modal-content" style="width:100% ">
+    
+                <div class="modal-header padpop" style="background-color: #646572; color:#fff">
+                    <h5 class="modal-title pull-left mt7">Add Service Header</h5>
+                    
+                    <div class="pull-right">
+                        <button class="btn btn-warning btn-sm" type="button" data-dismiss="modal">Cancel</button>
+                        <button class="btn btn-success btn-sm" type="button"  ng-click="UpdServiceHeader()" >Update</button>
+                    </div>
+                    <div class="clearfix"></div>
+                    </div>
+                    <form name="ServupdIDHead" class="ServupdIDHead" >
+                    <div class="modal-body" style="width:100%;margin:10px 0 !important;">
+                        <div class="row" style="background-color:#fff;margin-top:-20px; border-bottom:dotted 1px #ccc;">
+                                
+                            <div class="col-xs-6">
+                                        <div class="form-block">
+                                                <label>Service Header<span class="mandatory">*</span></label>
+                                                <input type="text" class="form-control" ng-maxlength="5"   name="ServUpdHead" ng-model="ServUpdHead">
+                                                <input type="text" class="form-control" name="ServUpdUniqueID" ng-model="ServUpdUniqueID" ng-show="false">
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-12">
+                                                <div class="form-block">
+                                                        <label>Description<span class="mandatory">*</span></label>
+                                                        <!-- <input class="form-control"  name="ServHeadDesc" ng-maxlength="2" ng-model="ServHeadDesc"> -->
+                                                       <textarea class="form-control"  name="ServUpdHeadDesc"  ng-model="ServUpdHeadDesc" rows="100" ></textarea>
+                                                    </div>
+                                                </div>
+                                        <div class="col-xs-12">
+    
+                                        </div>
+                        </div>
+                    </div>
+                </form>
+                   <div class="bg-dark"> &nbsp; Note: Header is 40 Characters and Description is 132 Characters</div>
+            </div>
+        </div>
+    
+    </div>
+
+<div id="VenderDetailsPopup" class="modal fade pop-modal" role="dialog">
+    <div class="modal-dialog modal-lg" style="width:90% !important">
+    <!-- Modal content-->
+    <div class="modal-content">
+        <div class="modal-header padpop">
+        <h5 class="modal-title pull-left mt7">Add Vendor</h5>
+        <div class="pull-right">
+            <button class="btn btn-warning btn-sm" type="button" data-dismiss="modal">Cancel</button>
+            <button class="btn btn-success btn-sm" type="button" ng-click="setVendorData(SelVenMas);">Add</button>
+        </div>
+        <div class="clearfix"></div>
+        </div>
+        <div class="modal-body">
+        <form name="VenderDetailsForm" class="VenderDetailsForm">
+            <input type="hidden" name="Qtype" value="and">
+            <input type="hidden" name="PageNumber" value="{{pagenumberVD}}" ng-model="pagenumberVD">
+            <input type="hidden" name="PageperCount" value="{{pageprecountsVD}}" ng-model="pageprecountsVD">
+            <div class="row">
+            <div class="col-xs-12">
+                <div class="table-responsive" style="margin-bottom: 0;max-height: 450px;">
+                <table class="table table-bordered">
+                    <thead style="font-size:9pt;">
+                    <tr class="filters">
+                        <th width="120">Code</th>
+                        <th>Vendor Name</th>
+                        <th>Billing Address</th>
+                        <th>Shipping Address</th>
+                        <th width="120">Region Code</th>
+                        <th width="120">GSTIN</th>
+                    </tr>
+                    <tr class="filtersLight">
+                        <td><input class="form-control filtersCSS" placeholder="Search" ng-model="f1" ng-change="getVendors();" name="VendorCode"></td>
+                        <td><input class="form-control filtersCSS" placeholder="Search" ng-model="f2" ng-change="getVendors();" name="VendorName"></td>
+                        <td><input class="form-control filtersCSS" placeholder="Search" ng-model="f3" ng-change="getVendors();" name="BillingAddress"></td>
+                        <td><input class="form-control filtersCSS" placeholder="Search" ng-model="f4" ng-change="getVendors();" name="ShippingAddress"></td>
+                        <td><input class="form-control filtersCSS" placeholder="Search" ng-model="f5" ng-change="getVendors();" name="RegionCode"></td>
+                        <td><input class="form-control filtersCSS" placeholder="Search" ng-model="f6" ng-change="getVendors();" name="GSTIN"></td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="(key,obj) in VendorsList" ng-click="$parent.SelVenMas=obj;$parent.SelIndV=$index;" class="filtersLight cursorPointer" ng-class="{'SelTD':$index==SelIndV}">
+                        <td>{{obj.VendorCode}}</td>
+                        <td>{{obj.VendorName}}</td>
+                        <td>{{obj.BillingAddress}}</td>
+                        <td>{{obj.ShippingAddress}}</td>
+                        <td>{{obj.RegionCode?(obj.RegionCode +'-'+obj.RegionCodeDesc):''}}</td>
+                        <td>{{obj.GSTIN}}</td>
+                    </tr>
+                    </tbody>
+                </table>
+                </div>
+                <table class="table table-bordered">
+                <tfoot>
+                    <tr>
+                    <td class="footer text-right" colspan="6" style="padding: 5px 8px;">
+                        <label>Go To Page :</label> &nbsp;
+                        <label><input type="text" style="width:auto;" size="2" value="1" class="form-control inline-in intvalid pageInput" ng-model="pagenumberVD" ng-change="pagenationVD(pagenumberVD)" /> </label> &nbsp;&nbsp;
+                        <label> Show Rows : </label>
+                        <label style="color: #000 !important;">
+                        <select ng-model="pageprecountsVD" name="pageprecountsVD" id="pageprecountsVD" class="pageCount inline-in" ng-change="pagenationVD(1,pageprecountsVD)">
+                            <option value="" disabled>Select</option>
+                            <option value="10">10</option>
+                            <option value="20">20</option>
+                            <option value="50">50</option>
+                            <option value="100" ng-selected="true">100</option>
+                            <option value="200">200</option>
+                            <option value="400">400</option>
+                            <option value="500">500</option>
+                            <option value="700">700</option>
+                            <option value="1000">1000</option>
+                            <option value="0">All</option>
+                        </select>
+                        </label>
+                        &nbsp;&nbsp;
+                        <label><a class="btn btn-default btn-xs" ng-click="pagenationVD_Clk(pagenumberVD,0)" style="padding:0px 8px;margin-bottom: 3px;"><i class="fa fa-caret-left"></i></a> </label>
+                        <label ng-if="VendorsList.length>'0'"><a class="btn btn-default btn-xs" ng-click="pagenationVD_Clk(pagenumberVD,1)" style="padding:0px 8px;margin-bottom: 3px;"><i class="fa fa-caret-right"></i></a> </label>
+                    </td>
+                    </tr>
+                </tfoot>
+                </table>
+            </div>
+            </div>
+        </form>
+        </div>
+    </div>
+    </div>
+</div>
+<div id="ManagerDetailsPopup" class="modal fade pop-modal" role="dialog">
+    <div class="modal-dialog modal-lg">
+    <!-- Modal content-->
+    <div class="modal-content">
+        <div class="modal-header padpop">
+        <h5 class="modal-title pull-left mt7">Add PO Manager</h5>
+        <div class="pull-right">
+            <button class="btn btn-warning btn-sm" type="button" data-dismiss="modal">Cancel</button>
+            <button class="btn btn-success btn-sm" type="button" data-dismiss="modal">Add</button>
+        </div>
+        <div class="clearfix"></div>
+        </div>
+        <div class="modal-body">
+        <form name="ManagersForm" class="ManagersForm">
+            <div class="row">
+            <div class="col-xs-12">
+                <div class="table-responsive" style="width:100%;margin-bottom: 0">
+                <table class="table table table-bordered">
+                    <thead style="font-size:9pt;">
+                    <tr class="filters">
+                        <th style="width: 35%;">Manager Name</th>
+                        <th style="width: 40%;">Personal Email</th>
+                        <th style="width: 25%;">Phone No</th>
+                    </tr>
+                    <tr class="filtersLight">
+                        <td class="text-center"><input class="form-control" type="text" placeholder="Search" ng-model="EmpNameSearch"></td>
+                        <td class="text-center"><input class="form-control" type="text" placeholder="Search" ng-model="EmailSearch"></td>
+                        <td class="text-center"><input class="form-control" type="text" placeholder="Search" ng-model="PhoneSearch"></td>
+                    </tr>
+                    </thead>
+                </table>
+                </div>
+                <div class="table-responsive" style="width:100%;height: 400px;">
+                <table class="table table table-bordered">
+                    <tbody>
+                    <tr ng-repeat="(key,obj) in ManagersResult|filter:{EmployeeId:EmpIDSearch,CallName:EmpNameSearch,PersonalEmail:EmailSearch,Phone:PhoneSearch}"
+                        ng-style="{'background-color':ManagerbgColor[key]}" ng-click="setManagerData(key,obj);">
+                        <td style="width: 35%;">{{obj.CallName}}</td>
+                        <td style="width: 40%;">{{obj.PersonalEmail}}</td>
+                        <td style="width: 25%;">{{obj.Phone}}</td>
+                    </tr>
+                    </tbody>
+                </table>
+                </div>
+            </div>
+            </div>
+        </form>
+        </div>
+    </div>
+    </div>
+</div>
+<div id="WBSDetailsPart1Popup" class="modal fade pop-modal" role="dialog">
+    <div class="modal-dialog modal-lg" style="width:70%;">
+    <!-- Modal content-->
+    <div class="modal-content">
+        <div class="modal-header padpop">
+        <h5 class="modal-title pull-left mt7">Add WBS Element Code</h5>
+        <div class="pull-right">
+            <button class="btn btn-warning btn-sm" type="button" data-dismiss="modal">Cancel</button>
+            <button class="btn btn-success btn-sm" type="button" ng-if="PODetailsResult.PO_OrderTypeID != 3" ng-click="setWBSData(SelWBSMas);">Add</button>
+            <button class="btn btn-success btn-sm" type="button" ng-if="PODetailsResult.PO_OrderTypeID == 3 " ng-click="setWBSDataExpMain(SelWBSMas);">Add</button>
+        </div>
+        <div class="clearfix"></div>
+        </div>
+        <div class="modal-body">
+        <div class="row">
+            <div class="col-xs-12">
+            <form name="WBSDetailsForm" class="WBSDetailsForm">
+                <input type="hidden" name="Qtype" value="and">
+                <input type="hidden" name="PageNumber" value="{{pagenumberWBSD}}" ng-model="pagenumberWBSD">
+                <input type="hidden" name="PageperCount" value="{{pageprecountsWBSD}}" ng-model="pageprecountsWBSD">
+                <input type="hidden" name="FundCentreID" value="{{PODetailsResult.FundCenterID}}" ng-model="PODetailsResult.FundCenterID">
+                <input type="hidden" name="ProjectCode" value="{{PODetailsResult.ProjectCode}}" ng-model="PODetailsResult.ProjectCode">
+                <div class="table-responsive" style="margin-bottom: 0;max-height: 450px;">
+                <table class="table table table-bordered">
+                    <thead style="font-size:9pt;">
+                    <tr class="filters">
+                        <th>WBS Code</th>
+                        <th>Description</th>
+                        <th>Project</th>
+                        <th>Fund Code</th>
+                        <th>Fund Owner</th>
+                    </tr>
+                    <tr class="filtersLight">
+                        <td><input class="form-control filtersCSS" placeholder="Search" ng-model="Wf1" ng-change="getWBSDetails();" name="WBSCode"></td>
+                        <td><input class="form-control filtersCSS" placeholder="Search" ng-model="Wf2" ng-change="getWBSDetails();" name="WBSName"></td>
+                        <td></td>
+                        <td><input class="form-control filtersCSS" placeholder="Search" ng-model="Wf3" ng-change="getWBSDetails();" name="FundCenter_Code"></td>
+                        <td><input class="form-control filtersCSS" placeholder="Search" ng-model="Wf4" ng-change="getWBSDetails();" name="FundCenter_Owner"></td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="(key,obj) in WBSList" ng-click="$parent.SelWBSMas=obj;$parent.SelIndW=$index;" class="filtersLight cursorPointer" ng-class="{'SelTD':$index==SelIndW}">
+                        <td>{{obj.wbsCode}}</td>
+                        <td>{{obj.wbsDescription}}</td>
+                        <td>{{obj.ProjectCode}}</td>
+                        <td>{{obj.fundcenterCode}}</td>
+                        <td>{{obj.fundcenterOwner}}</td>
+                    </tr>
+                    </tbody>
+                </table>
+                </div>
+                <table class="table table-bordered">
+                <tfoot>
+                    <tr>
+                    <td class="footer text-right" colspan="6" style="padding: 5px 8px;">
+                        <label>Go To Page :</label> &nbsp;
+                        <label><input type="text" style="width:auto;" size="2" value="1" class="form-control inline-in intvalid pageInput" ng-model="pagenumberWBSD" ng-change="pagenationWBSD(pagenumberWBSD)" /> </label> &nbsp;&nbsp;
+                        <label> Show Rows : </label>
+                        <label style="color: #000 !important;">
+                        <select ng-model="pageprecountsWBSD" name="pageprecountsWBSD" id="pageprecountsWBSD" class="pageCount inline-in" ng-change="pagenationWBSD(1,pageprecountsWBSD)">
+                            <option value="" disabled>Select</option>
+                            <option value="10">10</option>
+                            <option value="20">20</option>
+                            <option value="50">50</option>
+                            <option value="100" ng-selected="true">100</option>
+                            <option value="200">200</option>
+                            <option value="400">400</option>
+                            <option value="500">500</option>
+                            <option value="700">700</option>
+                            <option value="1000">1000</option>
+                        </select>
+                        </label>
+                        &nbsp;&nbsp;
+                        <label><a class="btn btn-default btn-xs" ng-click="pagenationWBSD_Clk(pagenumberWBSD,0)" style="padding:0px 8px;margin-bottom: 3px;"><i class="fa fa-caret-left"></i></a> </label>
+                        <label ng-if="WBSList.length>'0'"><a class="btn btn-default btn-xs" ng-click="pagenationWBSD_Clk(pagenumberWBSD,1)" style="padding:0px 8px;margin-bottom: 3px;"><i class="fa fa-caret-right"></i></a> </label>
+                    </td>
+                    </tr>
+                </tfoot>
+                </table>
+            </form>
+            </div>
+        </div>
+        </div>
+    </div>
+    </div>
+</div>
+<div id="WBSDetailsPart2Popup" class="modal fade pop-modal" role="dialog">
+    <div class="modal-dialog modal-ld">
+    <!-- Modal content-->
+    <div class="modal-content">
+        <div class="modal-header padpop">
+        <h5 class="modal-title pull-left mt7">Add WBS Part 2</h5>
+        <div class="pull-right">
+            <button class="btn btn-warning btn-sm" type="button" data-dismiss="modal">Cancel</button>
+            <button class="btn btn-success btn-sm" type="button" data-dismiss="modal">Add WBS 2</button>
+        </div>
+        <div class="clearfix"></div>
+        </div>
+        <div class="modal-body">
+        <div class="row">
+            <div class="col-xs-12">
+            <div class="table-responsive" style="width:100%;margin-bottom: 0">
+                <table class="table table table-bordered">
+                <thead style="font-size:9pt;">
+                    <tr class="filters">
+                    <td style="width: 30%;">WBS Code</td>
+                    <td style="width: 20%;">Project</td>
+                    <td style="width: 20%;">Fund Code</td>
+                    <td style="width: 30%;">Fund Owner</td>
+                    </tr>
+                    <tr class="filtersLight">
+                    <!--<td></td>-->
+                    <td class="text-center"><input class="form-control" type="text" placeholder="Search" ng-model="code"></td>
+                    <td class="text-center"><input class="form-control" type="text" placeholder="Search" ng-model="prjcode"></td>
+                    <td class="text-center"><input class="form-control" type="text" placeholder="Search" ng-model="fnd"></td>
+                    <td class="text-center"><input class="form-control" type="text" placeholder="Search" ng-model="owner"></td>
+                    </tr>
+                </thead>
+                </table>
+            </div>
+            <div class="table-responsive" style="width:100%;height: 400px;">
+                <table class="table table table-bordered">
+                <tbody>
+                    <tr ng-repeat="(key,obj) in WBSList|filter:{wbsCode:code,ProjectCode:prjcode,fundcenterCode:fnd,fundcenterOwner:owner}" ng-style="{'background-color':wbsPart2bgColor[key]}"
+                    ng-click="setWbsPart2Code(key,obj);">
+                    <td style="width: 30%;">{{obj.wbsCode}}</td>
+                    <td style="width: 20%;">{{obj.ProjectCode}}</td>
+                    <td style="width: 20%;">{{obj.fundcenterCode}}</td>
+                    <td style="width: 30%;">{{obj.fundcenterOwner}}</td>
+                    </tr>
+                </tbody>
+                </table>
+            </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    </div>
+</div>
+<div id="AddSpecificTCPopup" class="modal fade pop-modal" role="dialog">
+    <div class="modal-dialog modal-lg">
+    <!-- Modal content-->
+    <div class="modal-content">
+        <div class="modal-header padpop">
+        <h5 class="modal-title pull-left mt7">Add New Special Term & Condition</h5>
+        <div class="pull-right">
+            <button class="btn btn-warning btn-sm" type="button" data-dismiss="modal">Cancel</button>
+            <button class="btn btn-success btn-sm" type="button" ng-click="createSpecificTandC()">Add</button>
+        </div>
+        <div class="clearfix"></div>
+        </div>
+        <div class="modal-body">
+        <form name="specificTandCform" class="specificTandCform">
+            <div class="row">
+            <div class="col-xs-12">
+                <input type="text" name="LastModifiedBy" value="{{UserDetails.currentUser.UserId}}" hidden="true" />
+                <input type="text" name="CreatedBy" value="{{UserDetails.currentUser.UserId}}" hidden="true" />
+                <input type="text" name="POHeaderStructureId" value="{{PO_HSID}}" hidden="true" />
+                <input type="text" name="SpecificTCId" value="0" hidden="true" />                                                    
+            </div>
+            <div class="col-xs-12">
+                <div class="form-block">
+                <label>Title<span class="mandatory">*</span></label>
+                <select class="form-control" name="SpecificTCTitleMasterId" ng-model="SpecificTCTitleMasterId" ng-change="getpoSpecTCSubTitles(SpecificTCTitleMasterId);">
+                    <option value="" selected="selected">Select</option>
+                    <option ng-repeat="data in POSpecTitleList" value="{{data.SpecificTCTitleMasterId}}">{{data.Title}}</option>
+                </select>
+                </div>
+            </div>
+            <div class="col-xs-12">
+                <div class="form-block">
+                <label>Sub Title</label>
+                <select class="form-control" name="SpecificTCSubTitleMasterId" ng-model="SpecificTCSubTitleMasterId">
+                    <option value="" selected="selected">Select</option>
+                    <option ng-repeat="data in POSpecSubTitleList" value="{{data.SpecificTCSubTitleMasterId}}">{{data.SubTitleDesc}}</option>
+                </select>
+                </div>
+            </div>
+            <div class="col-xs-12">
+                <div class="form-group">
+                <label>Special Condition<span class="mandatory">*</span></label>
+                <text-angular name="Description" ng-model="Description" placeholder="Enter Condition"  class="ng-pristine ng-valid ng-empty ng-touched"></text-angular>
+                <span style="color:red"><br/><br/>
+				<b>Please Note :  If you are about to "Copy & Paste"  any text from an existing PDF, Then please follow these steps : </b><br/>
+
+				1. First copy the text to an editor like Notepad.<br/>
+				2. Then copy the text from notepad to Fugue PO.<br/>
+				3. Finally, verify all the formatting and apply more formatting if required.<br/>
+				</span>
+                <!-- <textarea ng-model="Condition" name="Condition" class="form-control ng-pristine ng-valid ng-empty ng-touched"></textarea> -->
+                </div>
+            </div>
+            </div>
+        </form>
+        </div>
+    </div>
+    </div>
+</div>
+<div id="editSpecificTCPopup" class="modal fade pop-modal" role="dialog">
+    <div class="modal-dialog modal-lg">
+    <!-- Modal content-->
+    <div class="modal-content">
+        <div class="modal-header padpop">
+        <h5 class="modal-title pull-left mt7">Update Special Term & Condition</h5>
+        <div class="pull-right">
+            <button class="btn btn-warning btn-sm" type="button" data-dismiss="modal">Cancel</button>
+            <button class="btn btn-success btn-sm" type="button" ng-click="updateSpecificTandC()">Update</button>
+        </div>
+        <div class="clearfix"></div>
+        </div>
+        <div class="modal-body">
+        <form name="editspecificTandCform" class="editspecificTandCform">
+            <div class="row">
+            <div class="col-xs-12">
+                <input type="text" name="LastModifiedBy" value="{{UserDetails.currentUser.UserId}}" hidden="true" />
+                <input type="text" name="CreatedBy" value="{{UserDetails.currentUser.UserId}}" hidden="true" />
+                <input type="text" name="POHeaderStructureId" value="{{PO_HSID}}" hidden="true" />
+                <input type="text" name="SpecificTCId" value="{{CurrenSpecificTCData.SpecificTCId}}" hidden="true" />                                                    
+            </div>
+            <div class="col-xs-12">
+                <div class="form-block">
+                <label>Title<span class="mandatory">*</span></label>
+                <select class="form-control" name="SpecificTCTitleMasterId" ng-model="CurrenSpecificTCData.SpecificTCTitleMasterId" ng-change="getpoSpecTCSubTitles(CurrenSpecificTCData.SpecificTCTitleMasterId);">
+                    <option value="" selected="selected">Select</option>
+                    <option ng-repeat="data in POSpecTitleList"  value="{{data.SpecificTCTitleMasterId}}">{{data.Title}}</option>
+                </select>
+                </div>
+            </div>
+            <div class="col-xs-12">
+                <div class="form-block">
+                <label>Sub Title</label>
+                <select class="form-control" name="SpecificTCSubTitleMasterId" ng-model="CurrenSpecificTCData.SpecificTCSubTitleMasterId">
+                    <option value="" selected="selected">Select</option>
+                    <option ng-repeat="data in POSpecSubTitleList" value="{{data.SpecificTCSubTitleMasterId}}">{{data.SubTitleDesc}}</option>
+                </select>
+                </div>
+            </div>
+            <div class="col-xs-12">
+                <div class="form-group">
+                <label>Special Condition<span class="mandatory">*</span></label>
+                <textarea  name="Description" ng-show="false" ng-model="CurrenSpecificTCData.Description">{{CurrenSpecificTCData.Description}}</textarea>
+                <text-angular placeholder="Enter Condition" ng-model="CurrenSpecificTCData.Description"></text-angular>
+                <span style="color:red"><br/><br/>
+				<b>Please Note :  If you are about to "Copy & Paste"  any text from an existing PDF, Then please follow these steps : </b><br/>
+
+				1. First copy the text to an editor like Notepad.<br/>
+				2. Then copy the text from notepad to Fugue PO.<br/>
+				3. Finally, verify all the formatting and apply more formatting if required.<br/>
+				</span>
+                </div>
+            </div>
+            </div>
+        </form>
+        </div>
+    </div>
+    </div>
+</div>
+<div id="AddNewSpecialTandCPopup" class="modal fade pop-modal" role="dialog">
+    <div class="modal-dialog modal-lg">
+    <!-- Modal content-->
+    <div class="modal-content">
+        <div class="modal-header padpop">
+        <h5 class="modal-title pull-left mt7">Add New Specific Term & Condition</h5>
+        <div class="pull-right">
+            <button class="btn btn-warning btn-sm" type="button" data-dismiss="modal">Cancel</button>
+            <button class="btn btn-success btn-sm" type="button" ng-click="createNewSpecialTandC()">Add</button>
+        </div>
+        <div class="clearfix"></div>
+        </div>
+        <div class="modal-body">
+        <form name="specialTandCform" class="specialTandCform">
+            <div class="row">
+            <div class="col-xs-9">
+                <input type="text" name="LastModifiedBy" value="{{UserDetails.currentUser.UserId}}" hidden="true" />
+                <input type="text" name="ContextIdentifier" value="{{PO_HSID}}" hidden="true" />
+                <input type="text" name="POHeaderStructureId" value="{{PO_HSID}}" hidden="true" />
+                <input type="text" name="UniqueId" value="0" hidden="true" />
+                <div class="form-group">
+                <label>Title<span class="mandatory">*</span></label>
+                <input type="text" name="Title" class="form-control" />
+                </div>
+            </div>
+            <div class="col-xs-3">
+                <div class="form-group">
+                <label>Sequence ID<span class="mandatory">*</span></label>
+                <input type="text" name="SequenceId" class="form-control intvalid" />
+                </div>
+            </div>
+            <div class="col-xs-12">
+                <div class="form-group">
+                <label>Condition<span class="mandatory">*</span></label>
+                <text-angular name="Condition" ng-model="Condition" placeholder="Enter Condition" class="ng-pristine ng-valid ng-empty ng-touched"></text-angular>
+                <!-- <textarea ng-model="Condition" name="Condition" class="form-control ng-pristine ng-valid ng-empty ng-touched"></textarea> -->
+                <span style="color:red"><br/><br/>
+				<b>Please Note :  If you are about to "Copy & Paste"  any text from an existing PDF, Then please follow these steps : </b><br/>
+
+				1. First copy the text to an editor like Notepad.<br/>
+				2. Then copy the text from notepad to Fugue PO.<br/>
+				3. Finally, verify all the formatting and apply more formatting if required.<br/>
+				</span>
+
+                </div>
+            </div>
+            </div>
+        </form>
+        </div>
+    </div>
+    </div>
+</div>
+<div id="editSpecialTandCPopup" class="modal fade pop-modal" role="dialog">
+    <div class="modal-dialog modal-lg">
+    <!-- Modal content-->
+    <div class="modal-content">
+        <div class="modal-header padpop">
+        <h5 class="modal-title pull-left mt7">Update Specific Term & Condition</h5>
+        <div class="pull-right">
+            <button class="btn btn-warning btn-sm" type="button" data-dismiss="modal">Cancel</button>
+            <button class="btn btn-success btn-sm" type="button" ng-click="updateSpecialTandC()">Update</button>
+        </div>
+        <div class="clearfix"></div>
+        </div>
+        <div class="modal-body">
+        <form name="editspecTandCform" class="editspecTandCform">
+            <div class="row">
+            <div class="col-xs-6">
+                <input type="text" name="LastModifiedBy" value="{{UserDetails.currentUser.UserId}}" hidden="true" />
+                <input type="text" name="ContextIdentifier" value="{{PO_HSID}}" hidden="true" />
+                <input type="text" name="POHeaderStructureId" value="{{PO_HSID}}" hidden="true" />
+                <input type="text" name="UniqueId" value="{{CurrenSpecTandCData.UniqueId}}" hidden="true" />
+                <div class="form-group">
+                <label>Title<span class="mandatory">*</span></label>
+                <input type="text" ng-model="CurrenSpecTandCData.Title" name="Title" class="form-control" />
+                </div>
+            </div>
+            <div class="col-xs-3">
+                <div class="form-group">
+                <label>Sequence ID<span class="mandatory">*</span></label>
+                <input type="text" ng-model="CurrenSpecTandCData.SequenceId" id="ad" name="SequenceId" class="form-control intvalid" />
+                </div>
+            </div>
+            <div class="col-xs-12">
+                <div class="form-group">
+                <label>Condition<span class="mandatory">*</span></label>
+                <textarea name="Condition" ng-show="false">{{CurrenSpecTandCData.Condition}}</textarea>
+                <text-angular placeholder="Enter Condition" ng-model="CurrenSpecTandCData.Condition"></text-angular>
+                <!-- <textarea value="{{CurrenSpecTandCData.Condition}}" ng-model="CurrenSpecTandCData.Condition" name="Condition" class="form-control ng-pristine ng-valid ng-empty ng-touched"></textarea> -->
+                <span style="color:red"> <br/><br/>
+				<b>Please Note :  If you are about to "Copy & Paste"  any text from an existing PDF, Then please follow these steps : </b><br/>
+
+				1. First copy the text to an editor like Notepad.<br/>
+				2. Then copy the text from notepad to Fugue PO.<br/>
+				3. Finally, verify all the formatting and apply more formatting if required.<br/>
+				</span>
+
+                </div>
+            </div>
+            </div>"
+        </form>
+        </div>
+    </div>
+    </div>
+</div>
+
+<div id="DeleteheaderPopUp" class="modal fade pop-modal" role="dialog">
+        <div class="modal-dialog modal-md">
+        <div class="modal-content">
+            <div class="modal-header padpop">
+            <h5 class="modal-title pull-left mt7">Are you sure you want delete?</h5>
+            <div class="pull-right">
+                &nbsp;
+            </div>
+            <div class="clearfix"></div>
+            </div>
+            <div class="modal-body">
+            <div class="main-content text-right">
+                <form name="HeaddeleteForm" class="HeaddeleteForm">
+                <input type="text" name="LastModifiedBy" value="{{UserDetails.currentUser.UserId}}" hidden="true" />
+                <input type="text" name="ContextIdentifier" value="{{PO_HSID}}" hidden="true" />
+                <input type="text" name="delHeaderUniqueID" ng-model="delHeaderUniqueID" hidden="true" />
+                </form>
+                <button class="btn btn-warning btn-sm" data-dismiss="modal" type="button">Cancel</button>
+                <!--<button class="btn btn-success btn-sm" ng-click="deleteSpecTandC()" type="button">Delete</button>-->
+                <!--<button class="btn btn-success btn-sm" ng-click="deleteSpecificTCTandC()" type="button">Delete</button>deleteSpecTandC-->
+                <button class="btn btn-success btn-sm" ng-click="deleteServiceHead()" type="button">Delete</button>
+            </div>
+            </div>
+        </div>
+        </div>
+    </div>
+
+<div id="DeleteSpecPopUp" class="modal fade pop-modal" role="dialog">
+    <div class="modal-dialog modal-md">
+    <div class="modal-content">
+        <div class="modal-header padpop">
+        <h5 class="modal-title pull-left mt7">Are you sure you want delete?</h5>
+        <div class="pull-right">
+            &nbsp;
+        </div>
+        <div class="clearfix"></div>
+        </div>
+        <div class="modal-body">
+        <div class="main-content text-right">
+            <form name="deleteForm" class="deleteForm">
+            <input type="text" name="LastModifiedBy" value="{{UserDetails.currentUser.UserId}}" hidden="true" />
+            <input type="text" name="ContextIdentifier" value="{{PO_HSID}}" hidden="true" />
+            <input type="text" name="UniqueId" value="{{CurrenSpecTandCData.UniqueId}}" hidden="true" />
+            </form>
+            <button class="btn btn-warning btn-sm" data-dismiss="modal" type="button">Cancel</button>
+            <!--<button class="btn btn-success btn-sm" ng-click="deleteSpecTandC()" type="button">Delete</button>-->
+            <!--<button class="btn btn-success btn-sm" ng-click="deleteSpecificTCTandC()" type="button">Delete</button>deleteSpecTandC-->
+            <button class="btn btn-success btn-sm" ng-click="deleteSpecTandC()" type="button">Delete</button>
+        </div>
+        </div>
+    </div>
+    </div>
+</div>
+<div id="DeleteSpecificTCPopUp" class="modal fade pop-modal" role="dialog">
+    <div class="modal-dialog modal-md">
+    <div class="modal-content">
+        <div class="modal-header padpop">
+        <h5 class="modal-title pull-left mt7">Are you sure you want delete?</h5>
+        <div class="pull-right">
+            &nbsp;
+        </div>
+        <div class="clearfix"></div>
+        </div>
+        <div class="modal-body">
+        <div class="main-content text-right">
+            <form name="specificTCdeleteForm" class="specificTCdeleteForm">
+            <!--<input type="text" name="SpecificTCTitleMasterId" value="{{CurrenSpecificTCData.SpecificTCTitleMasterId}}" hidden="true" />-->
+            <input type="text" name="SpecificTCId" value="{{CurrenSpecificTCData.SpecificTCId}}" hidden="true" />
+            <input type="text" name="LastModifiedBy" value="{{UserDetails.currentUser.UserId}}" hidden="true" />
+            </form>
+            <button class="btn btn-warning btn-sm" data-dismiss="modal" type="button">Cancel</button>
+            <button class="btn btn-success btn-sm" ng-click="deleteSpecificTCTandC()" type="button">Delete</button>
+        </div>
+        </div>
+    </div>
+    </div>
+</div>
+<div id="POWithDrawPopup" class="modal fade pop-modal" role="dialog">
+    <div class="modal-dialog modal-md">
+    <div class="modal-content">
+        <div class="modal-header padpop">
+        <h5 class="modal-title pull-left mt7">Are you sure you want WithDraw PO?</h5>
+        <div class="pull-right">
+            &nbsp;
+        </div>
+        <div class="clearfix"></div>
+        </div>
+        <div class="modal-body">
+        <div class="main-content text-right">
+            <form name="deleteTCForm" class="deleteTCForm">
+            <input type="text" name="LastModifiedBy" value="{{UserDetails.currentUser.UserId}}" hidden="true" />
+            <input type="text" name="POUniqueId" value="{{TermConditionData.TandCId}}" hidden="true" />
+            </form>
+            <button class="btn btn-warning btn-sm" data-dismiss="modal" type="button">Cancel</button>
+            <button class="btn btn-success btn-sm" ng-click="deleteGenTandC()" type="button">Delete</button>
+        </div>
+        </div>
+    </div>
+    </div>
+</div>
+<div id="DeleteGenTCPopUp" class="modal fade pop-modal" role="dialog">
+    <div class="modal-dialog modal-md">
+    <div class="modal-content">
+        <div class="modal-header padpop">
+        <h5 class="modal-title pull-left mt7">Are you sure you want delete?</h5>
+        <div class="pull-right">
+            &nbsp;
+        </div>
+        <div class="clearfix"></div>
+        </div>
+        <div class="modal-body">
+        <div class="main-content text-right">
+            <form name="deleteTCForm" class="deleteTCForm">
+            <input type="text" name="LastModifiedBy" value="{{UserDetails.currentUser.UserId}}" hidden="true" />
+            <input type="text" name="UniqueId" value="{{TermConditionData.TandCId}}" hidden="true" />
+            </form>
+            <button class="btn btn-warning btn-sm" data-dismiss="modal" type="button">Cancel</button>
+            <button class="btn btn-success btn-sm" ng-click="deleteGenTandC()" type="button">Delete</button>
+        </div>
+        </div>
+    </div>
+    </div>
+</div>
+<div id="DeleteLinkedPopUp" class="modal fade pop-modal" role="dialog">
+    <div class="modal-dialog modal-md">
+    <div class="modal-content">
+        <div class="modal-header padpop">
+        <h5 class="modal-title pull-left mt7">Are you sure you want delete?</h5>
+        <div class="pull-right"> &nbsp; </div>
+        <div class="clearfix"></div>
+        </div>
+        <div class="modal-body">
+        <div class="main-content text-right">
+            <button class="btn btn-warning btn-sm" data-dismiss="modal" type="button">Cancel</button>
+            <button class="btn btn-success btn-sm" ng-click="deleteLinkedP(LinkedPOID,UserDetails.currentUser.UserId)" type="button">Delete</button>
+        </div>
+        </div>
+    </div>
+    </div>
+</div>
+<div id="purchaseRateHistoryPopUp" class="modal fade pop-modal" role="dialog">
+    <div class="modal-dialog modal-lg">
+    <!-- Modal content-->
+    <div class="modal-content" style="width:100% ">
+        <div class="modal-header padpop" style="background-color: #646572; color:#fff">
+        <h5 class="modal-title pull-left mt7">Purchase Rate History</h5>
+        <div class="pull-right">
+            <button class="btn btn-warning btn-sm" type="button" data-dismiss="modal">Close</button>
+        </div>
+        <div class="clearfix"></div>
+        </div>
+        <div class="modal-body">
+        <div class="row" style="background-color:#fff; padding:0 10px; margin:0 0%;">
+            <div class="col-xs-12">
+            <table class="table-responsive table" style="width:100%;margin:10px 0 !important;">
+                <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Material Code</th>
+                    <!--<th>Material Name</th>-->
+                    <th>Vendor</th>
+                    <th>PO Number</th>
+                    <th>Purchase Date</th>
+                    <th>Quantity</th>
+                    <th>Rate</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr style="background-color:#FFF;" ng-repeat="hist in PRHistory">
+                    <td>{{$index+1}}</td>
+                    <td>{{hist.MaterialCode}}</td>
+                    <!--<td>{{hist.MaterailName}}</td>-->
+                    <td>{{hist.Vendor}}</td>
+                    <td>{{hist.PONumber}}</td>
+                    <td>{{hist.Purchasedate | displayDate}}</td>
+                    <td>{{hist.qnty}}</td>
+                    <td>{{hist.Rate}}</td>
+                </tr>
+                <tr ng-if="PRHistory.length<=0">
+                    <td colspan="7" class="text-center">No History Found</td>
+                </tr>
+                </tbody>
+                <tfoot ng-if="PRHistory.length>0">
+                <tr style="background-color:#FFF;">
+                    <th colspan="5">&nbsp;</th>
+                    <th>Weighted Avg Rate : </th>
+                    <th>{{WeightedAvgRate}}</th>
+                </tr>
+                </tfoot>
+            </table>
+            </div>
+        </div>
+        </div>
+    </div>
+    </div>
+</div>
+<div id="MaterialCheckListPopup" class="modal fade pop-modal" role="dialog">
+    <div class="modal-dialog modal-lg" style="width:80% ">
+    <!-- Modal content-->
+    <div class="modal-content">
+        <div class="modal-header padpop" style="background-color: #646572; color:#fff">
+        <h5 class="modal-title pull-left mt7">CheckList Information</h5>
+        <div class="pull-right">
+            <button class="btn btn-warning btn-sm" type="button" data-dismiss="modal">Close</button>
+        </div>
+        <div class="clearfix"></div>
+        </div>
+        <div class="modal-body" style="height: 500px;width:100%;margin:10px 0 !important;overflow-y: scroll">
+        <div class="row" style="background-color:#fff; padding:0 10px; margin:0 0%;">
+            <div class="col-xs-12">
+            <table class="table-responsive table table-striped">
+                <tbody>
+                <tr ng-repeat="dataArray in MaterialCheckListResult.content.entries">
+                    <td ng-repeat="(key,data) in dataArray.cells" width="{{key==0 ? '10%' : (key==1 ? '30%' : '60%')}}"> {{data.value}} </td>
+                </tr>
+                </tbody>
+            </table>
+            </div>
+        </div>
+        </div>
+    </div>
+    </div>
+</div>
+<div id="ServiceCheckListPopup" class="modal fade pop-modal" role="dialog">
+    <div class="modal-dialog modal-lg" style="width:85%">
+    <!-- Modal content-->
+    <div class="modal-content">
+        <div class="modal-header padpop" style="background-color: #646572; color:#fff">
+        <h5 class="modal-title pull-left mt7">Service CheckList Information</h5>
+        <div class="pull-right">
+            <button class="btn btn-warning btn-sm" type="button" data-dismiss="modal">Close</button>
+        </div>
+        <div class="clearfix"></div>
+        </div>
+        <div class="modal-body" style="height: 500px;width:100%;margin:10px 0 !important;overflow-y: scroll">
+        <div class="row" style="background-color:#fff; padding:0 10px; margin:0 0%;">
+            <div class="col-xs-12">
+            <table class="table-responsive table table-striped">
+                <tbody>
+                <tr ng-repeat="dataArray in MaterialCheckListResult.content.entries">
+                    <td ng-repeat="(key,data) in dataArray.cells" width="{{key==0 ? '10%' : (key==1 ? '40%' : '50%')}}"> {{data.value}} </td>
+                </tr>
+                </tbody>
+            </table>
+            </div>
+        </div>
+        </div>
+    </div>
+    </div>
+</div>
+<div id="SendForApprovalPagePopUp" class="modal fade pop-modal" role="dialog">
+    <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+        <div class="modal-header padpop">
+        <h5 class="modal-title pull-left mt7">PO Submit For Approval</h5>
+        <div class="clearfix"></div>
+        </div>
+        <div class="modal-body">
+        <span>
+        <h5 class="modal-title" style="margin: 6px"><b>{{PODetailsResult.PO_Title}}</b> is going  for approval to Following Approvers</h5>
+        <span>
+        <div class="row">
+            <div class="col-xs-12">
+            <div class="table-responsive" style="width:100%;margin-bottom: 0">
+                <table class="table table table-bordered">
+                <thead style="font-size:9pt;">
+                    <tr class="filters">
+                    <th style="width:2%;">#</th>
+                    <th style="width:18%;">Approver</th>
+                    <th style="width:20%;">Status</th>
+                    <th>Remarks</th>
+                    <th style="width:15%;">Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="(key,obj) in POApproversList">
+                    <td>{{obj.SequenceNumber}}</td>
+                    <td>{{obj.ApproverName}}</td>
+                    <td>{{obj.Status}}</td>
+                    <td>{{obj.Comments?obj.Comments:'-'}}</td>
+                    <td>{{obj.ApprovedOn?(obj.ApprovedOn|date:'dd-MM-yyyy'):'-'}}</td>
+                    </tr>
+                </tbody>
+                </table>
+            </div>
+            </div>
+        </div>
+        <form name="appoff1" class="SendForApprovalForm">
+            <div class="row">
+            <input type="hidden" name="UserId" ng-model="UserDetails.currentUser.UserId" value="{{UserDetails.currentUser.UserId}}" />
+            <input type="hidden" name="PurchaseOrderNumber" ng-model="PurchaseOrderNumber" value="{{ PODetailsResult.Purchasing_Order_Number}}" />
+            <input type="hidden" name="POUniqueId" ng-model="POUniqueId" value="{{PODetailsResult.Uniqueid}}" />
+            </div>
+            <div class="row" style="margin: 8px"></div>
+            <div class="form-group">
+            <label>Remarks<small class="mandatory">(Mandatory for Submitting)</small></label>
+            <textarea ng-model="SubmitterComments" name="SubmitterComments" class="form-control ng-pristine ng-valid ng-empty ng-touched"></textarea>
+            </div>
+        </form>
+        </div>
+        <div class="modal-footer">
+        <button class="btn btn-warning" type="button" data-dismiss="modal">Cancel</button>
+        <button class="btn btn-primary" type="button" ng-click="SendForApprovalBtn();">Submit For Approval</button>
+        </div>
+    </div>
+    </div>
+</div>
+<div id="materialInformationPopUp" class="modal fade pop-modal" role="dialog">
+    <div class="modal-dialog modal-lg"  style="width:90% ">
+    <!-- Modal content-->
+    <div class="modal-content" style="width:100% ">
+        <div class="modal-header padpop" style="background-color: #646572; color:#fff">
+        <h5 class="modal-title pull-left mt7">Material Information</h5>
+        <div class="pull-right">
+            <button class="btn btn-warning btn-sm" type="button" data-dismiss="modal">Close</button>
+        </div>
+        <div class="clearfix"></div>
+        </div>
+        <div class="modal-body" style="height: 500px;width:100%;margin:10px 0 !important;overflow-y: scroll">
+        <div class="row" style="background-color:#fff; padding:0 10px; margin:0 0%;">
+            <div class="col-xs-12">
+            <div class="CLelements">Classification</div>
+            <div class="col-xs-3" ng-repeat="classic in MaterialFullInfo.Mtl_Classific_Info">
+                <div>
+                <b>{{classic.name}}</b><br>
+                <p>{{classic.value ? classic.value :'-'}}</p>
+                </div>
+            </div>
+            </div>
+            <div class="col-xs-12">
+            <div class="CLelements">General</div>
+            <div class="col-xs-3" ng-repeat="gen in MaterialFullInfo.Mtl_General_Info">
+                <div>
+                <b>{{gen.name}}</b>
+                <div ng-if="gen.dataType.name=='StaticFile'">
+                    <p>
+                    <a href="{{gen.value.url}}" target="blank">Click Here</a> <br>
+                    </p>
+                </div>
+                <div ng-if="gen.dataType.name=='Array' && gen.dataType.subType.name=='StaticFile'">
+                    <div ng-repeat="val in gen.value">
+                    <p>
+                        <a href="{{val.url}}" target="blank">Click Here</a> <br>
+                    </p>
+                    </div>
+                </div>
+                <div ng-if="(gen.dataType.name=='MasterData'|| gen.dataType.name=='String' || gen.dataType.name=='Autogenerated' || gen.dataType.name=='Boolean') && gen.dataType.subType.name!='StaticFile' ">
+                    <p ng-if="gen.value==true">Yes</p>
+                    <p ng-if="gen.value==false">No</p>
+                    <p ng-if="gen.value!=true && gen.value!=false">{{gen.value?gen.value:'-'}}</p>
+                </div>
+                <div  ng-if="gen.dataType.name=='Date'">
+                    <p>{{gen.value?(gen.value|date:'dd-MM-yyyy'):'-'}}</p>
+                </div>
+                </div>
+            </div>
+            </div>
+            <div class="col-xs-12">
+            <div class="CLelements">Purchase</div>
+            <div class="col-xs-3" ng-repeat="purchase in MaterialFullInfo.Mtl_Purchase_Info">
+                <div>
+                <b>{{purchase.name}}</b>
+                <div ng-if="purchase.dataType.name=='StaticFile'">
+                    <p ng-if="purchase.value.ui!='' && purchase.value.ui!=null">
+                    <a href="{{purchase.value.ui}}" target="blank">Click Here</a> <br>
+                    </p>
+                    <p ng-if="purchase.value=='' || purchase.value==null">-</p>
+                </div>
+                <div ng-if="purchase.dataType.name=='CheckList'">
+                    <p ng-if="purchase.value.url!='' && purchase.value.url!=null">
+                    <a data-toggle="modal" data-target="#MaterialCheckListPopup" ng-click="getMaterialCheckListInfo(purchase.value.id);" aria-hidden="true" class="anchorText">Click To View Info</a>
+                    </p>
+                    <p ng-if="purchase.value=='' || purchase.value==null">-</p>
+                </div>
+                <div ng-if="purchase.dataType.name!='StaticFile' && purchase.dataType.name!='CheckList'">
+                    <p ng-if="purchase.dataType.subType!=null">{{purchase.value.value +' '+purchase.value.type}}</p>
+                    <p ng-if="purchase.dataType.subType==null">{{purchase.value ? purchase.value :'-'}}</p>
+                    <p ng-if="purchase.dataType.subType!=null && purchase.dataType.name=='MasterData'">{{purchase.value ? purchase.value :'-'}}</p>
+                </div>
+                <div ng-if="purchase.dataType.name=='Array' && purchase.dataType.subType.name=='Brand'">
+                    <div ng-repeat="valArray in purchase.value">
+                    <div ng-repeat="val in valArray.columns">
+                        <div ng-if="val.dataType.name=='StaticFile'">
+                        <p ng-if="val.value.url!='' && val.value.url!=null">
+                            {{val.name}} :  <a href="{{val.value.url}}" target="blank">Click Here</a> <br>
+                        </p>
+                        <p ng-if="val.value=='' || val.value==null">-</p>
+                        </div>
+                        <div ng-if="val.dataType.name!='StaticFile' && val.name!='Technical Drawing'">
+                        <p>
+                            {{val.name}} &nbsp; : &nbsp; {{val.value ? val.value :'-'}}
+                        </p>
+                        </div>
+                        <div ng-if="val.dataType.name!='StaticFile' && val.name=='Technical Drawing'">
+                        <div ng-if="val.dataType.name=='Array' && val.dataType.subType.name=='StaticFile'">
+                            {{val.name}} :
+                            <div ng-repeat="res in val.value">
+                            <p  ng-if="res.url!='' && res.url!=null">
+                                <a href="{{res.url}}" target="blank">Click Here</a> <br>
+                            </p>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+            </div>
+            <div class="col-xs-12">
+            <div class="CLelements">Specifications</div>
+            <div class="col-xs-2" ng-repeat="spec in MaterialFullInfo.Mtl_Specs_Info">
+                <div>
+                <b>{{spec.name}}</b><br>
+                <div ng-if="spec.dataType.name!='CheckList'">
+                    <p ng-if="spec.dataType.subType!=null">{{spec.value.value +' '+spec.value.type}}</p>
+                    <p ng-if="spec.dataType.subType==null">{{spec.value  ? spec.value :'-'}}</p>
+                </div>
+                <div ng-if="spec.dataType.name=='CheckList'">
+                    <p>
+                    <a data-toggle="modal" data-target="#MaterialCheckListPopup" ng-click="getMaterialCheckListInfo(spec.value.id);" aria-hidden="true" class="anchorText">Click To View Info</a>
+                    </p>
+                </div>
+                </div>
+            </div>
+            </div>
+            <div class="col-xs-12">
+            <div class="CLelements">Planning</div>
+            <div class="col-xs-3" ng-repeat="plan in MaterialFullInfo.Mtl_Planning_Info">
+                <div>
+                <b>{{plan.name}}</b><br>
+                <div ng-if="plan.dataType.name!='StaticFile' && plan.dataType.name!='Boolean'">
+                    <p ng-if="plan.dataType.subType!=null">{{plan.value.value +' '+plan.value.type}}</p>
+                    <p ng-if="plan.dataType.subType==null">{{plan.value ? plan.value :'-'}}</p>
+                </div>
+                <div ng-if="plan.dataType.name=='StaticFile'">
+                    <p>
+                    <br>
+                    <b> name</b>:{{plan.value.name}} <br>
+                    <b> url</b>:{{plan.value.url}} <br>
+                    <b>id</b>:{{plan.value.id}} <br>
+                    </p>
+                </div>
+                <div ng-if="plan.value!=null || plan.dataType.name=='MasterData' || plan.dataType.name=='Boolean'">
+                    <p ng-if="plan.value==true">Yes</p>
+                    <p ng-if="plan.value==false">No</p>
+                </div>
+                </div>
+            </div>
+            </div>
+            <div class="col-xs-12">
+            <div class="CLelements">Quality</div>
+            <div class="col-xs-3" ng-repeat="quality in MaterialFullInfo.Mtl_Quality_Info">
+                <div>
+                <b>{{quality.name}}</b>                                   
+                <div ng-if="quality.dataType.name=='StaticFile'">
+                    <p ng-if="quality.value!='' && quality.value!=null">
+                    <a href="{{quality.value.url}}" target="blank">Click Here</a> <br>
+                    </p>
+                    <p ng-if="quality.value=='' || quality.value==null">-</p>
+                </div>
+                <div ng-if="quality.dataType.name=='CheckList'">
+                    <p ng-if="quality.value!='' || quality.value!=null">
+                    <a data-toggle="modal" data-target="#MaterialCheckListPopup" ng-click="getMaterialCheckListInfo(quality.value.id);" aria-hidden="true" class="anchorText">Click To View Info</a>
+                    </p>
+                    <p ng-if="quality.value=='' || quality.value==null">-</p>
+                </div>
+                <div ng-if="quality.dataType.name!='CheckList' && quality.dataType.name!='StaticFile'">
+                    <p ng-if="quality.dataType.subType!=null">{{quality.value.value +' '+quality.value.type}}</p>
+                    <p ng-if="quality.dataType.subType==null">{{quality.value  ? quality.value :'-'}}</p>
+                </div>
+                <div ng-if="quality.value==null|| quality.dataType.name=='MasterData'">
+                    <p>{{quality.value}}</p>
+                </div>
+                </div>
+            </div>
+            </div>
+            <div class="col-xs-12">
+            <div class="CLelements">Log</div>
+            <div class="col-xs-3" ng-repeat="log in MaterialFullInfo.Mtl_Log_Info">
+                <div>
+                <b>{{log.name}}</b><br>
+                <p ng-if="log.dataType.subType=='Date Created' || log.dataType.subType=='Date Last Amended'">{{log.value?(log.value|date:'dd-MM-yyyy'):'-'}}</p>
+                <p ng-if="log.dataType.subType!='Date Created' && log.dataType.subType!='Date Last Amended'">{{log.value?log.value:'-'}}</p>
+                </div>
+            </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    </div>
+</div>
+<div id="materialViewInfoPopUp" class="modal fade pop-modal" role="dialog">
+    <div class="modal-dialog modal-lg" style="width:90% ">
+    <!-- Modal content-->
+    <div class="modal-content" style="width:100% ">
+        <div class="modal-header padpop" style="background-color: #646572; color:#fff">
+        <h5 class="modal-title pull-left mt7">Material Information</h5>
+        <div class="pull-right">
+            <button class="btn btn-warning btn-sm" type="button" data-dismiss="modal">Close</button>
+        </div>
+        <div class="clearfix"></div>
+        </div>
+        <div class="modal-body" style="height: 500px;width:100%;margin:10px 0 !important;overflow-y: scroll">
+        <div class="row" style="background-color:#fff; padding:0 10px; margin:0 0%;">
+            <div class="col-xs-12">
+            <div class="CLelements">Classification</div>
+            <div class="col-xs-3" ng-repeat="classic in MaterialFullInfo.Mtl_Classific_Info">
+                <div>
+                <b>{{classic.name}}</b>
+                <br>
+                <p>{{classic.value ? classic.value :'-'}}</p>
+                </div>
+            </div>
+            </div>
+            <div class="col-xs-12">
+            <div class="CLelements">General</div>
+            <div class="col-xs-3" ng-repeat="gen in MaterialFullInfo.Mtl_General_Info">
+                <div ng-if="gen.key!='part_of_edesign' && gen.key!='can_be_used_as_an_asset' && gen.key!='image' && gen.key!='available_till'">
+                <b>{{gen.name}}</b>
+                <br>
+                <p>{{gen.value ? gen.value :'-'}}</p>
+                </div>
+                <div ng-if="gen.key=='image' && gen.value!=null">
+                <b>{{gen.name}}</b>
+                <br>
+                <div ng-repeat="val in gen.value">
+                    <p>
+                    <a href="{{val.url}}" target="blank">Click Here</a>
+                    <br>
+                    </p>
+                </div>
+                </div>
+                <div ng-if="(gen.key=='part_of_edesign' || gen.key=='can_be_used_as_an_asset') && gen.key!='image'">
+                <b>{{gen.name}}</b>
+                <br>
+                <p ng-if="gen.value==true">Yes</p>
+                <p ng-if="gen.value==false">No</p>
+                </div>
+                <div ng-if="gen.key=='available_till'">
+                <b>{{gen.name}}</b>
+                <br>
+                <p>{{gen.value?(gen.value|date:'dd-MM-yyyy'):'-'}}</p>
+                </div>
+            </div>
+            </div>
+            <div class="col-xs-12">
+            <div class="CLelements">Purchase</div>
+            <div class="col-xs-3" ng-repeat="purchase in MaterialFullInfo.Mtl_Purchase_Info">
+                <div ng-if="purchase.key!='general_po_terms' && purchase.key !='special_po_terms' && purchase.key!='purchase_rate_threshold' && purchase.key!='approved_brands' && purchase.key!='approved_vendors'">
+                <b>{{purchase.name}}</b><br>
+                <p>{{purchase.value ? purchase.value :'-'}}</p>
+                </div>
+                <div ng-if="purchase.key =='special_po_terms'">
+                        <b>{{purchase.name}}</b><br>
+                    <p ng-if="val.value!='' || val.value!=null">
+                        <a href="{{purchase.value.ui}}" target="blank">Click Here</a></p>
+                    <p ng-if="val.value=='' || val.value==null">-</p>
+                    </div>
+                <div ng-if="purchase.key=='general_po_terms'">
+                <b>{{purchase.name}}</b>
+                <p ng-if="purchase.value.url!='' && purchase.value.url!=null">
+                    <a data-toggle="modal" data-target="#MaterialCheckListPopup" ng-click="getMaterialCheckListInfo(purchase.value.id);" aria-hidden="true" class="anchorText">Click To View Info</a>
+                </p>
+                <p ng-if="purchase.value=='' || purchase.value==null">-</p>
+                </div>
+                <div ng-if="purchase.key=='purchase_rate_threshold'">
+                <b>{{purchase.name}}</b><br>
+                <p ng-if="purchase.value!=null">{{purchase.value.value +' '+purchase.value.type}}</p>
+                <p ng-if="purchase.value==null">{{purchase.value ? purchase.value :'-'}}</p>
+                </div>
+                <div ng-if="purchase.key=='approved_brands'">
+                <b>{{purchase.name}}</b>
+                <br>
+                <div ng-repeat="valArray in purchase.value">
+                    <div ng-repeat="val in valArray.columns">
+                    <div ng-if="val.key=='manufacturers_specification' || val.key=='material_safety_data_sheet' ">
+                        <p ng-if="val.value.url!='' && val.value.url!=null">
+                        {{val.name}} : <a href="{{val.value.url}}" target="blank">Click Here</a>
+                        <br>
+                        </p>
+                        <p ng-if="val.value=='' || val.value==null">-</p>
+                    </div>
+                    <div ng-if="val.key!='manufacturers_specification' && val.key!=='material_safety_data_sheet'  && val.key!='technical_drawing' && val.key!='approved_vendors' ">
+                        <p>
+                        {{val.name}} &nbsp; : &nbsp; {{val.value ? val.value :'-'}}
+                        </p>
+                    </div>
+                    <div ng-if="val.key=='technical_drawing'">
+                        {{val.name}} :
+                        <div ng-repeat="res in val.value">
+                        <p ng-if="res.url!='' && res.url!=null">
+                            <a href="{{res.url}}" target="blank">Click Here</a>
+                            <br>
+                        </p>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+            </div>
+            <div class="col-xs-12">
+            <div class="CLelements">Specifications</div>
+            <div class="col-xs-2" ng-repeat="spec in MaterialFullInfo.Mtl_Specs_Info">
+                <div ng-if="spec.key!='specification_sheet' && spec.key!='weightuom' && spec.key!='height' && spec.key!='length' && spec.key!='overflow_capacity'">
+                <b>{{spec.name}}</b>
+                <br>
+                <p>{{spec.value ? spec.value :'-'}}</p>
+                </div>
+                <div ng-if="spec.key=='weightuom' || spec.key=='height' ||spec.key=='length' ||spec.key=='overflow_capacity'">
+                <b>{{spec.name}}</b>
+                <br>
+                <p ng-if="spec.value!=null">{{spec.value.value +' '+spec.value.type}}</p>
+                <p ng-if="spec.value==null">{{spec.value ? spec.value :'-'}}</p>
+                </div>
+                <div ng-if="spec.key=='specification_sheet'">
+                <b>{{spec.name}}</b>
+                <p>
+                    <a data-toggle="modal" data-target="#MaterialCheckListPopup" ng-click="getMaterialCheckListInfo(spec.value.id);" aria-hidden="true" class="anchorText">Click To View Info</a>
+                </p>
+                </div>
+            </div>
+            </div>
+            <div class="col-xs-12">
+            <div class="CLelements">Planning</div>
+            <div class="col-xs-3" ng-repeat="plan in MaterialFullInfo.Mtl_Planning_Info">
+                <div ng-if="plan.key!='po_lead_time' && plan.key!='delivery_lead_time' && plan.key!='maintain_lot' ">
+                <b>{{plan.name}}</b>
+                <br>
+                <p>{{plan.value?plan.value:'-'}}</p>
+                </div>
+                <div ng-if="plan.key=='po_lead_time' || plan.key=='delivery_lead_time'">
+                <b>{{plan.name}}</b>
+                <br>
+                <p ng-if="plan.value!=null">{{plan.value.value +' '+plan.value.type}}</p>
+                </div>
+                <div ng-if="plan.key=='maintain_lot'">
+                <b>{{plan.name}}</b>
+                <br>
+                <p ng-if="plan.value==true">Yes</p>
+                <p ng-if="plan.value==false">No</p>
+                </div>
+            </div>
+            </div>
+            <div class="col-xs-12">
+            <div class="CLelements">Quality</div>
+            <div class="col-xs-3" ng-repeat="quality in MaterialFullInfo.Mtl_Quality_Info">
+                <div ng-if="quality.key=='governing_standard'">
+                <b>{{quality.name}}</b>
+                <br>
+                <p>{{quality.value?quality.value:'-'}}</p>
+                </div>
+                <div ng-if="quality.key!='governing_standard'">
+                <b>{{quality.name}}</b>
+                <p ng-if="quality.value!='' && quality.value!=null">
+                    <a href="{{quality.value.url}}" target="blank">Click Here</a>
+                    <br>
+                </p>
+                <p ng-if="quality.value=='' || quality.value==null">-</p>
+                </div>
+            </div>
+            </div>
+            <div class="col-xs-12">
+            <div class="CLelements">Log</div>
+            <div class="col-xs-3" ng-repeat="log in MaterialFullInfo.Mtl_Log_Info">
+                <div>
+                <b>{{log.name}}</b>
+                <br>
+                <p ng-if="log.name=='Date Created' || log.name=='Date Last Amended'">{{log.value?(log.value|date:'dd-MM-yyyy'):'-'}}</p>
+                <p ng-if="log.name!='Date Created' && log.name!='Date Last Amended'">{{log.value?log.value:'-'}}</p>
+                </div>
+            </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    </div>
+</div>
+<div id="serviceViewInfoPopUp" class="modal fade pop-modal" role="dialog">
+    <div class="modal-dialog modal-lg" style="width:90% ">
+    <!-- Modal content-->
+    <div class="modal-content" style="width:100% ">
+        <div class="modal-header padpop" style="background-color: #646572; color:#fff">
+        <h5 class="modal-title pull-left mt7">Service Information</h5>
+        <div class="pull-right">
+            <button class="btn btn-warning btn-sm" type="button" data-dismiss="modal">Close</button>
+        </div>
+        <div class="clearfix"></div>
+        </div>
+        <div class="modal-body" style="height: 500px;width:100%;margin:10px 0 !important;overflow-y: scroll">
+        <div class="row" style="background-color:#fff; padding:0 10px; margin:0 0%;">
+            <div class="col-xs-12">
+            <div class="CLelements">Classification</div>
+            <div class="col-xs-3" ng-repeat="classic in ServiceFullInfo.Mtl_Classific_Info">
+                <div>
+                <b>{{classic.name}}</b>
+                <br>
+                <p>{{classic.value ? classic.value :'-'}}</p>
+                </div>
+            </div>
+            </div>
+            <div class="col-xs-12">
+            <div class="CLelements">Classification Definition</div>
+            <table class="table-responsive table table-striped" style="margin: 10px">
+                <thead style="font-size:9pt;">
+                <tr class="filters">
+                    <th style="width:5%;">#</th>
+                    <th style="width: 25%;">Name</th>
+                    <th calss="text-center">Condition</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="(key,clData) in ServiceFullInfo.Mtl_Definition_Info">
+                    <td> {{key+1}} </td>
+                    <td> {{clData.name}} </td>
+                    <td> {{clData.value}} </td>
+                </tr>
+                </tbody>
+            </table>
+            </div>
+            <div class="col-xs-12">
+            <div class="CLelements">General</div>
+            <div class="col-xs-3" ng-repeat="gen in ServiceFullInfo.Mtl_General_Info">
+                <div>
+                <b>{{gen.name}}</b>
+                <br>
+                <p>{{gen.value ? gen.value :'-'}}</p>
+                </div>
+            </div>
+            </div>
+            <div class="col-xs-12">
+            <div class="CLelements">Purchase</div>
+            <div class="col-xs-3" ng-repeat="purchase in ServiceFullInfo.Mtl_Purchase_Info">
+                <div>
+                <b>{{purchase.name}}</b>
+                <div ng-if="purchase.name=='General SO Terms' || purchase.name=='Special SO Terms'">
+                    <p ng-if="purchase.value.ui!='' && purchase.value.ui!=null">
+                    <a data-toggle="modal" data-target="#ServiceCheckListPopup" ng-click="getMaterialCheckListInfo(purchase.value.id);" aria-hidden="true" class="anchorText">Click To View Info</a>
+                    </p>
+                </div>
+                <div ng-if="purchase.name=='Pur. Rate Threshold'">
+                    <p>{{plan.value.value +' '+plan.value.type}}</p>
+                </div>
+                <div ng-if="purchase.name!='Pur. Rate Threshold' && purchase.name!='General SO Terms' && purchase.name!='Special SO Terms'">
+                    <p>{{purchase.value ? purchase.value :'-'}}</p>
+                </div>
+                </div>
+            </div>
+            </div>
+            <div class="col-xs-12">
+            <div class="CLelements">Planning</div>
+            <div class="col-xs-3" ng-repeat="plan in ServiceFullInfo.Mtl_Planning_Info">
+                <div>
+                <b>{{plan.name}}</b>
+                <br>
+                <p ng-if="plan.name=='SO Lead Time' || plan.name=='Vendor Mobilisation Time'">{{plan.value.value +' '+plan.value.type}}</p>
+                <p ng-if="plan.name!='SO Lead Time' && plan.name!='Vendor Mobilisation Time'">{{plan.value ? plan.value :'-'}}</p>
+                </div>
+            </div>
+            </div>
+            <div class="col-xs-12">
+            <div class="CLelements">Quality</div>
+            <div class="col-xs-3" ng-repeat="quality in ServiceFullInfo.Mtl_Quality_Info">
+                <div>
+                <b>{{quality.name}}</b>
+                <br>
+                <p>{{gen.value ? gen.value :'-'}}</p>
+                </div>
+            </div>
+            </div>
+            <div class="col-xs-12">
+            <div class="CLelements">Log</div>
+            <div class="col-xs-3" ng-repeat="log in ServiceFullInfo.Mtl_Log_Info">
+                <div>
+                <b>{{log.name}}</b>
+                <br>
+                <p ng-if="log.name=='Date Created' || log.name=='Date Last Amended'">{{log.value?(log.value|date:'dd-MM-yyyy'):'-'}}</p>
+                <p ng-if="log.name!='Date Created' && log.name!='Date Last Amended'">{{log.value?log.value:'-'}}</p>
+                </div>
+            </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    </div>
+</div>
+<div id="serviceInformationPopUp" class="modal fade pop-modal" role="dialog">
+    <div class="modal-dialog modal-lg" style="width:90% ">
+    <!-- Modal content-->
+    <div class="modal-content" style="width:100% ">
+        <div class="modal-header padpop" style="background-color: #646572; color:#fff">
+        <h5 class="modal-title pull-left mt7">Service Information</h5>
+        <div class="pull-right">
+            <button class="btn btn-warning btn-sm" type="button" data-dismiss="modal">Close</button>
+        </div>
+        <div class="clearfix"></div>
+        </div>
+        <div class="modal-body" style="height: 500px;width:100%;margin:10px 0 !important;overflow-y: scroll">
+        <div class="row" style="background-color:#fff; padding:0 10px; margin:0 0%;">
+            <div class="col-xs-12">
+            <div class="CLelements">Classification</div>
+            <div class="col-xs-3" ng-repeat="classic in ServiceFullInfo.Mtl_Classific_Info.columns">
+                <div>
+                <b>{{classic.name}}</b>
+                <br>
+                <p>{{classic.value ? classic.value :'-'}}</p>
+                </div>
+            </div>
+            </div>
+            <div class="col-xs-12">
+            <div class="CLelements">Classification Definition</div>
+            <table class="table-responsive table table-striped" style="margin: 10px">
+                <thead style="font-size:9pt;">
+                <tr class="filters">
+                    <th style="width:5%;">#</th>
+                    <th style="width: 25%;">Name</th>
+                    <th calss="text-center">Condition</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="(key,clData) in ClassificationDefinitionResult">
+                    <td> {{key+1}} </td>
+                    <td> {{clData.name}} </td>
+                    <td> {{clData.value}} </td>
+                </tr>
+                </tbody>
+            </table>
+            </div>
+            <div class="col-xs-12">
+            <div class="CLelements">General</div>
+            <div class="col-xs-3" ng-repeat="gen in ServiceFullInfo.Mtl_General_Info.columns">
+                <div>
+                <b>{{gen.name}}</b>
+                <br>
+                <p>{{gen.value ? gen.value :'-'}}</p>
+                </div>
+            </div>
+            </div>
+            <div class="col-xs-12">
+            <div class="CLelements">Purchase</div>
+            <div class="col-xs-3" ng-repeat="purchase in ServiceFullInfo.Mtl_Purchase_Info.columns">
+                <div>
+                <b>{{purchase.name}}</b>
+                <div ng-if="purchase.name=='General SO Terms' || purchase.name=='Special SO Terms'">
+                    <p ng-if="purchase.value.ui!='' && purchase.value.ui!=null">
+                    <a data-toggle="modal" data-target="#ServiceCheckListPopup" ng-click="getMaterialCheckListInfo(purchase.value.id);" aria-hidden="true" class="anchorText">Click To View Info</a>
+                    </p>
+                </div>
+                <div ng-if="purchase.name=='Pur. Rate Threshold'">
+                    <p>{{plan.value.value +' '+plan.value.type}}</p>
+                </div>
+                <div ng-if="purchase.name!='Pur. Rate Threshold' && purchase.name!='General SO Terms' && purchase.name!='Special SO Terms'">
+                    <p>{{purchase.value ? purchase.value :'-'}}</p>
+                </div>
+                </div>
+            </div>
+            </div>
+            <div class="col-xs-12">
+            <div class="CLelements">Planning</div>
+            <div class="col-xs-3" ng-repeat="plan in ServiceFullInfo.Mtl_Planning_Info.columns">
+                <div>
+                <b>{{plan.name}}</b>
+                <br>
+                <p ng-if="plan.name=='SO Lead Time' || plan.name=='Vendor Mobilisation Time'">{{plan.value.value +' '+plan.value.type}}</p>
+                <p ng-if="plan.name!='SO Lead Time' && plan.name!='Vendor Mobilisation Time'">{{plan.value ? plan.value :'-'}}</p>
+                </div>
+            </div>
+            </div>
+            <div class="col-xs-12">
+            <div class="CLelements">Quality</div>
+            <div class="col-xs-3" ng-repeat="quality in ServiceFullInfo.Mtl_Quality_Info.columns">
+                <div>
+                <b>{{quality.name}}</b>
+                <br>
+                <p>{{gen.value ? gen.value :'-'}}</p>
+                </div>
+            </div>
+            </div>
+            <div class="col-xs-12">
+            <div class="CLelements">Log</div>
+            <div class="col-xs-3" ng-repeat="log in ServiceFullInfo.Mtl_Log_Info.columns">
+                <div>
+                <b>{{log.name}}</b>
+                <br>
+                <p ng-if="log.name=='Date Created' || log.name=='Date Last Amended'">{{log.value?(log.value|date:'dd-MM-yyyy'):'-'}}</p>
+                <p ng-if="log.name!='Date Created' && log.name!='Date Last Amended'">{{log.value?log.value:'-'}}</p>
+                </div>
+            </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    </div>
+</div>
+<div id="HSNDetailsPart1Popup" class="modal fade pop-modal" role="dialog">
+    <div class="modal-dialog modal-lg">
+    <!-- Modal content-->
+    <div class="modal-content">
+        <div class="modal-header padpop">
+        <h5 class="modal-title pull-left mt7">Add HSN/SAC</h5>
+        <div class="pull-right">
+            <button class="btn btn-warning btn-sm" type="button" data-dismiss="modal">Cancel</button>
+            <button class="btn btn-success btn-sm" type="button" ng-click="setHSNData(SelHSNMas);">Add</button>
+        </div>
+        <div class="clearfix"></div>
+        </div>
+        <div class="modal-body">
+        <div class="row">
+            <div class="col-xs-12">
+            <form name="HSNDetailsForm" class="HSNDetailsForm">
+                <input type="hidden" name="Qtype" value="and">
+                <input type="hidden" name="PageNumber" value="{{pagenumberWBSD}}" ng-model="pagenumberWBSD">
+                <input type="hidden" name="PageperCount" value="{{pageprecountsWBSD}}" ng-model="pageprecountsWBSD">
+                <input type="hidden" name="DeliveryPlantRegionCode" value="{{PODetailsResult.ShipToData.StateCode}}" ng-model="PODetailsResult.ShipToData.StateCode">
+                <input type="hidden" name="VendorRegionCode" value="{{PODetailsResult.RegionCode}}" ng-model="PODetailsResult.RegionCode">
+                <input type="hidden" name="DestinationCountry" value="{{PODetailsResult.Country}}" ng-model="PODetailsResult.Country">
+                <input type="hidden" name="VendorGSTApplicability" value="{{PODetailsResult.VendorGSTApplicability}}" ng-model="PODetailsResult.VendorGSTApplicability">
+                <div class="table-responsive" style="margin-bottom: 0;max-height: 450px;">
+                <table class="table table table-bordered">
+                    <thead style="font-size:9pt;">
+                    <tr class="filters">
+                        <th>HSN Code</th>
+                        <th>Country</th>
+                        <th>V-Region Code</th>
+                        <th>V-Region</th>
+                        <th>DP-Region Code</th>
+                        <th>DP-Region</th>
+                        <th>Vendor GST</th>
+                        <th>TaxCode</th>
+                        <th>CGST</th>
+                        <th>SGST</th>
+                        <th>IGST</th>
+                    </tr>
+                    <tr class="filtersLight">
+                        <td><input class="form-control filtersCSS" placeholder="Search" ng-model="Wf1" ng-change="getHSNDetails();" name="HSNCode"></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="(key,obj) in HSNList" ng-click="$parent.SelHSNMas=obj;$parent.SelIndSHN=$index;" class="filtersLight cursorPointer" ng-class="{'SelTD':$index==SelIndSHN}">
+                        <td>{{obj.HSNCode}}</td>
+                        <td>{{obj.DestinationCountry}}</td>
+                        <td>{{obj.VendorRegionCode}}</td>
+                        <td>{{obj.VendorRegionDescription}}</td>
+                        <td>{{obj.DeliveryPlantRegionCode}}</td>
+                        <td>{{obj.DeliveryPlantRegionDescription}}</td>
+                        <td>{{obj.VendorGSTDescription}}</td>
+                        <td>{{obj.Taxcode}}</td>
+                        <td>{{obj.CGSTTaxRate}}</td>
+                        <td>{{obj.SGSTTaxRate}}</td>
+                        <td>{{obj.IGSTTaxRate}}</td>
+                    </tr>
+                    </tbody>
+                </table>
+                </div>
+                <table class="table table-bordered">
+                <tfoot>
+                    <tr>
+                    <td class="footer text-right" colspan="6" style="padding: 5px 8px;">
+                        <label>Go To Page :</label> &nbsp;
+                        <label><input type="text" style="width:auto;" size="2" value="1" class="form-control inline-in intvalid pageInput" ng-model="pagenumberHSN" ng-change="pagenationHSN(pagenumberHSN)" /> </label> &nbsp;&nbsp;
+                        <label> Show Rows : </label>
+                        <label style="color: #000 !important;">
+                        <select ng-model="pageprecountsHSN" name="pageprecountsHSN" id="pageprecountsHSN" class="pageCount inline-in" ng-change="pagenationHSN(1,pageprecountsHSN)">
+                            <option value="" disabled>Select</option>
+                            <option value="10">10</option>
+                            <option value="20">20</option>
+                            <option value="50">50</option>
+                            <option value="100" ng-selected="true">100</option>
+                            <option value="200">200</option>
+                            <option value="400">400</option>
+                            <option value="500">500</option>
+                            <option value="700">700</option>
+                            <option value="1000">1000</option>
+                        </select>
+                        </label>
+                        &nbsp;&nbsp;
+                        <label><a class="btn btn-default btn-xs" ng-click="pagenationHSN_Clk(pagenumberHSN,0)" style="padding:0px 8px;margin-bottom: 3px;"><i class="fa fa-caret-left"></i></a> </label>
+                        <label ng-if="HSNList.length>'0'"><a class="btn btn-default btn-xs" ng-click="pagenationHSN_Clk(pagenumberHSN,1)" style="padding:0px 8px;margin-bottom: 3px;"><i class="fa fa-caret-right"></i></a> </label>
+                    </td>
+                    </tr>
+                </tfoot>
+                </table>
+            </form>
+            </div>
+        </div>
+        </div>
+    </div>
+    </div>
+</div>

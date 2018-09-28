@@ -1,0 +1,49 @@
+
+<div class="row" resize id="submit" value="Submit" >
+    <div class="col-lg-3 cnt-list-panel-bg">
+	
+		<div class="cnt-list-add" style="height:44px;">
+            <div class="col-md-12">
+                <div class="btn glyphicon glyphicon-plus-sign" ui-sref = "main.poTerms.CreateTerms">Create</div>
+            </div>
+        </div>
+		
+        <div class="scorlbar ContactProfileList" style="background-color:#fff;" when-scroll-ends="vm.loadMoreRecords()" ng-init="initFirst()" href="main.poTerms.CreateTerms">
+		
+            <!-- <div class="profile-bg getmaster" data-ng-repeat="dataterms in getmaster | limitTo: paginationLimit()" ui-sref="main.poTerms.DetailTerms" ng-class="{'leftpan-button-active':vm.selectedPONumber == item.Purchasing_Order_Number}" data-ng-click="vm.selectedEdm = dataterms; vm.selectedEdmId = dataterms.UniqueId;"> -->
+			
+			 <div class="profile-bg getmaster" data-ng-repeat="dataterms in getmaster | limitTo: paginationLimit()" ui-sref="main.poTerms.DetailTerms" ng-class="{'leftpan-button-active':vm.selectedPONumber == item.Purchasing_Order_Number}" data-ng-click="dataterms.SequenceId">
+			
+                <div class="row" >
+	
+					<div class="col-md-12" style="line-height:22px;">
+						<h4> {{dataterms.Title}} </h4>
+						 SeqID:-{{dataterms.SequenceId}} 
+						<div class="pull-right">{{dataterms.Type}}</div>
+                    </div>
+					
+                </div>				
+								
+            </div>
+
+
+			<button class="button-full btn-big" style="width:100%;" ng-show="hasMoreItemsToShow()" ng-click="showMoreItems()">
+				  Show more
+			</button>
+				
+        </div>
+
+		
+
+		
+		
+		
+    </div>
+    <div class="col-lg-9 padding0">
+        <div class="containerHeight" style="overflow-y:auto;">
+            <div ui-view>
+            </div>
+        </div>
+    </div>
+	<div class="ng-view"></div>
+</div>

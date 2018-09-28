@@ -1,0 +1,1605 @@
+﻿<head>
+<!-- <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" />
+<link href="css/style.css" rel="stylesheet" />
+<link rel="stylesheet" type="text/css" href="css/tefont.css"/> -->
+<script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
+<script src="http://netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<!-- <script src="textAngular-sanitize.js"></script>
+<script src="textAngular.min.js"></script> -->
+
+<!-- <link href="app/po/pdf_print.css"  media="print" rel="stylesheet" /> -->
+<!-- <script src="pdf-script.js"></script> -->
+<!-- <link href="css/bootstrap-theme.css" rel="stylesheet" /> -->
+<!--<script>
+$(document).ready(function () {
+		$("#txtEditor").Editor();
+});
+ </script>-->
+<style type="text/css">
+@font-face {
+font-family: 'aller_lightregular';
+    src: url('https://fugue-server.total-environment.com/TEProcurement/app/main/fonts/aller_lt-webfont.eot');
+    src: url('https://fugue-server.total-environment.com/TEProcurement/app/main/fonts/aller_lt-webfont.eot?#iefix') format('embedded-opentype'), url('fonts/aller_lt-webfont.woff2') format('woff2'), url('https://fugue-server.total-environment.com/TEProcurement/app/main/fonts/aller_lt-webfont.woff') format('woff'), url('https://fugue-server.total-environment.com/TEProcurement/app/main/fonts/aller_lt-webfont.ttf') format('truetype'), url('https://fugue-server.total-environment.com/TEProcurement/app/main/fonts/aller_lt-webfont.svg#aller_lightregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+/*	.watermark-img
+{
+  background: url('https://fugue-server.total-environment.com/TEProcurement/assets/images/draft-img.png') repeat-y 100px 1000px;
+}*/
+</style>
+
+</head>
+
+ <div class="print-link no-print"  ng-click="printDiv('poPdf');"  ng-if="vm.isPOdetail"  style="text-align:right;width:750px; margin:auto;">
+                <i class="fa fa-print" aria-hidden="true" style="font-size: 12pt;color: #003366 !important;"></i>
+                </div>
+   <div id="printSection">
+</div>  
+ <div id="poPdf">
+<div class="pdftable" ng-class="draftClass"  ng-if="vm.isPOdetail" ng-style="{ background: vm.isdraft? 'url('+'https://fugue-server.total-environment.com/TEProcurement/assets/images/draft-img.png'+') repeat-y 100px 1000px' : '' }">
+	
+			<!-- <div class="watermark-img"></div> -->
+			<table class="pdf-format" style="width:750px; font-family:aller_lightregular !important; font-size:9pt; align="center;" cellpadding="0" cellspacing="0">
+				<!-- <thead>
+					<tr>
+						<td>
+							<div class="watermark" ng-if="vm.isdraft"><div class="watermark-img"></div></div>
+						</td>
+					</tr>
+
+				</thead> -->
+				
+				<tbody>
+				<tr>
+				<!-- 	<td>
+					<div class="watermark" ng-if="vm.isdraft"><div class="watermark-img"></div></div> -->
+
+						<table  style="width:750px;" font-family:aller_lightregular !important; font-size:9pt; align="center"  cellpadding="0" cellspacing="0">
+							<tr>
+								<td style="font-size:10pt; margin-top:10px; margin-bottom:5px;">
+									<table style="width:100% !important; font-family:aller_lightregular !important; font-size:9pt;"  cellpadding="0" cellspacing="0">
+										<tr>
+											<td style=" color:#000; width:95px;">Customers:</td>
+											<td style="font-weight: bold; font-size:10pt;" data-ng-bind="vm.poDetails.CompanyName">NA</td>
+										</tr>
+										<tr>
+											<td style=" color:#000;"></td>
+											<td style="font-size: 9pt;  padding-right: 75px;" data-ng-bind="vm.poDetails.CompanyAddress">NA</td>
+										</tr>
+										<tr>
+											<td style=" color:#000;">Prjct / Fnc:</td>
+											<td ><b>{{vm.poDetails.FundCenterDescription}}</b></td>
+										</tr>
+										<tr>
+											<td style=" color:#000;">WBS Head:</td>
+											<td data-ng-bind="vm.WbsHeads">NA</td>
+										</tr>
+									</table>									  
+								</td>
+								<td valign="top"><img src="http://192.168.51.251/TEProcurement/assets/images/te-logo.jpg"></td>
+							</tr>
+						</table>	   
+					</td>
+				</tr>	   
+				<tr>
+					<td>	   
+						<table class="pdfbordertable" style="width:750px; font-family:aller_lightregular !important; font-size:9pt;page-break-inside: avoid;" align="center"  cellpadding="0" cellspacing="0">
+							<tr>
+								<td width="500"  class="orderhead pdf-color-enable" style="background-color:#003366 !important;text-align:center; color: #fff !important; height: 35px; font-size: 12pt; border: 1px solid #003366;"><span style="font-weight:bold; font-family: Arial Black;" >CONTRACT AGREEMENT</span><span style="padding-left: 15px; font-weight: bold;" >[Purchase Order]</span></td>
+								<td width="174" style="text-align:center; border: 1px solid #003366; font-size: 11pt">No:<span style="font-weight: bold" data-ng-bind="vm.poDetails.Purchasing_Order_Number">NA</span> R <span style="font-weight: bold"  data-ng-bind="vm.poDetails.RevisionNumber">NA</span></td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+				<tr>
+					<td style="border-bottom:none;    border: 1px solid silver;"></td>
+				</tr>
+				<tr>
+					<td>
+						<table class="pdfbordertable" style="border-top:none;width:750px; font-family:aller_lightregular !important; font-size:9pt;page-break-inside: avoid;" align="center"  cellpadding="0" cellspacing="0">
+							<tr>
+								<td style="width:100px; text-align:right;    border: 1px solid silver;border-bottom: 0;">PO Manager:</td>
+								<td style="width:250px; text-align:left;    border: 1px solid silver;border-bottom: 0;border-left: 0;"><b data-ng-bind="vm.poDetails.POManager">NA</b></td>
+								<td style="width:80px; text-align:right;    border: 1px solid silver;border-bottom: 0;border-left: 0;">Date:</td>
+								<td style="width:80px; text-align:left; font-weight: bold;    border: 1px solid silver;border-bottom: 0;border-left: 0;" data-ng-bind="vm.poDetails.PODate | date:vm.dateFormate">NA</td>
+								<td style="width:80px; text-align:right;    border: 1px solid silver;border-bottom: 0;border-left: 0;">Revision  :</td>
+								<td style="width:150px; text-align:left;    border: 1px solid silver;border-bottom: 0;border-left: 0;"  ></td>
+							</tr>	
+							<tr style="background-color: #ffffff !important" class="pdf-color-enable">
+								<td style="border: 1px solid silver;border-bottom: 0;"></td>
+								<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;border-bottom: 0;border-left: 0;"></td>
+								<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;"></td>
+								<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;"></td>
+								<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;"></td>
+								<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;"></td>
+							</tr>
+
+							<tr style="background-color: #003366  !important" class="pdf-color-enable">
+								<td style="height: 3px; border: 1px solid silver;border-bottom: 0;"></td>
+								<td style="border: 1px solid silver; border-bottom: 0;border-left: 0;"></td>
+								<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;"></td>
+								<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;"></td>
+								<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;"></td>
+								<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;"></td>
+							</tr>
+							
+							<tr style="background-color: #ffffff !important" class="pdf-color-enable">
+								<td style=" border: 1px solid silver;border-bottom: 0;"></td>
+								<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;"></td>
+								<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;"></td>
+								<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;"></td>
+								<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;"></td>
+								<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;"></td>
+							</tr>	  
+
+							<tr style="height: 22px;">
+								<td style="width:100px; text-align:right; border: 1px solid silver; border-bottom: 0;">Vendors:</td>
+								<td style="width:254px; text-align:left;border: 1px solid silver; border-bottom: 0;border-left: 0;" ><b data-ng-bind="vm.poDetails.VendorName">NA</b></td>
+								<td style="width:79px; text-align:right;border: 1px solid silver;border-bottom: 0;border-left: 0;" colspan="2">Vendor Code:</td>
+								<td style="width:80px; text-align:right; font-weight: bold;border: 1px solid silver;border-bottom: 0;border-left: 0;" data-ng-bind="vm.poDetails.Vendor_Account_Number" colspan="2"></td>
+								<!--<td style="width:84px; text-align:right;">PAN  :</td>
+								<td style="width:147px; text-align:left;" data-ng-bind="vm.poDetails.VendorPanNumber"></td>-->
+							</tr>	 
+							<tr style="height: 22px;">
+								<td style="width:100px; text-align:right;border: 1px solid silver;border-bottom: 0;">&nbsp;</td>
+								<td colspan="1" style="width:254px; text-align:left;border: 1px solid silver;border-bottom: 0;border-left: 0;" data-ng-bind="vm.poDetails.VendorAddress">NA</td>
+								<td colspan="4" style="width:80px; border: 1px solid silver;border-bottom: 0;border-left: 0;text-align:right;">&nbsp;</td>
+								<!--<td style="width:80px; text-align:right;">VAT:</td>
+								<td style="width:80px; text-align:left;" data-ng-bind="vm.poDetails.VendorVat">&nbsp;</td>
+								<td style="width:80px; text-align:right;">Service Tax:  </td>
+								<td style="width:150px; text-align:left; " data-ng-bind="vm.poDetails.VendorServiceTax">&nbsp;</td>-->
+							</tr>
+							<tr style="background-color: #ffffff !important" class="pdf-color-enable">
+								<td style="border: 1px solid silver;border-bottom: 0;"></td>
+								<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;"></td>
+								<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;"></td>
+								<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;"></td>
+								<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;"></td>
+								<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;"></td>
+							</tr>
+
+							<tr style="background-color: #003366  !important" class="pdf-color-enable">
+								<td style="height: 3px; border: 1px solid silver;"></td>
+								<td style="border: 1px solid silver;border-bottom: 0;"></td>
+								<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;"></td>
+								<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;"></td>
+								<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;"></td>
+								<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;"></td>
+							</tr>
+							
+							<tr style="background-color: #ffffff !important" class="pdf-color-enable">
+								<td style=" border: 1px solid silver;border-bottom: 0;"></td>
+								<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;"></td>
+								<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;"></td>
+								<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;"></td>
+								<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;"></td>
+								<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;"></td>
+							</tr>				
+						</table>
+					</td>
+				</tr>
+				
+				<tr>
+					<td height="3" style="border-bottom:none; border: 1px solid silver;"></td>
+				</tr>
+				<!-- <tr>
+				<td>
+				<div class="">
+					<table class="pdfbordertable" style="width:750px;border-bottom:none;border-top:none;" align="center">
+					<tr>
+					<td colspan="4">{{vm.poDetails.POTitle}}</td>
+					<td style="font-weight:bold;">Total</td>
+					<td>{{vm.poDetails.Currency_Key}}</td>
+					<td colspan="2"></td>
+					</tr>
+					</table>
+					</div>
+				</td>
+				</tr> -->
+
+				<!-- <tr>
+			
+					<td colspan="4">{{vm.poDetails.POTitle}}</td>
+					<td></td>
+					<td></td>
+					<td colspan="2"></td>
+				
+				</tr> -->
+
+
+
+<tr>
+	<td style="border: 1px solid silver; width:750px !important;">					
+	<table class="pdfbordertable" style="width:750px; font-family:aller_lightregular !important; font-size:9pt;" align="center"  ng-if="vm.poDetails.PODate >vm.GSTDate"  cellpadding="0" cellspacing="0">
+		<tr style="page-break-inside: avoid;">
+			<td colspan="7" style="background-color: #deebf6 !important;font-weight:bold;text-align:center;font-size:10pt;border: 1px solid silver;border-bottom: 0; " data-ng-bind="vm.poDetails.POTitle"></td>
+			<td style="border: 1px solid silver;font-weight:bold;text-align:right;font-size:10pt;border-bottom: 0;border-left: 0;">Total</td>
+			<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;text-align:right;font-size:10pt;" colspan="3">{{vm.poDetails.Currency_Key}}
+			</td>
+			<td colspan="2" data-ng-bind="vm.poDetails.Amount | currencyFormat" style="padding:2px; text-align:right;font-weight:600;border: 1px solid silver;border-bottom: 0;border-left: 0;background-color: #fff3cb !important;font-size:10pt;"></td>
+		</tr>
+
+		<tr style="text-align:center;page-break-inside: avoid;">
+			<td style="padding:2px;border: 1px solid silver;border-bottom: 0;">Sl No.</td>
+			<td style="padding:2px;border: 1px solid silver;border-bottom: 0;border-left: 0;border-bottom: 0;border-left: 0;">Item Description</td>
+			<td style="padding:2px;border: 1px solid silver;border-bottom: 0;border-left: 0;">HSN/SAC</td>	   
+			<td style="padding:2px;border: 1px solid silver;border-bottom: 0;border-left: 0;">Qtty</td>
+			<td style="padding:2px;border: 1px solid silver;border-bottom: 0;border-left: 0;">Unit</td>
+			<td style="padding:2px;border: 1px solid silver;border-bottom: 0;border-left: 0;">Rate</td>	   
+			<td style="padding:2px;border: 1px solid silver;border-bottom: 0;border-left: 0;">Amount</td>
+			<td style="padding:2px;border: 1px solid silver;border-bottom: 0;border-left: 0;">Other</td>
+			<td style="padding:2px;border: 1px solid silver;border-bottom: 0;border-left: 0;">IGST</td>
+			<td style="padding:2px;border: 1px solid silver;border-bottom: 0;border-left: 0;">SGST</td>
+			<td style="padding:2px;border: 1px solid silver;border-bottom: 0;border-left: 0;">CGST</td>
+			<td style="padding:2px;border: 1px solid silver;border-bottom: 0;border-left: 0;" >Tax</td>	   
+			<td style="padding:2px;border: 1px solid silver;border-bottom: 0;border-left: 0;" >Gross</td>
+		</tr>			
+		<tr ng-repeat-start="item in vm.poItemList" ng-init='showSubItemDetails(item,true);$parentIndex=$index' style="page-break-inside: avoid;">
+			<td style="padding:2px;border: 1px solid silver; text-align:center;" data-ng-bind="$index+1" class="pdf-color-enable"></td>
+			<td style="padding:2px;border: 1px solid silver;border-left: 0; text-align:left;" data-ng-bind="item.Short_Text" class="pdf-color-enable">NA</td>
+			<td style="padding:2px; border: 1px solid silver;border-left: 0;text-align:right;" ><span data-ng-bind="item.HSNCode"></span></td>   
+			<td style="padding:2px; border: 1px solid silver;border-left: 0;text-align:right;" ><span data-ng-bind="item.Order_Qty | currencyDecimalFormat" ng-if="item.Item_Category != 'D'"></span></td>
+			<td style="padding:2px; border: 1px solid silver;border-left: 0;text-align:center;" ><span data-ng-bind="item.Unit_Measure" ng-show="item.Item_Category != 'D'"></span></td>
+			<td style="padding:2px; border: 1px solid silver;border-left: 0;text-align:right;" ><span data-ng-bind="item.Net_Price | currencyDecimalFormat" ng-if="item.Item_Category != 'D'"></span></td>	   
+			<td style="padding:2px; border: 1px solid silver;border-left: 0;text-align:right;" data-ng-bind="item.Amount | currencyDecimalFormat">NA</td>
+			<td style="padding:2px; border: 1px solid silver;border-left: 0;text-align:right;" data-ng-bind="item.OtherCharges | currencyDecimalFormat">NA</td>
+			<td style="padding:2px; border: 1px solid silver;border-left: 0;text-align:right;" data-ng-bind="item.IGST | currencyDecimalFormat">Na</td>	   
+			<td style="padding:2px; border: 1px solid silver;border-left: 0;text-align:right;" data-ng-bind="item.SGST | currencyDecimalFormat">Na</td>	   
+			<td style="padding:2px; border: 1px solid silver;border-left: 0;text-align:right;" data-ng-bind="item.CGST | currencyDecimalFormat">Na</td>	   
+			<td style="padding:2px; border: 1px solid silver;border-left: 0;text-align:right;" data-ng-bind="item.ItemTax | currencyDecimalFormat">Na</td>	   
+			<td style="padding:2px; border: 1px solid silver;border-left: 0;text-align:right;" data-ng-bind="item.itemTotal | currencyDecimalFormat">NA</td>
+		</tr>
+
+
+<!-- 		<tr style="background-color: #ffffff  !important" class="pdf-color-enable">
+			<td style="border: 1px solid silver;"></td>
+			<td style="border: 1px solid silver;"></td>
+			<td style="border: 1px solid silver;"></td>
+			<td style="border: 1px solid silver;"></td>
+			<td style="border: 1px solid silver;"></td>
+			<td style="border: 1px solid silver;"></td>
+			<td style="border: 1px solid silver;"></td>
+			<td style="border: 1px solid silver;"></td>
+			<td style="border: 1px solid silver;"></td>
+			<td style="border: 1px solid silver;"></td>
+			<td style="border: 1px solid silver;"></td>
+			<td style="border: 1px solid silver;"></td>
+			<td style="border: 1px solid silver;"></td>
+		</tr> -->	
+
+
+		<tr ng-if="item.Long_Text!=' '" style="page-break-inside: avoid;"> 
+			<td colspan="13" style="padding:2px; text-align:left; text-align:justify;border: 1px solid silver;border-top: 0;" ng-bind="item.Long_Text" ></td>			
+		</tr>			   
+	    <tr  ng-repeat-start="subItem in item.poItemSubList" ng-if="item.Material_Number == '' && item.Item_Category == 'D'" style="page-break-inside: avoid;">
+			<td style="border: 1px solid silver;border-bottom: 0;border-top: 0;padding:2px; text-align:center;">{{$parentIndex+1}}.{{$index+1}}</td>
+			<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;padding:2px; text-align:left;border-top:none;" data-ng-bind="subItem.Short_Text">NA</td>
+			<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;padding:2px; text-align:right;border-top:none;" data-ng-bind="subItem.SACCode">NA</td>   
+			<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;padding:2px; text-align:right;border-top:none;" data-ng-bind="subItem.Order_Qty | currencyDecimalFormat">NA</td>
+			<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;padding:2px; text-align:center;border-top:none;" data-ng-bind="subItem.Unit_Measure" >NA</td>
+			<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;padding:2px; text-align:right;border-top:none;" data-ng-bind="subItem.Gross_Price | currencyDecimalFormat">NA</td>
+			<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;padding:2px; text-align:right;border-top:none;" data-ng-bind="subItem.Net_Price | currencyDecimalFormat">&nbsp;</td>
+			<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;padding:2px; text-align:right;border-top:none;" >&nbsp;</td>	
+			<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;padding:2px; text-align:right;border-top:none;" data-ng-bind="subItem.IGST | currencyDecimalFormat">&nbsp;</td>
+			<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;padding:2px; text-align:right;border-top:none;" data-ng-bind="subItem.SGST | currencyDecimalFormat">&nbsp;</td>	   
+			<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;padding:2px; text-align:right;border-top:none;" data-ng-bind="subItem.CGST | currencyDecimalFormat"><b>&nbsp;</b></td>
+			<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;padding:2px; text-align:right;border-top:none;" >&nbsp;</td>
+			<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;padding:2px; text-align:right;border-top:none;" >&nbsp;</td>
+		</tr>
+
+				
+		<tr ng-repeat-end style="page-break-inside: avoid;"> 
+			<td colspan="13" style="border: 1px solid silver;padding:2px; text-align:left;" data-ng-bind="subItem.Long_Text" ></td>			
+		</tr>
+
+		<tr ng-repeat-end style="background-color: #ffffff !important" class="pdf-color-enable">
+			<td colspan="13" style="border: none !important; border:solid 1px #fff"></td>
+		</tr>
+
+		<tr style="background-color: #003366  !important" class="pdf-color-enable">
+			<td style="height: 3px; border: 1px solid silver;border-bottom: 0;"></td>
+			<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;"></td>
+			<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;"></td>
+			<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;"></td>
+			<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;"></td>
+			<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;"></td>
+			<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;"></td>
+			<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;"></td>
+			<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;"></td>
+			<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;"></td>
+			<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;"></td>
+			<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;"></td>
+			<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;"></td>
+		</tr>
+				
+		<tr style="background-color: #ffffff !important" class="pdf-color-enable">
+			<td style="border: 1px solid silver;border-bottom: 0;"></td>
+			<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;"></td>
+			<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;"></td>
+			<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;"></td>
+			<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;"></td>
+			<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;"></td>
+			<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;"></td>
+			<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;"></td>
+			<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;"></td>
+			<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;"></td>
+			<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;"></td>
+			<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;"></td>
+			<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;"></td>
+		</tr>
+	</table>
+
+	<table class="pdfbordertable" style="width:750px !important; font-family:aller_lightregular !important; font-size:9pt;" align="center" ng-if="vm.poDetails.PODate <= vm.GSTDate"  cellpadding="0" cellspacing="0">
+		<tr style="page-break-inside: avoid;">
+			<td colspan="5" style="border: 1px solid silver;border-bottom: 0;background-color: #deebf6 !important;font-weight:bold;text-align:center;font-size:10pt;">{{vm.poDetails.POTitle}}</td>
+			<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;font-weight:bold;text-align:right;font-size:10pt;">Total</td>
+			<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;text-align:right;font-size:10pt;">{{vm.poDetails.Currency_Key}}</td>
+			<td colspan="2" data-ng-bind="vm.poDetails.Amount | currencyFormat" style="border: 1px solid silver;border-bottom: 0;border-left: 0;padding:2px; text-align:right;font-weight:600;background-color: #fff3cb !important;font-size:10pt;"></td>
+		</tr>
+		<tr style="text-align:center;page-break-inside: avoid;">
+			<td style="border: 1px solid silver;border-bottom: 0;padding:2px;width:6%;">Sl No.</td>
+			<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;padding:2px;width:30%;">Item Description</td>	   
+			<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;padding:2px;width:6%;">Qtty</td>
+			<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;padding:2px;width:5%;">Unit</td>
+			<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;padding:2px;width:10%;">Rate</td>	   
+			<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;padding:2px;width:10%;">Amount</td>
+			<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;padding:2px;width:9%;">Other Charges</td>
+			<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;padding:2px;width:10%;" >Tax</td>	   
+			<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;padding:2px;width:14%;" >Gross</td>
+		</tr>			
+		<tr ng-repeat-start="item in vm.poItemList" ng-init='showSubItemDetails(item,true);$parentIndex=$index' style="page-break-inside: avoid;">
+			<td style="border: 1px solid silver;padding:2px; text-align:center;" data-ng-bind="$index+1" class="pdf-color-enable"></td>
+			<td style="border: 1px solid silver;border-left: 0;padding:2px; text-align:left;" data-ng-bind="item.Short_Text" class="pdf-color-enable">NA</td>	   
+			<td style="border: 1px solid silver;border-left: 0;padding:2px; text-align:right;" ><span data-ng-bind="item.Order_Qty | currencyDecimalFormat" ng-if="item.Item_Category != 'D'"></span></td>
+			<td style="border: 1px solid silver;border-left: 0;padding:2px; text-align:center;" ><span data-ng-bind="item.Unit_Measure" ng-show="item.Item_Category != 'D'"></span></td>
+			<td style="border: 1px solid silver;padding:2px; text-align:right;" ><span data-ng-bind="item.Net_Price | currencyDecimalFormat" ng-if="item.Item_Category != 'D'"></span></td>	   
+			<td style="border: 1px solid silver;border-left: 0;padding:2px; text-align:right;" data-ng-bind="item.Amount | currencyDecimalFormat">NA</td>
+			<td style="border: 1px solid silver;border-left: 0;padding:2px; text-align:right;" data-ng-bind="item.OtherCharges | currencyDecimalFormat">NA</td>
+			<td style="border: 1px solid silver;border-left: 0;padding:2px; text-align:right;" data-ng-bind="item.ItemTax | currencyDecimalFormat">Na</td>	   
+			<td style="border: 1px solid silver;border-left: 0;padding:2px; text-align:right;" data-ng-bind="item.itemTotal | currencyDecimalFormat">NA</td>
+		</tr>
+
+
+<!-- 		<tr style="background-color: #ffffff  !important" class="pdf-color-enable">
+			<td style="border: 1px solid silver;"></td>
+			<td style="border: 1px solid silver;"></td>
+			<td style="border: 1px solid silver;"></td>
+			<td style="border: 1px solid silver;"></td>
+			<td style="border: 1px solid silver;"></td>
+			<td style="border: 1px solid silver;"></td>
+			<td style="border: 1px solid silver;"></td>
+			<td style="border: 1px solid silver;"></td>
+			<td style="border: 1px solid silver;"></td>
+		</tr> -->		
+		<tr ng-if="item.Long_Text!=' '" style="page-break-inside: avoid;"> 
+			<td colspan="9" style="border: 1px solid silver;padding:2px; text-align:left;border-top: 0;" ng-bind="item.Long_Text" ></td>			
+		</tr>
+
+        <tr  ng-repeat-start="subItem in item.poItemSubList" ng-if="(item.Material_Number == '' && item.Item_Category == 'D') && item.poItemSubList.length>0" style="page-break-inside: avoid;">
+			<td style="border: 1px solid silver;border-bottom: 0;border-top: 0;padding:2px; text-align:center;" >{{$parentIndex+1}}.{{$index+1}}</td>
+			<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;padding:2px; text-align:left;border-top:none;" data-ng-bind="subItem.Short_Text">NA</td>	   
+			<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;padding:2px; text-align:right;border-top:none;" data-ng-bind="subItem.Order_Qty | currencyDecimalFormat">NA</td>
+			<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;padding:2px; text-align:center;border-top:none;" data-ng-bind="subItem.Unit_Measure" >NA</td>
+			<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;padding:2px; text-align:right;border-top:none;" data-ng-bind="subItem.Gross_Price | currencyDecimalFormat">NA</td>	   
+			<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;padding:2px; text-align:right;border-top:none;" data-ng-bind="subItem.Net_Price | currencyDecimalFormat">NA</td>
+			<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;padding:2px; text-align:right;border-top:none;">&nbsp;</td>
+			<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;padding:2px; text-align:right;border-top:none;" >&nbsp;</td>	   
+			<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;padding:2px; text-align:right;border-top:none;" ><b>&nbsp;</b></td>
+		</tr>
+		<tr ng-repeat-end style="page-break-inside: avoid;"> 
+			<td colspan="9" style="border: 1px solid silver;padding:2px; text-align:left;" data-ng-bind="subItem.Long_Text" ></td>
+		</tr>
+		<tr ng-repeat-end style="background-color: #ffffff !important" class="pdf-color-enable">
+			<td colspan="9" style="border: none !important; border:solid 1px #fff"></td>
+		</tr>
+		<tr style="background-color: #003366  !important" class="pdf-color-enable">
+			<td style="height: 3px; border: 1px solid silver;border-bottom: 0;"></td>
+			<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;"></td>
+			<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;"></td>
+			<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;"></td>
+			<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;"></td>
+			<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;"></td>
+			<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;"></td>
+			<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;"></td>
+			<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;"></td>
+		</tr>
+		
+		<tr style="background-color: #ffffff !important" class="pdf-color-enable">
+			<td style="border: 1px solid silver;border-bottom: 0;"></td>
+			<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;"></td>
+			<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;"></td>
+			<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;"></td>
+			<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;"></td>
+			<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;"></td>
+			<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;"></td>
+			<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;"></td>
+			<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;"></td>
+		</tr>
+	</table>
+	  
+	</td>
+ </tr> 
+			     <tr>
+			        <td  style="border: 1px solid silver;">	
+			            <table class="pdfbordertable" style="width:750px; font-family:aller_lightregular !important; font-size:9pt;" align="center" cellpadding="0" cellspacing="0" >	
+			           <!--  <tr style="background-color: #ffffff  !important" class="pdf-color-enable"><td style="height: 3px;"></td><td></td><td></td><td></td><td></td><td></td></tr>	
+			            <tr style="background-color: #003366  !important" class="pdf-color-enable"><td style="height: 3px;"></td><td></td><td></td><td></td><td></td><td></td></tr>	
+			            <tr style="background-color: #ffffff  !important" class="pdf-color-enable"><td style="height: 3px;"></td><td></td><td></td><td></td><td></td><td></td></tr>	 -->		
+							<tr style="page-break-inside: avoid;">
+								<td colspan="6" style="border: 1px solid silver;border-bottom: 0;text-align:center; padding:2px 0; background-color:#2e75b6 !important; color:#fff;" class="pdf-color-enable">
+								<div class="pull-left" style="text-align:center;width:90%; font-family: Arial Black; font-size:10pt;padding-left: 10%;">PAYMENT TERMS</div>							
+
+
+												<div class="pull-right" style="text-align:right;width:10%;"><span class="glyphicon glyphicon-plus" style="color:#fff; text-align:right; padding:0 5px;" aria-hidden="true" ng-if="!vm.IsMilestoneSave && vm.isSubmitter" ng-click="vm.IsMilestoneSave=true;"></span><span class="glyphicon glyphicon-floppy-disk no-print" style="color:#fff; text-align:right; padding:0 5px;" aria-hidden="true" ng-if="vm.IsMilestoneSave && vm.isSubmitter" ng-click="CreateMileStone();"></span></div> 
+							    </td>
+							</tr>
+							<tr style="background-color: #ffffff  !important;page-break-inside: avoid;" class="pdf-color-enable">
+								<td style="border: 1px solid silver;border-bottom: 0;"></td><td style="border: 1px solid silver;"></td>
+								<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;"></td><td style="border: 1px solid silver;"></td>
+								<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;"></td><td style="border: 1px solid silver;"></td>
+							</tr>
+							<tr style="text-align:center; font-weight: bold;page-break-inside: avoid;" >
+								<td style="padding:2px;border: 1px solid silver;border-bottom: 0; font-weight:bold">SN</td>
+								<td style="padding:2px;border: 1px solid silver;border-bottom: 0;border-left: 0;">Payment Term</td>	   
+								<td style="padding:2px;border: 1px solid silver;border-bottom: 0;border-left: 0;">%</td>
+								<td style="padding:2px;border: 1px solid silver;border-bottom: 0;border-left: 0;">Amount</td>
+								<td style="padding:2px;border: 1px solid silver;border-bottom: 0;border-left: 0;">Date</td>	   
+								<td style="padding:2px;border: 1px solid silver;border-bottom: 0;border-left: 0; font-weight:bold">Remarks</td>
+							</tr>
+							
+
+							<tr class="Mls" ng-repeat-start="ms in vm.poMilestoneList" ng-if="vm.IsMilestoneAvail"  ng-init="ms.isOver=false;ms.DobOpened=false;ms.IsMilestoneEdit=false;ms.SeqId=$index+1;" ng-mouseover="trShow(ms);" ng-mouseleave="trHide(ms);" style="page-break-inside: avoid;">
+								<td style="border: 1px solid silver;border-bottom: 0;padding:1px; text-align:center;width:5%;color:#000;font-family: TENumber, aller_lightregular;" ng-bind="ms.SeqId"  class="pdf-color-enable"></td>
+								<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;padding:1px; text-align:left;width:30%color:#000;font-family: TENumber, aller_lightregular;" ng-bind="ms.PaymentTerm" class="pdf-color-enable"></td>	   
+								<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;padding:1px; text-align:right;width:5%;text-align:right;color:#000;font-family: TENumber, aller_lightregular;" ng-bind="ms.Percentage" class="pdf-color-enable"></td>
+								<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;padding:1px; text-align:right;width:15%;text-align:right;color:#000;font-family: TENumber, aller_lightregular;" class="pdf-color-enable" ng-bind="ms.Amount | currencyDecimalFormat" ></td>
+								
+								<!-- <td style="padding:1px; text-align:center;width:10%"><input type="text" style="text-align:right;"   class="mInput" id="pDate" ng-model="ms.Date | date : 'dd-MMM-yy'" value="{{ms.Date | date : 'dd:MMM:yy'}}" /></td>	    -->
+								<!-- <td style="padding:1px; text-align:center;width:17%"><input type="text" style="text-align:right;"   class="mInput" id="pDate" ng-model="ms.Date | date : 'dd-MMM-yy'" value="{{ms.Date | date : 'dd-MMM-yy'}}" data-beatpicker="true" /></td> -->
+								<td style="border: 1px solid silver;padding:1px; border-bottom: 0;border-left: 0;text-align:right;width:17%;color:#000;font-family: TENumber, aller_lightregular;" ng-bind="ms.Date | date: vm.dateFormate" class="pdf-color-enable">
+					
+								</td>
+								<td style="border: 1px solid silver;padding:1px;border-bottom: 0;border-left: 0; text-align:left;width:28%; height:25px; color:#000;font-family: TENumber, aller_lightregular;position: relative;" class="pdf-color-enable"><div style="vertical-align:middle;">{{ms.Remarks}}</div>
+									
+									<div  ng-if="ms.isOver && vm.isSubmitter" style="position: absolute;right: 2px;top:2px;background-color: #fff !important;z-index: 999; width: 56px; cursor:pointer">
+											 <i class="fa fa-pencil-square-o" ng-if="!ms.IsMilestoneEdit" aria-hidden="true" style="padding: 0 5px;color:#1d91d4" ng-click="ms.IsMilestoneEdit=true;"></i> 
+											<i class="fa fa-floppy-o" aria-hidden="true" style="padding: 0 5px;color:#1d91d4" data-ng-click="UpdateMs($event,ms);" ng-if="ms.IsMilestoneEdit"></i>
+											<i class="fa fa-times" aria-hidden="true" style="padding: 0 5px; color:#ff0000" data-ng-click="DeleteMs($event,ms);" ng-if="!ms.IsMilestoneEdit"></i>
+											<i class="fa fa-times" aria-hidden="true" style="padding: 0 5px; color:#ff0000" data-ng-click="ms.IsMilestoneEdit=false; getMs();" ng-if="ms.IsMilestoneEdit"></i>
+									</div>
+								</td>
+
+							</tr>
+								<tr ng-repeat-end  ng-if="ms.IsMilestoneEdit && vm.IsMilestoneAvail" style="page-break-inside: avoid;">
+								<td style="border: 1px solid silver;border-bottom: 0;padding:1px; text-align:center;"><input type="text"  class="mInput pdf-color-enable"  ng-model="ms.SeqId" style="color:#000;text-align:center;" /></td>
+								<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;padding:1px; text-align:left;"><input type="text" ng-model="ms.PaymentTerm" class="mInput pdf-color-enable"  style="color:#000;"/></td>	   
+								<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;padding:1px; text-align:right;"><input type="text" readonly ng-model="ms.Percentage" class="mInput pdf-color-enable"  ng-change="CalicualteAmt();" style="text-align:right;color:#000;" /></td>
+								<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;padding:1px; text-align:right;"><input type="text" ng-model="ms.Amount"   class="mInput pdf-color-enable" ng-change="CaliculatePer();" style="text-align:right;color:#000;" /></td>
+								<!-- <td style="padding:1px; text-align:right;width:10%"><input type="date" class="mInput input" style="text-align:right;" id="pDate"  /></td>	 -->  
+								<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;padding:1px; text-align:center;">
+								
+							          <input datetimepicker-neutral-timezone type="text"   uib-datepicker-popup="{{'dd-MMM-yy'}}" placeholder="" class="form-control mInput pdf-color-enable" ng-model="ms.Date" is-open="vm.DobOpened" close-text="Close" style="border: 1px solid #fff;width:100%;padding: 0px 0px;text-align:right;font-size:9pt;color:#000;" ng-click="vm.DobOpened = true"/>
+							          <!-- <i class="glyphicon glyphicon-calendar" ng-click="vm.DobOpened = true"></i> -->
+                                 <!--   <span class="input-group-btn">
+                                
+                                    <button type="button" class="btn" ></button>
+                                  </span> -->
+							     </td>
+								<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;padding:1px; text-align:center;"><input type="text" class="mInput" ng-model="ms.Remarks"  />
+
+                                <!-- <div  style="position: relative; float: right; margin-top: -18px !important; ">
+											
+											<i class="fa fa-times" aria-hidden="true" ng-click="vm.IsMilestoneSave=false;" style="padding: 0 5px; color:#ff0000"></i>
+								</div> -->
+								</td>
+							</tr>
+
+							<tr class="Mls trCreate" ng-if="vm.IsMilestoneSave" style="page-break-inside: avoid;">
+								<td style="border: 1px solid silver;border-bottom: 0;padding:1px; text-align:right;"><input type="text"  class="mInput pdf-color-enable" id="pSn" value="{{vm.poMilestoneList.length+1}}" style="color:#000;text-align:center;" /></td>
+								<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;padding:1px; text-align:center;"><input type="text" class="mInput pdf-color-enable" id="pTerm" style="color:#000;"/></td>	   
+								<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;padding:1px; text-align:right;"><input type="text" readonly ng-model="vm.dfPer" class="mInput pdf-color-enable"  id="pPer" ng-change="CalicualteAmt();" style="text-align:right;color:#000;" /></td>
+								<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;padding:1px; text-align:right;"><input type="text" ng-model="vm.dfAmt" class="mInput pdf-color-enable" ng-change="CaliculatePer();" style="text-align:right;color:#000;" id="pamt" /></td>
+								<!-- <td style="padding:1px; text-align:right;width:10%"><input type="date" class="mInput input" style="text-align:right;" id="pDate"  /></td>	 -->  
+								<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;padding:1px; text-align:center;">
+								
+							          <input datetimepicker-neutral-timezone type="text"   uib-datepicker-popup="{{'dd-MMM-yy'}}" placeholder="" class="form-control mInput pdf-color-enable" ng-model="vm.termDate" is-open="vm.DobOpened" close-text="Close" style="border: 1px solid #fff;width:100%;padding: 0px 0px;text-align:right;font-size:9pt;color:#000;" ng-click="vm.DobOpened = true"/>
+							          <!-- <i class="glyphicon glyphicon-calendar" ng-click="vm.DobOpened = true"></i> -->
+                                 <!--   <span class="input-group-btn">
+                                
+                                    <button type="button" class="btn" ></button>
+                                  </span> -->
+							     </td>
+								<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;padding:1px; text-align:center;"><input type="text" class="mInput" id="pRemarks" />
+
+                                <div  style="position: relative; float: right; margin-top: -18px !important; ">
+											<!-- <i class="fa fa-pencil-square-o" ng-if="!ms.isEdit" aria-hidden="true" style="padding: 0 5px;color:#1d91d4" ng-click="EditMileStone($event,ms);"></i> -->
+											<!-- <i class="fa fa-floppy-o" aria-hidden="true" style="padding: 0 5px;color:#1d91d4" ng-click="UpdateMs($event,ms);"></i> -->
+											<i class="fa fa-times" aria-hidden="true" ng-click="vm.IsMilestoneSave=false;" style="padding: 0 5px; color:#ff0000;margin-right: 10px;"></i>
+								</div>
+								</td>
+							</tr>
+							
+							<tr style="page-break-inside: avoid;" ><td colspan="6" style="border: 1px solid silver;border-bottom: 0;">&nbsp;</td></tr>
+
+							
+							<tr style="background-color: #ffffff !important;page-break-inside: avoid;" class="pdf-color-enable">
+								<td style="border: 1px solid silver;border-bottom: 0;"></td>
+								<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;"></td>
+								<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;"></td>
+								<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;"></td>
+								<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;"></td>
+								<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;"></td>
+							</tr>
+
+							<tr style="background-color: #003366  !important;page-break-inside: avoid;" class="pdf-color-enable">
+								<td style="height: 3px; border: 1px solid silver;border-bottom: 0;"></td>
+								<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;"></td>
+								<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;"></td>
+								<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;"></td>
+								<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;"></td>
+								<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;"></td>
+							</tr>
+							
+							<tr style="background-color: #ffffff !important;page-break-inside: avoid;" class="pdf-color-enable">
+								<td style="border: 1px solid silver;border-bottom: 0;"></td>
+								<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;"></td>
+								<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;"></td>
+								<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;"></td>
+								<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;"></td>
+								<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;"></td>
+							</tr>
+						</table>
+					 </td>							
+				</tr>
+				</tbody>
+		 </table>
+		 <table class="pdfbordertable" style="width:750px;font-family:aller_lightregular !important; font-size:9pt;" align="center" ng-if="vm.poDetails.PODate >vm.GSTDate"  cellpadding="0" cellspacing="0">
+	<tbody>
+		<tr style="page-break-inside: avoid;">
+			<td colspan="13" style="border: 1px solid silver;border-bottom: 0;text-align:center;padding: 6px 0; background-color:#2e75b6 !important; color:#fff;" class="pdf-color-enable">
+				<div class="pull-left" style="text-align:center;width:90%; font-family: Arial Black; font-size:10pt;padding-left: 10%;">GENERAL INFORMATION</div>
+				<div class="pull-right" style="text-align:right;width:10%;">
+					<!-- ngIf: !vm.IsMilestoneSave && vm.isSubmitter -->
+					<!-- ngIf: vm.IsMilestoneSave && vm.isSubmitter -->
+				</div>
+			</td>
+		</tr>
+		<tr style="height: 22px;page-break-inside: avoid;">
+			<td style="border: 1px solid silver;border-bottom: 0;width: 127px; text-align:right;padding: 3px;">Transaction Type </td>
+			<td style="width:254px;border: 1px solid silver;border-bottom: 0;border-left: 0; text-align:left;padding: 3px;" colspan="5">
+				<b data-ng-bind="vm.poDetails.Currency_Key | transactiontype" class="ng-binding"/>
+			</td>
+		</tr>
+		<tr style="height: 22px;page-break-inside: avoid;">
+			<td style="border: 1px solid silver;border-bottom: 0;width:100px; text-align:right;padding: 3px;">Nature of Transaction: </td>
+			<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;width:254px; text-align:left;padding: 3px;">
+				<b data-ng-bind="vm.NatureofTransaction" class="ng-binding">NA</b>
+			</td>
+			<td style="border: 1px solid silver;border-bottom: 0;width: 79px; text-align:right;padding: 3px;border-left: 0;" colspan="2">Nature of Supply:</td>
+			<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;width:80px; text-align:left; font-weight: bold;padding: 3px;" data-ng-bind="vm.NatureofSupply" class="ng-binding" colspan="2">NA</td>
+		</tr>
+		<tr style="height: 0px;page-break-inside: avoid;">
+			<td style="border:none !important;width:100px; text-align:right;" colspan="6"/>
+		</tr>
+		<tr style="height: 22px;page-break-inside: avoid;">
+			<td style="border: 1px solid silver;border-bottom: 0;width:100px; text-align:right;padding: 3px;">Customer's GSTIN</td>
+			<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;width:254px; text-align:left;padding: 3px;">
+				<b data-ng-bind="vm.poDetails.PlantGSTIN" class="ng-binding">NA</b>
+			</td>
+			<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;width: 79px; text-align:right;padding: 3px;" colspan="2">Vendor's GSTIN</td>
+			<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;width:80px; text-align:left; font-weight: bold;padding: 3px;" data-ng-bind="vm.poDetails.VenderGSTCode" class="ng-binding" colspan="2">NA</td>
+		</tr>
+		<tr style="height: 0px;page-break-inside: avoid;">
+			<td style="border:none !important;width:100px; text-align:right;" colspan="6"/>
+		</tr>
+		<tr style="page-break-inside: avoid;">
+			<td style="border: 1px solid silver;border-bottom: 0;width:100px; text-align:right;font-weight: bold;padding: 3px;">BILL TO</td>
+			<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;width:250px; text-align:left;padding: 3px;/* font-weight: bold; */" data-ng-bind="vm.poDetails.PlantName" class="ng-binding">NA</td>
+			<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;width:80px; text-align:right;font-weight: bold;padding: 3px;" colspan="2">BILLED BY</td>
+			<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;width:80px; text-align:left;padding: 3px;/* font-weight: bold; */" data-ng-bind="vm.poDetails.VendorName" class="ng-binding" colspan="2">NA</td>
+		</tr>
+		<tr style="page-break-inside: avoid;">
+			<td style="border: 1px solid silver;border-bottom: 0;width:100px; text-align:right;">Address</td>
+			<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;width:250px; text-align:left;padding: 3px;/* font-weight: bold; */" data-ng-bind="vm.poDetails.PlantAddress" class="ng-binding">NA</td>
+			<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;width:80px; text-align:right;padding: 3px;" colspan="2">Address</td>
+			<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;width:80px; text-align:left;padding: 3px;/* font-weight: bold; */" data-ng-bind="vm.poDetails.VendorAddress" class="ng-binding" colspan="2">NA</td>
+		</tr>
+		<tr style="page-break-inside: avoid;">
+			<td style="border: 1px solid silver;border-bottom: 0;width:100px; text-align:right;">Country</td>
+			<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;width:250px; text-align:left;padding: 3px;/* font-weight: bold; */" data-ng-bind="vm.poDetails.PlantCountry" class="ng-binding">NA</td>
+			<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;width:80px; text-align:right;padding: 3px;" colspan="2">Country</td>
+			<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;width:80px; text-align:left;padding: 3px;/* font-weight: bold; */" data-ng-bind="vm.poDetails.VenderCountry" class="ng-binding" colspan="2">NA</td>
+		</tr>
+		<tr style="page-break-inside: avoid;">
+			<td style="border: 1px solid silver;border-bottom: 0;width:100px; text-align:right;">GST State Code </td>
+			<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;width:250px; text-align:left;padding: 3px;/* font-weight: bold; */" data-ng-bind="vm.poDetails.PlantRegionCode" class="ng-binding">NA</td>
+			<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;width:80px; text-align:right;padding: 3px;" colspan="2">GST State Code </td>
+			<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;width:80px; text-align:left;padding: 3px;/* font-weight: bold; */" data-ng-bind="vm.poDetails.VenderRegionCode" class="ng-binding" colspan="2">NA</td>
+		</tr>
+		<tr style="height: 0px;page-break-inside: avoid;">
+			<td style="border:none !important;width:100px; text-align:right;" colspan="6"/>
+		</tr>
+		<tr style="page-break-inside: avoid;">
+			<td style="border: 1px solid silver;border-bottom: 0;width:100px; text-align:right;font-weight: bold;padding: 3px;">SHIP TO </td>
+			<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;width:250px; text-align:left;padding: 3px;/* font-weight: bold; */" >
+				<!-- <span class="glyphicon glyphicon-edit no-print" style="color:#003366;text-align:right; padding:0 5px;" aria-hidden="true" data-ng-click="isShipToDropdown();" ng-if="vm.poDetails.ShipToCode && vm.isSubmitter && !vm.IsPOSubmited"></span> -->
+				<span data-ng-bind="vm.poDetails.ShipToName"></span>
+			</td>
+			<!-- te -->
+			<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;width:80px; text-align:right;font-weight: bold;padding: 3px;" colspan="2">SHIPPED FROM </td>
+			<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;width:80px; text-align:left;padding: 3px;/* font-weight: bold; */" data-ng-bind="vm.poDetails.ShipFromName" class="ng-binding" colspan="2"> </td>
+		</tr>
+		<tr style="page-break-inside: avoid;">
+			<td style="border: 1px solid silver;border-bottom: 0;width:100px; text-align:right;padding: 3px;">Address</td>
+			<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;width:250px; text-align:left;padding: 3px;/* font-weight: bold; */" data-ng-bind="vm.poDetails.ShipToAddress" class="ng-binding"> </td>
+			<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;width:80px; text-align:right;padding: 3px;" colspan="2">Address</td>
+			<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;width:80px; text-align:left;padding: 3px;/* font-weight: bold; */" data-ng-bind="vm.poDetails.ShipFromAddress" class="ng-binding" colspan="2"> </td>
+		</tr>
+		<tr style="page-break-inside: avoid;">
+			<td style="border: 1px solid silver;border-bottom: 0;width:100px; text-align:right;padding: 3px;">Country</td>
+			<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;width:250px; text-align:left;padding: 3px;/* font-weight: bold; */" data-ng-bind="vm.poDetails.ShipToCountry" class="ng-binding"> </td>
+			<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;width:80px; text-align:right;padding: 3px;" colspan="2">Country</td>
+			<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;width:80px; text-align:left;padding: 3px;/* font-weight: bold; */" data-ng-bind="vm.poDetails.ShipFromCountry" class="ng-binding" colspan="2"> </td>
+		</tr>
+		<tr style="page-break-inside: avoid;">
+			<td style="border: 1px solid silver;border-bottom: 0;width:100px; text-align:right;padding: 3px;">GST State Code </td>
+			<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;width:250px; text-align:left;padding: 3px;/* font-weight: bold; */" data-ng-bind="vm.poDetails.ShipToGSTCode" class="ng-binding"> </td>
+			<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;width:80px; text-align:right;padding: 3px;" colspan="2">GST State Code </td>
+			<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;width:80px; text-align:left;padding: 3px;/* font-weight: bold; */" data-ng-bind="vm.poDetails.ShipFromGSTCode" class="ng-binding" colspan="2"> </td>
+		</tr>
+		<tr style="background-color: #ffffff !important" class="pdf-color-enable">
+								<td style="border: 1px solid silver;border-bottom: 0;"></td>
+								<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;"></td>
+								<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;"></td>
+								<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;"></td>
+								<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;"></td>
+								<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;"></td>
+							</tr>
+
+							<tr style="background-color: #003366  !important" class="pdf-color-enable">
+								<td style="height: 3px; border: 1px solid silver;border-bottom: 0;"></td>
+								<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;"></td>
+								<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;"></td>
+								<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;"></td>
+								<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;"></td>
+								<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;"></td>
+							</tr>
+							
+							<tr style="background-color: #ffffff !important" class="pdf-color-enable">
+								<td style="border: 1px solid silver;border-bottom: 0;"></td>
+								<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;"></td>
+								<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;"></td>
+								<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;"></td>
+								<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;"></td>
+								<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;"></td>
+							</tr>
+	</tbody>
+</table>
+		  <table class="pdfbordertable" style="width:750px;font-family:aller_lightregular !important; font-size:9pt;border: none;" align="center"  cellpadding="0" cellspacing="0">	
+		
+
+				<tbody>		
+								<tr style="page-break-inside: avoid;">
+											<td style="border: 1px solid silver;border-bottom: 0;text-align:center;  border:none; padding:2px 0; background-color:#2e75b6 !important; color:#fff; margin-top:10px;" class="pdf-color-enable"> 
+												<div class="pull-left" style="width:90%; text-align:center; font-family: Arial Black; font-size:10pt;padding-left: 10%;">SPECIFIC TERMS & CONDITIONS</div>												
+												<div class="pull-right" style="width:10%; text-align:right;" ><a ng-click="$event.preventDefault();"  data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-search" style="color:#fff; text-align:right; padding:0 5px;" aria-hidden="true" ng-click="getMasterSpecificTerms()" ng-if="vm.isSubmitter"></span></a><span class="glyphicon glyphicon-plus" style="color:#fff; text-align:right; padding:0 5px;" aria-hidden="true" ng-if="vm.IsSpecSave && vm.isSubmitter" ng-click="vm.IsSpecSave=false;"></span><span class="glyphicon glyphicon-floppy-disk" style="color:#fff; text-align:right; padding:0 5px;" aria-hidden="true"  ng-if="!vm.IsSpecSave && vm.isSubmitter" ng-click="vm.IsSpecSave=true;CreateNewCondion();"></span><span class="glyphicon glyphicon-remove" style="color:#fff; text-align:right; padding:0 5px;" aria-hidden="true"  ng-if="!vm.IsSpecSave && vm.isSubmitter" ng-click="vm.IsSpecSave=true;"></span></div>
+											</td>
+										</tr>
+										<tr style="background-color: #ffffff  !important;page-break-inside: avoid;" class="pdf-color-enable">
+										<td style="border: 2px;"></td>
+										</tr>
+										<tr style="page-break-inside: avoid;">
+										<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;padding: 0; border: 1px;">
+										<table style="border:none;width:100% !important;font-family:aller_lightregular !important; font-size:9pt;"  cellpadding="0" cellspacing="0">
+										<tr>
+										<!-- <td style="border: 1px solid silver;border-bottom: 0;width: 4.4%;"></td> -->
+										<td style="border: 1px solid silver;border-left: 0;font-weight: bold;color:#2e75b6 !important;border-left: solid 1px #c0c0c0;">
+
+										These Specific Terms and Conditions are to be read in conjunction with the General Terms and Conditions. In case of a conflict between any of the clauses, the Specific Terms and Conditions shall supercede.
+										</td>
+										</tr>
+										</table>
+										</td>
+										</tr>	
+										<tr>
+											<td style="border: 1px solid silver;border-bottom: 0;padding: 0; border: 1px;">
+												<table style="border:none;width:100% !important;font-family:aller_lightregular !important; font-size:9pt;" ng-if="vm.isSpecAvail"  cellpadding="0" cellspacing="0">
+													<tr ng-repeat-start="pTerms in vm.poSpecTermsList"  data-ng-init="pTerms.IsTermedit=false;" >
+														<td style="border: 1px solid silver;border-bottom: 0;border-top: 0;padding:3px; text-align:right;" data-ng-bind="$index+1">NA</td>
+														<td style="border-left: 1px solid silver;border-bottom: 0;border-left: 0;border-top: 0;text-align:justify; padding:3px;  line-height:10pt; font-size:9pt; padding-top:3px; font-weight:bold" >{{pTerms.Title}} :</td>
+														<td style="border-right: 1px solid silver;border-bottom: 0;border-left: 0;border-top: 0;padding:3px; text-align:right; "><span class="glyphicon glyphicon-edit no-print" style="color:#003366;text-align:right; padding:0 5px;" aria-hidden="true" data-ng-click="pTerms.IsTermedit=true;termShow(pTerms);" ng-if="!pTerms.IsTermedit && vm.isSubmitter"></span><span class="deleteTerm glyphicon glyphicon-remove no-print"  style="color:#003366;text-align:right; padding:0 5px;" aria-hidden="true" data-ng-click="deleteTerms(pTerms);" ng-if="!pTerms.IsTermedit && vm.isSubmitter"></span><span class="nonEdit glyphicon glyphicon-floppy-disk no-print" style="color:#003366;text-align:right; padding:0 5px;" aria-hidden="true" data-ng-click="pTerms.IsTermedit=false;UpdateTerms(pTerms);" ng-if="pTerms.IsTermedit && vm.isSubmitter"></span><span class="nonEdit glyphicon glyphicon-remove no-print" style="color:#003366;text-align:right; padding:0 5px;" aria-hidden="true" data-ng-click="pTerms.IsTermedit=false;" ng-if="pTerms.IsTermedit && vm.isSubmitter"></span></td>
+													</tr>
+													<tr  >
+														<td style="border: 1px solid silver;">&nbsp;</td>
+														 <td colspan="2" style="border: 1px solid silver;border-left: 0;text-align:justify; line-height:10pt; font-size:9pt; padding:3px;" ng-bind-html="pTerms.Condition">NA</td>
+													</tr>
+													<tr ng-repeat-end ng-if="pTerms.IsTermedit">
+														<td style="border: 1px solid silver;border-bottom: 0;">&nbsp;</td>
+														 <td colspan="2" style="border: 1px solid silver;border-bottom: 0;border-left: 0;text-align:justify; line-height:10pt; font-size:9pt; padding:3px;">
+														 <div class="row">
+																	<div class="col-md-3"><input type="text"  class="form-control" ng-model="pTerms.SequenceId"></div>
+																	<!-- <div class="col-md-9"><input type="text" readonly class="form-control" value="{{pTerms.Title}}"></div> -->
+																</div>
+														 <div class="row">																
+															   <div class="col-lg-12">
+																	<!-- <textarea id="txtEditor" >{{pTerms.Condition}}</textarea>   -->
+																	<div class="text-editor">
+                                                                     <text-angular ng-model="pTerms.Condition" ta-text-editor-class="border-around" ta-html-editor-class="border-around"></text-angular>
+            														</div>
+																	<br>
+																	<!-- <div class="pull-right"><button type="button" class="btn btn-primary">Save</button></div> -->
+																</div>
+																
+															</div>
+														</td>
+													</tr>
+													
+											
+												</table>
+											</td>
+										</tr>
+										<tr  ng-if="!vm.IsSpecSave" class="specTermCreate">
+														
+														 <td colspan="2" style="border: 1px solid silver;border-bottom: 0;text-align:justify; line-height:10pt; font-size:9pt; padding:3px;">
+														 <div class="row" style="padding: 0; margin: 0;">
+																	<!-- <div class="col-md-3"><input type="text"  class="form-control" ></div> -->
+																	<div class="col-md-12"><input type="text"  class="form-control" ng-model="vm.SpecificTitle" placeholder="Title"></div>
+																</div>
+														 <div class="row" style="padding: 0; margin: 0;">																
+															   <div class="col-lg-12">
+																	<!-- <textarea id="txtEditor" >{{pTerms.Condition}}</textarea>   -->
+																	<div class="text-editor">
+                                                                     <text-angular ng-model="vm.SpecificCondition" ta-text-editor-class="border-around" ta-html-editor-class="border-around"></text-angular>
+            														</div>
+																	<br>
+																	<!-- <div class="pull-right"><button type="button" class="btn btn-primary">Save</button></div> -->
+																</div>
+																
+															</div>
+												</td>
+										</tr>
+
+
+
+
+										<tr style="page-break-inside: avoid;">
+											<td style="border: 1px solid silver;border-bottom: 0;text-align:center;  border:none; padding:2px 0; background-color:#2e75b6 !important; border-color: #2e75b6; color:#fff; margin-top:10px;" class="pdf-color-enable">
+												<div class="pull-left" style="width:90%; text-align:center; font-family: Arial Black; font-size:10pt;padding-left: 10%;">GENERAL TERMS & CONDITIONS</div>												
+												<div class="pull-right" style="width:10%; text-align:right;"><a ng-click="$event.preventDefault();"  data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-search" style="color:#fff; text-align:right; padding:0 5px;" aria-hidden="true" ng-click="getMasterGeneralTerms()" ng-if="vm.isSubmitter"></span></a></div>
+											</td>
+										</tr>
+										<tr style="background-color: #ffffff  !important;page-break-inside: avoid;" class="pdf-color-enable"><td style="border-bottom: 0;border:solid 1px silver;"></td></tr>
+										<tr>
+											<td style="border: 1px solid silver;padding: 0; border: 1px;">
+												<table  ng-if="vm.isGenAvail" style="width:100% !important;font-family:aller_lightregular !important; font-size:9pt;"  cellpadding="0" cellspacing="0">
+													<tr ng-repeat-start="pTerms in vm.poTermsList"  data-ng-init="pTerms.IsTermedit=false;" style="page-break-inside: avoid;">
+														<td style="border: 1px solid silver;border-bottom: 0;border-top: 0;border-bottom: 0;padding:3px; text-align:right; " data-ng-bind="$index+1">NA</td>
+														<td style="text-align:justify; padding:3px;  line-height:10pt; font-size:9pt; padding-top:3px; font-weight:bold;border: solid 1px silver;border-bottom: 0;border-left: 0;border-top: 0;" colspan="2">{{pTerms.Title}} :</td>
+														<!-- <td style="border-bottom: solid 1px #ccc;border-right: solid 1px #ccc;border-top: solid 1px #ccc;padding:3px; text-align:right; "> -->
+														<!-- <span class="glyphicon glyphicon-edit" style="color:#003366;text-align:right; padding:0 5px;display:none;" aria-hidden="true" data-ng-click="pTerms.IsTermedit=true;termShow(pTerms);" ng-if="!pTerms.IsTermedit && vm.isSubmitter"></span><span class="deleteTerm glyphicon glyphicon-remove"  style="color:#003366;text-align:right; padding:0 5px;" aria-hidden="true" data-ng-click="deleteTerms(pTerms);" ng-if="!pTerms.IsTermedit && vm.isSubmitter"></span><span class="nonEdit glyphicon glyphicon-floppy-disk" style="color:#003366;text-align:right; padding:0 5px;" aria-hidden="true" data-ng-click="pTerms.IsTermedit=false;UpdateTerms(pTerms);" ng-if="pTerms.IsTermedit && vm.isSubmitter"></span><span class="nonEdit glyphicon glyphicon-remove" style="color:#003366;text-align:right; padding:0 5px;" aria-hidden="true" data-ng-click="pTerms.IsTermedit=false;" ng-if="pTerms.IsTermedit && vm.isSubmitter"></span> -->
+														<!-- </td> -->
+													</tr>
+													<tr style="page-break-inside: avoid;" >
+														<td style="border: 1px solid silver;">&nbsp;</td>
+														 <td colspan="2" style="border: 1px solid silver;border-left: 0;text-align:justify; line-height:10pt; font-size:9pt; padding:3px;" ng-bind-html="pTerms.Condition">NA</td>
+													</tr>
+													<tr ng-repeat-end ng-if="pTerms.IsTermedit" >
+														<td>&nbsp;</td>
+														 <td colspan="2" style="border: 1px solid silver; border-bottom: 0;border-left: 0;text-align:justify; line-height:10pt; font-size:9pt; padding:3px;">
+														 <!-- <div class="row">
+																	<div class="col-md-3"><input type="text" readonly class="form-control" value="{{$index+1}}"></div>
+																	<div class="col-md-9"><input type="text" readonly class="form-control" value="{{pTerms.Title}}"></div>
+																</div> -->
+														 <div class="row">																
+															   <div class="col-lg-12">
+																	<!-- <textarea id="txtEditor" >{{pTerms.Condition}}</textarea>   -->
+																	<div class="text-editor">
+                                                                     <text-angular ng-model="pTerms.Condition" ta-text-editor-class="border-around" ta-html-editor-class="border-around"></text-angular>
+            														</div>
+																	<br>
+																	<!-- <div class="pull-right"><button type="button" class="btn btn-primary">Save</button></div> -->
+																</div>
+																
+															</div>
+														</td>
+													</tr>
+													
+											
+												</table>
+											</td>
+										</tr>
+
+										<!-- <tr style="background-color: #ffffff  !important" class="pdf-color-enable"><td style="height: 3px;"></td></tr>	
+			            <tr style="background-color: #003366  !important" class="pdf-color-enable"><td style="height: 3px;"></td></tr>	 -->
+			            <tr style="background-color: #ffffff  !important;page-break-inside: avoid;" class="pdf-color-enable"><td style="height: 3px;"></td></tr>
+										
+						<!-- <tr style="background-color: #ffffff  !important" class="pdf-color-enable"><td style="height: 3px; border: 2px;"></td></tr>	
+			            <tr style="background-color: #003366  !important" class="pdf-color-enable"><td style="height: 3px; border: 2px;"></td></tr>	
+			            <tr style="background-color: #ffffff  !important" class="pdf-color-enable"><td style="height: 3px; border: 2px;"></td></tr> -->
+
+										<!-- <tr style="background-color: #ffffff  !important" class="pdf-color-enable"><td style="height: 3px;     border: 2px;"></td></tr>
+										<tr style="background-color: #003366  !important" class="pdf-color-enable"><td style="height: 3px; border: 2px;"></td></tr>	 -->
+										<tr style="page-break-inside: avoid;">
+										<td style="border: 1px solid silver;border-bottom: 0;font-weight: bold;color:#2e75b6 !important;border-left: solid 1px #c0c0c0;">
+
+										This is a LEGALLY BINDING AGREEMENT. Please READ IT CAREFULLY. If you do not understand the impact of this Agreement, please consult your attorney BEFORE signing.
+										</td>
+										</tr>
+											<tr style="background-color: #003366  !important" class="pdf-color-enable"><td style=""></td></tr>	
+										<tr style="page-break-inside: avoid;">
+											<td style="border: 1px solid silver;text-align:center;  border:none; padding:2px 0;">
+												<table style="width:750px;font-family:aller_lightregular !important; font-size:9pt;"  cellpadding="0" cellspacing="0">
+												 <tr>
+																	<td style="border: 1px solid silver;border-bottom: 0;width:50%; text-align:left; height: 60px; border-right: none;"></td>
+																	<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;width:50%; text-align:right;  border-left: none;"> </td>
+																</tr>
+															   <tr>
+																	<td style="border: 1px solid silver;border-bottom: 0;width:50%; text-align:left">Vendors</td>
+																	<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;width:50%; text-align:right;">Customers </td>
+																</tr>
+																<tr>
+																	<td style="border: 1px solid silver;border-bottom: 0;width:50%;text-align:left; font-weight:bold;" data-ng-bind="vm.poDetails.VendorName">NA</td>
+																	<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;width:50%; text-align:right; font-weight:bold;" data-ng-bind="vm.poDetails.CompanyName">NA</td>
+																</tr>
+																
+														 </table>
+											</td>
+										</tr>	
+										<tr style="background-color: #003366  !important" class="pdf-color-enable"><td style="border: 1px solid silver;height: 3px;"></td></tr>
+							
+
+				</tbody>											
+				</table>
+<div style="page-break-inside: avoid;page-break-before: always;" class="AnnexureNoPrint no-print">
+				<table class="pdfbordertable" style="width:754px;font-family:aller_lightregular !important; font-size:9pt;" align="center" ng-if="(vm.poDetails.PODate >vm.GSTDate && vm.AnnexureitemTotal>0)"  cellpadding="0" cellspacing="0">
+							<tr>
+								<td width="500"  class="orderhead pdf-color-enable" style="border: 1px solid silver;border-bottom: 0;background-color:#003366 !important;text-align:center; color: #fff !important; height: 35px; font-size: 12pt; border: 2px solid #003366;"><span style="font-weight:bold; font-family: Arial Black;" >ANNEXURE (I) TO CONTRACT AGREEMENT</span><span style="padding-left: 15px; font-weight: bold;" >[Purchase Order]</span></td>
+								<td width="174" style="border: 1px solid silver;border-bottom: 0;border-left: 0;text-align:center; border: 2px solid #000; font-size: 11pt">No:<span style="font-weight: bold" data-ng-bind="vm.poDetails.Purchasing_Order_Number">NA</span> R <span style="font-weight: bold"  data-ng-bind="vm.poDetails.RevisionNumber">NA</span></td>
+							</tr>
+				</table>
+				<table class="pdfbordertable pdf-format" style="border-top:none;width:754px;font-family:aller_lightregular !important; font-size:9pt;" align="center" ng-if="(vm.poDetails.PODate >vm.GSTDate && vm.AnnexureitemTotal>0)"  cellpadding="0" cellspacing="0">
+							<tr>
+								<td style="border: 1px solid silver;border-bottom: 0;width:100px; text-align:right">PO Manager:</td>
+								<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;width:250px; text-align:left"><b data-ng-bind="vm.poDetails.POManager">NA</b></td>
+								<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;width:80px; text-align:right">Date:</td>
+								<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;width:80px; text-align:left; font-weight: bold;" data-ng-bind="vm.poDetails.PODate | date:vm.dateFormate">NA</td>
+								<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;width:80px; text-align:right">Revision  :</td>
+								<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;width:150px; text-align:left"  ></td>
+							</tr>	
+							<tr style="background-color: #ffffff !important" class="pdf-color-enable"><td style="height: 3px;"></td><td></td><td></td><td></td><td></td><td></td></tr>
+							<tr style="background-color: #003366  !important" class="pdf-color-enable"><td style="height: 3px;"></td><td></td><td></td><td></td><td></td><td></td></tr>
+							<tr style="background-color: #ffffff !important" class="pdf-color-enable"><td style="height: 3px;"></td><td></td><td></td><td></td><td></td><td></td></tr>	  
+							<tr style="height: 22px;">
+								<td style="border: 1px solid silver;border-bottom: 0;width:100px; text-align:right; ">Vendors:</td>
+								<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;width:254px; text-align:left; " ><b data-ng-bind="vm.poDetails.VendorName">NA</b></td>
+								<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;width:79px; text-align:right;" colspan="2">Vendor Code:</td>
+								<td style="border: 1px solid silver;border-bottom: 0;border-left: 0;width:80px; text-align:right; font-weight: bold;" data-ng-bind="vm.poDetails.Vendor_Account_Number" colspan="2"></td>
+								<!--<td style="width:84px; text-align:right;">PAN  :</td>
+								<td style="width:147px; text-align:left;" data-ng-bind="vm.poDetails.VendorPanNumber"></td>-->
+							</tr>	 
+							<tr style="height: 22px;">
+								<td style="width:100px;border: 1px solid silver;border-bottom: 0; text-align:right;">&nbsp;</td>
+								<td colspan="5" style="border: 1px solid silver;border-bottom: 0;border-left: 0;width:254px; text-align:left;" data-ng-bind="vm.poDetails.VendorAddress">NA</td>
+								<!--<td style="width:80px; text-align:right;">VAT:</td>
+								<td style="width:80px; text-align:left;" data-ng-bind="vm.poDetails.VendorVat">&nbsp;</td>
+								<td style="width:80px; text-align:right;">Service Tax:  </td>
+								<td style="width:150px; text-align:left; " data-ng-bind="vm.poDetails.VendorServiceTax">&nbsp;</td>-->
+							</tr>
+							<tr style="background-color: #ffffff !important" class="pdf-color-enable"><td style="height: 3px;"></td><td></td><td></td><td></td><td></td><td></td></tr>
+							<tr style="background-color: #003366 !important" class="pdf-color-enable"><td style="height: 3px;"></td><td></td><td></td><td></td><td></td><td></td></tr>	
+							<tr style="background-color: #ffffff !important" class="pdf-color-enable"><td style="height: 3px;"></td><td></td><td></td><td></td><td></td><td></td></tr>				
+						</table>
+
+
+
+
+<table class="pdfbordertable" style="width:754px;font-family:aller_lightregular !important; font-size:9pt;" align="center" ng-if="(vm.poDetails.PODate >vm.GSTDate && vm.AnnexureitemTotal>0)"  cellpadding="0" cellspacing="0">
+	<tr>
+		<td  colspan="11" style="border: 1px solid silver;border-bottom: 0;text-align:center;  border:none; padding:6px 0; background-color:#2e75b6 !important; border-color: #2e75b6; color:#fff; margin-top:10px;" class="pdf-color-enable">
+			<div class="pull-left" style="width:100%; text-align:center; font-family: Arial Black; font-size:10pt;padding-left: 10%;">OTHER CHARGES</div>	
+		</td>
+	</tr>
+
+	<tr style="text-align:center;font-weight: bold;">
+		<td style="padding:2px;border: 1px solid silver;border-bottom: 0;width: 2%;">SN</td>
+		<td style="padding:2px;border: 1px solid silver;border-bottom: 0;border-left: 0;width: 12%;">Particulars</td>
+		<td style="padding:2px;border: 1px solid silver;border-bottom: 0;border-left: 0;width: 10%;">Consideration Amount</td>
+		<td style="padding:2px;border: 1px solid silver;border-bottom: 0;border-left: 0;width: 20%;" colspan="2">Packing &amp; Forwarding</td>
+		<td style="padding:2px;border: 1px solid silver;border-bottom: 0;border-left: 0;width: 20%;" colspan="2">Freight</td>
+		<td style="padding:2px;border: 1px solid silver;border-bottom: 0;border-left: 0;width: 30%;" colspan="3">Other Services</td>
+		<td style="padding:2px;border: 1px solid silver;border-bottom: 0;border-left: 0;width: 6%;">Total Amount (INR)</td>
+	</tr>
+	<!-- <tr style="text-align:center;font-weight: bold;">
+		<td style="padding:2px;"></td>
+		<td style="padding:2px;"></td>
+		<td style="padding:2px;"></td>
+		<td style="padding:2px;"></td>
+		<td style="padding:2px;">Value</td>
+		<td style="padding:2px;">% or Lumpsum or Included or Extra</td>
+		<td style="padding:2px;">Value</td>
+		<td style="padding:2px;">Type of Service (Unloading/Inspection/etc)</td>
+		<td style="padding:2px;">% or Lumpsum or Included or Extra</td>
+		<td style="padding:2px; ">Value</td>
+		<td style="padding:2px;"></td>
+	</tr> -->
+	<tr > 
+		<td colspan="10" style="border: 1px solid silver;border-bottom: 0;padding:2px; text-align:left; text-align:justify;" >Total</td>
+		<td style="padding:2px;border: 1px solid silver; border-bottom: 0;border-left: 0;text-align:left; text-align:justify;" data-ng-bind="vm.AnnexureitemTotal | currencyDecimalFormat" >NA</td>
+	</tr>
+	<tr ng-repeat-start="item in vm.poItemAnnexureList" ng-init='showSubItemAnnexureDetails(item,true);$parentIndex=$index'>
+		<td style="padding:2px; border: 1px solid silver;border-bottom: 0;text-align:center;width: 47px !important;" data-ng-bind="$index+1" class="pdf-color-enable"></td>
+		<td style="padding:2px;border: 1px solid silver;border-bottom: 0;border-left: 0; text-align:left;width: 16px;" data-ng-bind="item.Short_Text" class="pdf-color-enable">NA</td>
+		<td style="padding:2px; border: 1px solid silver;border-bottom: 0;border-left: 0;text-align:center;width: 55px;" ><span data-ng-bind="item.Amount"></span></td>   
+		<td style="padding:2px; border: 1px solid silver;border-bottom: 0;border-left: 0;text-align:center;width: 52px;" >
+			<select style="width: 100%;height: 20px;padding: 0;margin: 0;border: none;" ng-model="packing" ng-options="x.ChildDescription for x in vm.POServiceCondition" ng-change="updatepacking(packing,item);" ng-if="vm.isSubmitter && !vm.IsPOSubmited">
+			</select>
+			<span ng-if="!vm.isSubmitter || vm.IsPOSubmited" data-ng-bind="item.PackingForwardingCondition" > </span>
+		</td>
+		<td style="padding:2px;border: 1px solid silver; border-bottom: 0;border-left: 0;text-align:right;width: 35px;" ><span data-ng-bind="item.PackingForwardingValue | currencyDecimalFormat"></span></td>
+		<td style="padding:2px;border: 1px solid silver; border-bottom: 0;border-left: 0;text-align:right;width: 88px;">
+			<select style="width: 100%;height: 20px;padding: 0;margin: 0;border: none;" ng-model="Freight" ng-options="x.ChildDescription for x in vm.POServiceCondition" ng-change="updateFreight(Freight,item);" ng-if="vm.isSubmitter && !vm.IsPOSubmited" class="no-print">
+			</select>
+			<span ng-if="!vm.isSubmitter || vm.IsPOSubmited" data-ng-bind="item.FreightCondition" > </span>
+		</td>
+		<td style="padding:2px; border: 1px solid silver;border-bottom: 0;border-left: 0;text-align:right;width: 64px;" ><span data-ng-bind="item.FreightValue | currencyDecimalFormat"></span></td>	   
+		<td style="padding:2px; border: 1px solid silver;border-bottom: 0;border-left: 0;text-align:right; width: 100px;">
+			<select style="width: 100%;height: 20px;padding: 0;margin: 0;border: none;" ng-model="ServiceType" ng-options="x.ChildDescription for x in vm.POServiceType" ng-change="updateServiceType(ServiceType,item);" ng-if="vm.isSubmitter && !vm.IsPOSubmited">
+			</select>
+			<span ng-if="!vm.isSubmitter || vm.IsPOSubmited" data-ng-bind="item.OtherServicesType" > </span>
+		</td>
+		<td style="padding:2px;border: 1px solid silver; border-bottom: 0;border-left: 0;text-align:right; width: 97px;" >
+			<select style="width: 100%;height: 20px;padding: 0;margin: 0;border: none;" ng-model="OtherServices" ng-options="x.ChildDescription for x in vm.POServiceCondition" ng-change="updateOtherServices(OtherServices,item);" ng-if="vm.isSubmitter && !vm.IsPOSubmited">
+			</select>
+			<span ng-if="!vm.isSubmitter || vm.IsPOSubmited" data-ng-bind="item.OtherServicesCondition" > </span>
+		</td>
+		<td style="padding:2px;border: 1px solid silver; border-bottom: 0;border-left: 0;text-align:right;width: 50px;" data-ng-bind="item.OtherServicesValue | currencyDecimalFormat">Na</td>
+		<td style="padding:2px;border: 1px solid silver;border-bottom: 0;border-left: 0; text-align:right;" data-ng-bind="item.ConditionTypeTotal | currencyDecimalFormat">Na</td>	   
+	</tr>
+			
+	<tr ng-if="item.Long_Text!=' '" ng-repeat-end> 
+		<td colspan="11" style="padding:2px; border: 1px solid silver;border-bottom: 0;text-align:left; text-align:justify;" ng-bind="item.Long_Text" ></td>
+		
+	</tr>
+	<tr style="background-color: #ffffff  !important" class="pdf-color-enable">
+		<td colspan="11" style="padding:2px; border: 1px solid silver;border-bottom: 0;border-left: 0;border-right: 0;"></td>
+	</tr>
+	<!-- <tr ng-repeat-end ng-if="item.poItemAnnexureSubList.length>0"> 
+		<td colspan="11" style="padding:0px !important;">
+			<table class="pdfbordertable"  align="center" >
+				<tr  ng-repeat-start="subItem in item.poItemAnnexureSubList" ng-if="item.Material_Number == '' && item.Item_Category == 'D'">
+					<td style="padding:2px; text-align:center;border-left:none;border-top:none;width: 34px !important;">{{$parentIndex+1}}.{{$index+1}}</td>
+					<td style="padding:2px; text-align:left;border-top:none;width: 162px;" data-ng-bind="subItem.Short_Text">NA</td>
+					<td style="padding:2px; text-align:right;border-top:none;width: 55px;">NA</td>   
+					<td style="padding:2px; text-align:right;border-top:none;width: 39px;" data-ng-bind="subItem.Order_Qty | currencyDecimalFormat">NA</td>
+					<td style="padding:2px; text-align:center;border-top:none;width: 35px;" data-ng-bind="subItem.PackingForwardingValue | currencyDecimalFormat" >NA</td>
+					<td style="padding:2px; text-align:right;border-top:none;width: 57px;" data-ng-bind="subItem.Net_Price | currencyDecimalFormat">NA</td>
+					<td style="padding:2px; text-align:right;border-top:none;width: 64px;" data-ng-bind="subItem.FreightValue | currencyDecimalFormat">&nbsp;</td>
+					<td style="padding:2px; text-align:right;border-top:none;width: 56px;" >&nbsp;</td>
+					<td style="padding:2px; text-align:right;border-top:none;width: 56px;" >&nbsp;</td>	
+					<td style="padding:2px; text-align:right;border-top:none;width: 76px;" data-ng-bind="subItem.OtherServicesValue | currencyDecimalFormat">&nbsp;</td>
+					<td style="padding:2px; width: 26px;"></td>
+				</tr>
+				<tr ng-repeat-end> 
+					<td colspan="11" style="padding:2px; text-align:left;border-left:none;border-right:none;" data-ng-bind="subItem.Long_Text" ></td>
+				</tr>
+				<tr style="background-color: #ffffff !important" class="pdf-color-enable ng-scope">
+					<td style="height: 3px;"></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+				</tr>
+				<tr style="background-color: #003366 !important" class="pdf-color-enable">
+					<td style="height: 3px;"></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+				</tr>
+				<tr style="background-color: #ffffff !important" class="pdf-color-enable">
+					<td style="height: 3px;"></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+				</tr>
+			</table>
+		</td>
+	</tr> -->
+</table>
+</div>
+
+
+				<!-- <table class="pdfbordertable pdf-format no-print" style="width:750px;" align="center">
+					<tbody>
+						<tr ng-if="item.Long_Text!=' '" class="ng-scope">
+							<td colspan="13" style="text-align:center;padding: 6px 0; background-color:#2e75b6 !important; color:#fff;" class="pdf-color-enable">
+								<div class="pull-left" style="text-align:center;width:90%; font-family: Arial Black; font-size:10pt;padding-left: 10%;">
+									OTHER CHARGES
+								</div>
+								<div class="pull-right" style="text-align:right;width:10%;">
+								</div>
+							</td>
+						</tr>
+						<tr style="text-align:center;font-weight: bold;">
+							<td style="padding:2px;">
+								SN
+							</td>
+							<td style="padding:2px;">
+								Particulars
+							</td>
+							<td style="padding:2px;">
+								Consideration Amount
+							</td>
+							<td style="padding:2px;" colspan="2">
+								Packing &amp; Forwarding
+							</td>
+							<td style="padding:2px;" colspan="2">
+								Freight
+							</td>
+							<td style="padding:2px;" colspan="3">
+								Other Services
+							</td>
+							<td style="padding:2px;">
+							Total Amount (INR)
+							</td>
+						</tr>
+						<tr style="text-align:center;font-weight: bold;">
+							<td style="padding:2px;">
+							</td>
+							<td style="padding:2px;">
+							</td>
+							<td style="padding:2px;">
+							</td>
+							<td style="padding:2px;">
+							% or Lumpsum or Included
+							</td>
+							<td style="padding:2px;">
+								Value
+							</td>
+							<td style="padding:2px;">
+								% or Lumpsum or Included or Extra
+							</td>
+							<td style="padding:2px;">
+								Value
+							</td>
+							<td style="padding:2px;">
+								Type of Service (Unloading/Inspection/etc)
+							</td>
+							<td style="padding:2px;">
+								% or Lumpsum or Included or Extra
+							</td>
+							<td style="padding:2px;">
+								Value
+							</td>
+							<td style="padding:2px;">
+							</td>
+						</tr>
+						<tr > 
+								<td colspan="13" style="padding:2px; text-align:left; text-align:justify;" >Total</td>
+								<td colspan="13" style="padding:2px; text-align:left; text-align:justify;" data-ng-bind="vm.AnnexureitemTotal | currencyDecimalFormat" >NA</td>
+						</tr>
+						<tr ng-repeat-start="item in vm.poItemAnnexureList" ng-init='showSubItemAnnexureDetails(item,true);$parentIndex=$index'>
+								<td style="padding:2px; text-align:center;" data-ng-bind="$index+1" class="pdf-color-enable"></td>
+								<td style="padding:2px; text-align:left;" data-ng-bind="item.Short_Text" class="pdf-color-enable">NA</td>
+								<td style="padding:2px; text-align:center;" ><span data-ng-bind="item.Amount"></span></td>   
+								<td style="padding:2px; text-align:center;" >
+									<select style="width: 100%;height: 20px;padding: 0;margin: 0;border: none;" ng-model="packing" ng-options="x.ChildDescription for x in vm.POServiceCondition" ng-change="updatepacking(packing,item);" ng-if="vm.isSubmitter">
+									</select>
+									<span ng-if="!vm.isSubmitter" data-ng-bind="item.PackingForwardingValue" > </span>
+								</td>
+								<td style="padding:2px; text-align:right;" ><span data-ng-bind="item.PackingForwardingValue | currencyDecimalFormat"></span></td>
+								<td style="padding:2px; text-align:right;">
+									<select style="width: 100%;height: 20px;padding: 0;margin: 0;border: none;" ng-model="Freight" ng-options="x.ChildDescription for x in vm.POServiceCondition" ng-change="updateFreight(Freight,item);">
+									</select>
+									<span ng-if="!vm.isSubmitter" data-ng-bind="item.FreightCondition" > </span>
+								</td>
+								<td style="padding:2px; text-align:right;" ><span data-ng-bind="item.FreightValue | currencyDecimalFormat"></span></td>	   
+								<td style="padding:2px; text-align:right;">
+									<select style="width: 100%;height: 20px;padding: 0;margin: 0;border: none;" ng-model="ServiceType" ng-options="x.ChildDescription for x in vm.POServiceType" ng-change="updateServiceType(ServiceType,item);">
+									</select>
+									<span ng-if="!vm.isSubmitter" data-ng-bind="item.OtherServicesType" > </span>
+								</td>
+								<td style="padding:2px; text-align:right;" >
+									<select style="width: 100%;height: 20px;padding: 0;margin: 0;border: none;" ng-model="OtherServices" ng-options="x.ChildDescription for x in vm.POServiceCondition" ng-change="updateOtherServices(OtherServices,item);">
+									</select>
+									<span ng-if="!vm.isSubmitter" data-ng-bind="item.OtherServicesCondition" > </span>
+								</td>
+								<td style="padding:2px; text-align:right;" data-ng-bind="item.OtherServicesValue | currencyDecimalFormat">Na</td>
+								<td style="padding:2px; text-align:right;" data-ng-bind="item.ConditionTypeTotal | currencyDecimalFormat">Na</td>	   
+						</tr>
+							<tr style="background-color: #ffffff  !important" class="pdf-color-enable"><td style="height: 3px;"></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>		
+							<tr ng-if="item.Long_Text!=' '"> 
+								<td colspan="13" style="padding:2px; text-align:left; text-align:justify;" ng-bind="item.Long_Text" ></td>
+								
+							</tr>
+						   <tr ng-repeat-end ng-if="item.poItemAnnexureSubList.length>0"> 
+
+     					   <td colspan="13" style="padding:0px !important;">
+     					   <table class="pdfbordertable"  align="center" >
+	                        <tr  ng-repeat-start="subItem in item.poItemAnnexureSubList" ng-if="item.Material_Number == '' && item.Item_Category == 'D'">
+								<td style="padding:2px; text-align:center;border-left:none;border-top:none;width: 34px !important;">{{$parentIndex+1}}.{{$index+1}}</td>
+								<td style="padding:2px; text-align:left;border-top:none;width: 162px;" data-ng-bind="subItem.Short_Text">NA</td>
+								<td style="padding:2px; text-align:right;border-top:none;    width: 55px;">NA</td>   
+								<td style="padding:2px; text-align:right;border-top:none;    width: 39px;" data-ng-bind="subItem.Order_Qty | currencyDecimalFormat">NA</td>
+								<td style="padding:2px; text-align:center;border-top:none;    width: 35px;" data-ng-bind="subItem.PackingForwardingValue | currencyDecimalFormat" >NA</td>
+								<td style="padding:2px; text-align:right;border-top:none;    width: 57px;" data-ng-bind="subItem.Net_Price | currencyDecimalFormat">NA</td>
+								<td style="padding:2px; text-align:right;border-top:none;    width: 64px;" data-ng-bind="subItem.FreightValue | currencyDecimalFormat">&nbsp;</td>
+								<td style="padding:2px; text-align:right;border-top:none;    width: 56px;" >&nbsp;</td>
+								<td style="padding:2px; text-align:right;border-top:none;    width: 56px;" >&nbsp;</td>	
+								<td style="padding:2px; text-align:right;border-top:none;    width: 76px;" data-ng-bind="subItem.OtherServicesValue | currencyDecimalFormat">&nbsp;</td>
+							</tr>
+
+							<!-- <tr  ng-repeat-start="subItem in item.poItemSubList" ng-if="item.Material_Number == '' && item.Item_Category == 'D'">
+								<td style="padding:2px; text-align:center;border-left:none;border-top:none;width:5.9%;">{{$parentIndex+1}}.{{$index+1}}</td>
+								<td style="padding:2px; text-align:left;border-top:none;width:30.1%;" data-ng-bind="subItem.Short_Text">NA</td>
+								<td style="padding:2px; text-align:right;border-top:none;width:6%;" data-ng-bind="subItem.Order_Qty | currencyDecimalFormat">NA</td>   
+								<td style="padding:2px; text-align:right;border-top:none;width:6%;" data-ng-bind="subItem.Order_Qty | currencyDecimalFormat">NA</td>
+								<td style="padding:2px; text-align:center;border-top:none;width:5%;" data-ng-bind="subItem.Unit_Measure" >NA</td>
+								<td style="padding:2px; text-align:right;border-top:none;width:10%;" data-ng-bind="subItem.Gross_Price | currencyDecimalFormat">NA</td>	 
+								<td style="padding:2px; text-align:right;border-top:none;width:10%;" data-ng-bind="subItem.Net_Price | currencyDecimalFormat">NA</td>
+								<td style="padding:2px; text-align:right;border-top:none;width:10%;" data-ng-bind="subItem.Net_Price | currencyDecimalFormat">NA</td>
+								<td style="padding:2px; text-align:right;border-top:none;width:9%;">&nbsp;</td>
+								<td style="padding:2px; text-align:right;border-top:none;width:10%;" >&nbsp;</td>	
+								<td style="padding:2px; text-align:right;border-top:none;width:9%;">&nbsp;</td>
+								<td style="padding:2px; text-align:right;border-top:none;width:10%;" >&nbsp;</td>	   
+								<td style="padding:2px; text-align:right;border-top:none;width:14%;border-right:none;" ><b>&nbsp;</b></td>
+							</tr> -->
+							<!-- <tr style="background-color: #ffffff  !important" class="pdf-color-enable"><td style="height: 3px;"></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>	 -->	
+							<!-- <tr ng-repeat-end> 
+								<td colspan="13" style="padding:2px; text-align:left;border-left:none;border-right:none;" data-ng-bind="subItem.Long_Text" ></td>
+								
+							</tr> -->
+<!-- 						<tr style="text-align: right;">
+							<td style="padding:2px;">
+							</td>
+							<td style="padding:2px;font-weight: bold;text-align: left;">
+								Total
+							</td>
+							<td style="padding:2px;">
+								20,00,000
+							</td>
+							<td style="padding:2px;">
+							</td>
+							<td style="padding:2px;">
+							</td>
+							<td style="padding:2px;">
+							</td>
+							<td style="padding:2px;">
+							</td>
+							<td style="padding:2px;">
+							</td>
+							<td style="padding:2px;">
+							</td>
+							<td style="padding:2px;">
+							</td>
+							<td style="padding:2px;">
+								0.00
+							</td>
+						</tr>
+						<tr style="text-align: right;">
+							<td style="padding:2px;font-weight: bold;" colspan="11">
+								Rupees Twenty Lakh Only
+							</td>
+						</tr> -->
+						<!-- <tr style="background-color: #ffffff !important" class="pdf-color-enable ng-scope">
+							<td style="height: 3px;">
+							</td>
+							<td>
+							</td>
+							<td>
+							</td>
+							<td>
+							</td>
+							<td>
+							</td>
+							<td>
+							</td>
+							<td>
+							</td>
+						</tr>
+						<tr style="background-color: #003366 !important" class="pdf-color-enable">
+							<td style="height: 3px;">
+							</td>
+							<td>
+							</td>
+							<td>
+							</td>
+							<td>
+							</td>
+							<td>
+							</td>
+							<td>
+							</td>
+							<td>
+							</td>
+							<td>
+							</td>
+							<td>
+							</td>
+							<td>
+							</td>
+							<td>
+							</td>
+						</tr>
+						<tr style="background-color: #ffffff !important" class="pdf-color-enable">
+							<td style="height: 3px;">
+							</td>
+							<td>
+							</td>
+							<td>
+							</td>
+							<td>
+							</td>
+							<td>
+							</td>
+							<td>
+							</td>
+							<td>
+							</td>
+							<td>
+							</td>
+							<td>
+							</td>
+							<td>
+							</td>
+							<td>
+							</td>
+						</tr> -->
+					<!-- </tbody>
+				</table> --> 
+<!-- 				<table class="pdfbordertable pdf-format no-print" style="width:750px;" align="center">
+		<tbody>
+		<tr style="height: 35px;">
+			<td width="500" class="orderhead pdf-color-enable" style="background-color:#003366 !important;text-align:center; color: #fff !important;/* height: 35px; */ font-size: 12pt; border: 2px solid #003366;">
+				<span style="font-weight:bold; font-family: Arial Black;">ANNEXURE (II) TO CONTRACT AGREEMENT</span>
+				<span style="padding-left: 15px; font-weight: bold;">[Purchase Order]</span>
+			</td>
+			<td width="174" style="text-align:center; border: 2px solid #000; font-size: 11pt;color: #000;background-color: #fff;">No:<span style="font-weight: bold" data-ng-bind="vm.poDetails.Purchasing_Order_Number" class="ng-binding">18W-210002</span> R 02<span style="font-weight: bold" data-ng-bind="vm.poDetails.RevisionNumber" class="ng-binding"/>
+			</td>
+		</tr>
+		</tbody>
+		</table> -->
+<!-- 		<table class="pdfbordertable pdf-format no-print" style="border-top:none;width:750px;" align="center">
+		<tbody>
+		<tr style="height: 22px;">
+			<td style="width: 130px; text-align:right">PO Manager:</td>
+			<td style="width: 210px; text-align:left">
+				<b data-ng-bind="vm.poDetails.POManager" class="ng-binding">Narayana Kumar</b>
+			</td>
+			<td style="width:80px; text-align:right">Date:</td>
+			<td style="width:80px; text-align:left; font-weight: bold;" data-ng-bind="vm.poDetails.PODate | date:vm.dateFormate" class="ng-binding"/>
+		</tr>
+		<tr style="background-color: #ffffff !important" class="pdf-color-enable">
+			<td style="height: 3px;"/>
+			<td/>
+			<td/>
+			<td/>
+			<td/>
+			<td/>
+			<td/>
+			<td/>
+		</tr>
+		<tr style="background-color: #003366 !important" class="pdf-color-enable">
+			<td style="height: 3px;"/>
+			<td/>
+			<td/>
+			<td/>
+			<td/>
+			<td/>
+			<td/>
+			<td/>
+		</tr>
+		<tr style="background-color: #ffffff !important" class="pdf-color-enable">
+			<td style="height: 3px;"/>
+			<td/>
+			<td/>
+			<td/>
+			<td/>
+			<td/>
+			<td/>
+			<td/>
+		</tr>
+		<tr style="height: 22px;">
+			<td style="width:100px; text-align:right;">Vendors:</td>
+			<td style="width:254px; text-align:left;" colspan="7">
+				<b data-ng-bind="vm.poDetails.VendorName" class="ng-binding">XYZ</b>
+			</td>
+		</tr>
+		<tr style="height: 22px;">
+			<td style="width:100px; text-align:right;"/>
+			<td style="width:254px; text-align:left;" colspan="7">
+				<b data-ng-bind="vm.poDetails.VendorAddress" class="ng-binding">Bangalore</b>
+			</td>
+		</tr>
+		<tr style="background-color: #ffffff !important" class="pdf-color-enable">
+			<td style="height: 3px;"/>
+			<td/>
+			<td/>
+			<td/>
+			<td/>
+			<td/>
+			<td/>
+		</tr>
+		<tr style="background-color: #003366 !important" class="pdf-color-enable">
+			<td style="height: 3px;"/>
+			<td/>
+			<td/>
+			<td/>
+			<td/>
+			<td/>
+			<td/>
+			<td/>
+		</tr>
+		<tr style="background-color: #ffffff !important" class="pdf-color-enable">
+			<td style="height: 3px;"/>
+			<td/>
+			<td/>
+			<td/>
+			<td/>
+			<td/>
+			<td/>
+		</tr>
+		</tbody>
+		</table> -->
+<!-- 		<div class="">
+		<table class="pdfbordertable pdf-format no-print" style="width:750px;" align="center">
+		<tbody>
+			<tr ng-if="item.Long_Text!=' '" class="ng-scope">
+				<td colspan="13" style="text-align:center;padding: 6px 0; background-color:#2e75b6 !important; color:#fff;" class="pdf-color-enable">
+					<div class="pull-left" style="text-align:center;width:90%; font-family: Arial Black; font-size:10pt;padding-left: 10%;">OTHER CHARGES</div>
+					<div class="pull-right" style="text-align:right;width:10%;">
+					</div>
+				</td>
+			</tr>
+			<tr style="text-align:center;font-weight: bold;">
+				<td style="padding:2px;">SN</td>
+				<td style="padding:2px;">Particulars</td>
+				<td style="padding:2px;">Consideration Amount (in INR)</td>
+				<td style="padding:2px;">Other Charges as per Annexure I</td>
+				<td style="padding:2px;" colspan="2">Freight(Imports - Sea/Air/Inland)</td>
+				<td style="padding:2px;" colspan="2">Clearance &amp; Other Charges</td>
+				<td style="padding:2px;" colspan="2">Basic Customs Duty</td>
+				<td style="padding:2px;" colspan="2">IGST</td>
+				<td style="padding:2px;">Total Amount (INR)</td>
+			</tr>
+			<tr style="text-align:center;font-weight: bold;">
+				<td style="padding:2px;"/>
+				<td style="padding:2px;"/>
+				<td style="padding:2px;"/>
+				<td style="padding:2px;"/>
+				<td style="padding:2px;">% or Lumpsum orIncluded</td>
+				<td style="padding:2px;">Value</td>
+				<td style="padding:2px;">% or Lumpsum orIncluded or Extra</td>
+				<td style="padding:2px;">Value</td>
+				<td style="padding:2px;">% or Lumpsum or Not Applicable</td>
+				<td style="padding:2px;">Value</td>
+				<td style="padding:2px;">% or Lumpsum or Not Applicable</td>
+				<td style="padding:2px;">Value</td>
+				<td style="padding:2px;"/>
+			</tr>
+			<tr ng-repeat-start="item in vm.poItemList" ng-init='showSubItemDetails(item,true);$parentIndex=$index'>
+								<td style="padding:2px; text-align:center;" data-ng-bind="$index+1" class="pdf-color-enable"></td>
+								<td style="padding:2px; text-align:left;" data-ng-bind="item.Short_Text" class="pdf-color-enable">NA</td>
+								<td style="padding:2px; text-align:center;" ><span data-ng-bind="item.Unit_Measure" ng-show="item.Item_Category != 'D'"></span></td>   
+								<td style="padding:2px; text-align:right;" ><span data-ng-bind="item.Order_Qty | currencyDecimalFormat" ng-if="item.Item_Category != 'D'"></span></td>
+								<td style="padding:2px; text-align:center;" ><span data-ng-bind="item.Unit_Measure" ng-show="item.Item_Category != 'D'"></span></td>
+								<td style="padding:2px; text-align:right;" ><span data-ng-bind="item.Net_Price | currencyDecimalFormat" ng-if="item.Item_Category != 'D'"></span></td>	   
+								<td style="padding:2px; text-align:right;" data-ng-bind="item.Amount | currencyDecimalFormat">NA</td>
+								<td style="padding:2px; text-align:right;" data-ng-bind="item.OtherCharges | currencyDecimalFormat">NA</td>
+								<td style="padding:2px; text-align:right;" data-ng-bind="item.ItemTax | currencyDecimalFormat">Na</td>	   
+								<td style="padding:2px; text-align:right;" data-ng-bind="item.ItemTax | currencyDecimalFormat">Na</td>	   
+								<td style="padding:2px; text-align:right;" data-ng-bind="item.ItemTax | currencyDecimalFormat">Na</td>	   
+								<td style="padding:2px; text-align:right;" data-ng-bind="item.ItemTax | currencyDecimalFormat">Na</td>	   
+								<td style="padding:2px; text-align:right;" data-ng-bind="item.itemTotal | currencyDecimalFormat">NA</td>
+							</tr>
+							<tr style="background-color: #ffffff  !important" class="pdf-color-enable"><td style="height: 3px;"></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>		
+							<tr ng-if="item.Long_Text!=' '"> 
+								<td colspan="13" style="padding:2px; text-align:left; text-align:justify;" ng-bind="item.Long_Text" ></td>
+								
+							</tr>
+						   <tr ng-repeat-end ng-if="item.poItemSubList.length>0"> 
+
+     					   <td colspan="13" style="padding:0px !important;">
+     					   <table class="pdfbordertable"  align="center" >
+	                        <tr  ng-repeat-start="subItem in item.poItemSubList" ng-if="item.Material_Number == '' && item.Item_Category == 'D'">
+								<td style="padding:2px; text-align:center;border-left:none;border-top:none;width: 34px !important;">{{$parentIndex+1}}.{{$index+1}}</td>
+								<td style="padding:2px; text-align:left;border-top:none;width: 162px;" data-ng-bind="subItem.Short_Text">NA</td>
+								<td style="padding:2px; text-align:right;border-top:none;    width: 55px;" data-ng-bind="subItem.SACCode">NA</td>   
+								<td style="padding:2px; text-align:right;border-top:none;    width: 39px;" data-ng-bind="subItem.Order_Qty | currencyDecimalFormat">NA</td>
+								<td style="padding:2px; text-align:center;border-top:none;    width: 35px;" data-ng-bind="subItem.Unit_Measure" >NA</td>
+								<td style="padding:2px; text-align:right;border-top:none;    width: 57px;" data-ng-bind="subItem.Net_Price | currencyDecimalFormat">NA</td>
+								<td style="padding:2px; text-align:right;border-top:none;    width: 64px;">&nbsp;</td>
+								<td style="padding:2px; text-align:right;border-top:none;    width: 56px;" >&nbsp;</td>	
+								<td style="padding:2px; text-align:right;border-top:none;    width: 76px;" data-ng-bind="subItem.IGST | currencyDecimalFormat">&nbsp;</td>
+								<td style="padding:2px; text-align:right;border-top:none;width: 40px;" data-ng-bind="subItem.SGST | currencyDecimalFormat">&nbsp;</td>	   
+								<td style="padding:2px; text-align:right;border-top:none;    width: 39px;" data-ng-bind="subItem.CGST | currencyDecimalFormat"><b>&nbsp;</b></td>
+								<td style="padding:2px; text-align:right;border-top:none;width: 40px;" data-ng-bind="subItem.ItemTax | currencyDecimalFormat">NA</td>
+								<td style="padding:2px; text-align:right;border-top:none;border-right: none;width: 45px;" data-ng-bind="subItem.Gross_Price | currencyDecimalFormat"></td>
+							</tr> -->
+
+							<!-- <tr  ng-repeat-start="subItem in item.poItemSubList" ng-if="item.Material_Number == '' && item.Item_Category == 'D'">
+								<td style="padding:2px; text-align:center;border-left:none;border-top:none;width:5.9%;">{{$parentIndex+1}}.{{$index+1}}</td>
+								<td style="padding:2px; text-align:left;border-top:none;width:30.1%;" data-ng-bind="subItem.Short_Text">NA</td>
+								<td style="padding:2px; text-align:right;border-top:none;width:6%;" data-ng-bind="subItem.Order_Qty | currencyDecimalFormat">NA</td>   
+								<td style="padding:2px; text-align:right;border-top:none;width:6%;" data-ng-bind="subItem.Order_Qty | currencyDecimalFormat">NA</td>
+								<td style="padding:2px; text-align:center;border-top:none;width:5%;" data-ng-bind="subItem.Unit_Measure" >NA</td>
+								<td style="padding:2px; text-align:right;border-top:none;width:10%;" data-ng-bind="subItem.Gross_Price | currencyDecimalFormat">NA</td>	 
+								<td style="padding:2px; text-align:right;border-top:none;width:10%;" data-ng-bind="subItem.Net_Price | currencyDecimalFormat">NA</td>
+								<td style="padding:2px; text-align:right;border-top:none;width:10%;" data-ng-bind="subItem.Net_Price | currencyDecimalFormat">NA</td>
+								<td style="padding:2px; text-align:right;border-top:none;width:9%;">&nbsp;</td>
+								<td style="padding:2px; text-align:right;border-top:none;width:10%;" >&nbsp;</td>	
+								<td style="padding:2px; text-align:right;border-top:none;width:9%;">&nbsp;</td>
+								<td style="padding:2px; text-align:right;border-top:none;width:10%;" >&nbsp;</td>	   
+								<td style="padding:2px; text-align:right;border-top:none;width:14%;border-right:none;" ><b>&nbsp;</b></td>
+							</tr> -->
+							<!-- <tr style="background-color: #ffffff  !important" class="pdf-color-enable"><td style="height: 3px;"></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>	 -->	
+							<!-- <tr ng-repeat-end> 
+								<td colspan="13" style="padding:2px; text-align:left;border-left:none;border-right:none;" data-ng-bind="subItem.Long_Text" ></td>
+								
+							</tr>
+			<tr style="background-color: #ffffff !important" class="pdf-color-enable ng-scope">
+				<td style="height: 3px;"/>
+				<td/>
+				<td/>
+				<td/>
+				<td/>
+				<td/>
+				<td/>
+				<td/>
+				<td/>
+				<td/>
+				<td/>
+				<td/>
+				<td/>
+			</tr>
+			<tr style="background-color: #003366 !important" class="pdf-color-enable">
+				<td style="height: 3px;"/>
+				<td/>
+				<td/>
+				<td/>
+				<td/>
+				<td/>
+				<td/>
+				<td/>
+				<td/>
+				<td/>
+				<td/>
+				<td/>
+				<td/>
+			</tr>
+			<tr style="background-color: #ffffff !important" class="pdf-color-enable">
+				<td style="height: 3px;"/>
+				<td/>
+				<td/>
+				<td/>
+				<td/>
+				<td/>
+				<td/>
+				<td/>
+				<td/>
+				<td/>
+				<td/>
+				<td/>
+				<td/>
+			</tr>
+		</tbody>
+		</table>
+		</div> -->
+                
+ 		</div>
+ 		</div>
+ 		<table style="width:750px;margin-top:10px;font-family:aller_lightregular !important; font-size:9pt;" class="no-print" align="center" ng-if="vm.isSubmitter"  cellpadding="0" cellspacing="0">
+				 <tr>
+				<td style="width:20%; border:none; text-align:left" class="no-print"><b>Comments:</b></td>
+				<td style="width:80%; border:none; text-align:right;" class="no-print"><input type="text"  class="form-control" ng-model="vm.comments" class="no-print"></td>
+				</tr>
+																															
+				</table>
+				 <table style="width:750px;margin-top:10px;font-family:aller_lightregular !important; font-size:9pt;" class="no-print" align="center" ng-if="vm.poDetails.SubmitterComments"  cellpadding="0" cellspacing="0">
+				 <tr>
+				<td style="width:20%; border:none; text-align:left" class="no-print"><b>Submitter Comments:</b></td>
+				<td style="width:80%; border:none;" data-ng-bind="vm.poDetails.SubmitterComments" class="no-print"></td>
+				</tr>
+																															
+				</table>
+				    <table style="width:750px;margin-top:10px;font-family:aller_lightregular !important; font-size:9pt;" class="no-print" align="center" ng-if="vm.isApprover"  cellpadding="0" cellspacing="0">
+				 <tr>
+				<td style="width:20%; border:none; text-align:left" class="no-print"><b>Comments:</b></td>
+				<td style="width:80%; border:none; text-align:right;" class="no-print"><input type="text"  class="form-control" ng-model="vm.Aprcomments"></td>
+				</tr>
+																															
+				</table>
+ 		<div name="poApprovers" style="width: 724px;margin:10px auto;" ng-if="vm.isPOdetail && vm.ApprAvail">
+        <div class="row item-header">
+            <div class="col-md-3">
+                Approvers
+            </div>
+        </div>
+        <div class="table-responsive">
+            <table class="table" data-page-length='10' style="font-family:aller_lightregular !important; font-size:9pt;"  cellpadding="0" cellspacing="0">
+                <thead>
+                    <tr style="margin-bottom: 5px;padding:3px;background-color:#ccc;color:#000;">
+                        <th style="width:25%">Approver</th>
+                        <th style="width:20%">Status</th>
+                        <th style="width:18%">Date</th>
+                        <th>Comments</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="approver in vm.poApproverList" style="border-bottom:dotted 1px #ccc;margin-bottom:10px;">
+                        <td style="padding: 8px;">
+                            <label ng-bind="approver.ApproverName"></label>
+                        </td>
+                        <td style="padding: 8px;">
+                            <label ng-bind="approver.Status"></label>
+                        </td>
+                        <td style="padding: 8px;">
+                            <label ng-bind="approver.ApprovedOn | date : vm.dateFormate"></label>
+                        </td>
+                         <td style="padding: 8px;">
+                            <label ng-bind="approver.Comments"></label>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+ 		<!-- <div class="row" style="padding: 0; margin: 0">
+																	
+		<div class="col-md-8"><input type="text"  class="form-control" ng-model="vm.comments"></div>
+		</div> -->
+ 		
+ 		 <div class="row" style="padding: 0; margin: 0" ng-if="vm.isPOdetail && vm.isSubmitter && !vm.isApprover">
+            <div class="col-md-12">
+             <button type="button" class="btn btn-warning" style="width:200px;margin-left: 40%;margin-top: 10px;"  ng-click="MilestoneCheck();">Submit for Approval</button>
+         </div>
+            
+        </div>
+         <div class="row" style="padding: 0; margin: 0" ng-if="vm.isPOdetail && vm.isWithdraw">
+            <div class="col-md-12">
+             <button type="button" class="btn btn-warning" style="width:200px;margin-left: 40%;margin-top: 10px;"  ng-click="PoWithdraw();">Withdraw</button>
+         </div>
+            
+        </div>
+ 		 <div name="poCurrentApprover" style="margin-top: 10px;" ng-if="vm.isPOdetail && vm.isApprover">
+        <div class="row" style="padding: 0; margin: 0">
+            <div class="col-md-6">
+                <button type="button" class="btn btn-warning pull-right" style="width:200px;" ng-click="vm.poAction('approve');">Approve</button>
+            </div>
+            <div class="col-md-6">
+                <button type="button" style="width:200px;" class="btn btn-warning" ng-click="vm.poAction('reject');">Reject</button>
+            </div>
+        </div>
+    </div>
+ 		<!-- Modal -->
+<div class="modal fade bs-example-modal-lg" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" >
+  <div class="modal-dialog" style="width:80%;" role="document">
+    <div class="modal-content">
+      <div class="modal-header" style="background-color:#98c93c; color:#fff">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Terms & condition</h4>
+      </div>
+      <div class="modal-body">
+	  <div class="table-responsive">
+			<table class="table table-bordered" style="margin-bottom:0 !important;font-family:aller_lightregular !important; font-size:9pt;"  cellpadding="0" cellspacing="0">
+				<tr style="text-align:center; background-color:#808080; color:#fff">
+					<td style="padding:2px;">&nbsp;</td>  
+					<td style="padding:2px; text-align:left; width:200px;">Title</td>
+					<td style="padding:2px; text-align:left">Description</td>
+				</tr>
+				<tr style="text-align:center;" ng-repeat="terms in vm.masterTermsList" ng-init="terms.isSelected=false">
+					<td style="padding:2px;"><label><input type="checkbox" id="{{terms.UniqueId}}" ng-checked="selection.indexOf(terms) > -1"  ng-click="toggleSelection(terms)"></label></td>
+					<td style="padding:2px; text-align:left" data-ng-bind="terms.Title">NA</td>	   
+					<td style="padding:2px; text-align:left" data-ng-bind="terms.Condition">NA</td>
+				</tr>
+				<!-- <tr style="text-align:center;">
+					<td style="padding:2px;"><label><input type="checkbox"></label></td>  
+					<td style="padding:2px; text-align:left">Limitation of Liability:</td>
+					<td style="padding:2px; text-align:left">The Clients shall not be liable to the Service Provider for loss of profit, loss of any contract or of any indirect or consequential loss or damage which may be suffered by the Service Provider in connection with this Service Order, other than payment for completed Services. The total liability of the Clients shall not exceed the pro-rated Fees for completed Services under this Contract.</td>
+				</tr> -->
+				
+			</table>
+		</div>
+	  </div>
+      <div class="modal-footer" style="padding:5px 15px;">
+        <button type="button" class="btn btn-primary" ng-click="selectTerms();">Add</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+$('#myModal').on('shown.bs.modal', function () {
+  $('#myInput').focus()
+})
+</script>

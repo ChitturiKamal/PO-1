@@ -1,0 +1,276 @@
+<div class="padding15" ng-if="!vm.isNoDataPresent">
+    <div name="poDetails" class="pan-fix-podetails">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="table-responsive">
+                    <table class="table table-striped table-hover" data-page-length='10' style="margin-bottom: 0;">
+                        <thead>
+                            <tr style="background-color: #85a520; color:#fff;">
+                                <th>PO Number</th>
+                                <th>Vendor</th>
+                                <th>PO Date</th>
+                                <th>Submitter</th>
+                                <th>Status</th>
+                                <th class="amt-theme">Value</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <label data-ng-bind="vm.poDetails.Purchasing_Order_Number">NA</label>
+                                </td>
+                                <td title="{{vm.poDetails.Vendor_Account_Number}}">
+                                    <label class="txt_ellipsis" style="max-width:175px;" data-ng-bind="vm.poDetails.Vendor_Account_Number">NA</label>
+                                </td>
+                                <td>
+                                    <label data-ng-bind="vm.poDetails.Purchasing_Document_Date | date : vm.dateFormate">NA</label>
+                                </td>
+                                <td title="{{vm.poDetails.SubmitterName}}">
+                                    <label class="txt_ellipsis" style="max-width:175px;" data-ng-bind="vm.poDetails.SubmitterName">NA</label>
+                                </td>
+                                <td>
+                                    <label data-ng-bind="vm.poDetails.ReleaseCode2Status">NA</label>
+                                </td>
+                                <td class="amt-theme">
+                                    <label data-ng-bind="vm.poDetails.Amount | currencyFormat">NA</label>
+                                    <label data-ng-bind="vm.poDetails.Currency_Key">INR</label>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div name="poItemDetails" style="margin:76px 4px 0 4px;">
+        <div class="row item-header">
+            <div class="col-md-3">
+                Items
+            </div>
+        </div>
+        <!-- start -->
+        <div style="margin:0px -9px;" class="item-list">
+            <div class="" style="border:1px solid #ccc;">
+                <div class="table-responsive">
+                    <table class="table table-striped table-hover" data-page-length='10' style="margin-bottom: 0;width:130%;max-width:130%;">
+                        <thead>
+                            <tr style="background-color: #85a520; color:#fff;">
+                                <th></th>
+                                <th>Description</th>
+                               
+                                <th class="amt-theme">QTY(BUM)</th>
+                                <th class="amt-theme">Rate</th>
+                                <th class="amt-theme">Amount</th>
+                                <th class="amt-theme">Other Charges</th>
+                                <th class="amt-theme">Tax</th>
+                                
+                                <th class="amt-theme">Gross Total</th>
+                                 <th>WBS Code</th>
+                                <th>Funds Center</th>
+                                <th>Commitment Item</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td colspan="7"></td>
+                                <td style="padding:4px;">
+                                    <div ng-if="vm.itemTotal" style="border:1px solid #ccc;padding-right:4px;" class="amt-theme">
+                                        <label data-ng-bind="vm.itemTotal | currencyFormat">NA</label>
+                                    </div>
+                                </td>
+                                <td colspan="2"></td>
+                            </tr>
+                            <tr ng-repeat-start="item in vm.poItemList">
+                                <td>
+                                    <a class="" role="button" ng-click="item.showDetails = !item.showDetails;vm.showItemDetails(item, item.showDetails);">
+                                        <span ng-if="!item.showDetails">
+                                            <i class="fa fa-plus"></i>
+                                        </span>
+                                        <span ng-if="item.showDetails">
+                                            <i class="fa fa-minus" ng-if="item.showDetails"></i>
+                                        </span>
+                                    </a>
+                                </td>
+                                <td>
+                                    <label title="{{item.Short_Text}}" data-ng-bind="item.Short_Text">NA</label>
+                                    <!--  class="txt_ellipsis" style="width:150px;" -->
+                                </td>
+                                
+                                <td class="amt-theme">
+                                    <label data-ng-bind="item.Order_Qty | currencyDecimalFormat">NA</label>
+                                    <label data-ng-bind="item.Unit_Measure">NA</label>
+                                </td>
+                                 <td class="amt-theme">
+                                    <label data-ng-bind="item.Net_Price | currencyDecimalFormat">NA</label>
+                                </td>
+                                <td class="amt-theme">
+                                    <label data-ng-bind="item.Amount | currencyDecimalFormat">NA</label>
+                                </td>
+                                <td class="amt-theme">
+                                    <label data-ng-bind="item.OtherCharges | currencyDecimalFormat">NA</label>
+                                </td>
+                                <td class="amt-theme">
+                                    <label data-ng-bind="item.ItemTax | currencyDecimalFormat">NA</label>
+                                </td>
+                               
+                                <td class="amt-theme">
+                                    <label data-ng-bind="item.itemTotal | currencyDecimalFormat">NA</label>
+                                </td>
+                                <td>
+                                    <label data-ng-bind="item.WBS_Element" ng-if="item.Item_Category != 'D'">NA</label>
+                                </td>
+                                <td>
+                                    <label data-ng-bind="item.FundCenter">NA</label>
+                                </td>
+                                <td>
+                                    <label data-ng-bind="item.Commitment_item">NA</label>
+                                </td>
+                            </tr>
+                            <tr ng-repeat-end ng-show="item.showDetails">
+                                <td></td>
+                                <td colspan='8'>
+                                    <div ng-if="item.Item_Category != 'D'">
+                                        <div>Description:</div>
+                                        <p ng-bind="item.Long_Text"></p>
+                                    </div>
+                                    <div ng-if="item.Material_Number == '' && item.Item_Category == 'D'">
+                                        <div class="" style="border:1px solid #ccc;">
+                                            <div class="table-responsive">
+                                                <table class="table table-striped table-hover" data-page-length='10' style="margin-bottom: 0;max-width:100%;width:100%;">
+                                                    <thead>
+                                                        <tr style="background-color: #979E82; color:#fff;">
+                                                            <th></th>
+                                                            <th>Description</th>
+                                                            
+                                                            <th class="amt-theme">QTY(BUM)</th>
+                                                            <th class="amt-theme">Rate</th>
+                                                            <th class="amt-theme">Amount</th>
+                                                            <th>WBS Code</th>
+                                                            <th>Funds Center</th>
+                                                            <th>Commitment Item</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr ng-repeat-start="subItem in item.poItemSubList">
+                                                            <td>
+                                                                <a class="" role="button" ng-click="subItem.showDetails = !subItem.showDetails;vm.showItemDetails(subItem, subItem.showDetails);">
+                                                                    <span ng-if="!subItem.showDetails">
+                                                                        <i class="fa fa-plus"></i>
+                                                                    </span>
+                                                                    <span ng-if="subItem.showDetails">
+                                                                        <i class="fa fa-minus" ng-if="subItem.showDetails"></i>
+                                                                    </span>
+                                                                </a>
+                                                            </td>
+                                                            <td>
+                                                                <label title="{{subItem.Short_Text}}" data-ng-bind="subItem.Short_Text">NA</label>
+                                                            </td>
+                                                           
+                                                            <td class="amt-theme">
+                                                                <label data-ng-bind="subItem.Order_Qty | currencyDecimalFormat">NA</label>
+                                                                <label data-ng-bind="subItem.Unit_Measure">NA</label>
+                                                            </td>
+                                                            <td class="amt-theme">
+                                                                <label data-ng-bind="subItem.Gross_Price | currencyDecimalFormat">NA</label>
+                                                            </td>
+                                                            <td class="amt-theme">
+                                                                <label data-ng-bind="subItem.Net_Price | currencyDecimalFormat">NA</label>
+                                                            </td>
+                                                             <td>
+                                                                <label data-ng-bind="subItem.WBS_Element">NA</label>
+                                                            </td>
+                                                            <td>
+                                                                <label data-ng-bind="subItem.FundCenter">NA</label>
+                                                            </td>
+                                                            <td>
+                                                                <label data-ng-bind="subItem.Commitment_item">NA</label>
+                                                            </td>
+                                                        </tr>
+                                                        <tr ng-repeat-end ng-show="subItem.showDetails">
+                                                            <td></td>
+                                                            <td colspan="8">
+                                                                <div ng-if="subItem.Item_Category != 'D'">
+                                                                    <div>Description:</div>
+                                                                    <p ng-bind="subItem.Long_Text"></p>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div name="poApprovers" style="margin:4px 4px 0 4px;">
+        <div class="row item-header">
+            <div class="col-md-3">
+                Approvers
+            </div>
+        </div>
+        <div class="table-responsive">
+            <table class="table" data-page-length='10'>
+                <thead>
+                    <tr style="margin-bottom: 5px;padding:5px;background-color:#ccc;color:#000;">
+                        <th>Approver</th>
+                        <th>Status</th>
+                        <th>Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="approver in vm.poApproverList" style="border-bottom:dotted 1px #ccc;margin-bottom:10px;">
+                        <td>
+                            <label ng-bind="approver.ApproverName"></label>
+                        </td>
+                        <td>
+                            <label ng-bind="approver.Status"></label>
+                        </td>
+                        <td>
+                            <label ng-bind="approver.ApprovedOn | date : vm.dateFormate"></label>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div name="poTermsAndConditions" class="terms-conditions" style="margin:0px 4px 0 4px;">
+        <uib-accordion>
+            <uib-accordion-group is-open="item.open">
+                <uib-accordion-heading>
+                    <div>
+                        <span style="color:#fff !important;">Terms & Conditions</span> <i style="color:#fff;" class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': item.open, 'glyphicon-chevron-right': !item.open}"></i>
+                    </div>
+                </uib-accordion-heading>
+                <!-- start -->
+                <div class="">
+                    <div ng-repeat="term in vm.poTermsAndConditions">
+                        <h5 style="font-weight: bold;" ng-bind="term.Header"></h5>
+                        <p ng-bind="term.Description"></p>
+                        <hr>
+                    </div>
+                </div>
+            </uib-accordion-group>
+        </uib-accordion>
+    </div>
+    <div name="poCurrentApprover" ng-if="vm.isApprover">
+        <div class="row">
+            <div class="col-md-6">
+                <button type="button" class="btn btn-warning pull-right" style="width:200px;" ng-click="vm.poAction('approve');">Approve</button>
+            </div>
+            <div class="col-md-6">
+                <button type="button" style="width:200px;" class="btn btn-warning" ng-click="vm.poAction('reject');">Reject</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="error-bg" style="background-color:#fff;" ng-if="vm.isNoDataPresent">
+    <h2 ng-if="!vm.isNewSearchText" style="line-height:2.0; text-align:center; font-weight:bold; color:#ff6a00">You currently have no PO details.</h2>
+    <h2 ng-if="vm.isNewSearchText" style="line-height:2.0; text-align:center; font-weight:bold; color:#ff6a00">No PO details found.</h2>
+    <!-- <h4 style="line-height:2.0; text-align:center; font-weight:bold;">Fugue will keep scanning for duplicates as you add new contacts and information.</h4> -->
+</div>

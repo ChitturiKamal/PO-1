@@ -1,0 +1,340 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F0B279EC-7DD2-4902-A7ED-55DF1A6C5B26}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TEComplaintsManagementDAL</RootNamespace>
+    <AssemblyName>TEComplaintsManagementDAL</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ApplicationErrorLog.cs">
+      <DependentUpon>TEComplaintsManagementDALContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataBaseLog.cs">
+      <DependentUpon>TEComplaintsManagementDALContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Proc_CategoryDepartment_Result.cs">
+      <DependentUpon>TEComplaintsManagementDALContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="sysdiagram.cs">
+      <DependentUpon>TEComplaintsManagementDALContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TEActivityTimelineInfo.cs">
+      <DependentUpon>TEComplaintsManagementDALContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TEAnswer.cs">
+      <DependentUpon>TEComplaintsManagementDALContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TEBandsAndGrade.cs">
+      <DependentUpon>TEComplaintsManagementDALContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TECampaign.cs">
+      <DependentUpon>TEComplaintsManagementDALContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TECategory.cs">
+      <DependentUpon>TEComplaintsManagementDALContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TEChangeLog.cs">
+      <DependentUpon>TEComplaintsManagementDALContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TEComment.cs">
+      <DependentUpon>TEComplaintsManagementDALContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TECompany.cs">
+      <DependentUpon>TEComplaintsManagementDALContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TEComplaintsManagementDALContext.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TEComplaintsManagementDALContext.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TEComplaintsManagementDALContext.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TEComplaintsManagementDALContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TEComplaintsManagementDALContext.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TEComplaintsManagementDALContext.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="TEContact.cs">
+      <DependentUpon>TEComplaintsManagementDALContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TEContactAddress.cs">
+      <DependentUpon>TEComplaintsManagementDALContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TEContactAlumni.cs">
+      <DependentUpon>TEComplaintsManagementDALContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TEContactEmail.cs">
+      <DependentUpon>TEComplaintsManagementDALContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TEContactGPA.cs">
+      <DependentUpon>TEComplaintsManagementDALContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TEContactIdentification.cs">
+      <DependentUpon>TEComplaintsManagementDALContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TEContactInterest.cs">
+      <DependentUpon>TEComplaintsManagementDALContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TEContactMobile.cs">
+      <DependentUpon>TEComplaintsManagementDALContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TEContactOrganisation.cs">
+      <DependentUpon>TEComplaintsManagementDALContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TEContactProfession.cs">
+      <DependentUpon>TEComplaintsManagementDALContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TEContactRelation.cs">
+      <DependentUpon>TEComplaintsManagementDALContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TEContactSocial.cs">
+      <DependentUpon>TEComplaintsManagementDALContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TEDepartment.cs">
+      <DependentUpon>TEComplaintsManagementDALContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TEDocument.cs">
+      <DependentUpon>TEComplaintsManagementDALContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TEEmailStatu.cs">
+      <DependentUpon>TEComplaintsManagementDALContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TEEmailTemplate.cs">
+      <DependentUpon>TEComplaintsManagementDALContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TEEmailTemplateAttachment.cs">
+      <DependentUpon>TEComplaintsManagementDALContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TEEMPAddress.cs">
+      <DependentUpon>TEComplaintsManagementDALContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TEEmpAssignmentDetail.cs">
+      <DependentUpon>TEComplaintsManagementDALContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TEEmpAttendence.cs">
+      <DependentUpon>TEComplaintsManagementDALContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TEEmpBankDetail.cs">
+      <DependentUpon>TEComplaintsManagementDALContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TEEmpBasicInfo.cs">
+      <DependentUpon>TEComplaintsManagementDALContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TEEmpEducationDetail.cs">
+      <DependentUpon>TEComplaintsManagementDALContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TEEmpEmergencyContact.cs">
+      <DependentUpon>TEComplaintsManagementDALContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TEEmpExperienceDetail.cs">
+      <DependentUpon>TEComplaintsManagementDALContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TEEmpFamilyDetail.cs">
+      <DependentUpon>TEComplaintsManagementDALContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TEEmpInsuranceDetail.cs">
+      <DependentUpon>TEComplaintsManagementDALContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TEEmpLanguage.cs">
+      <DependentUpon>TEComplaintsManagementDALContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TEEmpLeaveApplication.cs">
+      <DependentUpon>TEComplaintsManagementDALContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TEEmpLeavesSummary.cs">
+      <DependentUpon>TEComplaintsManagementDALContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TEEmpOtherDetail.cs">
+      <DependentUpon>TEComplaintsManagementDALContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TEEmpReference.cs">
+      <DependentUpon>TEComplaintsManagementDALContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TEEmpWorkSchedule.cs">
+      <DependentUpon>TEComplaintsManagementDALContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TEESCALATION.cs">
+      <DependentUpon>TEComplaintsManagementDALContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TEESCALATIONMATRIX.cs">
+      <DependentUpon>TEComplaintsManagementDALContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TEHoliday.cs">
+      <DependentUpon>TEComplaintsManagementDALContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TEHoliday_TEWorkLocation_Mappings.cs">
+      <DependentUpon>TEComplaintsManagementDALContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TEIssue.cs">
+      <DependentUpon>TEComplaintsManagementDALContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TELead.cs">
+      <DependentUpon>TEComplaintsManagementDALContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TELeadInterestedProjectid.cs">
+      <DependentUpon>TEComplaintsManagementDALContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TELeadSalesCoassignman.cs">
+      <DependentUpon>TEComplaintsManagementDALContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TELeadStatusTrack.cs">
+      <DependentUpon>TEComplaintsManagementDALContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TELeaveType.cs">
+      <DependentUpon>TEComplaintsManagementDALContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TELineOfBusiness.cs">
+      <DependentUpon>TEComplaintsManagementDALContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TENote.cs">
+      <DependentUpon>TEComplaintsManagementDALContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TEOffer.cs">
+      <DependentUpon>TEComplaintsManagementDALContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TEOtherDetail.cs">
+      <DependentUpon>TEComplaintsManagementDALContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TEPickList.cs">
+      <DependentUpon>TEComplaintsManagementDALContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TEPickListItem.cs">
+      <DependentUpon>TEComplaintsManagementDALContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TEProject.cs">
+      <DependentUpon>TEComplaintsManagementDALContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TEProjects_TOWER.cs">
+      <DependentUpon>TEComplaintsManagementDALContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TEProjects_UNIT.cs">
+      <DependentUpon>TEComplaintsManagementDALContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TEQuestion.cs">
+      <DependentUpon>TEComplaintsManagementDALContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TEQueue.cs">
+      <DependentUpon>TEComplaintsManagementDALContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TEQueueDepartment.cs">
+      <DependentUpon>TEComplaintsManagementDALContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TERequestAssignment.cs">
+      <DependentUpon>TEComplaintsManagementDALContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TERule.cs">
+      <DependentUpon>TEComplaintsManagementDALContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TESubFunction.cs">
+      <DependentUpon>TEComplaintsManagementDALContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TESurvey.cs">
+      <DependentUpon>TEComplaintsManagementDALContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TETask.cs">
+      <DependentUpon>TEComplaintsManagementDALContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TEUnit_Onboarding.cs">
+      <DependentUpon>TEComplaintsManagementDALContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TEVisitorPass.cs">
+      <DependentUpon>TEComplaintsManagementDALContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TEWorkingDesignation.cs">
+      <DependentUpon>TEComplaintsManagementDALContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TEWorkLocation.cs">
+      <DependentUpon>TEComplaintsManagementDALContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UserProfile.cs">
+      <DependentUpon>TEComplaintsManagementDALContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="webpages_Membership.cs">
+      <DependentUpon>TEComplaintsManagementDALContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="webpages_OAuthMembership.cs">
+      <DependentUpon>TEComplaintsManagementDALContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="webpages_Roles.cs">
+      <DependentUpon>TEComplaintsManagementDALContext.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="TEComplaintsManagementDALContext.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>TEComplaintsManagementDALContext.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config" />
+    <None Include="packages.config" />
+    <None Include="TEComplaintsManagementDALContext.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>TEComplaintsManagementDALContext.edmx</DependentUpon>
+      <LastGenOutput>TEComplaintsManagementDALContext.Context.cs</LastGenOutput>
+    </None>
+    <None Include="TEComplaintsManagementDALContext.edmx.diagram">
+      <DependentUpon>TEComplaintsManagementDALContext.edmx</DependentUpon>
+    </None>
+    <None Include="TEComplaintsManagementDALContext.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>TEComplaintsManagementDALContext.edmx</DependentUpon>
+      <LastGenOutput>TEComplaintsManagementDALContext.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

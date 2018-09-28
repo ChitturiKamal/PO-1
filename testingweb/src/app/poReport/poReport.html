@@ -1,0 +1,58 @@
+<div class="row" resize>
+    <div class="col-md-12 padding0">
+        <div class="containerHeight" style="overflow-y:auto;">
+            <div class="table-responsive report-table" style="width:95%;margin:auto;height:100%;">
+                <table class="table table-striped table-hover" data-page-length='10' style="margin-bottom:0;border:1px solid #ccc;">
+                    <thead style="background-color: #85a520; color:#fff;">
+                        <tr style="width:98%;">
+                            <th style="width:3%;">S.No</th>
+                            <th style="width:10%;">PO Number</th>
+                            <th style="width:20%;">PO Title</th>
+                            <th style="width:20%;">Vendor Name</th>
+                            <th style="width:14%;">Status</th>
+                            <th style="width:20%;">Submitter</th>
+                            <th style="width:13%;">Value</th>
+                        </tr>
+                    </thead>
+                    <tbody when-scroll-ends="vm.loadMoreRecords()">
+                        <tr ng-repeat="po in vm.poList">
+                            <td style="width:3%;">
+                                <label ng-bind="$index + 1"></label>
+                            </td>
+                            <td style="width:10%;">
+                                <label data-ng-bind="po.Purchasing_Order_Number">NA</label>
+                            </td>
+                            <td style="width:20%;">
+                                <label data-ng-bind="po.PoTitle">NA</label>
+                            </td>
+                            <td style="width:20%;">
+                                <label data-ng-bind="po.VendorName">NA</label>
+                            </td>
+                            <td style="width:14%;">
+                                <label ng-bind="po.ReleaseCodeStatus"></label>
+                            </td>
+                            <td style="width:20%;">
+                                <label data-ng-bind="po.submitter">NA</label>
+                            </td>
+                            <td style="width:13%;">
+                                <label data-ng-bind="po.Amount | currencyFormat">NA</label>
+                                <label data-ng-bind="po.Currency_Key">INR</label>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <!-- <div style="width:90%;margin-top:5px;">
+                <div class="row">
+                    <div class="col-md-6">
+                        <button type="button" ng-disabled="vm.pageIndex==1" class="btn btn-warning pull-right" ng-click="vm.isNextCallAllowed=true;vm.pageIndex= vm.pageIndex -1;vm.loadMoreRecords();">
+                            <<</button>
+                    </div>
+                    <div class="col-md-6">
+                        <button type="button" ng-disabled="!vm.isNextCallAllowed" class="btn btn-warning" ng-click="vm.pageIndex=vm.pageIndex+1;vm.loadMoreRecords();">>></button>
+                    </div>
+                </div>
+            </div> -->
+        </div>
+    </div>
+</div>

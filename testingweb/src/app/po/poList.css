@@ -1,0 +1,101 @@
+.po-value {
+    margin: 0 !important;
+    color: #000;
+    border-radius: 3px;
+    font-size: 12pt;
+    float: left;
+    border-bottom: solid 3px #ff8d3c !important;
+    padding: 0 5px;
+}
+
+.item-header {
+    background-color: #2279be;
+    padding: 8px 0;
+    color: #fff;
+    text-align: left;
+    border: solid 1px #f1f1f1;
+    margin-bottom: 5px;
+    font-weight: normal !important;
+}
+
+.profile-bg {
+    -webkit-box-shadow: 2px 2px 5px 0px rgba(153, 153, 153, 1);
+    -moz-box-shadow: 2px 2px 5px 0px rgba(153, 153, 153, 1);
+    box-shadow: 2px 2px 5px 0px rgba(153, 153, 153, 1);
+}
+
+.pan-fix-podetails {
+    position: fixed;
+    background-color: #fff;
+    width: 62% !important;
+    padding: 5px;
+    z-index: 78;
+    -webkit-box-shadow: 2px 2px 5px 0px rgba(153, 153, 153, 1);
+    -moz-box-shadow: 2px 2px 5px 0px rgba(153, 153, 153, 1);
+    box-shadow: 2px 2px 5px 0px rgba(153, 153, 153, 1);
+    margin-left: -15px !important;
+    margin-top: -15px !important;
+}
+
+.form-group-edit {
+    margin-bottom: 9px;
+    border-bottom: dotted 1px #ccc;
+}
+
+.item-list .panel-title {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 12pt;
+    padding: 0px 7px;
+    color: #fff !important;
+    background-color: #808080;
+    line-height: 0.8;
+}
+
+.item-list .panel-body {
+    padding: 0px !important;
+    font-size: 9pt;
+}
+
+.item-list .panel-group {
+    margin: 0 5px 20px 5px;
+}
+
+.terms-conditions .panel-title {
+    background-color: #2279be;
+    padding: 0px 7px;
+    color: #fff;
+    text-align: left;
+    border: solid 1px #f1f1f1;
+    font-weight: normal !important;
+    margin: 0px -21px;
+    line-height: 0.8;
+}
+
+.terms-conditions .panel-body {
+    font-size: 10pt;
+}
+
+.terms-conditions .panel-group {
+    margin: 0 5px 20px 5px;
+}
+
+.terms-conditions .panel {
+    border: none;
+}
+
+.status-approve {
+    color: #8da83d;
+}
+
+.status-pending {
+    color: #ffd200;
+}
+
+.status-reject {
+    color: #e00505;
+}
+
+.status-inqueue {
+    color: #ff6a00;
+}

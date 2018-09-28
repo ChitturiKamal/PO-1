@@ -1,0 +1,403 @@
+<style>
+    .nicEdit-main {
+        width: 100% !important;
+        margin: 0px !important;
+    }
+    
+    .form-block .richTxt {
+        width: 100% !important;
+    }
+    
+    .templatelengthtext {
+        white-space: nowrap;
+        width: 25em;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        margin: 0;
+    }
+    .height200px{
+        height: 200px;
+    }
+    
+    .limitText {
+        font-size: 13px;
+        width: 20em;
+        height: 18px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        -webkit-box-orient: vertical;
+        position: absolute;
+        padding: 0 5px;
+        font-weight: normal;
+    }
+    
+    .modal-dialog {
+        margin: 70px auto;
+    }
+    
+    .well {
+        margin-bottom: 0;
+    }
+    .sd{
+        width: 145px;
+        margin-left: -33%;
+    }
+</style>
+<header ng-include="'views/header.html'"></header>
+<div ng-controller="plantStorageCtrl">
+    <div ng-include="'views/Delete.html'"></div>
+    <div class="wrapper" style="background-color:#fff;width: 100% !important;">
+        <div class="row selcproject" style="margin:0;">
+            <div class="col-md-12" style="padding:0;">
+                <div class="portfolio-page">
+                    <div class="wizard" style="margin:0 auto;">
+                        <div class="head-panel-grey">
+                            <div class="pull-left">
+                                <h4>Plant Storage Details</h4>
+                            </div>
+                            <div class="pull-right"> <a ng-if="CheckPrivilage('PlantStorageMaster','Save')" class="btn btn-sm btn-primary mt33" href="javascript:void(0)" data-toggle="modal" data-target="#addPlantStorage"><i class="fa fa-plus"></i> ADD NEW</a> </div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="table-content">
+                            <div class="main-table filterable">
+                                <div class="panel">
+                                    <div class="panel-body">
+                                        <table class="table table-bordered">
+                                            <thead>
+                                                <tr class="filters">
+                                                        <th class="text-center" width="12%">
+                                                                <label>Project</label>
+                                                        </th>
+                                                        <th class="text-center" width="12%">
+                                                            <label>Company Code</label>
+                                                        </th>
+                                                        <th class="text-center" width="5%">
+                                                            <label>Type</label>
+                                                        </th>
+                                                        <th class="text-center" width="7%">
+                                                            <label>Country</label>
+                                                        </th>
+                                                        <th class="text-center" width="7%">
+                                                            <label>State Code Description</label>
+                                                        </th>
+                                                            <th class="text-center" width="12%">
+                                                                <label>Address</label>
+                                                        </th>
+                                                        <th class="text-center" width="7%">
+                                                            <label>GSTIN</label>
+                                                        </th>
+                                                        <th class="text-center" width="10%">
+                                                            <label>Storage Location Code</label>
+                                                        </th>
+                                                        <th class="text-center" width="7%">
+                                                                <label>Plant Storage Code</label>
+                                                            </th>
+                                                       
+                                                        <th class="text-center" width="8%">
+                                                            <label>LastModified On</label>
+                                                        </th>
+                                                        <th class="text-center" width="5%">
+                                                            <label>User Name</label>
+                                                        </th>
+                                                       
+                                                        <th class="text-center" width="5%">
+                                                                <label>option</label>
+                                                        </th>
+                                                </tr>
+                                                <tr class="filtersLight">
+                                                    <th class="text-center">
+                                                        <input class="form-control" type="text" placeholder="Search" ng-model="PN"> </th>
+                                                    <th class="text-center">
+                                                        <input class="form-control" type="text" placeholder="Search" ng-model="CompC"> </th>
+                                                    <th class="text-center">
+                                                        <input class="form-control" type="text" placeholder="Search" ng-model="TY"> </th>
+                                                    <th class="text-center">
+                                                        <input class="form-control" type="text" placeholder="Search" ng-model="CounC"> </th>
+                                                    <th class="text-center">
+                                                        <input class="form-control" type="text" placeholder="Search" ng-model="SCD"> </th>
+                                                    <th class="text-center">
+                                                        <input class="form-control" type="text" placeholder="Search" ng-model="Add"> </th>
+                                                    <th class="text-center">
+                                                        <input class="form-control" type="text" placeholder="Search" ng-model="GSI"> </th>
+                                                    <th class="text-center">
+                                                        <input class="form-control" type="text" placeholder="Search" ng-model="SLC"> </th>
+                                                    <th class="text-center">
+                                                        <input class="form-control" type="text" placeholder="Search" ng-model="PSC"> </th>
+                                                        <th></th>
+                                                    <th class="text-center">
+                                                        <input class="form-control" type="text" placeholder="Search" ng-model="UN"> </th>
+                                                    
+                                                </tr>
+                                            </thead>
+                                            <tbody ng-if="plantStorageList.info.listcount<='0'">
+                                                <tr>
+                                                    <td colspan="1000" class="text-center">No Records</td>
+                                                </tr>
+                                            </tbody>
+                                            <tbody>
+                                                    <tr ng-repeat="data in plantStorageList.result|filter:{ProjectName:PN,CompanyCode:CompC,Type:TY,CountryCode:CounC,StateCodeDescription:SCD,Address:Add,GSTIN:GSI,StorageLocationCode:SLC,PlantStorageCode:PSC,UserName:UN}">
+                                                            <td>{{data.ProjectName?data.ProjectName:'NA'}}</td>
+                                                            <td>{{data.CompanyCode?data.CompanyCode:'NA'}}</td>
+                                                            <td>{{data.Type?data.Type:'NA'}}</td>
+                                                            <td>{{data.CountryCode?data.CountryCode:'NA'}}</td>
+                                                            <td>{{data.StateCodeDescription?data.StateCodeDescription:'NA'}}</td>
+                                                            <td >{{data.Address?data.Address:'NA'}}</td>
+                                                            <td>{{data.GSTIN?data.GSTIN:'NA'}}</td>
+                                                            <td>{{data.StorageLocationCode?data.StorageLocationCode:'NA'}}</td>
+                                                            <td>{{data.PlantStorageCode?data.PlantStorageCode:'NA'}}</td>
+                                                            <td>{{data.LastModifiedOn | date:"dd-MM-yyyy"}}</td>
+                                                            <td>{{data.UserName?data.UserName:'NA'}}</td>
+                                                            <td>
+                                                              <a ng-click="FromView(data.PlantStorageDetailsID)" data-toggle="modal" data-target="#updatePlantStorage" title="Add"><i class="fa fa-pencil-square-o"></i></a>
+                                                              <a ng-click="SetDeleteData(data.PlantStorageDetailsID);" data-toggle="modal" data-target="#DeletePlantStorage" title="Delete"><i class="fa fa-trash-o"></i></a>
+                                                              <!-- <a><i class="fa fa-cog" data-toggle="modal" data-target="#SendForApprovalPage"></i></a> -->
+                                                            </td>
+                                                        </tr>
+                                            </tbody>
+                                            <tfoot class="footer">
+                                                <tr>
+                                                    <td colspan="12" align="right" style="text-align: right;">
+                                                        <label ng-if="result.info.listcount>'0'">Now Showing: {{result.info.fromrecords}} - {{result.info.torecords}} of {{result.info.totalrecords}}</label> &nbsp;&nbsp;
+                                                        <label>Go To Page : &nbsp;
+                                                            <input type="text" size="2" value="1" class="form-control inline-in intvalid pageInput" ng-model="pagenumber" ng-change="pagenationss(pagenumber)" /> </label> &nbsp;&nbsp;
+                                                        <label> Show Rows : </label>
+                                                        <label>
+                                                            <select ng-model="pageprecounts" name="pageprecounts" class="pageCount inline-in" ng-change="pagenationss(pagenumber,pageprecounts)">
+                                                                <option value="" disabled="disabled">Select</option>
+                                                                <option value="10"  ng-selected="true">10</option>
+                                                                <option value="20">20</option>
+                                                                <option value="50">50</option>
+                                                                <option value="100">100</option>
+                                                                <option value="200">200</option>
+                                                                <option value="400">400</option>
+                                                                <option value="500">500</option>
+                                                                <option value="700">700</option>
+                                                                <option value="1000">1000</option>
+                                                                <option value="9999999">All</option>
+                                                            </select>
+                                                        </label> &nbsp;&nbsp;
+                                                        <label><a class="btn btn-default btn-xs" ng-click="pagenationss_clk(pagenumber,0)" style="padding:1px 8px;"><i class="fa fa-caret-left"></i></a> </label>
+                                                        <label ng-if="result.info.listcount>'0'"><a class="btn btn-default btn-xs" ng-click="pagenationss_clk(pagenumber,1)" style="padding:1px 8px;" ng-if="result.info.listcount!=0"><i class="fa fa-caret-right"></i></a> </label>
+                                                    </td>
+                                                </tr>
+                                            </tfoot>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>    
+    <div id="DeletePlantStorage" class="modal fade pop-modal" role="dialog">
+        <div class="modal-dialog modal-md">
+            <div class="modal-content">
+                <div class="modal-header padpop">
+                    <h5 class="modal-title pull-left mt7">Are you sure you want delete?{{Plantstorage.PlantStorageDetailsID}}</h5>
+                    <div class="pull-right">
+                        &nbsp;
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="modal-body">
+                    <div class="main-content text-right">
+                        <form name="deleteForm" class="deleteForm">
+                            <input type="hidden" name="PlantStorageDetailsID" value="{{PlantStorageDetailsID}}">
+                        </form>
+                        <button class="btn btn-warning btn-sm" data-dismiss="modal" type="button">No, Cancel</button>
+                        <button class="btn btn-success btn-sm" ng-click="FormDelete()" type="button">Yes, Delete</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="addPlantStorage" class="modal pop-modal fade" role="dialog">
+        <div class="modal-dialog">
+                    <!-- Modal content-->
+          <div class="modal-content">
+                <div class="modal-header padpop">
+                    <h5 class="modal-title pull-left mt7">Create Plant Storage</h5>
+                    <div class="pull-right">
+                        <button class="btn btn-warning btn-sm" type="button" data-dismiss="modal">Cancel</button>
+                        <button class="btn btn-success btn-sm" type="button" ng-click="FromCreate()">Create</button>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="modal-body">
+                    <div class="main-content">
+                        <form name="addForm" class="addForm ng-pristine ng-valid" enctype="multipart/form-data" method="post">
+                              <div class="row">
+                                <div class="col-md-6 mb10">
+                                    <div class="form-block">
+                                        <label>Project<span class="mandatory">*</span></label>
+                                        <select class="form-control" ng-model="ProjectID" name="ProjectID" >
+                                            <option value="">Select Project</option>
+                                            <option ng-repeat="data in projectList" value="{{data.ProjectID}}">{{data.ProjectName}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb10">
+                                    <div class="form-block">
+                                        <label>Company<span class="mandatory">*</span></label>
+                                        <select class="form-control" name="CompanyCode" ng-model="CompanyCode">
+                                            <option value="">Select Company</option>
+                                            <option ng-repeat="data in CompanyMaster" value="{{data.CompanyCode}}">{{data.CompanyName}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 mb10">
+                                    <div class="form-block">
+                                        <label>Country<span class="mandatory">*</span></label>
+                                        <select class="form-control" name="CountryCode" ng-model="CountryCode">
+                                            <option value="" selected="selected">Select</option>
+                                            <option ng-repeat="data in countryList" value="{{data.Description}}">{{data.Description}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb10">
+                                    <div class="form-block">
+                                        <label>State<span class="mandatory">*</span></label>
+                                            <select class="form-control" name="StateID" ng-model="StateID">
+                                                <option value="" selected="selected">Select</option>
+                                                <option ng-repeat="data in stateList" value="{{data.StateID}}">{{data.StateName}}</option>
+                                            </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb10">
+                                    <div class="form-block">
+                                        <label>Plant Storage Code</label>
+                                        <input type="text" class="form-control ng-pristine ng-valid ng-empty ng-touched intvalid" name="PlantStorageCode" ng-model="PlantStorageCode" placeholder="Plant Storage Code">
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb10">
+                                    <div class="form-block">
+                                        <label>Storage Location Code</label>
+                                        <input type="text" class="form-control ng-pristine ng-valid ng-empty ng-touched intvalid" name="StorageLocationCode" ng-model="StorageLocationCode" placeholder="Storage Location Code">
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb10">
+                                    <div class="form-block">
+                                        <label>GSTIN<span class="mandatory">*</span></label>
+                                        <input type="text" class="form-control ng-pristine ng-valid ng-empty ng-touched" name="GSTIN" ng-model="GSTIN" placeholder="GSTIN">
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb10">
+                                    <div class="form-block">
+                                        <label>Type<span class="mandatory">*</span></label>
+                                        <select class="form-control" name="Type" ng-model="Type">
+                                            <option value="">Select State</option>
+                                            <option  value="Shipping">Shipping</option>
+                                            <option  value="Billing">Billing</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 mb10">
+                                    <div class="form-block">
+                                        <label>Address<span class="mandatory">*</span></label>
+                                        <textarea class="form-control ng-pristine ng-valid ng-empty ng-touched" name="Address" ng-model="Address" placeholder="Enter Address"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+           </div>
+        </div>
+    </div>
+    <div id="updatePlantStorage" class="modal pop-modal fade" role="dialog">
+        <div class="modal-dialog">
+                    <!-- Modal content-->
+          <div class="modal-content">
+                <div class="modal-header padpop">
+                    <h5 class="modal-title pull-left mt7">Update Plant Storage </h5>
+                    <div class="pull-right">
+                        <button class="btn btn-warning btn-sm" type="button" data-dismiss="modal">Cancel</button>
+                        <button class="btn btn-success btn-sm" type="button" ng-click="FromUpdate()">Update</button>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="modal-body">
+                    <div class="main-content">
+                        <form name="updateForm" class="updateForm ng-pristine ng-valid" enctype="multipart/form-data" method="post">
+                            <input type="hidden" name="PlantStorageDetailsID" value="{{Plantstorage.PlantStorageDetailsID}}">
+                            <div class="row">
+                                <div class="col-md-6 mb10">
+                                    <div class="form-block">
+                                        <label>Project<span class="mandatory">*</span></label>
+                                        <select class="form-control" ng-model="ProjectID" name="ProjectID" ng-model="ProjectName" >
+                                            <option value="">Select Project</option>
+                                            <option ng-repeat="data in projectList" value="{{data.ProjectID}}" ng-selected="data.ProjectID == Plantstorage.ProjectID">{{data.ProjectName}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb10">
+                                    <div class="form-block">
+                                        <label>Company<span class="mandatory">*</span></label>
+                                        <select class="form-control" name="CompanyCode" ng-model="CompanyCode">
+                                            <option value="">Select Company</option>
+                                            <option ng-repeat="data in CompanyMaster" value="{{data.CompanyCode}}" ng-selected="data.CompanyCode==Plantstorage.CompanyCode">{{data.CompanyName}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 mb10">
+                                    <div class="form-block">
+                                        <label>Country<span class="mandatory">*</span></label>
+                                        <select class="form-control" name="CountryCode" ng-model="Plantstorage.CountryCode">
+                                            <option value="" selected="selected">Select</option>
+                                            <option ng-repeat="data in countryList" value="{{data.Description}}">{{data.Description}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb10">
+                                    <div class="form-block">
+                                        <label>State<span class="mandatory">*</span></label>
+                                        <select class="form-control" name="StateID" ng-model="Plantstorage.StateID">
+                                            <option value="" selected="selected">Select</option>
+                                            <option ng-repeat="data in stateList" value="{{data.StateID}}">{{data.StateName}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb10">
+                                    <div class="form-block">
+                                        <label>Plant Storage Code</label>
+                                        <input type="text" class="form-control ng-pristine ng-valid ng-empty ng-touched intvalid" name="PlantStorageCode" ng-model="Plantstorage.PlantStorageCode" placeholder="Plant Storage Code">
+                                     </div>
+                                </div>
+                                <div class="col-md-6 mb10">
+                                    <div class="form-block">
+                                        <label>Storage Location Code</label>
+                                        <input type="text" class="form-control ng-pristine ng-valid ng-empty ng-touched intvalid" name="StorageLocationCode" ng-model="Plantstorage.StorageLocationCode" placeholder="Storage Location Code">
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb10">
+                                    <div class="form-block">
+                                        <label>GSTIN<span class="mandatory">*</span></label>
+                                        <input type="text" class="form-control ng-pristine ng-valid ng-empty ng-touched" name="GSTIN" ng-model="Plantstorage.GSTIN" placeholder="GSTIN">
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb10">
+                                    <div class="form-block">
+                                        <label>Type<span class="mandatory">*</span></label>
+                                        <select class="form-control" name="Type" ng-model="Type">
+                                            <option value="">Select Type</option>
+                                            <option  value="Shipping" ng-selected="Plantstorage.Type=='Shipping'">Shipping</option>
+                                            <option  value="Billing" ng-selected="Plantstorage.Type=='Billing'">Billing</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 mb10">
+                                    <div class="form-block">
+                                        <label>Address<span class="mandatory">*</span></label>
+                                        <textarea class="form-control ng-pristine ng-valid ng-empty ng-touched" name="Address" ng-model="Plantstorage.Address" placeholder="Enter Address"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+           </div>
+        </div>
+    </div>
+</div>

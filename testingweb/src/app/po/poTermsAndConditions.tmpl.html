@@ -1,0 +1,24 @@
+<md-dialog aria-label="List dialog" style="width:66%;">
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <h2>Terms & Conditions</h2>
+        </div>
+    </md-toolbar>
+    <md-dialog-content>
+        <div class="md-dialog-content">
+            <md-list-item class="md-3-line" ng-repeat="term in vm.poTermsAndConditions">
+                <div class="md-list-item-text">
+                    <h3 style="font-weight: bold;" ng-bind="term.Header"></h3>
+                    <p ng-bind="term.Description">
+                    </p>
+                </div>
+                <md-divider ng-if="!$last"></md-divider>
+            </md-list-item>
+        </div>
+    </md-dialog-content>
+    <md-dialog-actions>
+        <md-button ng-click="closeDialog();" class="md-raised md-warn">
+            OK
+        </md-button>
+    </md-dialog-actions>
+</md-dialog>

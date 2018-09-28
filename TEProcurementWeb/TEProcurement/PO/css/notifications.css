@@ -1,0 +1,57 @@
+.notification{
+    width: 25px;
+    height: 25px;
+    float: right;
+    margin-top: 17px;
+    position: relative;
+    color: #fff;
+    background-color: #ccc;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+.notification .bellicon{
+padding:5px;
+margin-left: 2px;
+    margin-top: 3px;
+}
+.notification_box{
+position: absolute;
+    top: 30px;
+    right: -150px;
+   background-color:#fff;
+   border:3px solid #333;
+    width: 330px;
+    height: 200px;
+    overflow-y: auto;
+}
+.notification_box h1{margin:0;
+padding:10px 5px 0 8px; font-size:16px; color:#000;}
+ul.notifylst{
+margin:0;
+padding:10px;
+}
+ul.notifylst li{
+list-style:none;
+margin:0;
+padding:10px 5px 10px 0;
+color:#000;
+font-size:12px;
+display: block;
+width:100%;
+border-bottom:1px dashed #ccc;
+}
+
+.notify-options i{ width: 15px; 
+
+    height: 15px;
+    background: white;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 8px;
+    cursor: pointer;
+    vertical-align: middle;
+    text-align: center;
+    font-size: 10px;
+    display: table-cell;
+	padding:0 2px;}
+	ul.notifylst li:hover{background-color:#e3e3e3; }

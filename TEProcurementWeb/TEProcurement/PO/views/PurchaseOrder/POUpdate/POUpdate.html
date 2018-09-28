@@ -1,0 +1,1160 @@
+<style>.DMSUpload,.clickable{cursor:pointer}.SelTD{background-color:#8fbc8f!important}.Ybg{background-color:#ff0!important}.readOnlyTd{background-color:#eee!important}.filtersCSS{background:#fff;color:#262626!important;font-weight:500;line-height:14px;border:none;-webkit-box-shadow:none!important;box-shadow:none!important;height:20px}.panel-heading span{font-size:15px;text-decoration:none}.justforPt td{padding:5px 0!important;vertical-align:middle!important;font-size:10pt!important}.panel{margin-bottom:0}.panel-body{padding:0 0 0 15px}.panel-heading{padding:0}.navbar-form{margin-top:0}.w87{width:70px}.displayInblock p{display:inherit}.CLelements{background-color:#5f9ea0;height:30px;margin:1%;line-height:20px;padding:5px;color:#FFF;width:100%}.margin1{margin:1%}.w80{width:80px}.w90{width:90px}.w100{width:100px}.w150{width:150px}.panel{background-color:transparent}.panel-default{border-color:transparent}.panel-group .panel+.panel{margin-top:0}.panel-head-org{background-color:rgba(255,102,0,.973);padding:10px;font-weight:700;color:#fff;border-radius:0;margin:0 0 5px}.bs-example{margin:20px}.table{margin-bottom:0!important}.btn-primary{color:#fff;background-color:rgba(255,102,0,.863);border-color:#a4752e}.AddIconflow{margin:15px;position:fixed;top:30%;background:#337ab7;padding:0;right:0;width:50px;height:50px;opacity:.9;z-index:100;border-radius:25px}.modal-dialog{margin-top:90px}.well{margin-bottom:0}.pl5{padding-left:5px}.buttonpadding{padding-bottom:7px}.padding20{padding:20px}.btn-circle-sm{width:50px;height:50px;text-align:center;padding:2px 0;font-size:16px;line-height:43px;border-radius:30px;font-weight:700;letter-spacing:1px}.small{font-size:11px!important}.btn-sample{color:#fff;background-color:#C2C2C2;border-color:#C7C7C7}.cmplibpadpop{padding:4px 8px!important}.btn-sample.active,.btn-sample:active,.btn-sample:focus,.btn-sample:hover,.open .dropdown-toggle.btn-sample{color:#fff;background-color:#6E6E6E;border-color:#C7C7C7}.DMSUpload{position:absolute;margin-top:-4px;margin-left:2px;font-size:14px;color:#337ab7}.DMSUpload:hover{color:#262626}.h110{height:110px;margin:5px 0}.dropdown.dropdown-scroll .dropdown-menu{max-height:200px;width:60px;overflow:auto}.search-control{padding:5px 10px}
+.lpd tbody td{padding: 4px 5px !important;}
+</style>
+<header ng-include="'views/header.html'"></header>
+<div class="wrapper" ng-controller="POUpdateController">
+    <div class="row">
+        <div class="container wrapper" style="background: #fff;">
+            <div class="row">
+                <section>
+                <div style="margin: 70px auto 0 auto;">
+                    <div class="title-panel">Purchase Order- {{PODetailsResult.Purchasing_Document_Date?('Created On: '+ (PODetailsResult.Purchasing_Document_Date|date:'dd-MMM-yyyy')):'PO not Generated'}} 
+                        <div class="pull-right">
+                            {{PODetailsResult.Purchasing_Order_Number ? PODetailsResult.Purchasing_Order_Number : PODetailsResult.Uniqueid}}
+                            <a class="btn btn-xs btn-success" style="margin-right: 4px;margin-bottom: 3px" href="#/{{backLink}}"><i class="fa fa-arrow-left"></i> Back</a>
+                        </div>
+                    </div><div class="clearfix"></div>
+                    <div class="container-fluid">
+                        <div class="main-body-space">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <ul class="nav nav-tabs">
+                                            <li ng-class="{active:IsTabSelected(1)}"><a data-toggle="tab" aria-expanded="false" ng-click="selectTab(1)">Basic Information</a></li>
+                                            <li ng-class="{active:IsTabSelected(2)}"><a data-toggle="tab" aria-expanded="false" ng-click="selectTab(2)">General Information</a></li>
+                                            <li ng-class="{active:IsTabSelected(3)}"><a data-toggle="tab" aria-expanded="false" ng-click="selectTab(3);GetPurchaseItems();">Purchase Details</a></li>
+                                            <li ng-class="{active:IsTabSelected(4)}"><a data-toggle="tab" aria-expanded="false" ng-click="selectTab(4)">Annexure</a></li>
+                                            <li ng-class="{active:IsTabSelected(5)}"><a data-toggle="tab" aria-expanded="false" ng-click="selectTab(5);getPOpaymentterms();">Payment Terms</a></li>
+                                            <li ng-class="{active:IsTabSelected(6)}"><a data-toggle="tab" aria-expanded="false" ng-click="selectTab(6)">Special T &amp; C</a></li>
+                                            <li ng-class="{active:IsTabSelected(7)}"><a data-toggle="tab" aria-expanded="false" ng-click="selectTab(7)">Specific T &amp; C</a></li>
+                                            <li ng-class="{active:IsTabSelected(8)}"><a data-toggle="tab" aria-expanded="false" ng-click="selectTab(8)">General T &amp; C</a></li>
+                                            <li ng-class="{active:IsTabSelected(9)}"><a data-toggle="tab" aria-expanded="false" ng-click="selectTab(9)">Linked PO</a></li>
+                                            <div class="pull-right" ng-if="(PODetailsResult.ReleaseCode2Status=='Draft' && PODetailsResult.CreatedBy==UserDetails.currentUser.UserId)">
+                                                <button class="btn btn-success btn-sm" style="margin: 5%" data-toggle="modal" ng-if="!poDiffer"
+                                                data-target="#SendForApprovalPagePopUp">Submit For Approval</button>
+                                            </div>
+                                            </ul>
+                                            <div class="tab-content" style="padding-top:10px;">
+                                                <div id="basicInformation" ng-show="IsTabSelected(1)">
+                                                    <div class="row">
+                                                        <form name="basicInformation" class="basicInformation">
+                                                            <input type="text" name="Vendor_Account_Number" ng-model="Vendor_Account_Number" hidden="true" />
+                                                            <input type="text" name="FundCenterID" ng-model="PODetailsResult.FundCenterID" hidden="true" />
+                                                            <input type="text" name="Uniqueid" ng-model="PO_HSID" hidden="true" />
+                                                            <input type="text" name="ProjectID" ng-model="ClientprojectInfo.ProjectID" value="{{ClientprojectInfo.ProjectID}}" hidden="true"/>
+                                                            <input type="text" name="VendorID" ng-model="selectedVendorDetails.POVendorDetailId" value="{{selectedVendorDetails.POVendorDetailId}}" hidden="true"/>
+                                                            <input type="text" name="POManagerID" ng-model="selectedManager.UserId" value="{{selectedManager.UserId}}" hidden="true"/>
+                                                            <input type="text" name="ShippedToID" value="{{PODetailsResult.ShippedToID}}" hidden="true" />
+                                                            <input type="text" name="ShippedFromID" value="{{PODetailsResult.ShipFromData.VendorShippingID}}" hidden="true" />
+                                                            <input type="text" name="Purchasing_Organization" value="1000" hidden="true" />
+                                                            <input type="text" name="LastModifiedBy" value="{{UserDetails.currentUser.UserId}}" hidden="true" />
+                                                            <input type="text" name="BilledToID" value="{{billingData.PlantStorageDetailsID}}" hidden="true" />
+                                                            <input type="hidden" ng-model="FundCenterID" value="{{FundCenterID}}" name="FundCenterID_2" >
+                                                            <div class="col-sm-4 form-group">
+                                                                <label>WBS Head<span class="mandatory">* <small ng-if="ExistpurchaseItemsResult.length>0 && poCode!='ZEX' && (PODetailsResult.PurchaseRequestId==null || PODetailsResult.PurchaseRequestId=='')">(Delete the purchase items to change the WBS Head.)</small></span></label>
+                                                                <input class="form-control" name="WBSHead" list="wbsListFilter" ng-model="PODetailsResult.FundcenterData.FundCenter_Code" ng-change="getFundCenters(PODetailsResult.FundcenterData.FundCenter_Code)" placeholder="WBS Head" ng-disabled="(PODetailsResult.PurchaseRequestId!=null && PODetailsResult.PurchaseRequestId!=0)||(ExistpurchaseItemsResult.length>0 && poCode!='ZEX')" ng-readonly="poDiffer">
+                                                                <datalist id="wbsListFilter">
+                                                                    <option ng-repeat="item in fundCentersList" value="{{item.FundCenter_Code}}">
+                                                                </datalist>
+                                                            </div>
+                                                            <div class="col-sm-4 form-group">
+                                                                <label>Client</label>
+                                                                <input class="form-control"  value="{{ClientprojectInfo.Name}}" ng-disabled="true">
+                                                            </div>
+                                                            <div class="col-sm-4 form-group">
+                                                                <label>Project/Function</label>
+                                                                <input class="form-control" value="{{ClientprojectInfo.ProjectName}}" ng-disabled="true">
+                                                            </div>
+                                                            <div class="col-sm-4">
+                                                                <label>PO Manager<span class="mandatory">*</span></label>
+                                                                <div class="input-group input-group-sm">
+                                                                    <input type="text" class="form-control" name="POManagerName" value="{{selectedManager.CallName}}" ng-disabled="true" style="height: 33px;" placeholder="Select PO Manager">
+                                                                    <div class="input-group-addon" data-toggle="modal" ng-attr-data-target="{{poDiffer ? '' : '#ManagerDetailsPopup'}}"><i class="fa fa-search"></i></div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-sm-4">
+                                                                <label>Vendor<span class="mandatory">*</span></label>
+                                                                <div class="input-group input-group-sm">
+                                                                    <input type="text" class="form-control" name="Vendor_OwnerName"  ng-readonly="true" style="height: 33px;" placeholder="Select Vendor" value="{{selectedVendorDetails.VendorName ?(selectedVendorDetails.VendorName+' - '+selectedVendorDetails.VendorCode):''}}">
+                                                                    <div class="input-group-addon" data-toggle="modal"  ng-attr-data-target="{{poDiffer ? '' : (PODetailsResult.Purchasing_Order_Number != null ? '' : '#VenderDetailsPopup')}}"  ng-click="(poDiffer ? '' : (PODetailsResult.Purchasing_Order_Number != null ? '' : getVendorsByReset()))"><i class="fa fa-search"></i></div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-sm-4 form-group">
+                                                                <label>PO Type<span class="mandatory">*</span></label>
+                                                                <select name="PO_OrderTypeID" ng-model="PODetailsResult.PO_OrderTypeID" class="form-control" ng-change="getPoTypeCode()" ng-disabled="poDiffer">
+                                                                    <option value="" ng-selected="selected">Select</option>
+                                                                    <option ng-repeat="poType in orderTypeList" poCode="{{poType.Code}}" value="{{poType.UniqueId}}">{{poType.Description}}</option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="col-sm-4 form-group">
+                                                                <label>PO Title<span class="mandatory">*</span></label>
+                                                                <input type="text" name="PO_Title" ng-model="PODetailsResult.PO_Title" class="form-control" ng-readonly="poDiffer">
+                                                            </div>
+                                                            <div class="col-sm-4 form-group">
+                                                                <label>Date</label>
+                                                                <input class="form-control" value="{{PODetailsResult.CreatedOn|date:'dd-MMM-yyyy'}}" ng-disabled="true">
+                                                            </div>
+                                                            <div class="col-sm-4 form-group">
+                                                                <label>Version</label>
+                                                                <input class="form-control" value="{{PODetailsResult.Version}}" ng-disabled="true">
+                                                            </div>
+                                                            <div class="col-sm-12 form-group">
+                                                                <label>Description<span class="mandatory">*</span></label>
+                                                                <textarea name="PODescription" ng-model="PODetailsResult.PODescription" class="form-control" placeholder="Description" style="height: 100px;" ng-readonly="poDiffer"></textarea>
+                                                            </div>
+                                                            <div class="col-sm-12 text-center">
+                                                                <button type="button" class="btn btn-success btn-sm" ng-click="basicInfoUpdatePO()" ng-if="!poDiffer"><i class="fa fa-floppy-o"></i> Save</button>
+                                                                <button type="button" class="btn btn-primary btn-sm" ng-click="selectTab(2)">Next  <i class="fa fa-arrow-right"></i></button>
+                                                            </div>
+                                                            <div class="clearfix"></div><br>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                                <div id="generalInformation" ng-show="IsTabSelected(2)">
+                                                    <div class="row">
+                                                        <form name="generalInformation" class="generalInformation">
+                                                            <input type="text" name="VendorID" ng-model="selectedVendorDetails.POVendorDetailId" value="{{selectedVendorDetails.POVendorDetailId}}" hidden="true"/>
+                                                            <input type="text" name="POManagerID" value="{{PODetailsResult.POManagerID}}" hidden="true" />
+                                                            <input type="text" name="ProjectID" ng-model="ClientprojectInfo.ProjectID" value="{{ClientprojectInfo.ProjectID}}" hidden="true"/>
+                                                            <input type="text" name="BilledToID" value="{{billingData.PlantStorageDetailsID}}" hidden="true" />
+                                                            <input type="text" name="Vendor_Account_Number" ng-model="Vendor_Account_Number" hidden="true" />
+                                                            <input type="text" name="FundCenterID" ng-model="PODetailsResult.FundCenterID" hidden="true" />
+                                                            <input type="text" name="Uniqueid" ng-model="PO_HSID" hidden="true" />
+                                                            <input type="text" name="LastModifiedBy" value="{{UserDetails.currentUser.UserId}}" hidden="true" />
+                                                            <input type="text" name="CountryCode" value="{{PODetailsResult.Country}}" hidden="true" />
+                                                            <div class="col-xs-3">
+                                                                <div class="form-group">
+                                                                <label>Ship To<span class="mandatory">*</span></label>
+                                                                <select class="form-control" name="ShippedToID" ng-model="PODetailsResult.ShippedToID" ng-change="shippingDetails(PODetailsResult.ShippedToID)" ng-disabled="poDiffer">
+                                                                    <option value="" ng-selected="selected">Select</option>
+                                                                    <option ng-repeat="ship in shippingData" value="{{ship.PlantStorageDetailsID}}">{{ship.ProjectName + '-' + ship.StorageLocationCode}}</option>
+                                                                </select>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-xs-3">
+                                                                <div class="form-group">
+                                                                    <label>Ship From City</label>
+                                                                    <input type="text" ng-model="PODetailsResult.ShippingCity" class="form-control" placeholder="Ship From City" ng-disabled="true">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-xs-3">
+                                                                <div class="form-group">
+                                                                    <label>Bill To</label>
+                                                                    <input text type="text" ng-model="billingData.ProjectName" value="{{billingData.ProjectName}}" class="form-control" placeholder="Bill To"
+                                                                    ng-disabled="true" />
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-xs-3">
+                                                                <div class="form-group">
+                                                                    <label>Billed By City</label>
+                                                                    <input type="text" ng-model="PODetailsResult.BillingCity" class="form-control" placeholder="Billed By" ng-disabled="true">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-xs-3">
+                                                                <div class="form-group">
+                                                                    <label>Address</label>
+                                                                    <textarea class="form-control" style="height: 100px" ng-model="shippingDet.Address" placeholder="Shipping To Address" ng-disabled="true"></textarea>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-xs-3">
+                                                                <div class="form-group">
+                                                                     <label>Address</label>
+                                                                     <textarea class="form-control" style="height: 100px" ng-model="PODetailsResult.ShippingAddress" placeholder="Vendor Address"
+                                                                    disabled=""></textarea>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-xs-3">
+                                                                <div class="form-group">
+                                                                    <label>Address</label>
+                                                                    <textarea ng-model="billingData.Address" style="height: 100px" value="{{billingData.Address}}" class="form-control" ng-disabled="true"></textarea>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-xs-3">
+                                                                <div class="form-group">
+                                                                    <label>Address</label>
+                                                                    <textarea class="form-control" style="height: 100px" ng-model="PODetailsResult.BillingAddress" placeholder="vendor Address" ng-disabled="true"></textarea>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-xs-3">
+                                                                <div class="form-group">
+                                                                    <label>Country</label>
+                                                                    <input type="text" value="{{shippingDet.Address}}" ng-model="shippingDet.CountryCode" class="form-control" placeholder="Country"
+                                                                    ng-disabled="true">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-xs-3">
+                                                                <div class="form-group">
+                                                                <label>Country</label>
+                                                                <input type="text" class="form-control" ng-model="PODetailsResult.Country" placeholder="Country" disabled="">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-xs-3">
+                                                                <div class="form-group">
+                                                                <label>Country</label>
+                                                                <input type="text" ng-model="billingData.CountryCode" class="form-control" placeholder="Country" ng-disabled="true">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-xs-3">
+                                                                <div class="form-group">
+                                                                <label>Country</label>
+                                                                <input type="text" class="form-control" ng-model="PODetailsResult.Country" placeholder="Country" ng-disabled="true">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-xs-3">
+                                                                <div class="form-group">
+                                                                <label>GST State Code</label>
+                                                                <input type="text" class="form-control" name="ShiptoStateCode" ng-model="shippingDet.StateCode" placeholder="GST State Code" ng-readonly="true">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-xs-3">
+                                                                <div class="form-group">
+                                                                <label>GST State Code</label>
+                                                                <input type="text" ng-model="PODetailsResult.RegionCode" name="ShipfromStateCode" class="form-control" placeholder="GST State Code" ng-readonly="true">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-xs-3">
+                                                                <div class="form-group">
+                                                                <label>GST State Code</label>
+                                                                <input type="text" class="form-control" ng-model="billingData.StateCode" placeholder="State Code" ng-disabled="true">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-xs-3">
+                                                                <div class="form-group">
+                                                                <label>GST State Code</label>
+                                                                <input type="text" class="form-control" ng-model="PODetailsResult.RegionCode" placeholder="state Code" ng-disabled="true">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-xs-3">
+                                                                <div class="form-group">
+                                                                <label>Customer's GSTIN</label>
+                                                                <input type="text" class="form-control" ng-model="billingData.GSTIN" value="{{billingData.GSTIN}}" placeholder="Customer's GSTIN" ng-disabled="true">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-xs-3">
+                                                                <div class="form-group">
+                                                                <label>Vendor's GSTIN</label>
+                                                                <input type="text" class="form-control" ng-model="PODetailsResult.GSTIN" placeholder="Vendor's GSTIN" ng-disabled="true">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-xs-3">
+                                                                <div class="form-group">
+                                                                <label>Intra/Inter state</label>
+                                                                <input type="text" class="form-control" placeholder="Intra/Inter state" value="{{NatureofTransaction}}" ng-disabled="true">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-xs-3">
+                                                                <div class="form-group">
+                                                                <label>Goods/Services/Goods & Services/Expense</label>
+                                                                <input type="text" class="form-control" placeholder="Goods/Services/Goods & Services/Expense" value="{{NatureofSupply}}" ng-disabled="true">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-xs-3">
+                                                                <div class="form-group">
+                                                                <label>Domestic/Import</label>
+                                                                <input type="text" class="form-control" placeholder="Domestic/Import"  value="{{TransactionType}}"  ng-disabled="true">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-sm-12" style="text-align:center">
+                                                                <button type="button" class="btn btn-sm btn-primary" ng-click="selectTab(1)"><i class="fa fa-arrow-left"></i> Prev</button>
+                                                                <button type="button" class="btn btn-sm btn-success" ng-click="generalInfoUpdatePO()" ng-if="!poDiffer"><i class="fa fa-floppy-o"></i> Save</button>
+                                                                <button type="button" class="btn btn-sm btn-primary" ng-click="selectTab(3);GetPurchaseItems();">Next <i class="fa fa-arrow-right"></i></button>
+                                                            </div><div class="clearfix"></div><br>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                                <div id="purchaseDetails" class="" ng-show="IsTabSelected(3)">
+                                                    <div class="row">
+                                                        <form name="purchaseItemform" class="purchaseItemform">
+                                                            <input type="text" name="LastModifiedBy" value="{{UserDetails.currentUser.UserId}}" hidden="true" />
+                                                            <input type="text" name="AnnexureChecklistId"  value="0" ng-hide="true" />
+                                                            <input type="text" name="ItemStructureID" value="0" ng-hide="true" />
+                                                            <input type="text" name="ItemType" value="0"  hidden="true"/>
+                                                            <input type="text" name="Level1" value="0" hidden="true" />
+                                                            <input type="text" name="Level2" value="0" hidden="true" />
+                                                            <input type="text" name="Level3" value="0" hidden="true" />
+                                                            <input type="text" name="Level4" value="0" hidden="true" />
+                                                            <input type="text" name="Level5" value="0" hidden="true" />
+                                                            <input type="text" name="Level6" value="0" hidden="true" />
+                                                            <input type="text" name="Level7" value="0" hidden="true" />
+                                                            <input type="text" name="Objectid" value="0" ng-hide="true" />
+                                                            <input type="text" name="HeaderStructureID" value="{{PO_HSID}}" hidden="true" />
+                                                            <input type="text" name="Long_Text" value="0" ng-hide="true" />
+                                                            <input type="text" name="Material_Number" value="0" ng-hide="true" />
+                                                            <input type="text" name="Short_Text" value="0" ng-hide="true" />
+                                                            <input type="text" name="Line_item" value="0" ng-hide="true" />
+                                                            <input type="text" name="HSN_Code" value="0" ng-hide="true" />
+                                                            <input type="text" name="Unit_Measure" value="0" ng-hide="true" />
+                                                            <input type="text" name="IGSTRate" value="0" ng-hide="true" />
+                                                            <input type="text" name="CGSTRate" value="0" ng-hide="true" />
+                                                            <input type="text" name="SGSTRate" value="0" ng-hide="true" />
+                                                            <input type="text" name="IGSTAmount" value="0" ng-hide="true" />
+                                                            <input type="text" name="SGSTAmount" value="0" ng-hide="true" />
+                                                            <input type="text" name="CGSTAmount" value="0" ng-hide="true" />
+                                                            <input type="text" name="TotalTaxAmount" value="0" ng-hide="true" />
+                                                            <input type="text" name="TotalAmount" value="0" ng-hide="true" />
+                                                            <input type="text" name="GrossAmount" value="0" ng-hide="true" />
+                                                            <input type="text" name="WBSElementCode" value="0" ng-hide="true" />
+                                                            <input type="text" name="WBSElementCode2" value="0" ng-hide="true" />
+                                                            <input type="text" name="InternalOrderNumber" value="0" ng-hide="true" />
+                                                            <input type="text" name="Order_Qty" value="0" ng-hide="true" />
+                                                            <input type="text" name="Rate" value="0" ng-hide="true" />
+                                                            <input type="text" name="Brand" value="0" ng-hide="true" />
+                                                            <input type="text" name="BrandSeries" value="0" ng-hide="true" />
+                                                            <input type="text" name="ManufactureName" value="0" ng-hide="true" />
+                                                            <input type="text" name="ManufactureCode" value="0" ng-hide="true" />
+                                                            <input type="text" name="GLAccountNo" value="0" ng-hide="true" />
+                                                            <input type="text" name="Tax_salespurchases_code" value="0" ng-hide="true" />
+                                                            <input type="text" name="headcountVal" ng-model="headcountVal" class="form-control" value="0" ng-hide="true" />
+
+                                                            <div class="col-md-4"></div>
+                                                            <div class="col-md-4">
+                                                                <div class="col-md-4"><label style="line-height: 36px;">Total ({{PODetailsResult.Currency?PODetailsResult.Currency : 'INR'}})</label></div>
+                                                                <div class="col-md-8"><input type="text" class="form-control" value="{{TotalGross ? (TotalGross |number:2):'-'}}" placeholder="Total Amount" ng-disabled="true"></div>
+                                                            </div>
+                                                            <div class="col-md-4 text-right">
+                                                                    <button class="btn btn-primary btn-sm" ng-click="GetHeaderpopup();" ng-if="poCode!='ZEX' && !poDiffer" ><i class="fa fa-plus"></i> Service Header</button>
+                                                                <button class="btn btn-warning btn-sm" ng-click="GetAllMaterials(0);" ng-if="poCode!='ZEX' && poCode!='NB' && !poDiffer"><i class="fa fa-plus"></i> Material</button>&nbsp;
+                                                                <!-- <button class="btn btn-warning btn-sm" ng-click="GetServicepopup(0);" ng-if="poCode!='ZEX'  && poCode!='NB'"><i class="fa fa-plus"></i> Service</button> -->
+                                                                <button class="btn btn-warning btn-sm" ng-click="addMainExpenseElement();" ng-if="poCode=='ZEX' && !poDiffer"><i class="fa fa-plus"></i> Expense</button>
+                                                            </div>
+                                                            <div class="col-xs-12 form-group">
+                                                                <div class="table-responsive">
+                                                                    <table class="table table table-bordered">
+                                                                        <thead style="font-size:9pt; margin:10px 0 !important;overflow-x: scroll;white-space: nowrap;">
+                                                                            <tr style="background-color: #192930;color: #fff; ">
+                                                                                <th >#</th>
+                                                                                <th ></th>
+                                                                                <th ng-if="poCode!='ZEX'">Item Code</th>
+                                                                                <th >Item Name</th>
+                                                                                <th ng-if="poCode!='ZEX'">Item Brand Name</th>
+                                                                                <th>HSN/SAC</th>
+                                                                                <th>WBS Element Code</th>
+                                                                                <th>Item Quantity</th>
+                                                                                <th>UoM</th>
+                                                                                <th>Item Rate  (Rs.)</th>
+                                                                                <th>Amount</th>
+                                                                                <th>IGST</th>
+                                                                                <th>SGST</th>
+                                                                                <th>CGST</th>
+                                                                                <th>Taxes</th>
+                                                                                <th>Gross</th>
+                                                                                <th colspan="9999"></th>
+                                                                            </tr>
+                                                                        </thead>
+                                                                        <tbody ng-repeat-start="(Headkey, HeadVal) in HeadItem">
+                                                                                <input type="text" name="ServiceHeaderId"  value="{{HeadVal.ServHead.UniqueID ? HeadVal.ServHead.UniqueID : 0}}" ng-hide="true" />
+                                                                            <tr ng-if="HeadVal.ServHead.Title != null"><td>
+                                                                                {{SelectedMatItemsList[Headkey - 1].Matlist.length > 0 ? (SelectedMatItemsList[Headkey - 1].Matlist.length + Headkey +1) : Headkey}}
+                                                                                    
+                                                                                </td>
+                                                                                <td colspan="16"> <b>{{HeadVal.ServHead.Title}}</b>
+                                                                                    <a ng-show="!poDiffer" ng-click="UpdServiceHeaderPopup(HeadVal.ServHead.UniqueID, HeadVal.ServHead.Title, HeadVal.ServHead.Description)"><i class="fa fa-pencil"></i></a>
+                                                                                    
+                                                                                    <a ng-show="!poDiffer" ng-click="DelHeaderpopup(Headkey, HeadVal.ServHead.UniqueID);"><i class="fa fa-trash-o"></i></a>&nbsp; &nbsp; &nbsp;
+                                                                                    <button class="btn btn-warning btn-sm" ng-show="!poDiffer" ng-click="GetServicepopup(Headkey);" ><i class="fa fa-plus"></i> Services</button>
+                                                                                <br/>   <span style="padding:0px 0px 0px 12px;"> 
+                                                                                        {{HeadVal.ServHead.HeadDescription}}
+                                                                                        
+                                                                                </span>
+                                                                                </td>
+                                                                            </tr>
+                                                                            
+                                                                        </tbody>
+                                                                        <tbody ng-repeat="(key,exsitem) in HeadVal.ItemS">
+                                                                                
+                                                                            <tr style="background-color:#FFF;overflow-x: scroll;white-space: nowrap;">
+                                                                                <td>
+                                                                                    <span ng-if=" exsitem.ItemType == 'ServiceOrder' && HeadVal.ServHead.Title != null">{{Headkey + '.' + (key+1)}} </span>
+                                                                                        <span ng-if="exsitem.ItemType != 'ServiceOrder' || HeadVal.ServHead.Title == null ">{{Headkey}}</span>
+                                                                                        
+                                                                                </td>
+                                                                                <td style="text-align:right">
+                                                                                        <a data-toggle="modal" data-target="#serviceViewInfoPopUp" ng-click="getItemInfo(exsitem.Material_Number,exsitem.ItemType)" ng-if="poCode!='ZEX' && (exsitem.ItemType == 'ServiceOrder' && HeadVal.ServHead.Title != null)">
+                                                                                                <i class="fa fa-eye" aria-hidden="true"></i></a>
+                                                                                        <a data-toggle="modal" data-target="#materialViewInfoPopUp" ng-click="getItemInfo(exsitem.Material_Number,exsitem.ItemType)" ng-if="poCode!='ZEX' &&  (exsitem.ItemType != 'ServiceOrder' ||  HeadVal.ServHead.Title == null)">
+                                                                                            <i class="fa fa-eye" aria-hidden="true"></i></a>
+                                                                                    <input type="text" name="existTotalAmount" class="form-control" value="{{(Qty*Rate)|numnoneFlot}}" ng-hide="true" />
+                                                                                    <input type="text" name="existTotalTaxAmount" class="form-control" value="{{((exsitem.IGSTTaxRate+exsitem.SGSTTaxRate+exsitem.CGSTTaxRate)*(exsitem.Order_Qty* exsitem.Rate))/100 ? (((exsitem.IGSTTaxRate+exsitem.SGSTTaxRate+exsitem.CGSTTaxRate)*(exsitem.Order_Qty* exsitem.Rate))/100 |number):0}}" ng-hide="true" />
+                                                                                    <input type="text" name="existGrossAmount" class="form-control" value="{{(exsitem.Order_Qty* exsitem.Rate)+((exsitem.IGSTTaxRate+exsitem.SGSTTaxRate+exsitem.CGSTTaxRate)*(exsitem.Order_Qty* exsitem.Rate))/100 ? ((exsitem.Order_Qty* exsitem.Rate)+((exsitem.IGSTTaxRate+exsitem.SGSTTaxRate+exsitem.CGSTTaxRate)*(exsitem.Order_Qty* exsitem.Rate))/100 |number:2):0}}" ng-hide="true" />
+                                                                                    <input type="text" class="form-control" value="{{exsitem.unit_of_measure}}" ng-hide="true" />
+                                                                                    
+                                                                                    
+                                                                                </td>
+                                                                                <td ng-if="poCode!='ZEX'">{{exsitem.Material_Number?exsitem.Material_Number:'-'}}</td>
+                                                                                <td ng-if="poCode!='ZEX'">{{exsitem.Long_Text?exsitem.Long_Text: exsitem.Short_Text}}
+                                                                                    <span ng-if="exsitem.Brand != null && exsitem.Brand != '' && exsitem.ItemType != 'ServiceOrder' "><br/><b>Manufacturer/Brand</b> : {{exsitem.Brand}}</span>
+                                                                                    <span ng-if="exsitem.ManufactureCode != null && exsitem.ManufactureCode != '' && exsitem.ItemType != 'ServiceOrder' "><br/><b>Manufacturer’s Code</b> : {{exsitem.ManufactureCode}}</span>
+                                                                                </td>
+                                                                                <td ng-show="poCode=='ZEX'"><input type="text"  class="form-control" value="{{exsitem.Long_Text ? exsitem.Long_Text : exsitem.Short_Text}}" ng-disabled="!(key==ClickedIndexValue  && Headkey == ClickedHeadIndexValue) || poCode=='ZEX'"/></td>
+                                                                                <td  ng-if="poCode!='ZEX'">
+                                                                                    <!-- <select class="form-control" ng-model="exsitem.Brand" ng-disabled="true">
+                                                                                        <option ng-if="exsitem.Brand" value="{{exsitem.Brand}}">{{exsitem.Brand}}</option>
+                                                                                    </select> -->
+                                                                                    {{exsitem.Brand}}
+                                                                                    
+                                                                                </td>
+                                                                                <td ng-if="poCode!='ZEX'">{{exsitem.HSN_Code?exsitem.HSN_Code:'-'}}</td>
+                                                                                <td ng-show="poCode=='ZEX'"><input type="text"  class="form-control" ng-model="exsitem.HSN_Code" value="{{exsitem.HSN_Code}}" ng-disabled="!(key==ClickedIndexValue && Headkey == ClickedHeadIndexValue) || poCode=='ZEX'"/></td>
+                                                                                <td>
+                                                                                    <div class="input-group input-group-sm" style="width:200px;">
+                                                                                        <input type="text" class="form-control" ng-model="HeadVal.ItemS[key].WBSElementCode" placeholder="Select WBS Code" ng-readonly="true" />
+                                                                                        <div class="input-group-addon" data-toggle="modal" data-target="#WBSDetailsPart1Popup" ng-if="(key==ClickedIndexValue && Headkey == ClickedHeadIndexValue)" ng-click="setrowclickedKey(key,Headkey,true);getWBSDetailsByReset();"><i class="fa fa-search"></i></div>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <input type="text" class="form-control decimalPrecision2 intvalid" ng-model="exsitem.Order_Qty" placeholder="Quantity" ng-disabled="!(key==ClickedIndexValue && Headkey == ClickedHeadIndexValue)" />
+                                                                                </td>
+                                                                                <td class="text-center">{{exsitem.Unit_Measure?exsitem.Unit_Measure:'-'}}</td>
+                                                                                <td style="text-align:right">
+                                                                                    <input type="text" class="form-control decimalPrecision2 intvalid" ng-model="exsitem.Rate" placeholder="Rate" ng-disabled="!(key==ClickedIndexValue && Headkey == ClickedHeadIndexValue)">
+                                                                                </td>
+                                                                                <td style="text-align:right">{{(exsitem.Order_Qty * exsitem.Rate)|number:2}}</td>
+                                                                                <td class="text-center" ng-show="false">{{exsitem.PurchaseTaxDetails.TaxCode?exsitem.PurchaseTaxDetails.TaxCode:'-'}}</td>
+                                                                                <td style="text-align:right">{{exsitem.IGSTRate}}</td>
+                                                                                <td style="text-align:right">{{exsitem.SGSTRate}}</td>
+                                                                                <td style="text-align:right">{{exsitem.CGSTRate}}</td>
+                                                                                <!-- <td style="text-align:right" class="taxes">{{((exsitem.IGSTRate+exsitem.SGSTRate+exsitem.CGSTRate)*(exsitem.Order_Qty*exsitem.Rate))/100 ? (((exsitem.IGSTRate+exsitem.SGSTRate+exsitem.CGSTRate)*(exsitem.Order_Qty*exsitem.Rate))/100|number:2):0}}
+                                                                                </td> -->
+                                                                                <td style="text-align:right" class="taxes">{{exsitem.TotalTaxAmount != 0 ? exsitem.TotalTaxAmount : (((exsitem.IGSTRate+exsitem.SGSTRate+exsitem.CGSTRate)*(exsitem.Order_Qty*exsitem.Rate))/100 
+                                                                                    ? (((exsitem.IGSTRate+exsitem.SGSTRate+exsitem.CGSTRate)*(exsitem.Order_Qty*exsitem.Rate))/100|number:2):0)}}
+                                                                                </td>
+                                                                                <!-- <td style="text-align:right" class="gross">{{(exsitem.Order_Qty* exsitem.Rate)+((exsitem.IGSTRate+exsitem.SGSTRate+exsitem.CGSTRate)*(exsitem.Order_Qty*exsitem.Rate))/100 ? ((exsitem.Order_Qty*exsitem.Rate)+((exsitem.IGSTRate+exsitem.SGSTRate+exsitem.CGSTRate)*(exsitem.Order_Qty*exsitem.Rate))/100 |number:2):0}}
+                                                                                </td> -->
+                                                                                <td style="text-align:right" class="gross">{{((exsitem.Order_Qty* exsitem.Rate)+(exsitem.TotalTaxAmount != 0 ? exsitem.TotalTaxAmount : (((exsitem.IGSTRate+exsitem.SGSTRate+exsitem.CGSTRate)*(exsitem.Order_Qty*exsitem.Rate))/100 
+                                                                                    ? (((exsitem.IGSTRate+exsitem.SGSTRate+exsitem.CGSTRate)*(exsitem.Order_Qty*exsitem.Rate))/100|number:2):0)))|number:2}}
+                                                                                </td>
+                                                                                <td ng-init="value = (ExistpurchaseItemsResult.length==key+1) ? getTotalAmountTaxGross() : 0">
+                                                                                    <a data-toggle="modal" data-target="#purchaseRateHistoryPopUp" ng-click="purchaseRateHistory(exsitem.Material_Number);"><i class="fa fa-database" aria-hidden="true" title="History" style="font-size:12pt;margin: 2px"></i></a>
+                                                                                    <a ng-click="EnableCurrentRow(key, Headkey);" ng-show="!poDiffer"><span class="glyphicon glyphicon-edit" aria-hidden="true" title="Edit" style="font-size:12pt;margin: 2px"></span></a>
+                                                                                    <a data-toggle="modal" data-target="#GLPagePopUp"  ng-if="exsitem.ItemType=='ServiceOrder'" ng-click="GLPagePop(exsitem.ItemStructureID);" title="GLUPdate"><i class="fa fa-pencil"></i></a>
+                                                                                    <a ng-show="!poDiffer" ng-click="UpdateCurrentPurchaseItem(exsitem.ItemStructureID,exsitem.Short_Text,exsitem.Long_Text,exsitem.Material_Number,exsitem.HSN_Code,HeadVal.ItemS[key].WBSElementCode,exsitem.Brand,exsitem.Order_Qty,exsitem.Rate,exsitem.IGSTRate,exsitem.SGSTRate,exsitem.CGSTRate,existTotalTaxAmount,existGrossAmount);"><span class="glyphicon glyphicon-floppy-disk" aria-hidden="true" title="Save Changes" style="font-size:12pt;margin: 2px"></span></a>
+                                                                                    <a ng-show="!poDiffer"  ng-click="deleteCurrentPurchaseItem(exsitem.ItemStructureID);" title="Delete"><span class="glyphicon glyphicon-trash" aria-hidden="true" title="Delete" style="font-size:12pt;"></span></a>
+                                                                                    <a href="javascript:void(0)" ng-hide="poDiffer" ng-click="CopyCurrentPurchaseItem(exsitem.ItemStructureID, exsitem.LastModifiedBy);" title="Copy Line Item" style="margin:3px;"><i class="fa fa-plus"></i></a>
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr ng-if="exsitem.ItemType=='MaterialOrder' && exsitem.POTechnicalSpecifiactionList.length >0">
+                                                                                <td></td>
+                                                                                <td colspan="15">
+                                                                                    <b>Technical Specifications </b> :
+                                                                                    <span ng-repeat="techspc in exsitem.POTechnicalSpecifiactionList" ng-if="techspc.Value!=null && techspc.Value!='' && techspc.Value!='-- NA --'">
+                                                                                    <span ng-if="techspc.Name!='Specification Sheet'"> {{techspc.Name}} : {{techspc.Value ?techspc.Value:'-'}} &nbsp; {{techspc.ValueType}}|</span>
+                                                                                    </span>
+                                                                                </td>
+                                                                                <td></td>
+                                                                            </tr>
+                                                                        </tbody>
+                                                                        <tbody ng-repeat="(key,mtl) in SelectedItemsList[Headkey].newObj">
+                                                                            <tr style="background-color:#FFF;margin:10px 0 !important;overflow-x: scroll;white-space: nowrap;">
+                                                                                <td style="text-align:right">
+                                                                                    <input type="text" name="ServiceHeaderId" value="{{HeadVal.ServHead.UniqueID ? HeadVal.ServHead.UniqueID : 0}}" ng-hide="true" />
+                                                                                    <input type="text" name="AnnexureChecklistId" ng-model="mtl.annex_CheckListId" value="{{mtl.annex_CheckListId}}" ng-hide="true" />
+                                                                                    <input type="text" name="ItemType" ng-model="mtl.ItemType" value="{{mtl.ItemType}}" ng-hide="true" />
+                                                                                    <input type="text" name="Level1" ng-model="mtl.Level1" value="{{mtl.Level1}}" ng-hide="true" />
+                                                                                    <input type="text" name="Level2" ng-model="mtl.Level2" value="{{mtl.Level2}}" ng-hide="true" />
+                                                                                    <input type="text" name="Level3" ng-model="mtl.Level3" value="{{mtl.Level3}}" ng-hide="true" />
+                                                                                    <input type="text" name="Level4" ng-model="mtl.Level4" value="{{mtl.Level4}}" ng-hide="true" />
+                                                                                    <input type="text" name="Level5" ng-model="mtl.Level5" value="{{mtl.Level5}}" ng-hide="true" />
+                                                                                    <input type="text" name="Level6" ng-model="mtl.Level6" value="{{mtl.Level6}}" ng-hide="true" />
+                                                                                    <input type="text" name="Level7" ng-model="mtl.Level7" value="{{mtl.Level7}}" ng-hide="true" />
+                                                                                    <input type="text" name="ItemStructureID" class="form-control" value="0" ng-hide="true" />
+                                                                                    <input type="text" name="Objectid" class="form-control" value="TEPurchaseMaterial" ng-hide="true" />
+                                                                                    <input type="text" name="Short_Text" class="form-control" ng-model="mtl.material_name" value="{{mtl.material_name}}" ng-hide="true"/>
+                                                                                    <input type="text" name="Material_Number" class="form-control" ng-model="mtl.MaterialCode" value="{{mtl.MaterialCode}}" ng-hide="true"/>
+                                                                                    <input type="text" name="Long_Text" class="form-control" ng-model="mtl.short_description" value="{{mtl.short_description}}" ng-hide="true" />
+                                                                                    <input type="text" name="Line_item" class="form-control" ng-model="key" value="{{key+1}}" ng-hide="true" />
+                                                                                    <input type="text" name="HSN_Code" class="form-control" ng-model="mtl.hsn_code" value="{{mtl.hsn_code}}" ng-hide="true" />
+                                                                                    <input type="text" name="IGSTRate" class="form-control" ng-model="mtl.PurchaseTaxDetails.IGSTTaxRate" value="{{mtl.PurchaseTaxDetails.IGSTTaxRate}}" ng-hide="true" />
+                                                                                    <input type="text" name="CGSTRate" class="form-control" ng-model="mtl.PurchaseTaxDetails.CGSTTaxRate" value="{{mtl.PurchaseTaxDetails.CGSTTaxRate}}" ng-hide="true" />
+                                                                                    <input type="text" name="SGSTRate" class="form-control" ng-model="mtl.PurchaseTaxDetails.SGSTTaxRate" value="{{mtl.PurchaseTaxDetails.SGSTTaxRate}}" ng-hide="true" />
+                                                                                    <input type="text" name="IGSTAmount" class="form-control" value="{{(mtl.PurchaseTaxDetails.IGSTTaxRate*Qty*Rate)/100}}" ng-hide="true" />
+                                                                                    <input type="text" name="CGSTAmount" class="form-control" value="{{(mtl.PurchaseTaxDetails.CGSTTaxRate*Qty*Rate)/100}}" ng-hide="true" />
+                                                                                    <input type="text" name="SGSTAmount" class="form-control" value="{{(mtl.PurchaseTaxDetails.SGSTTaxRate*Qty*Rate)/100}}" ng-hide="true" />
+                                                                                    <input type="text" name="TotalAmount" class="form-control" value="{{(Qty*Rate)|numnoneFlot}}" ng-hide="true" />
+                                                                                    <input type="text" name="TotalTaxAmount" class="form-control" value="{{((mtl.PurchaseTaxDetails.IGSTTaxRate+mtl.PurchaseTaxDetails.SGSTTaxRate+mtl.PurchaseTaxDetails.CGSTTaxRate)*(Qty * Rate))/100 ? (((mtl.PurchaseTaxDetails.IGSTTaxRate+mtl.PurchaseTaxDetails.SGSTTaxRate+mtl.PurchaseTaxDetails.CGSTTaxRate)*(Qty * Rate))/100 |number:2):0}}"
+                                                                                        ng-hide="true" />
+                                                                                    <input type="text" name="GrossAmount" class="form-control" value="{{(Qty*Rate)+((mtl.PurchaseTaxDetails.IGSTTaxRate+mtl.PurchaseTaxDetails.SGSTTaxRate+mtl.PurchaseTaxDetails.CGSTTaxRate)*(Qty * Rate))/100 ? ((Qty*Rate)+((mtl.PurchaseTaxDetails.IGSTTaxRate+mtl.PurchaseTaxDetails.SGSTTaxRate+mtl.PurchaseTaxDetails.CGSTTaxRate)*(Qty * Rate))/100 |number:2):0}}"
+                                                                                        ng-hide="true" />
+                                                                                    <input type="text" hidden="true" name="Tax_salespurchases_code" class="form-control" ng-model="mtl.PurchaseTaxDetails.TaxCode" value="{{mtl.PurchaseTaxDetails.TaxCode}}"
+                                                                                        ng-hide="true" />
+                                                                                    <input type="text" name="Unit_Measure" class="form-control" value="{{mtl.unit_of_measure}}" ng-hide="true" />
+                                                                                    <!-- <span ng-if="PODetailsResult.PO_OrderTypeID == 2 || PODetailsResult.PO_OrderTypeID == 5 || PODetailsResult.PO_OrderTypeID == 3 || PODetailsResult.PO_OrderTypeID == 4">{{key+ HeadVal.Itemstructure.length +1}}</span> -->
+                                                                                    <span>{{(SelectedMatItemsList[Headkey - 1].Matlist.length > 0 ? (SelectedMatItemsList[Headkey - 1].Matlist.length + Headkey +1) : Headkey).toString() + '.' + ( HeadVal.ItemS.length + key + 1).toString()}} </span>
+                                                                                </td>
+                                                                               
+                                                                                <td>
+                                                                                    
+                                                                                </td>
+                                                                                <td>{{mtl.MaterialCode? mtl.MaterialCode:'NA'}}</td>
+                                                                                <td>{{mtl.short_description ? mtl.short_description:'NA'}}</td>
+                                                                                <td>
+                                                                                    <input type="text" name="BrandSeries"  ng-model="brandDataServ[key].BrandSeries" value="{{brandDataServ[key].BrandSeries}}" ng-hide="true" />
+                                                                                    <input type="text" name="ManufactureName"  ng-model="brandDataServ[key].ManufactureName" value="{{brandDataServ[key].ManufactureName}}" ng-hide="true" />
+                                                                                    <input type="text" name="ManufactureCode" ng-model="brandDataServ[key].ManufactureCode" value="{{brandDataServ[key].ManufactureCode}}" ng-hide="true" />
+                                                                                    <input type="Brand" name="Brand" ng-model="brandDataServ[key].ManufactureName" value="{{brandDataServ[key].ManufactureName}}" ng-hide="true" />
+                                                                                    <select class="form-control" ng-model="Brand" ng-change="setBrandData(Brand, key);">
+                                                                                        <option value="">Select</option>
+                                                                                        <option value="{{brand}}" ng-repeat="brand in mtl.BrandList">{{brand.ManufactureName}}</option>
+                                                                                    </select>
+                                                                                </td>
+                                                                                <td style="text-align:right">{{mtl.hsn_code ? mtl.hsn_code:'NA'}}</td>
+                                                                                <td>
+                                                                                    <div class="input-group input-group-sm" style="width:200px;">
+                                                                                        <input type="text" class="form-control" name="WBSElementCode" ng-model="wbscodePart1[Headkey][key]" placeholder="Select WBS Code"
+                                                                                            ng-readonly="true" />
+                                                                                        <div class="input-group-addon" data-toggle="modal" data-target="#WBSDetailsPart1Popup" ng-click="setrowclickedKey(key,Headkey,false);getWBSDetailsByReset();"><i class="fa fa-search"></i></div>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <input type="text" class="form-control decimalPrecision2 intvalid Qty" ng-keypress="preventSpcl($event)" name="Order_Qty" ng-model="Qty" ng-change="getTotalAmountTaxGross()" placeholder="Quantity" ng-init="Qty=0" />
+                                                                                </td>
+                                                                                <td>{{mtl.unit_of_measure?mtl.unit_of_measure:'NA'}}</td>
+                                                                                <td style="text-align:right">
+                                                                                    <input type="text" class="form-control decimalPrecision2 intvalid Rate" ng-keypress="preventSpcl($event)" name="Rate" ng-model="Rate" ng-change="getTotalAmountTaxGross()" placeholder="Rate{{ratePlaceholder ? ' limit '+ratePlaceholder : ''}}" ng-init="Rate=0"/>
+                                                                                </td>
+                                                                                <td style="text-align:right">{{(Qty * Rate)|numnoneFlot}}</td>
+                                                                                <td ng-show="false">{{mtl.PurchaseTaxDetails.TaxCode?mtl.PurchaseTaxDetails.TaxCode:'NA'}}</td>
+                                                                                <td style="text-align:right">{{mtl.PurchaseTaxDetails.IGSTTaxRate ? mtl.PurchaseTaxDetails.IGSTTaxRate:'0'}}</td>
+                                                                                <td style="text-align:right">{{mtl.PurchaseTaxDetails.SGSTTaxRate ? mtl.PurchaseTaxDetails.SGSTTaxRate:'0'}}</td>
+                                                                                <td style="text-align:right">{{mtl.PurchaseTaxDetails.CGSTTaxRate ? mtl.PurchaseTaxDetails.CGSTTaxRate:'0'}}</td>
+                                                                                <td style="text-align:right" class="taxes">{{((mtl.PurchaseTaxDetails.IGSTTaxRate+mtl.PurchaseTaxDetails.SGSTTaxRate+mtl.PurchaseTaxDetails.CGSTTaxRate)*(Qty
+                                                                                    * Rate))/100 ? (((mtl.PurchaseTaxDetails.IGSTTaxRate+mtl.PurchaseTaxDetails.SGSTTaxRate+mtl.PurchaseTaxDetails.CGSTTaxRate)*(Qty
+                                                                                    * Rate))/100 | number:2):0}}
+                                                                                </td>
+                                                                                <td style="text-align:right" class="gross">{{(Qty*Rate)+((mtl.PurchaseTaxDetails.IGSTTaxRate+mtl.PurchaseTaxDetails.SGSTTaxRate+mtl.PurchaseTaxDetails.CGSTTaxRate)*(Qty
+                                                                                    * Rate))/100 ? ((Qty*Rate)+((mtl.PurchaseTaxDetails.IGSTTaxRate+mtl.PurchaseTaxDetails.SGSTTaxRate+mtl.PurchaseTaxDetails.CGSTTaxRate)*(Qty
+                                                                                    * Rate))/100 | number:2):0}}
+                                                                                </td>
+                                                                                <td>
+                                                                                    <a data-toggle="modal" data-target="#purchaseRateHistoryPopUp" ng-click="purchaseRateHistory(mtl.MaterialCode);">
+                                                                                    <i class="fa fa-database" aria-hidden="true" title="History" style="font-size:12pt;margin: 2px"></i>
+                                                                                    </a>
+                                                                                    <a  ng-show="!poDiffer" ng-click="RemoveBindedServiceElement(Headkey,key);" title="Remove">
+                                                                                    <span class="glyphicon glyphicon-trash" aria-hidden="true" title="Delete" style="font-size:12pt;margin: 2px"></span>
+                                                                                    </a>
+                                                                                </td>
+                                                                            </tr>
+                                                                        
+                                                                        </tbody>
+                                                                        <tbody ng-repeat="(key,mtlList) in SelectedMatItemsList[Headkey].Matlist">
+                                                                            <tr style="background-color:#FFF;margin:10px 0 !important;overflow-x: scroll;white-space: nowrap;">
+                                                                                <td style="text-align:right">
+                                                                                    <input type="text" name="ServiceHeaderId" value="{{0}}" ng-hide="true" />
+                                                                                    <input type="text" name="brandValLeng"   value="0"  ng-hide="true" />
+                                                                                    <input type="text" name="AnnexureChecklistId" ng-model="mtlList.annex_CheckListId" value="{{mtlList.annex_CheckListId}}" ng-hide="true" />
+                                                                                    <input type="text" name="ItemType" ng-model="mtlList.ItemType" value="{{mtlList.ItemType}}" ng-hide="true" />
+                                                                                    <input type="text" name="Level1" ng-model="mtlList.Level1" value="{{mtlList.Level1}}" ng-hide="true" />
+                                                                                    <input type="text" name="Level2" ng-model="mtlList.Level2" value="{{mtlList.Level2}}" ng-hide="true" />
+                                                                                    <input type="text" name="Level3" ng-model="mtlList.Level3" value="{{mtlList.Level3}}" ng-hide="true" />
+                                                                                    <input type="text" name="Level4" ng-model="mtlList.Level4" value="{{mtlList.Level4}}" ng-hide="true" />
+                                                                                    <input type="text" name="Level5" ng-model="mtlList.Level5" value="{{mtlList.Level5}}" ng-hide="true" />
+                                                                                    <input type="text" name="Level6" ng-model="mtlList.Level6" value="{{mtlList.Level6}}" ng-hide="true" />
+                                                                                    <input type="text" name="Level7" ng-model="mtlList.Level7" value="{{mtlList.Level7}}" ng-hide="true" />
+                                                                                    <input type="text" name="ItemStructureID" class="form-control" value="0" ng-hide="true" />
+                                                                                    <input type="text" name="Objectid" class="form-control" value="TEPurchaseMaterial" ng-hide="true" />
+                                                                                    <input type="text" name="Short_Text" class="form-control" ng-model="mtlList.material_name" value="{{mtlList.material_name}}" ng-hide="true"/>
+                                                                                    <input type="text" name="Material_Number" class="form-control" ng-model="mtlList.MaterialCode" value="{{mtlList.MaterialCode}}" ng-hide="true"/>
+                                                                                    <input type="text" name="Long_Text" class="form-control" ng-model="mtlList.short_description" value="{{mtlList.short_description}}" ng-hide="true" />
+                                                                                    <input type="text" name="Line_item" class="form-control" ng-model="key" value="{{key+1}}" ng-hide="true" />
+                                                                                    <input type="text" name="HSN_Code" class="form-control" ng-model="mtlList.hsn_code" value="{{mtlList.hsn_code}}" ng-hide="true" />
+                                                                                    <input type="text" name="IGSTRate" class="form-control" ng-model="mtlList.PurchaseTaxDetails.IGSTTaxRate" value="{{mtlList.PurchaseTaxDetails.IGSTTaxRate}}" ng-hide="true" />
+                                                                                    <input type="text" name="CGSTRate" class="form-control" ng-model="mtlList.PurchaseTaxDetails.CGSTTaxRate" value="{{mtlList.PurchaseTaxDetails.CGSTTaxRate}}" ng-hide="true" />
+                                                                                    <input type="text" name="SGSTRate" class="form-control" ng-model="mtlList.PurchaseTaxDetails.SGSTTaxRate" value="{{mtlList.PurchaseTaxDetails.SGSTTaxRate}}" ng-hide="true" />
+                                                                                    <input type="text" name="IGSTAmount" class="form-control" value="{{(mtlList.PurchaseTaxDetails.IGSTTaxRate*Qty*Rate)/100}}" ng-hide="true" />
+                                                                                    <input type="text" name="CGSTAmount" class="form-control" value="{{(mtlList.PurchaseTaxDetails.CGSTTaxRate*Qty*Rate)/100}}" ng-hide="true" />
+                                                                                    <input type="text" name="SGSTAmount" class="form-control" value="{{(mtlList.PurchaseTaxDetails.SGSTTaxRate*Qty*Rate)/100}}" ng-hide="true" />
+                                                                                    <input type="text" name="TotalAmount" class="form-control" value="{{(Qty*Rate)|numnoneFlot}}" ng-hide="true" />
+                                                                                    <input type="text" name="TotalTaxAmount" class="form-control" value="{{((mtlList.PurchaseTaxDetails.IGSTTaxRate+mtlList.PurchaseTaxDetails.SGSTTaxRate+mtlList.PurchaseTaxDetails.CGSTTaxRate)*(Qty * Rate))/100 ? (((mtlList.PurchaseTaxDetails.IGSTTaxRate+mtlList.PurchaseTaxDetails.SGSTTaxRate+mtlList.PurchaseTaxDetails.CGSTTaxRate)*(Qty * Rate))/100 |number:2):0}}"
+                                                                                        ng-hide="true" />
+                                                                                    <input type="text" name="GrossAmount" class="form-control" value="{{(Qty*Rate)+((mtlList.PurchaseTaxDetails.IGSTTaxRate+mtlList.PurchaseTaxDetails.SGSTTaxRate+mtlList.PurchaseTaxDetails.CGSTTaxRate)*(Qty * Rate))/100 ? ((Qty*Rate)+((mtlList.PurchaseTaxDetails.IGSTTaxRate+mtlList.PurchaseTaxDetails.SGSTTaxRate+mtlList.PurchaseTaxDetails.CGSTTaxRate)*(Qty * Rate))/100 |number:2):0}}"
+                                                                                        ng-hide="true" />
+                                                                                    <input type="text" hidden="true" name="Tax_salespurchases_code" class="form-control" ng-model="mtlList.PurchaseTaxDetails.TaxCode" value="{{mtlList.PurchaseTaxDetails.TaxCode}}"
+                                                                                        ng-hide="true" />
+                                                                                    <input type="text" name="Unit_Measure" class="form-control" value="{{mtlList.unit_of_measure}}" ng-hide="true" />
+                                                                                    <span>{{HeadItem.length == 1 ? key + 1 : (HeadItem.length + key )}}</span>
+                                                                                </td>
+                                                                               
+                                                                                <td>
+                                                                                </td>
+                                                                                <td>{{mtlList.MaterialCode? mtlList.MaterialCode:'NA'}}</td>
+                                                                                <td>{{mtlList.short_description ? mtlList.short_description:'NA'}}</td>
+                                                                                <!-- <td>
+                                                                                    <input type="text" name="BrandSeries"  ng-model="brandDataMat[key].BrandSeries" value="{{brandDataMat[key].BrandSeries}}" ng-hide="true" />
+                                                                                    <input type="text" name="ManufactureName"  ng-model="brandDataMat[key].ManufactureName" value="{{brandDataMat[key].ManufactureName}}" ng-hide="true" />
+                                                                                    <input type="text" name="ManufactureCode" ng-model="brandDataMat[key].ManufactureCode" value="{{brandDataMat[key].ManufactureCode}}" ng-hide="true" />
+                                                                                    <input type="Brand" name="Brand" ng-model="brandDataMat[key].ManufactureName" value="{{brandDataMat[key].ManufactureName}}" ng-hide="true" />
+                                                                                    <select class="form-control" ng-model="Brand" ng-change="setMatBrandData(Brand, key);">
+                                                                                        <option value="">Select</option>
+                                                                                        <option value="{{brand}}" ng-repeat="brand in mtlList.BrandList">{{brand.ManufactureName}}</option>
+                                                                                    </select>
+                                                                                </td> -->
+
+                                                                                <td ng-if = "mtlList.BrandList.length <= 1">
+                                                                                    <input type="text" name="brandValLeng"   value="{{brandlength[key]}}" ng-model="brandlength[key]" ng-hide="true" />
+                                                                                <input type="text" name="BrandSeries"  ng-model="mtlList.BrandList[0].BrandSeries" value="{{mtlList.BrandList[0].BrandSeries}}" ng-hide="true" />
+                                                                                <input type="text" name="ManufactureName"  ng-model="mtlList.BrandList[0].ManufactureName" value="{{mtlList.BrandList[0].ManufactureName}}" ng-hide="true" />
+                                                                                <input type="text" name="ManufactureCode" ng-model="mtlList.BrandList[0].ManufactureCode" value="{{mtlList.BrandList[0].ManufactureCode}}" ng-hide="true" />
+                                                                                <input type="Brand" name="Brand" ng-model="mtlList.BrandList[0].ManufactureName" value="{{mtlList.BrandList[0].ManufactureName}}" ng-hide="true" />
+                                                                                <input type="text" class="form-control" ng-model="mtlList.BrandList[0].ManufactureName" value="{{mtlList.BrandList[0].ManufactureName}}" ng-readonly="true"/>
+                                                                            </td>
+                                                                            <td ng-if = "mtlList.BrandList.length > 1">
+                                                                                    <input type="text" name="brandValLeng"   value="{{brandlength[key]}}" ng-model="brandlength[key]" ng-hide="true" />
+                                                                                <input type="text" name="BrandSeries"  ng-model="brandDataMat[key].BrandSeries" value="{{brandDataMat[key].BrandSeries}}" ng-hide="true" />
+                                                                                <input type="text" name="ManufactureName"  ng-model="brandDataMat[key].ManufactureName" value="{{brandDataMat[key].ManufactureName}}" ng-hide="true" />
+                                                                                <input type="text" name="ManufactureCode" ng-model="brandDataMat[key].ManufactureCode" value="{{brandDataMat[key].ManufactureCode}}" ng-hide="true" />
+                                                                                <input type="Brand" name="Brand" ng-model="brandDataMat[key].ManufactureName" value="{{brandDataMat[key].ManufactureName}}" ng-hide="true" />
+                                                                                <select class="form-control" ng-model="Brand" ng-change="setMatBrandData(Brand, key);">
+                                                                                    <option value="">Select</option>
+                                                                                    <option value="{{brand}}" ng-repeat="brand in mtlList.BrandList">{{brand.ManufactureName}}</option>
+                                                                                </select>
+                                                                            </td>
+
+                                                                                <td style="text-align:right">{{mtlList.hsn_code ? mtlList.hsn_code:'NA'}}</td>
+                                                                                <td>
+                                                                                    <div class="input-group input-group-sm" style="width:200px;">
+                                                                                        <input type="text" class="form-control" name="WBSElementCode" ng-model="wbscodePart2[Headkey][key]" placeholder="Select WBS Code"
+                                                                                            ng-readonly="true" />
+                                                                                        <div class="input-group-addon" data-toggle="modal" data-target="#WBSDetailsPart1Popup" ng-click="setrowclickedKey(key,Headkey, false, 1);getWBSDetailsByReset();"><i class="fa fa-search"></i></div>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <input type="text" class="form-control decimalPrecision2 intvalid Qty" ng-keypress="preventSpcl($event)" name="Order_Qty" ng-model="Qty" ng-change="getTotalAmountTaxGross()" placeholder="Quantity" ng-init="Qty=0" />
+                                                                                </td>
+                                                                                <td>{{mtlList.unit_of_measure?mtlList.unit_of_measure:'NA'}}</td>
+                                                                                <td style="text-align:right">
+                                                                                    <input type="text" class="form-control decimalPrecision2 intvalid Rate" ng-keypress="preventSpcl($event)" name="Rate" ng-model="Rate" ng-change="getTotalAmountTaxGross()" placeholder="Rate{{ratePlaceholder ? ' limit '+ratePlaceholder : ''}}" ng-init="Rate=0"/>
+                                                                                </td>
+                                                                                <td style="text-align:right">{{(Qty * Rate)|numnoneFlot}}</td>
+                                                                                <td ng-show="false">{{mtlList.PurchaseTaxDetails.TaxCode?mtlList.PurchaseTaxDetails.TaxCode:'NA'}}</td>
+                                                                                <td style="text-align:right">{{mtlList.PurchaseTaxDetails.IGSTTaxRate ? mtlList.PurchaseTaxDetails.IGSTTaxRate:'0'}}</td>
+                                                                                <td style="text-align:right">{{mtlList.PurchaseTaxDetails.SGSTTaxRate ? mtlList.PurchaseTaxDetails.SGSTTaxRate:'0'}}</td>
+                                                                                <td style="text-align:right">{{mtlList.PurchaseTaxDetails.CGSTTaxRate ? mtlList.PurchaseTaxDetails.CGSTTaxRate:'0'}}</td>
+                                                                                <td style="text-align:right" class="taxes">{{((mtlList.PurchaseTaxDetails.IGSTTaxRate+mtlList.PurchaseTaxDetails.SGSTTaxRate+mtlList.PurchaseTaxDetails.CGSTTaxRate)*(Qty
+                                                                                    * Rate))/100 ? (((mtlList.PurchaseTaxDetails.IGSTTaxRate+mtlList.PurchaseTaxDetails.SGSTTaxRate+mtlList.PurchaseTaxDetails.CGSTTaxRate)*(Qty
+                                                                                    * Rate))/100 | number:2):0}}
+                                                                                </td>
+                                                                                <td style="text-align:right" class="gross">{{(Qty*Rate)+((mtlList.PurchaseTaxDetails.IGSTTaxRate+mtlList.PurchaseTaxDetails.SGSTTaxRate+mtlList.PurchaseTaxDetails.CGSTTaxRate)*(Qty
+                                                                                    * Rate))/100 ? ((Qty*Rate)+((mtlList.PurchaseTaxDetails.IGSTTaxRate+mtlList.PurchaseTaxDetails.SGSTTaxRate+mtlList.PurchaseTaxDetails.CGSTTaxRate)*(Qty
+                                                                                    * Rate))/100 | number:2):0}}
+                                                                                </td>
+                                                                                <td>
+                                                                                    <a data-toggle="modal" data-target="#purchaseRateHistoryPopUp" ng-click="purchaseRateHistory(mtlList.MaterialCode);">
+                                                                                    <i class="fa fa-database" aria-hidden="true" title="History" style="font-size:12pt;margin: 2px"></i>
+                                                                                    </a>
+                                                                                    <a  ng-show="!poDiffer"  ng-click="RemoveBindedMaterialElement(Headkey,key);" title="Remove">
+                                                                                    <span class="glyphicon glyphicon-trash" aria-hidden="true" title="Delete" style="font-size:12pt;margin: 2px"></span>
+                                                                                    </a>
+                                                                                </td>
+                                                                            </tr>
+                                                                        
+                                                                        </tbody>
+
+                                                                        <tbody ng-repeat-end></tbody>
+                                                                        <tbody addmainexpenselement></tbody>
+                                                                        <tbody>
+                                                                            <tr style="background-color:#FFF;" ng-if="TotalAmount>0 && poCode!='ZEX'">
+                                                                                <td colspan="{{MainExpenseElementList.length==0 ? 10 : 8}}" class="text-right"><b>Total</b></td>
+                                                                                <td style="text-align:right">{{TotalAmount|numnoneFlot}}</td>
+                                                                                <td colspan="3"></td>
+                                                                                <td style="text-align:right">{{TotalTaxes|number:2}}</td>
+                                                                                <td style="text-align:right">{{TotalGross|number:2}}</td>
+                                                                                <td colspan="3" style="text-align:right"></td>
+                                                                            </tr>
+                                                                            <tr style="background-color:#FFF;" ng-if="TotalAmount>0 && poCode=='ZEX'">
+                                                                                <td colspan="8" class="text-right"><b>Total</b></td>
+                                                                                <td style="text-align:right">{{TotalAmount|numnoneFlot}}</td>
+                                                                                <td colspan="3"></td>
+                                                                                <td style="text-align:right">{{TotalTaxes|number:2}}</td>
+                                                                                <td style="text-align:right">{{TotalGross|number:2}}</td>
+                                                                                <td colspan="3" style="text-align:right"></td>
+                                                                            </tr>
+                                                                        </tbody>
+                                                                    </table>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-sm-12" style="text-align:center">
+                                                                <button type="button" class="btn btn-sm btn-primary" ng-click="selectTab(2)"><i class="fa fa-arrow-left"></i> Prev</button>
+                                                                <button type="button"  ng-show="!poDiffer" class="btn btn-sm btn-success" ng-disabled="SelectedItemsList.length <= 0 && SelectedMatItemsList.length <= 0" ng-click="MultipleSavePurchaseItem()" ng-if="poCode!='ZEX'" ><i class="fa fa-floppy-o"></i> Save</button>
+                                                                <button type="button"  ng-show="!poDiffer" class="btn btn-sm btn-success" ng-disabled="MainExpenseElementList.length<=0" ng-click="MultipleSavePurchaseItem()" ng-if="poCode=='ZEX'"><i class="fa fa-floppy-o"></i> Save</button>
+                                                                <button type="button" class="btn btn-sm btn-primary" ng-click="selectTab(4)">Next <i class="fa fa-arrow-right"></i></button>
+                                                            </div><div class="clearfix"></div><br>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                                <div id="Annexure" ng-show="IsTabSelected(4)">
+                                                    <div class="row">
+                                                        <div class="col-sm-12">
+                                                            <div ng-repeat="annex in AnnexureList.result">
+                                                                <div class="table-responsive" style="width:100%">
+                                                                    <table class="table table table-bordered lpd" style="width:100%;margin:10px 0 !important;">
+                                                                        <thead style="font-size:9pt;">
+                                                                            <tr>
+                                                                                <td colspan="7" class="text-center"><b>{{annex.Title}}</b></td>
+                                                                            </tr>
+                                                                            <tr style="background-color:#192930;color:#fff;">
+                                                                                <th>#</th>
+                                                                                <th>Test Object</th>
+                                                                                <th>Test Method</th>
+                                                                                <th>Value 1</th>
+                                                                                <th>Value 2</th>
+                                                                                <th>Unit Of Measure</th>
+                                                                                <th>Acceptance Criteria</th>
+                                                                            </tr>
+                                                                        </thead>
+                                                                        <tbody>
+                                                                            <tr style="background-color:#FFF;" ng-repeat="(key,data) in annex.SpecsData">
+                                                                                <td>{{key+1}}</td>
+                                                                                <td>{{data.TestObject}}</td>
+                                                                                <td>{{data.TestMethod}}</td>
+                                                                                <td>{{data.Value1}}</td>
+                                                                                <td>{{data.Value2}}</td>
+                                                                                <td>{{data.UnitOfMeasurement}}</td>
+                                                                                <td>{{data.AcceptanceCriteria}}</td>
+                                                                            </tr>
+                                                                        </tbody>
+                                                                    </table>
+                                                                </div>
+                                                            </div>
+                                                            <div ng-repeat="service in ServiceAnnexureList.result">
+                                                                <div class="table-responsive" style="width:100%">
+                                                                    <table class="table table table-bordered" style="width:100%;margin:10px 0 !important;">
+                                                                        <thead style="font-size:9pt;">
+                                                                            <tr style="background-color:#FFF;">
+                                                                                <td colspan="2" class="text-center"><b>{{service.ServiceName +' '+service.ServiceCode}}</b></td>
+                                                                            </tr>
+                                                                            <tr style="background-color:#192930;color:#fff;">
+                                                                                <th style="width: 2%">#</th>
+                                                                                <th class="text-center" style="width: 20%">Name</th>
+                                                                                <th class="text-center">Condition</th>
+                                                                            </tr>
+                                                                        </thead>
+                                                                        <tbody>
+                                                                            <tr style="background-color:#FFF;" ng-repeat="(key,data) in service.SpecsData">
+                                                                                <td>{{key+1}}</td>
+                                                                                <td><p ng-bind-html="data.Name"></p></td>
+                                                                                <td><p ng-bind-html="data.Value"></p></td>
+                                                                            </tr>
+                                                                        </tbody>
+                                                                    </table>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-12" style="text-align:center">
+                                                            <button type="button" class="btn btn-sm btn-primary" ng-click="selectTab(3)"><i class="fa fa-arrow-left"></i> Prev</button>
+                                                            <button type="button" class="btn btn-sm btn-primary" ng-click="selectTab(5)">Next <i class="fa fa-arrow-right"></i></button>
+                                                        </div><div class="clearfix"></div><br>
+                                                    </div>
+                                                </div>
+                                                <div id="paymentTerms" ng-show="IsTabSelected(5)">
+                                                    <div class="row">
+                                                        <form name="paymenttermsaveform" class="paymenttermsaveform">
+                                                            <input type="hidden" name="UniqueId" value="0"/>
+                                                            <input type="hidden" name="ContextIdentifier" value="0"/>
+                                                            <input type="hidden" name="Remarks" value="0"/>
+                                                            <input type="hidden" name="PaymentTerm" value="0"/>
+                                                            <input type="hidden" name="Amount" value="0"/>
+                                                            <input type="hidden" name="Percentage"  value="0"/>
+                                                            <input type="hidden" name="Date" value="0"/>
+                                                            <input type="hidden" name="UniqueId" value="0"/>
+                                                            <input type="hidden" name="ContextIdentifier" value="0"/>
+                                                            <input type="hidden" name="Remarks" value="0"/>
+                                                            <input type="hidden" name="PaymentTerm" value="0"/>
+                                                            <input type="hidden" name="Amount" value="0"/>
+                                                            <input type="hidden" name="Percentage"  value="0"/>
+                                                            <input type="hidden" name="Date" value="0"/>
+                                                            <div class="col-xs-8 col-xs-offset-2 form-group">
+                                                                <div class="table-responsive" style="width:100%">
+                                                                    <table class="table table table-bordered justforPt">
+                                                                        <thead style="font-size:10pt;">
+                                                                            <tr class="filters">
+                                                                            <th class="text-center" width="30">#</th>
+                                                                            <th class="text-center">Payment Term</th>
+                                                                            <th class="text-center" width="150">Amount ({{BalanceAmt|numnoneFlot}})</th>
+                                                                            <th class="text-center" width="100">%</th>
+                                                                            <th class="text-center" width="200">Date</th>
+                                                                            <th class="text-center" ng-show="!poDiffer"><i class="fa fa-plus cursorPointer" ng-show="!poDiffer" ng-click="addNewElement()" ng-if="TotalAmount>0"></i></th>
+                                                                            </tr>
+                                                                        </thead>
+                                                                        <tbody>
+                                                                            <tr ng-repeat="(key,pt) in PaymentTermList" class="removeablediv">
+                                                                            <td class="text-center">
+                                                                                {{key+1}}
+                                                                                <input type="hidden" name="UniqueId" ng-model="pt.UniqueId" value="{{pt.UniqueId}}"/>
+                                                                                <input type="hidden" name="ContextIdentifier" ng-model="pt.ContextIdentifier" value="{{pt.ContextIdentifier}}"/>
+                                                                                <input type="hidden" name="Remarks" ng-model="pt.Remarks" value="{{pt.Remarks}}"/>
+                                                                            </td>
+                                                                            <td ng-attr-class="{{poDiffer ? 'readOnlyTd' : ''}}"><input ng-readonly="poDiffer" class="form-control filtersCSS" name="PaymentTerm" ng-model="pt.PaymentTerm" value="{{pt.PaymentTerm}}"/></td>
+                                                                            <td ng-attr-class="{{poDiffer ? 'readOnlyTd' : ''}}"><input ng-readonly="poDiffer" class="form-control filtersCSS decimalPrecision2 intvalid text-right" name="Amount" ng-model="pt.Amount" value="{{pt.Amount}}" ng-change="SettheBalance();"/></td>
+                                                                            <td class="readOnlyTd"><input class="form-control filtersCSS text-right" name="Percentage" value="{{(pt.Amount*100/TotalAmount)?((pt.Amount*100/TotalAmount)|number:2):''}}" ng-readonly="true"/></td>
+                                                                            <td ng-attr-class="{{poDiffer ? 'readOnlyTd' : ''}}"><input ng-readonly="poDiffer" class="form-control filtersCSS" name="Date" ng-model="pt.Date" value="{{pt.Date}}" type="date"/></td>
+                                                                            <td class="text-center" ng-show="!poDiffer"><span class="glyphicon glyphicon-trash cursorPointer" ng-click="deletepaymentTerm(pt.UniqueId);"></span></td>
+                                                                            </tr>
+                                                                            <tr ng-repeat="(key,dat) in NewPTList" class="removeablediv">
+                                                                            <td class="text-center">
+                                                                                {{key+PaymentTermList.length+1}}
+                                                                                <input type="hidden" name="UniqueId" value="0">
+                                                                                <input type="hidden" name="ContextIdentifier" ng-model="PO_HSID" value="{{PO_HSID}}"/>
+                                                                                <input type="hidden" name="Remarks" value=""/>
+                                                                            </td>
+                                                                            <td><input  type="text" class="form-control filtersCSS" name="PaymentTerm" placeholder="Payment Term" /></td>
+                                                                            <td><input type="text" class="form-control filtersCSS decimalPrecision2 intvalid text-right" name="Amount" ng-model="dat.Amount" ng-change="SettheBalance();" placeholder="Amount" /></td>
+                                                                            <td class="readOnlyTd"><input type="text" class="form-control filtersCSS text-right" name="Percentage" value="{{(dat.Amount*100/TotalAmount)?((dat.Amount*100/TotalAmount)|number:2):''}}" placeholder="%" ng-readonly="true"/></td>
+                                                                            <td><input class="form-control filtersCSS" name="Date" ng-model="Date" type="date" placeholder="From Date" min="{{date|date:'yyyy-MM-dd'}}" /></td>
+                                                                            <td class="text-center"><span class="glyphicon glyphicon-remove cursorPointer" ng-click="RemoveElementList(key);"></span></td>
+                                                                            </tr>
+                                                                        </tbody>
+                                                                    </table>
+                                                                </div>
+                                                            </div>
+                                                        </form>
+                                                        <div class="col-sm-12" style="text-align:center">
+                                                            <button type="button" class="btn btn-sm btn-primary" ng-click="selectTab(4)"><i class="fa fa-arrow-left"></i> Prev</button>
+                                                            <button type="button" ng-show="!poDiffer" class="btn btn-sm btn-success" ng-click="saveupdatepaymentTerm();" ng-if="TotalAmount>0"><i class="fa fa-floppy-o"></i> Update Payment Terms</button>
+                                                            <button type="button" class="btn btn-sm btn-primary" ng-click="selectTab(6)">Next <i class="fa fa-arrow-right"></i></button>
+                                                        </div><div class="clearfix"></div><br>
+                                                    </div>
+                                                </div>
+                                                <div id="specificTC" ng-show="IsTabSelected(6)">
+                                                    <div class="row">
+                                                        <div class="col-xs-12 form-group">
+                                                            <div class="table-responsive">
+                                                                <table class="table table-bordered lpd" style="width:100%;">
+                                                                    <thead style="font-size:9pt;">
+                                                                        <tr style="background-color:#192930;color:#fff; ">
+                                                                            <th style="width:5px" >#</th>
+                                                                            <th colspan="3" class="text-center">Special Terms and Conditions</th>
+                                                                            <th style="width:5%;text-align: center" ng-show="!poDiffer">                                                                               
+                                                                                <a data-toggle="modal" data-target="#AddSpecificTCPopup" title="Add Specific T & C">
+                                                                                <i class="fa fa-plus" aria-hidden="true" style="font-size: 16pt;color: darkseagreen;"></i>
+                                                                                </a>
+                                                                            </th>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                        <tr ng-repeat-start="(key,spec) in POSpecTandCList" style="background-color:#FFF;" >
+                                                                            <td>{{key+1}}</td>
+                                                                            <th colspan="5">{{spec.Title ? spec.Title : 'NA'}}</th>
+                                                                        <tr ng-repeat="(key2,data) in spec.SpecSubTitlesList">
+                                                                            <td></td>
+                                                                            <!-- <td style="width:15%;vertical-align: middle" ng-if="key2==0" rowspan="{{spec.SpecSubTitlesList.length+1}}">{{data.SubTitleDesc}}</td> -->
+                                                                            <td style="width:15%;vertical-align: middle" >{{data.SubTitleDesc}}</td>
+                                                                            <td colspan="2"><div ng-bind-html="data.Description"></div></td>
+                                                                            <td ng-show="!poDiffer">
+                                                                                <a data-toggle="modal" data-target="#editSpecificTCPopup" ng-click="setCurrenSpecificTCData(data);"><i class="glyphicon glyphicon-edit" aria-hidden="true"  title="Edit" style="font-size: 12pt;"></i></a>
+                                                                                <a data-toggle="modal" data-target="#DeleteSpecificTCPopUp" ng-click="setCurrenSpecificTCData(data);"><i class="glyphicon glyphicon-trash" aria-hidden="true" title="Delete" style="font-size: 12pt;"></i></a>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr ng-repeat-end=""></tr>
+                                                                        <tr ng-repeat-end=""></tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-12" style="text-align:center">
+                                                            <button type="button" class="btn btn-sm btn-primary" ng-click="selectTab(5)"><i class="fa fa-arrow-left"></i> Prev</button>
+                                                            <button type="button" class="btn btn-sm btn-primary" ng-click="selectTab(7)">Next <i class="fa fa-arrow-right"></i></button>
+                                                        </div><div class="clearfix"></div><br>
+                                                    </div>
+                                                </div>
+                                                <div id="specialTC" ng-show="IsTabSelected(7)">
+                                                    <div class="row" >
+                                                        <div class="col-xs-12 form-group">
+                                                            <div class="table-responsive">
+                                                                <table class="table table table-bordered lpd">
+                                                                    <thead style="font-size:9pt;">
+                                                                        <tr style="background-color:#192930;color:#fff; ">
+                                                                            <th style="width:4%">#</th>
+                                                                            <th style="width:5%">Seq No</th>
+                                                                            <th style="width:20%">Title</th>
+                                                                            <th>Description</th>
+                                                                            <th style="width:5%" class="text-center" ng-show="!poDiffer">                                                                               
+                                                                                <a data-toggle="modal" data-target="#AddNewSpecialTandCPopup" title="Add Special T & C">
+                                                                                <i class="fa fa-plus" aria-hidden="true" style="font-size: 16pt;color: darkseagreen;text-align: center"></i>
+                                                                                </a>
+                                                                            </th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                        <tr style="background-color:#FFF;" ng-repeat="(key,spec) in SpecialTandCList">
+                                                                            <td>{{key+1}}</td>
+                                                                            <td>{{spec.SequenceId}}</td>
+                                                                            <td>{{spec.Title ? spec.Title : 'NA'}}</td>
+                                                                            <td><div ng-bind-html="spec.Condition"></div></td>
+                                                                            <td ng-show="!poDiffer">
+                                                                                <a ng-click="setCurrenSpecTandCData(spec);" data-toggle="modal" data-target="#editSpecialTandCPopup"><span class="glyphicon glyphicon-edit" aria-hidden="true" title="Edit" style="font-size:12pt;margin: 5px"></span></a>
+                                                                                <a data-toggle="modal" data-target="#DeleteSpecPopUp" ng-click="setCurrenSpecTandCData(spec);" aria-hidden="true"><i class="glyphicon glyphicon-trash" aria-hidden="true" style="font-size: 12pt;"></i></a>
+                                                                            </td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-12" style="text-align:center">
+                                                            <button type="button" class="btn btn-sm btn-primary" ng-click="selectTab(6)"><i class="fa fa-arrow-left"></i> Prev</button>
+                                                            <button type="button" class="btn btn-sm btn-primary" ng-click="selectTab(8)">Next <i class="fa fa-arrow-right"></i></button>
+                                                        </div><div class="clearfix"></div><br>
+                                                    </div>
+                                                </div>
+                                                <div id="generalTC" ng-show="IsTabSelected(8)">
+                                                    <div class="row">
+                                                        <div class="col-xs-12 form-group">
+                                                            <div class="table-responsive">
+                                                                <table class="table table table-bordered lpd">
+                                                                    <thead style="font-size:9pt;">
+                                                                        <tr style="background-color:#192930;color:#fff;">
+                                                                            <th style="width:50px">#</th>
+                                                                            <th style="width:200px">Title</th>
+                                                                            <th style="text-align: center"> General Terms & Condition</th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                        <tr style="background-color:#FFF;" ng-repeat="(key,genTC) in GeneralTermsandConditionsList.TandClist">
+                                                                            <td>{{key+1}}</td>
+                                                                            <td>{{genTC.Title?genTC.Title:'NA'}}</td>
+                                                                            <td><div ng-bind-html="genTC.Condition"></div></td>
+                                                                        </tr>
+                                                                        <tr ng-if="GeneralTermsandConditionsList.info.totalrecords=='0'">
+                                                                            <td colspan="10" class="text-center">No Terms and Conditions Available for This PO</td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>                                            
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-12" style="text-align:center">
+                                                            <button type="button" class="btn btn-sm btn-primary" ng-click="selectTab(7)"><i class="fa fa-arrow-left"></i> Prev</button>
+                                                            <button type="button" class="btn btn-sm btn-primary" ng-click="selectTab(9)">Next <i class="fa fa-arrow-right"></i></button>
+                                                        </div><div class="clearfix"></div><br>
+                                                    </div>
+                                                </div>
+                                                <div id="LinkedPo" ng-show="IsTabSelected(9)">
+                                                    <div class="row" >
+                                                        <div class="col-xs-12 form-group">
+                                                            <div class="table-responsive" style="width:100%">
+                                                                <table class="table table table-bordered" style="margin-bottom:25px 0 !important;">
+                                                                    <thead style="font-size:9pt;">
+                                                                        <tr style="background-color: #192930;color: #fff;">
+                                                                            <th width="3%">#</th>
+                                                                            <th width="6%">Project Code</th>
+                                                                            <th width="10%">PO Number</th>
+                                                                            <th width="10%">Title</th>
+                                                                            <th width="6%">Creation Date</th>
+                                                                            <th width="10%">Vendor</th>
+                                                                            <th width="10%">Fund Center</th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                        <tr style="background-color:#FFF;" ng-repeat="(key,lkdpo) in LinkedPOList">
+                                                                            <td>{{key+1}}</td>
+                                                                            <td>{{lkdpo.ProjectCode}}</td>
+                                                                            <td>{{lkdpo.Purchasing_Order_Number?lkdpo.Purchasing_Order_Number:'NA'}}</td>
+                                                                            <td>{{lkdpo.PO_Title}}</td>
+                                                                            <td>{{lkdpo.Purchasing_Document_Date|date:'dd-MM-yyyy'}}</td>
+                                                                            <td>{{lkdpo.Vendor_Owner}}</td>
+                                                                            <td>{{lkdpo.FundCenter_Description}}</td>
+                                                                            <td class="text-center"><a ng-show="!poDiffer" data-toggle="modal" data-target="#DeleteLinkedPopUp" ng-click="setLinkedPOData(lkdpo.LinkPOUniqueID);" aria-hidden="true"><i class="glyphicon glyphicon-trash" aria-hidden="true" style="font-size: 12pt;"></i></a></td>
+                                                                        </tr>
+                                                                        <tr ng-if="LinkedPOList.info.totalrecords=='0'"><td colspan="10" class="text-center">No Linked PO Available for This PO</td></tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xs-12 text-right form-group" ng-show="!poDiffer">
+                                                            <button class="btn btn-warning btn-xs" ng-click="SaveLinkPo();"><i class="fa fa-floppy-o"></i> Link PO</button>
+                                                        </div>
+                                                        <div class="col-xs-12 form-group">
+                                                            <div class="table-responsive">
+                                                                <table class="table table table-bordered">
+                                                                    <thead style="font-size:9pt;" ng-show="!poDiffer">
+                                                                        <tr style="background-color: #192930;color: #fff;">
+                                                                            <th width="3%">&nbsp;</th>
+                                                                            <th width="6%">Project Code</th>
+                                                                            <th width="10%">PO Number</th>
+                                                                            <th width="10%">Title</th>
+                                                                            <th width="6%">Creation Date</th>
+                                                                            <th width="10%">Vendor</th>
+                                                                            <th width="10%">Fund Center</th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <td width="3%"><input type="checkbox" ng-show="!poDiffer" title="Check/Uncheck All" ng-model="linkCheckresponse" ng-checked="linkAll"></td>
+                                                                            <td width="6%"><input type="text" class="form-control" name="project_code" ng-model="project_code" /></td>
+                                                                            <td width="10%"><input type="text" class="form-control" name="po_number" ng-model="po_number" /></td>
+                                                                            <td width="10%"><input type="text" class="form-control" name="po_title" ng-model="po_title" /></td>
+                                                                            <td width="6%"></td>
+                                                                            <td width="10%"><input type="text" class="form-control" name="vendor_name" ng-model="vendor_name" /></td>
+                                                                            <td width="10%"><input type="text" class="form-control" name="fnd" ng-model="fnd" /></td>
+                                                                        </tr>
+                                                                        <tr style="background-color:#FFF;" ng-repeat="lkdpo in NonLinkedPODetails | filter : { ProjectCode: project_code, Purchasing_Order_Number: po_number, PO_Title: po_title, VendorName: vendor_name, FundCenter_Description: fnd}">
+                                                                            <td><input type="checkbox" ng-show="!poDiffer" name="LinkCID" ng-checked="linkCheckresponse" ng-click="SelectAllLink()" value="{{lkdpo.POHeaderstructureID}}" /></td>
+                                                                            <td>{{lkdpo.ProjectCode}}</td>
+                                                                            <td>{{lkdpo.Purchasing_Order_Number?lkdpo.Purchasing_Order_Number:'NA'}}</td>
+                                                                            <td>{{lkdpo.PO_Title}}</td>
+                                                                            <td>{{lkdpo.Purchasing_Document_Date|date:'dd-MM-yyyy'}}</td>
+                                                                            <td>{{lkdpo.Vendor_Owner}}</td>
+                                                                            <td> {{lkdpo.FundCenter_Description}}</td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-12" style="text-align:center">
+                                                            <button type="button" class="btn btn-sm btn-primary" ng-click="selectTab(8)"><i class="fa fa-arrow-left"></i> Prev</button>
+                                                        </div><div class="clearfix"></div><br>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+                </section>
+            </div>
+            <div id="GLPagePopUp" class="modal fade pop-modal" role="dialog">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header padpop">
+                                <h5 class="modal-title pull-left mt7">Update GL Account</h5>
+                                <div class="pull-right">
+                                    <button class="btn btn-warning btn-sm" type="button" data-dismiss="modal">Cancel</button>
+                                    <button class="btn btn-success btn-sm" type="button" ng-show="!poDiffer" ng-click="UpdateGLAccount()">Update</button>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="modal-body">
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <form name="UpdateGLAccountForm" class="UpdateGLAccountForm">
+                                            <input type="text" name="Uniqueid" value="0" ng-hide="true"/>
+                                            <input type="text" name="LastmodifiedByID" ng-model="LastmodifiedByID" value="{{LastmodifiedByID}}" ng-hide="true"/>
+                                            <input type="text" name="GLAccountNo" value="0" ng-hide="true" />
+                                            <div class="table-responsive" style="width:100%">
+                                                <table class="table table table-bordered">
+                                                    <thead style="font-size:9pt;">
+                                                        <tr class="filters">
+                                                            <th>Material Name</th>
+                                                            <th>Material Description</th>
+                                                            <th>Material Number</th>
+                                                            <th>Item Type</th>
+                                                            <th>GL Account No</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr ng-repeat="(key,GL) in GLupdate">
+                                                            <td>{{GL.MaterialName}}</td>
+                                                            <td>{{GL.MaterialDescription}}</td>
+                                                            <td>{{GL.Material_Number}}</td>
+                                                            <td>{{GL.ItemType}}</td>
+                                                            <td>
+                                                                <div class="input-group input-group-sm">
+                                                                    <input type="hidden" name="Uniqueid" ng-model="GLupdate[key].Uniqueid" value="{{GLupdate[key].Uniqueid}}" />
+                                                                    <input type="text" class="form-control" name="GLAccountNo" ng-model="GLupdate[key].GLAccountNo" placeholder="Select GL Account" ng-readonly="true" />
+                                                                    <div class="input-group-addon" data-toggle="modal" ng-show="!poDiffer" data-target="#GLPageDetailedPopUp" ng-click="setGLrowclicked(key);"><i class="fa fa-search"></i></div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div id="GLPageDetailedPopUp" class="modal fade pop-modal" role="dialog">
+                    <div class="modal-dialog modal-lg">
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header padpop">
+                                <h5 class="modal-title pull-left mt7">Add GL Account</h5>
+                                <div class="pull-right">
+                                    <button class="btn btn-warning btn-sm" type="button" data-dismiss="modal">Cancel</button>
+                                    <button class="btn btn-success btn-sm" type="button" data-dismiss="modal">Add GL Account</button>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="modal-body">
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <div class="table-responsive" style="width:100%;">
+                                                    <table class="table table table-bordered">
+                                                        <thead style="font-size:9pt;">
+                                                            <tr class="filters">
+                                                                <th style="width: 15%">GLAccount Code</th>
+                                                                <th style="width: 25%">GLAccount Desc</th>
+                                                                <th style="width: 20%">GLAccount Short Name</th>
+                                                                <th style="width: 20%">Commitment Item Code</th>
+                                                                <th style="width: 20%">Commitment Item Desc</th>
+                                                            </tr>
+                                                            <tr class="filtersLight">
+                                                                <td class="text-center">
+                                                                    <input class="form-control" type="text" placeholder="Search" ng-model="GLAccountCodeSearch">
+                                                                </td>
+                                                                <td class="text-center">
+                                                                    <input class="form-control" type="text" placeholder="Search" ng-model="GLAccountDescSearch">
+                                                                </td>
+                                                                <td class="text-center">
+                                                                    <input class="form-control" type="text" placeholder="Search" ng-model="GLAccountShortNameSearch">
+                                                                </td>
+                                                                <td class="text-center">
+                                                                    <input class="form-control" type="text" placeholder="Search" ng-model="CommitmentItemCodeSearch">
+                                                                </td>
+                                                                <td class="text-center">
+                                                                    <input class="form-control" type="text" placeholder="Search" ng-model="CommitmentItemDescSearch">
+                                                                </td>
+                                                            </tr>
+                                                        </thead>
+                                                    </table>
+                                                </div>
+                                        <div class="table-responsive" style="width:100%;height: 300px;">
+                                            <table class="table table table-bordered">
+                                                <tbody>
+                                                    <tr ng-repeat="(key,val) in GLAccountList | filter:{GLAccountCode:GLAccountCodeSearch,GLAccountDesc:GLAccountDescSearch,GLAccountShortName:GLAccountShortNameSearch,CommitmentItemCode:CommitmentItemCodeSearch,CommitmentItemDesc:CommitmentItemDescSearch}" ng-style="{'background-color':GLAccountbgColor[key]}" ng-click="GLAccountDetailsClick(key,val);">
+                                                        <td style="width: 16%">{{val.GLAccountCode}}</td>
+                                                        <td style="width: 25%">{{val.GLAccountDesc}}</td>
+                                                        <td style="width: 20%">{{val.GLAccountShortName}}</td>
+                                                        <td style="width: 20%">{{val.CommitmentItemCode}}</td>
+                                                        <td style="width: 19%">{{val.CommitmentItemDesc}}</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div ng-include="'views/PurchaseOrder/POUpdate/Popups.html'"></div> 
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

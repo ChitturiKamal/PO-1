@@ -1,0 +1,119 @@
+.wrapper{
+    width:97% !important;
+    margin: auto;
+}
+.mstracklistbox{float:left; margin:10px 5px; width:auto}
+.mstrackbox{display:block; float:left; background:#ccc; border-radius:4px; width:auto; padding:6px 10px; margin:0 5px; cursor:pointer;}
+.mstrackbox a{color:#333 !important; text-decoration:none; font-weight:bold;}
+.trackingactive{
+	background:#f79647 !important;
+	color:#fff;
+}
+
+.milestoneListtable
+{
+    margin-bottom:-1px;
+}
+#milestoneparenttable{
+        overflow-x: auto !important;  
+		margin-left: 1%;
+		margin-right: 1%;
+}
+.leaddashboardmain{border-top:1px solid #ececec; float:left;  width:100%; padding:0; margin:0;}
+tr.parent-row td{font-weight:bold; font-size:15px; padding:5px;}
+tr.child-row td{font-size:15px; padding:5px;}
+#milestonetable {width:100% !important;}
+#milestonetable th{text-align:center;line-height: 25px;}
+
+.filtertablebody {
+height:80px !important;
+ overflow-y: auto !important;
+    }
+.msttable{border-collapse:collapse; width:100%;}
+.msttable td,.tstable th{ padding:2px 4px 2px 2px;}
+
+
+.title-panel {
+    background: #3099d2;
+    font-size: 12pt;
+    width: 100%;
+    color: #fff;
+    margin-bottom: 5px;
+    padding: 5px 0 5px 10px;
+}
+
+.txtalignright {
+    text-align: right;
+}
+
+.txtaligncenter {
+    text-align: center;
+}
+
+.txtalignleft {
+    text-align: left;
+}
+
+.height5px {
+    height: 5px;
+    background-color: #fff;
+}
+
+.projecttitle {
+    color: #fff;
+    background-color: #00b0C9;
+    font-size: 16px;
+    padding: 0 10px;
+    text-transform: uppercase;
+    text-align: left;
+}
+
+.projectsubtitle {
+    font-size: 14px;
+    color: #fff;
+    text-transform: uppercase;
+    text-align: left;
+}
+
+.tracktable {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.tracktable td,
+.tracktable th {
+    padding: 2px;
+}
+
+.edittabcont {
+    background-color: yellow !important;
+    color: #000 !important;
+}
+
+.innertabcont {
+    background-color: #ebf1de !important;
+    color: #000 !important;
+}
+
+.bordercell {
+    border: 2px solid #1c1c1c !important;
+    border-bottom: none !important;
+}
+
+tr.blackbg td {
+    background-color: #000;
+    color: #fff;
+    border-color: #fff;
+}
+
+tr td.blackbg {
+    background-color: #000;
+    color: #fff;
+}
+
+.trackingmain {
+    float: left;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}

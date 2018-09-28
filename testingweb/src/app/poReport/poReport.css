@@ -1,0 +1,39 @@
+.report-table table {
+    width: 100%;
+    height:95%;
+}
+
+.report-table thead,
+.report-table tbody,
+.report-table tr,
+.report-table td,
+.report-table th {
+    display: block;
+}
+
+.report-table tr:after {
+    content: ' ';
+    display: block;
+    visibility: hidden;
+    clear: both;
+}
+
+.report-table thead th {
+    height: 30px;
+    /*text-align: left;*/
+}
+
+.report-table tbody {
+    height: 337px;
+    overflow-y: auto;
+}
+
+.report-table thead {
+    /* fallback */
+}
+
+.report-table tbody td,
+.report-table thead th {
+    width: 16.6%;
+    float: left;
+}

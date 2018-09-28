@@ -1,0 +1,454 @@
+<style>.nicEdit-main{width:100%!important;margin:0!important}.form-block .richTxt{width:100%!important}.templatelengthtext{white-space:nowrap;width:25em;overflow:hidden;text-overflow:ellipsis;margin:0}.height200px{height:200px}.limitText{font-size:13px;width:20em;height:18px;overflow:hidden;text-overflow:ellipsis;-webkit-box-orient:vertical;position:absolute;padding:0 5px;font-weight:normal}.modal-dialog{margin:70px auto}.well{margin-bottom:0}.sd{width:145px;margin-left:-33%}</style>
+<header ng-include="'views/header.html'"></header>
+<div ng-controller="HSNTaxCodeMapCtrl">
+    <div ng-include="'views/Delete.html'"></div>
+    <div class="wrapper" style="background-color:#fff;width: 100% !important;">
+        <div class="row selcproject" style="margin:0;">
+            <div class="col-md-12" style="padding:0;">
+                <div class="wizard" style="margin:0 auto;">
+                    <div class="portfolio-page">
+                        <div class="head-panel-grey">
+                            <div class="pull-left">
+                                <h4>HSN Tax Code Mapping</h4>
+                            </div>
+                            <div class="pull-right"> <a ng-if="CheckPrivilage('POHSNRatesMaster','Save')" class="btn btn-sm btn-primary mt33" href="javascript:void(0)" data-toggle="modal" data-target="#addHSNTaxCode" ng-click="ClearFormData()"><i class="fa fa-plus"></i> ADD NEW</a> </div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="table-content">
+                            <div class="main-table filterable">
+                                <div class="panel">
+                                    <div class="panel-body">
+                                        <form name="SearchHSN" class="SearchHSN">
+                                            <table class="table table-bordered">
+                                                <thead>
+                                                    <tr class="filters">
+                                                        <th class="text-center" width="5%"><label>Applicablity</label></th>
+                                                        <th class="text-center" width="8%"><label>Destination Country</label></th>
+                                                        <th class="text-center" width="8%"><label>Vendor Region</label></th>
+                                                        <th class="text-center" width="8%"><label>Delivery Plant Region</label></th>
+                                                        <th class="text-center" width="5%"><label>HSN Code</label></th>
+                                                        <th class="text-center" width="12%"><label>Material GST Applicablity</label></th>
+                                                        <th class="text-center" width="12%"><label>Vendor GST Applicablity</label></th>
+                                                        <th class="text-center" width="8%"><label>Valid From</label></th>
+                                                        <th class="text-center" width="8%"><label>Valid To</label></th>
+                                                        <th class="text-center" width="6%"><label>Tax Type</label></th>
+                                                        <th class="text-center" width="3%"><label>Tax Code</label></th>
+                                                        <th class="text-center" width="3%"><label>Tax Rate</label></th>
+                                                        <th class="text-center" width="5%"><label>Last Modified by</label></th>
+                                                        <th class="text-center" width="8%"><label>Last Modified On</label></th>
+                                                        <th class="text-center" width="5%"><label>Option</label></th>
+                                                    </tr>
+                                                    <tr class="filtersLight">
+                                                        <th class="text-center"><input class="form-control" type="text" placeholder="Search" name="Applicability"> </th>
+                                                        <th class="text-center"><input class="form-control" type="text" placeholder="Search" name="Destination"> </th>
+                                                        <th class="text-center"><input class="form-control" type="text" placeholder="Search" name="Vend_Region"> </th>
+                                                        <th class="text-center"><input class="form-control" type="text" placeholder="Search" name="Delivery_Plant"> </th>
+                                                        <th class="text-center"><input class="form-control" type="text" placeholder="Search" name="HSN_Code"> </th>
+                                                        <th class="text-center"><input class="form-control" type="text" placeholder="Search" name="Material_GST_Appl"> </th>
+                                                        <th class="text-center"><input class="form-control" type="text" placeholder="Search" name="Vend_GST_Appl"> </th>
+                                                        <th class="text-center"></th>
+                                                        <th class="text-center"></th>
+                                                        <th class="text-center"><input class="form-control" type="text" placeholder="Search" name="TAX_Type"> </th>
+                                                        <th class="text-center"><input class="form-control" type="text" placeholder="Search" name="TAX_Code"> </th>
+                                                        <th class="text-center"><input class="form-control" type="text" placeholder="Search" name="TAX_Rate"> </th>
+                                                        <th class="text-center"></th>
+                                                        <th class="text-center"></th>
+                                                        <th class="text-center"><button class="btn btn-xs btn-warning" ng-click="getHSNTaxList()">Search</button></th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody ng-if="HSNTaxList.info.listcount<='0'"><tr><td colspan="1000" class="text-center">No Records</td></tr></tbody>
+                                                <tbody>
+                                                    <tr ng-repeat="data in HSNTaxList.result">
+                                                        <td>{{data.ApplicableTo?data.ApplicableTo:'NA'}}</td>
+                                                        <td>{{data.DestinationCountry?data.DestinationCountry:'NA'}}</td>
+                                                        <td>{{data.VendorRegionDescription?data.VendorRegionDescription:'NA'}}</td>
+                                                        <td>{{data.DeliveryPlantRegionDescription?data.DeliveryPlantRegionDescription:'NA'}}</td>
+                                                        <td>{{data.HSNCode?data.HSNCode:'NA'}}</td>
+                                                        <td>{{data.MaterialGSTApplicability?data.MaterialGSTApplicability:'NA'}}</td>
+                                                        <td>{{data.VendorGSTApplicability?data.VendorGSTApplicability:'NA'}}</td>
+                                                        <td>{{data.ValidFrom | date:"dd-MM-yyyy"}}</td>
+                                                        <td>{{data.ValidTo | date:"dd-MM-yyyy"}}</td>
+                                                        <td>{{data.TaxType?data.TaxType:'NA'}}</td>
+                                                        <td>{{data.TaxCode?data.TaxCode:'NA'}}</td>
+                                                        <td>{{data.TaxRate?data.TaxRate:'NA'}}</td>
+                                                        <td>{{data.UserName?data.UserName:'NA'}}</td>
+                                                        <td>{{data.LastModifiedOn | date:"dd-MM-yyyy"}}</td>
+                                                        <td>
+                                                            <a ng-click="FromView(data.UniqueID)" data-toggle="modal" data-target="#updateHSNTaxCode" title="Edit" ng-if="CheckPrivilage('POHSNRatesMaster','Update')" ><i class="fa fa-pencil-square-o"></i></a>
+                                                            <a ng-click="SetDeleteData(data.UniqueID);" data-toggle="modal" data-target="#DeleteHSNTaxCode" title="Delete" ng-if="CheckPrivilage('POHSNRatesMaster','Update')" ><i class="fa fa-trash-o"></i></a>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                                <tfoot class="footer">
+                                                    <tr>
+                                                        <td colspan="16" align="right" style="text-align: right;">
+                                                            <label ng-if="HSNTaxList.info.listcount > '0'">Now Showing: {{HSNTaxList.info.fromrecords}} - {{HSNTaxList.info.torecords}} of {{HSNTaxList.info.totalrecords}}</label> &nbsp;&nbsp;
+                                                            <label>Go To Page : &nbsp;
+                                                                <input type="text" size="2" value="1" class="form-control inline-in intvalid pageInput" ng-model="pagenumber" ng-change="pagenationss(pagenumber)" /> </label> &nbsp;&nbsp;
+                                                            <label> Show Rows : </label>
+                                                            <label>
+                                                                <select ng-model="pageprecounts" name="pageprecounts" class="pageCount inline-in" ng-change="pagenationss(pagenumber,pageprecounts)">
+                                                                    <option value="" disabled="disabled">Select</option>
+                                                                    <option value="10"  ng-selected="true">10</option>
+                                                                    <option value="20">20</option>
+                                                                    <option value="50">50</option>
+                                                                    <option value="100">100</option>
+                                                                    <option value="200">200</option>
+                                                                    <option value="400">400</option>
+                                                                    <option value="500">500</option>
+                                                                    <option value="700">700</option>
+                                                                    <option value="1000">1000</option>
+                                                                    <option value="9999999">All</option>
+                                                                </select>
+                                                            </label> &nbsp;&nbsp;
+                                                            <label><a class="btn btn-default btn-xs" ng-click="pagenationss_clk(pagenumber,0)" style="padding:1px 8px;"><i class="fa fa-caret-left"></i></a> </label>
+                                                            <label ng-if="HSNTaxList.info.listcount>'0'"><a class="btn btn-default btn-xs" ng-click="pagenationss_clk(pagenumber,1)" style="padding:1px 8px;" ng-if="HSNTaxList.info.listcount!=0"><i class="fa fa-caret-right"></i></a> </label>
+                                                        </td>
+                                                    </tr>
+                                                </tfoot>
+                                            </table>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>    
+    <div id="DeleteHSNTaxCode" class="modal fade pop-modal" role="dialog">
+        <div class="modal-dialog modal-md">
+            <div class="modal-content">
+                <div class="modal-header padpop">
+                    <h5 class="modal-title pull-left mt7">Are you sure you want delete?{{HSNCode.HsnTaxCodeID}}</h5>
+                    <div class="pull-right">
+                        &nbsp;
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="modal-body">
+                    <div class="main-content text-right">
+                        <form name="deleteForm" class="deleteForm">
+                            <input type="hidden" name="UniqueID" value="{{HsnTaxCodeID}}">
+                        </form>
+                        <button class="btn btn-warning btn-sm" data-dismiss="modal" type="button">No, Cancel</button>
+                        <button class="btn btn-success btn-sm" ng-click="FormDelete()" type="button">Yes, Delete</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="addHSNTaxCode" class="modal pop-modal fade" role="dialog">
+        <div class="modal-dialog">
+                    <!-- Modal content-->
+          <div class="modal-content">
+                <div class="modal-header padpop">
+                    <h5 class="modal-title pull-left mt7">Create HSN Tax Rate</h5>
+                    <div class="pull-right">
+                        <button class="btn btn-warning btn-sm" type="button" data-dismiss="modal">Cancel</button>
+                        <button class="btn btn-success btn-sm" type="button" ng-click="FromCreate()">Create</button>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="modal-body">
+                    <div class="main-content">
+                        <form name="addForm" class="addForm ng-pristine ng-valid" enctype="multipart/form-data" method="post">
+                            <div class="row">
+                                    <div class="col-md-6 mb10">
+                                            <div class="form-block">
+                                                <label>HSN Code<span class="mandatory">*</span></label>
+                                                <input class="form-control"  name="HSNCNam" ng-model="HSNCNam">
+                                                <!-- <select class="form-control" name="HSNCNam" ng-model="HSNCNam">
+                                                    <option value="" selected="selected">Select</option>
+                                                    <option ng-repeat="data in HSNCodeList" value="{{data.HSNSACCode}}">{{data.HSNSACCode}}</option>
+                                                </select>> -->
+                                            </div>
+                                        </div>
+                                    <div class="col-md-6 mb10">
+                                        <div class="form-block">
+                                            <label>Applicable To<span class="mandatory">*</span></label>
+                                            <select class="form-control"  ng-model="AppliID" name="AppliID" >
+                                                <option value="">Select Applicable</option>
+                                                <option value="Material">Material</option>
+                                                <option value="Service">Service</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <!-- <div class="col-md-6 mb10">
+                                            <div class="form-block">
+                                                <label>GSTN Vendor Classification</label>
+                                                <select class="form-control" name="GSTVenClass" ng-model="GSTVenClass">
+                                                    <option value="" selected="selected">Select</option>
+                                                    <option ng-repeat="data in GstVenClassList" value="{{data.UniqueID}}">{{data.Description}}</option>
+                                                </select>
+                                                
+                                            </div>
+                                        </div> -->
+                                    
+                                    <div class="col-md-6 mb10">
+                                        <div class="form-block">
+                                            <label>Vendor Region<span class="mandatory">*</span></label>
+                                                <select class="form-control" name="VendStateID" ng-model="VendStateID">
+                                                    <option value="" selected="selected">Select</option>
+                                                    <option ng-repeat="data in stateList" value="{{data.StateCode}}">{{data.StateName}}</option>
+                                                </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 mb10">
+                                        <div class="form-block">
+                                            <label>Delivery Plant Region</label>
+                                            <select class="form-control" name="DelPlReg" ng-model="DelPlReg">
+                                                <option value="" selected="selected">Select</option>
+                                                <option ng-repeat="data in stateList" value="{{data.StateCode}}">{{data.StateName}}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 mb10">
+                                            <div class="form-block">
+                                                <label>Destination Country<span class="mandatory">*</span></label>
+                                                <select class="form-control" name="CountryCode" ng-model="CountryCode">
+                                                    <option value="" selected="selected">Select</option>
+                                                    <option ng-repeat="data in countryList" value="{{data.Description}}">{{data.Description}}</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 mb10">
+                                                <div class="form-block">
+                                                    <label>Vendor Gst Applicablity<span class="mandatory">*</span></label>
+                                                     <select class="form-control" name="VenGstNam" ng-model="VenGstNam">
+                                                        <option value="" selected="selected">Select</option>
+                                                        <option ng-repeat="data in VenGSTList" value="{{data.UniqueID}}">{{data.Description}}</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                    <div class="col-md-6 mb10" ng-if="AppliID == 'Material'">
+                                            <div class="form-block" ng-if="AppliID == 'Material'">
+                                                <label>Material GST Applicablity<span class="mandatory">*</span></label>
+                                                 <select class="form-control" name="MatGstNam" ng-model="MatGstNam">
+                                                    <option value="" selected="selected">Select</option>
+                                                    <option ng-repeat="data in MatGSTList" value="{{data.UniqueID}}">{{data.Description}}</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        
+                                           
+                                    
+                                    <div class="col-md-6 mb10">
+                                        <div class="form-block">
+                                            <label>Tax Type<span class="mandatory">*</span></label>
+                                             <select class="form-control" name="TaxYpNam" ng-model="TaxYpNam">
+                                                <option value="" selected="selected">Select</option>
+                                                <option value="CGST">CGST</option>
+                                                <option value="SGST">SGST</option>
+                                                <option value="IGST">IGST</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 mb10">
+                                        <div class="form-block">
+                                            <label>Tax Code<span class="mandatory">*</span></label>
+                                            <select class="form-control" name="TaxCodeNam" ng-model="TaxCodeNam">
+                                                <option value="" selected="selected">Select</option>
+                                                <option value="CC">CC</option>
+                                                <option value="G0">G0</option>
+                                                <option value="G1">G1</option>
+                                                <option value="G2">G2</option>
+                                                <option value="G3">G3</option>
+                                                <option value="G4">G4</option>
+                                                <option value="I0">I0</option>
+                                                <option value="I1">I1</option>
+                                                <option value="I2">I2</option>
+                                                <option value="I3">I3</option>
+                                                <option value="I4">I4</option>
+                                                <option value="IM">IM</option>
+                                                <option value="IN">IN</option>
+                                                <option value="K7">K7</option>
+                                                <option value="N7">N7</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 mb10">
+                                        <div class="form-block">
+                                            <label>Tax Rate<span class="mandatory">*</span></label>
+                                            <input type="number" ng-model="TaxRatNam" name="TaxRatNam"  ng-change="ValueChange(TaxRatNam)" class="form-control"/>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 mb10">
+                                            <div class="form-block">
+                                                <label> Valid From <span class="mandatory">*</span></label>
+                                                <input type="date" class="form-control" name="ValFrmNam" ng-model="ValFrmNam"/>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 mb10">
+                                            <div class="form-block">
+                                                <label> Valid To <span class="mandatory">*</span></label>
+                                                <input type="date" class="form-control" name="ValToNam" ng-model="ValToNam"/>
+                                            </div>
+                                        </div>
+                                </div>
+                        
+                            </form>
+                    </div>
+                </div>
+           </div>
+        </div>
+    </div>
+    <div id="updateHSNTaxCode" class="modal pop-modal fade" role="dialog">
+        <div class="modal-dialog">
+                    <!-- Modal content-->
+          <div class="modal-content">
+                <div class="modal-header padpop">
+                    <h5 class="modal-title pull-left mt7">Update HSN Tax Rate</h5>
+                    <div class="pull-right">
+                        <button class="btn btn-warning btn-sm" type="button" data-dismiss="modal">Cancel</button>
+                        <button class="btn btn-success btn-sm" type="button" ng-click="FromUpdate()">Update</button>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="modal-body">
+                    <div class="main-content">
+                        <form name="updateForm" class="updateForm ng-pristine ng-valid" enctype="multipart/form-data" method="post">
+                            <input type="hidden" name="HsnTaxCodeID" value="{{HSNCode.HsnTaxCodeID}}">
+                            <div class="row">
+                                    <div class="col-md-6 mb10">
+                                            <div class="form-block">
+                                                <label>HSN Code<span class="mandatory">*</span></label>
+                                                <input class="form-control" disabled="isDisabled"  name="HSNCNam" ng-model="HSNCNam">
+                                                <!-- <select class="form-control" name="HSNCNam" ng-model="HSNCNam">
+                                                    <option value="" selected="selected">Select</option>
+                                                    <option ng-repeat="data in HSNCodeList" value="{{data.HSNSACCode}}">{{data.HSNSACCode}}</option>
+                                                </select>> -->
+                                            </div>
+                                        </div>
+                                    <div class="col-md-6 mb10">
+                                        <div class="form-block">
+                                            <label>Applicable To<span class="mandatory">*</span></label>
+                                            <select class="form-control"  ng-model="AppliID" name="AppliID" >
+                                                <option value="">Select Applicable</option>
+                                                <option value="Material">Material</option>
+                                                <option value="Service">Service</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <!-- <div class="col-md-6 mb10">
+                                            <div class="form-block">
+                                                <label>GSTN Vendor Classification</label>
+                                                <select class="form-control" name="GSTVenClass" ng-model="GSTVenClass">
+                                                    <option value="" selected="selected">Select</option>
+                                                    <option ng-repeat="data in GstVenClassList" value="{{data.UniqueID}}">{{data.Description}}</option>
+                                                </select>
+                                                
+                                            </div>
+                                        </div> -->
+                                    
+                                    <div class="col-md-6 mb10">
+                                        <div class="form-block">
+                                            <label>Vendor Region<span class="mandatory">*</span></label>
+                                                <select class="form-control" name="VendStateID" ng-model="VendStateID">
+                                                    <option value="" selected="selected">Select</option>
+                                                    <option ng-repeat="data in stateList" value="{{data.StateCode}}">{{data.StateName}}</option>
+                                                </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 mb10">
+                                        <div class="form-block">
+                                            <label>Delivery Plant Region</label>
+                                            <select class="form-control" name="DelPlReg" ng-model="DelPlReg">
+                                                <option value="" selected="selected">Select</option>
+                                                <option ng-repeat="data in stateList" value="{{data.StateCode}}">{{data.StateName}}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 mb10">
+                                            <div class="form-block">
+                                                <label>Destination Country<span class="mandatory">*</span></label>
+                                                <select class="form-control" name="CountryCode" ng-model="CountryCode">
+                                                    <option value="" selected="selected">Select</option>
+                                                    <option ng-repeat="data in countryList" value="{{data.Description}}">{{data.Description}}</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 mb10">
+                                                <div class="form-block">
+                                                    <label>Vendor GST Applicablity<span class="mandatory">*</span></label>
+                                                     <select class="form-control" name="VenGstNam" ng-model="VenGstNam">
+                                                        <option value="" selected="selected">Select</option>
+                                                        <option ng-repeat="data in VenGSTList" value="{{data.UniqueID}}">{{data.Description}}</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                    <div class="col-md-6 mb10">
+                                            <div class="form-block" ng-if="AppliID == 'Material'">
+                                                <label >Material GST Applicablity<span class="mandatory">*</span></label>
+                                                 <select class="form-control" name="MatGstNam" ng-model="MatGstNam">
+                                                    <option value="" selected="selected">Select</option>
+                                                    <option ng-repeat="data in MatGSTList" value="{{data.UniqueID}}">{{data.Description}}</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                       
+                                    
+                                    <div class="col-md-6 mb10">
+                                        <div class="form-block">
+                                            <label>Tax Type<span class="mandatory">*</span></label>
+                                             <select class="form-control" name="TaxYpNam" ng-model="TaxYpNam">
+                                                <option value="" selected="selected">Select</option>
+                                                <option value="CGST">CGST</option>
+                                                <option value="SGST">SGST</option>
+                                                <option value="IGST">IGST</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 mb10">
+                                        <div class="form-block">
+                                            <label>Tax Code<span class="mandatory">*</span></label>
+                                            <select class="form-control" name="TaxCodeNam" ng-model="TaxCodeNam">
+                                                <option value="" selected="selected">Select</option>
+                                                <option value="CC">CC</option>
+                                                <option value="G0">G0</option>
+                                                <option value="G1">G1</option>
+                                                <option value="G2">G2</option>
+                                                <option value="G3">G3</option>
+                                                <option value="G4">G4</option>
+                                                <option value="I0">I0</option>
+                                                <option value="I1">I1</option>
+                                                <option value="I2">I2</option>
+                                                <option value="I3">I3</option>
+                                                <option value="I4">I4</option>
+                                                <option value="IM">IM</option>
+                                                <option value="IN">IN</option>
+                                                <option value="K7">K7</option>
+                                                <option value="N7">N7</option>
+                                            </select>
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 mb10">
+                                        <div class="form-block">
+                                            <label>Tax Rate<span class="mandatory">*</span></label>
+                                            <input type="number" ng-model="TaxRatNam" name="TaxRatNam" ng-change="ValueChange(TaxRatNam)" class="form-control"/>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 mb10">
+                                            <div class="form-block">
+                                                <label> Valid From <span class="mandatory">*</span></label>
+                                                <input type="date" class="form-control" name="ValUpdFrmNam" ng-model="ValUpdFrmNam"/>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 mb10">
+                                            <div class="form-block">
+                                                <label> Valid To <span class="mandatory">*</span></label>
+                                                <input type="date" class="form-control" name="ValUpdToNam" ng-model="ValUpdToNam"/>
+                                            </div>
+                                        </div>
+                                </div>
+                        
+                        
+                        </form>
+                    </div>
+                </div>
+           </div>
+        </div>
+    </div>
+</div>

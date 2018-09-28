@@ -1,0 +1,105 @@
+.head-panel-grey {
+    background-color:#646572; padding:5px 10px; font-weight:bold; color:#fff; border-radius:3px; margin:0 0 10px 0
+}
+
+.mlpoc{
+    margin-left: -1%;
+}
+
+.toast.toast-topRight {
+    top: 10px;
+    right: 5%;
+}
+
+.toast {
+    position: fixed;
+    z-index: 999999999;
+    text-align: center;
+}
+
+.report-table tbody td, .report-table thead th {
+width: 86px;
+float: left;
+}
+.table > thead > tr > th {
+vertical-align: bottom;
+border: 2px solid #ddd;
+height: 56px;
+width: 86px;
+}
+
+.table > thead > tr > td {
+border: 2px solid #DDDDDD;
+text-align: center;
+height: 56px;
+width: 86px;
+}
+
+.form-control {
+border-radius: 0 !important;
+}
+
+ .modal-body {
+position: relative;
+padding: 8px;
+} 
+
+ .pull-right {
+    float: right!important;
+}
+.plr2 {
+    padding: 0 3px;
+}
+fieldset, label {
+    margin: 0;
+    padding: 0;
+}
+
+label, .step_details label {
+    font-size: 13px;
+}
+
+.input-css {
+    height: 33px;
+    border: solid 1px #f1f1f1;
+    margin-left: 0px;
+    font-size: 10pt;
+    padding: 0 0 0 3px;
+    color: #585966;
+}
+.modal-open {
+    overflow: hidden;
+}
+
+.uppercase{
+    text-transform:uppercase;
+}
+
+tfoot {
+    display: table-footer-group;
+    vertical-align: middle;
+    border-color: inherit;
+}
+
+.footer {
+    position: relative;
+    border-top: 1px solid #DDD;
+    margin: 20px 0 327px 0;
+    padding-top: -4px;
+    font-size: 12px;
+    height: 56px;
+}
+.pageInput {
+    width: 35px;
+    float: right;
+    height: 22px;
+    text-align: right;
+    padding: 1px;
+    border-radius: 2px !important;
+}
+.pageCount {
+    color: #000;
+    border-radius: 4px;
+}
+
+ 

@@ -1,0 +1,867 @@
+<!-- <link href="src/app/POCreate/css/style.css"/> -->
+<!-- <link href="src/app/POCreate/tab/main.css"/> -->
+<!-- <link href="src/app/POCreate/tab/tabModule.css"/> -->
+<!-- <script src="src/app/POCreate/tab/tabModule.js"></script> -->
+<div class="container-fluid">
+        <div class="main-body-space">
+            <div class="head-panel-grey">
+                <h4>Create PO</h4>
+                <div class="pull-right" style="
+                     margin-top: -27px;
+                     ">18M-1000001 R0</div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xl-12">
+                            <ul class="nav nav-tabs mlpoc">
+                                <li class="active"><a data-toggle="tab" href="#basicInformation" aria-expanded="false" ng-click='$parent.showTab=1'>Basic Information</a></li>
+                                <li><a data-toggle="tab" href="#generalInformation" aria-expanded="false" ng-click='$parent.showTab=2'>General Information</a></li>
+                                <li><a data-toggle="tab" href="#purchaseDetails" aria-expanded="false" ng-click='$parent.showTab=3'>Purchase details</a></li>
+                                <li><a data-toggle="tab" href="#Annexure" ng-click='$parent.showTab=4'>Annexure</a></li>
+                                <li><a data-toggle="tab" href="#paymentTerms" ng-click='$parent.showTab=5'>Payment Terms</a></li>
+                                <li><a data-toggle="tab" href="#specificT&C" ng-click='$parent.showTab=6'>Specific T &amp; C</a></li>
+                                <li><a data-toggle="tab" href="#specialT&C" ng-click='$parent.showTab=7'>Special T &amp; C</a></li>
+                                <li><a data-toggle="tab" href="#generalT&C" ng-click='$parent.showTab=8'>Genaral T &amp; C</a></li>
+                                <li class=""><a data-toggle="tab" href="#LinkedPo" aria-expanded="true" ng-click='$parent.showTab=9'>Linked PO</a></li>
+                            </ul>
+                            <div class="tab-content">
+                                <div id="basicInformation" class="" ng-show="$parent.showTab=='1'">
+                                    <br>
+                                    <div class="row" style="margin-top: -30px;margin-left: -14px;">
+                                        <div class="col-xs-12">
+                                            <div style="background-color:#fff">
+                                                <div class="row" style="background-color:#fff; padding:10px;     margin: 10px 0%;">
+                                                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                                                        <div class="form-group">
+                                                            <label for="exampleInputEmail1">Customers</label>
+                                                            <select ng-model="vm.companyID" ng-change="vm.getCompany(vm.companyID)" class="form-control">
+                                                                <option>Select</option>
+                                                                <option ng-repeat="customer in vm.Customers" value={{customer.CompanyCode}}>{{customer.Name}}</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                                                        <div class="form-group">
+                                                            <label for="exampleInputEmail1">Fund Center</label>
+                                                            <!--fundCeters-->
+                                                            <select ng-model="vm.FundCeterID" ng-change="vm.getFundCenter(vm.FundCeterID)" class="form-control">
+                                                                <option>Select</option>
+                                                                <option ng-if="vm.fundCeters.length!=null" ng-repeat="fundCenter in vm.fundCeters" value={{fundCenter.Uniqueid}}>{{fundCenter.FundCenter_Code}} + {{fundCenter.FundCenter_Owner}};</option>
+                                                            </select>
+                                                            <!-- <input type="email" class="form-control" id="Email8" placeholder="Fund Center Code + Name">-->
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                                                        <div class="form-group">
+                                                            <label for="exampleInputEmail1">Date</label>
+                                                            <input type="email" class="form-control" id="Email4" placeholder="Today date place" disabled="">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                                                        <div class="form-group">
+                                                            <label for="exampleInputEmail1">Revision</label>
+                                                            <input type="email" class="form-control" id="Email6" placeholder="place">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                                                        <div class="form-group">
+                                                            <label for="exampleInputEmail1">Vendor Code</label>
+                                                            <!--Vendors-->
+                                                            <select ng-model="vm.vendorID" ng-change="vm.getVendor(vm.vendorID)" class="form-control">
+                                                                <option>Select</option>
+                                                                <option ng-repeat="vendor in vm.Vendors" value={{vendor.Uniqueid}}>{{vendor.Vendor_Code}} + {{vendor.Vendor_Owner}};</option>
+                                                            </select>
+                                                            <!-- <input type="email" class="form-control" id="Email7" placeholder="Vendor code + name"> -->
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6 col-md-offset-3" style="text-align:right">
+                                                        <button type="button" class="btn btn-md btn-primary btn-block" href="#generalInformation" ng-click='$parent.showTab=2'>Next</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="generalInformation" class="" ng-show="$parent.showTab=='2'">
+                                    <div class="row" style="margin-top: -30px;margin-left: -14px;">
+                                        <div class="col-xs-12">
+                                            <div style="background-color:#fff">
+                                                <div class="row" style="background-color:#fff; padding:10px;     margin: 1px 0%;">
+                                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                        <div class="form-group">
+                                                            <label for="exampleInputEmail1">Transaction Type</label>
+                                                            <input type="email" class="form-control" id="Email16" placeholder="Domestic (place)" disabled="">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                        <div class="form-group">
+                                                            <label for="exampleInputEmail1">Nature of Transaction</label>
+                                                            <input type="email" class="form-control" id="Email43" placeholder="Intra  state (place)" disabled="">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                        <div class="form-group">
+                                                            <label for="exampleInputEmail1">Nature of Supply</label>
+                                                            <input type="email" class="form-control" id="Email44" placeholder="Services (place)" disabled="">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                        <div class="form-group">
+                                                            <label for="exampleInputEmail1">Customer's GSTIN</label>
+                                                            <input type="email" class="form-control" ng-model="vm.billingData.GSTIN" id="Email34" placeholder="36AABCT9452F1Z7 (place)" disabled="">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                        <div class="form-group">
+                                                            <label for="exampleInputEmail1">Vendor's GSTIN</label>
+                                                            <input type="email" class="form-control" ng-model="vm.vendor.GSTIN" id="Email27" placeholder="(place)" disabled="">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                        <div class="form-group">
+                                                            <label for="exampleInputEmail1">Bill To</label>
+                                                            <input type="email" ng-model="vm.billingData.ProjectName" class="form-control" id="Email28" placeholder="The Medow Dance (place)" disabled="">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                        <div class="form-group">
+                                                            <label for="exampleInputEmail1">Billed By</label>
+                                                            <input type="email" ng-model="vm.vendor.Vendor_Owner" class="form-control" id="Email45" placeholder="Mohammed Jahangir (place)" disabled="">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                        <div class="form-group">
+                                                            <label for="exampleInputEmail1">Address</label>
+                                                            <textarea class="form-control" rows="2" ng-model="vm.billingData.Address" placeholder="Total Environment Building Systems Pvt Ltd, #3/6/692, sreet No 11, Himayath Nagar, Hydarabad-500029 (place)" disabled=""></textarea>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                        <div class="form-group">
+                                                            <label for="exampleInputEmail1">Address</label>
+                                                            <textarea class="form-control" ng-model="vm.vendor.Address" rows="2" placeholder="8-3-228/678/416A, Rahamath Nagar, Karmika Nagar, Hydarabad-500045 (place)" disabled=""></textarea>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                        <div class="form-group">
+                                                            <label for="exampleInputEmail1">Country</label>
+                                                            <input type="email" ng-model="vm.billingData.CountryCode" class="form-control" id="Email35" placeholder="India (place)" disabled="">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                        <div class="form-group">
+                                                            <label for="exampleInputEmail1">Country</label>
+                                                            <input type="email" class="form-control" id="Email36" placeholder="India (place)" disabled="">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                        <div class="form-group">
+                                                            <label for="exampleInputEmail1">GST State Code</label>
+                                                            <input type="email" class="form-control" id="Email37" ng-model=" vm.billingData.StateCode" placeholder="36 (place)" disabled="">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                        <div class="form-group">
+                                                            <label for="exampleInputEmail1">GST State Code</label>
+                                                            <input type="email" class="form-control" id="Email38" placeholder="37 (place)" disabled="">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                        <div class="form-group">
+                                                            <label for="exampleInputEmail1">Ship To</label>
+                                                            <select ng-model="vm.PlantStorageDetailsID" ng-change="vm.shippingDetails(vm.PlantStorageDetailsID)" class="form-control">
+                                                                <!-- ng-change="vm.getProject(vm.projectID)"-->
+                                                                <option>Select</option>
+                                                                <option ng-repeat="ship in vm.shippingData" value={{ship.PlantStorageDetailsID}}>{{ship.ProjectName}}</option>
+                                                            </select>
+                                                            <!-- <select class="form-control">
+                                                      <option>The Medow Dance</option>
+                                                      <option>After the rain</option>
+                                                      </select> -->
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                        <div class="form-group">
+                                                            <label for="exampleInputEmail1">Shipped From</label>
+                                                            <input type="email" class="form-control" ng-model="vm.vendor.Vendor_Owner" id="Email48" placeholder="Mohammed Jahangir (place)" disabled="">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                        <div class="form-group">
+                                                            <label for="exampleInputEmail1">Address</label>
+                                                            <textarea class="form-control" rows="2" ng-model="vm.shippingDet.Address" placeholder="The Meadow Dance, Rajendra Nagar Budvel, Hydarabad-500029, Contact Mr. Usman - 8978680238 (place)" disabled=""></textarea>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                        <div class="form-group">
+                                                            <label for="exampleInputEmail1">Address</label>
+                                                            <textarea class="form-control" ng-model="vm.vendor.Address" rows="2" placeholder="8-3-228/678/416AV, Rahamath Nagar, Karmika Nagar, Hydarabad-500045 (place)" disabled=""></textarea>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                        <div class="form-group">
+                                                            <label for="exampleInputEmail1">Country</label>
+                                                            <input type="email" ng-model="vm.shippingDet.CountryCode" class="form-control" id="Email39" placeholder="India (place)" disabled="">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                        <div class="form-group">
+                                                            <label for="exampleInputEmail1">Country</label>
+                                                            <input type="email" class="form-control" id="Email40" placeholder="India (place)" disabled="">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                        <div class="form-group">
+                                                            <label for="exampleInputEmail1">GST State Code</label>
+                                                            <input type="email" class="form-control" ng-model="vm.shippingDet.StateCode" id="Email41" placeholder="36 (place)" disabled="">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                        <div class="form-group">
+                                                            <label for="exampleInputEmail1">GST State Code</label>
+                                                            <input type="email" ng-model="vm.vendor.GSTIN" class="form-control" id="Email46" placeholder="37 (place)" disabled="">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6 col-md-offset-3" style="text-align:right">
+                                                        <button type="button" class="btn btn-md btn-primary btn-block" href="#purchaseDetails" ng-click='$parent.showTab=3'>Next</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="purchaseDetails" class="" ng-show="$parent.showTab=='3'">
+                                    <div class="row" style="margin-top: -30px;margin-left: -14px;">
+                                        <div class="col-xs-12">
+                                            <div style="background-color:#fff">
+                                                <div class="row" style="background-color:#fff; padding:10px;     margin: 1px 0%;">
+                                                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                                                        <div class="form-group">
+                                                            <label for="exampleInputEmail1">PO Type</label>
+                                                            <select ng-model="vm.poType"class="form-control">
+                                                                <option ng-repeat="poType in vm.poTypes" value={{poType.Description}}>{{poType.Description}}</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                                                        <div class="form-group">
+                                                            <label for="exampleInputEmail1">PO Title</label>
+                                                            <input type="email" class="form-control" id="Email17" placeholder="">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                                                        <div class="form-group">
+                                                            <label for="exampleInputEmail1">Total</label>
+                                                            <input type="email" class="form-control" id="Email18" placeholder="INR" disabled="">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                                                        <div class="form-group">
+                                                            <label for="exampleInputEmail1">&nbsp;</label>
+                                                            <input type="email" class="form-control" id="Email19" placeholder="97,900" disabled="">
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-xs-12">
+                                                            <div class="table-responsive" style="width:100%">
+                                                                <table class="table table table-bordered" style="width:100%;margin:10px 0 !important;">
+                                                                    <thead style="font-size:9pt;">
+                                                                        <tr style="    background-color: #192930;    color: #fff; ">
+                                                                            <th style="width: 50px;">Sl No</th>
+                                                                            <th>Item</th>
+                                                                            <th>Short Description</th>
+                                                                            <th>HSN/SAC</th>
+                                                                            <th>WBS Element</th>
+                                                                            <th>Intenal Order</th>
+                                                                            <th>GL Account</th>
+                                                                            <th style="width: 148px;">Brand</th>
+                                                                            <th style="width: 75px;">Qty</th>
+                                                                            <th>Unit</th>
+                                                                            <th style="width: 120px;">Rate</th>
+                                                                            <th>Amount</th>
+                                                                            <th style="width: 120px;">Tax Code</th>
+                                                                            <th>IGST</th>
+                                                                            <th>SGST</th>
+                                                                            <th>CGST</th>
+                                                                            <th>Taxes</th>
+                                                                            <th>Gross</th>
+                                                                            <th></th>
+                                                                            <th>
+                                                                                <a href="#">
+                                                                                    <i class="fa fa-plus" aria-hidden="true" style="font-size: 16pt;color: darkseagreen;"></i>
+                                                                                </a>
+                                                                            </th>
+                                                                            <th></th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                        <tr style="background-color:#FFF;">
+                                                                            <td style="text-align:right">1</td>
+                                                                            <td colspan="4">
+                                                                                <input type="email" class="form-control" id="Email20" placeholder="">
+                                                                            </td>
+                                                                            <td colspan="14"></td>
+    
+                                                                            <td>
+                                                                                <a data-toggle="modal" data-target="#popModal" ng-click="vm.POP()" aria-hidden="true">
+                                                                                    <i class="fa fa-plus" aria-hidden="true" style="font-size: 16pt;color: darkseagreen;"></i>
+                                                                                </a>
+                                                                            </td>
+    
+                                                                            <td><a href="#"><span class="glyphicon glyphicon-trash" aria-hidden="true" title="Delete" style="font-size:12pt;"></span></a></td>
+                                                                        </tr>
+    
+                                                                        <tr style="background-color:#FFF;" ng-repeat="(key,iav) in SelectedItemsList">
+                                                                            <td style="text-align:right">1.{{key+1}}</td>
+                                                                            <td>Professional Charges</td>{{materile}}
+                                                                            <td>{{iav.short_description}}</td>
+                                                                            <td style="text-align:right">{{iav.hsn_code}}</td>
+                                                                            <td>{{iav.wbs_code}}</td>
+                                                                            <td>-</td>
+                                                                            <td>110950</td>
+                                                                            <td>
+                                                                                <select class="form-control" value="Brand 1">
+                                                                                    <option>Brand 1</option>
+                                                                                    <option>Brand 2</option>
+                                                                                </select>
+                                                                            </td>
+                                                                            <td>
+                                                                                <input type="email" class="form-control" id="Email21" placeholder="">
+                                                                            </td>
+                                                                            <td>{{iav.unit_of_measure}}</td>
+                                                                            <td style="text-align:right">
+                                                                                <input type="email" class="form-control" id="Email22" placeholder="">
+                                                                            </td>
+                                                                            <td style="text-align:right">97,900</td>
+                                                                            <td>CC</td>
+                                                                            <td style="text-align:right">0</td>
+                                                                            <td style="text-align:right">9</td>
+                                                                            <td style="text-align:right">9</td>
+                                                                            <td style="text-align:right">0</td>
+                                                                            <td style="text-align:right">97900</td>
+                                                                            <td><a href="#" data-toggle="modal" data-target="#Notes" aria-hidden="true"><span class="fa fa-sticky-note" aria-hidden="true" title="Notes" style="font-size:12pt;"></span></a></td>
+                                                                            <td><a href="#"><span class="glyphicon glyphicon-floppy-disk" aria-hidden="true" title="Save" style="font-size:12pt;"></span></a></td>
+                                                                            <td><a href="#"><span class="glyphicon glyphicon-trash" aria-hidden="true" title="Delete" style="font-size:12pt;"></span></a></td>
+                                                                            
+                                                                            </td>
+                                                                        
+                                                                        </tr>
+                                                                        <tr style="background-color:#FFF;">
+                                                                                <td colspan="11"><b>Total</b></td>   
+                                                                                <td style="text-align:right">97900</td>
+                                                                                <td colspan="4"></td>
+                                                                                <td style="text-align:right">0</td>
+                                                                                <td style="text-align:right">97900</td>
+                                                                                <td colspan="3" style="text-align:right"></td>
+                                                                            </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6 col-md-offset-3" style="text-align:right; margin-top:20px;">
+                                                        <button type="button" class="btn btn-md btn-primary btn-block" href="#Annexure" ng-click='$parent.showTab=4'>Next</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="Annexure" ng-show="$parent.showTab=='4'">
+                                    <div class="row">
+                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xl-12">
+                                            <div style="background-color:#fff">
+                                                <div class="row" style="background-color:#fff; padding:10px;     margin: 0;">
+                                                    <div class="tab-content">
+                                                        <div id="oCharges" class="tab-pane fade in active">
+                                                            <div class="row">
+                                                                <div class="col-md">
+                                                                    <div class="row" style="margin:0; padding:0;">
+                                                                        <div class="col-xs-12">
+                                                                            <div class="table-responsive" style="width:100%">
+                                                                                <table class="table table table-bordered" style="width:100%;margin:10px 0 !important;">
+                                                                                    <thead style="font-size:9pt;">
+                                                                                        <tr style="    background-color: #192930;    color: #fff; ">
+                                                                                            <th style="width: 50px;">Sl No</th>
+                                                                                            <th style="width: 90%;">Particulars</th>
+                                                                                        </tr>
+                                                                                    </thead>
+                                                                                    <tbody>
+                                                                                        <tr style="background-color:#FFF;" ng-repeat="(key,iv) in specLists">
+                                                                                            <td>
+                                                                                                {{key+1}}
+                                                                                            </td>
+                                                                                            <td ng-repeat="column in iv" >
+                                                                                                            <b>{{column.name}}</b>
+                                                                                                            <br>{{column.value}}
+                                                                                          </td>
+                                                                                        </tr>
+                                                                                    </tbody>
+                                                                                </table>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6 col-md-offset-3" style="text-align:right">
+                                                            <button type="button" class="btn btn-md btn-primary btn-block" href="#paymentTerms" ng-click='$parent.showTab=5'>Next</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="paymentTerms" ng-show="$parent.showTab=='5'">
+                                    <div class="row" style="margin-top: -30px;margin-left: -14px;">
+                                        <div class="col-xs-12">
+                                            <div style="background-color:#fff">
+                                                <div class="row" style="background-color:#fff; padding:10px;     margin: 1px 0%;">
+                                                    <div class="row">
+                                                        <div class="col-xs-12">
+                                                            <div class="table-responsive" style="width:100%">
+                                                                <table class="table table table-bordered" style="margin:10px 0 !important;">
+                                                                    <thead style="font-size:9pt;">
+                                                                        <tr style="    background-color: #192930;    color: #fff; ">
+                                                                            <th>Sl No</th>
+                                                                            <th>Payment Term</th>
+                                                                            <th>%</th>
+                                                                            <th>Amount</th>
+                                                                            <th>Date</th>
+                                                                            <th>Remarks</th>
+                                                                            <th></th>
+                                                                            <th></th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                        <tr style="background-color:#FFF;">
+                                                                            <td style="text-align:right">1</td>
+                                                                            <td>Monthly Billing</td>
+                                                                            <td style="text-align:right">137.9</td>
+                                                                            <td style="text-align:right">1,35,000</td>
+                                                                            <td>11-Sep-17</td>
+                                                                            <td></td>
+                                                                            <td><a href="#"><span class="glyphicon glyphicon-edit" aria-hidden="true" title="Edit" style="font-size:12pt;"></span></a></td>
+                                                                            <td><a href="#"><span class="glyphicon glyphicon-trash" aria-hidden="true" title="Delete" style="font-size:12pt;"></span></a></td>
+                                                                        </tr>
+                                                                        <tr style="background-color:#FFF;">
+                                                                            <td>
+                                                                                <input type="email" class="form-control" id="Email29" placeholder="" disabled="">
+                                                                            </td>
+                                                                            <td>
+                                                                                <input type="text" ng-model="vm.PaymentTerm" class="form-control" id="Email30" placeholder="">
+                                                                            </td>
+                                                                            <td>
+                                                                                <input type="text" class="form-control" ng-model="vm.Percentage" id="Email31" placeholder="">
+                                                                            </td>
+                                                                            <td>
+                                                                                <input type="email" class="form-control" id="Email32" placeholder="">
+                                                                            </td>
+                                                                            <td>
+                                                                                <input type="email" class="form-control" id="Email33" placeholder="">
+                                                                            </td>
+                                                                            <td>
+                                                                                <input type="text" class="form-control" ng-model="vm.remarks" id="Email42" placeholder="">
+                                                                            </td>
+                                                                            <td></td>
+                                                                            <td><a href="#"><span class="glyphicon glyphicon-floppy-disk" aria-hidden="true" title="Save" style="font-size:12pt;line-height: 26pt;"></span></a></td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6 col-md-offset-3" style="text-align:right">
+                                                        <button type="button" class="btn btn-md btn-primary btn-block" href="#specificT&C" ng-click='$parent.showTab=6'>Next</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="specificT&C" ng-show="$parent.showTab=='6'">
+                                    <div class="row" style="margin-top: -30px;margin-left: -14px;">
+                                        <div class="col-xs-12">
+                                            <div style="background-color:#fff">
+                                                <div class="row" style="background-color:#fff; padding:10px;     margin: 1px 0%;">
+                                                    <div class="col-md-12">
+                                                        <p style="padding: 10px;border-bottom: dotted 1px #ccc;">
+                                                            <b>Product Specific T&amp;C should be Display here</b>
+                                                        </p>
+                                                        <p style="padding: 10px;border-bottom: dotted 1px #ccc;">
+                                                            These Specific Terms and Conditions are to be read in conjunction with the General Terms and Conditions. In case of a conflict between any of the clauses, the Specific Terms and Conditions shall supercede.
+                                                        </p>
+                                                    </div>
+                                                    <div class="col-md-6 col-md-offset-3" style="text-align:right">
+                                                        <button type="button" class="btn btn-md btn-primary btn-block" href="#specialT&C" ng-click='$parent.showTab=7'>Next</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="specialT&C" ng-show="$parent.showTab=='7'">
+                                    <div class="row" style="margin-top: -30px;margin-left: -14px;">
+                                        <div class="col-xs-12">
+                                            <div style="background-color:#fff">
+                                                <div class="row" style="background-color:#fff; padding:10px;     margin: 1px 0%;">
+                                                    <div class="col-md-12">
+                                                        <p style="padding: 10px;border-bottom: dotted 1px #ccc;">
+                                                            These Specific Terms and Conditions are to be read in conjunction with the General Terms and Conditions. In case of a conflict between any of the clauses, the Specific Terms and Conditions shall supercede.
+                                                        </p>
+                                                        <p style="padding: 10px;border-bottom: dotted 1px #ccc;">
+                                                            These Specific Terms and Conditions are to be read in conjunction with the General Terms and Conditions. In case of a conflict between any of the clauses, the Specific Terms and Conditions shall supercede.
+                                                        </p>
+                                                    </div>
+                                                    <!-- <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label for="exampleInputEmail1">Description</label>
+                                                    <textarea class="form-control" ng-model="vm.name" rows="5" placeholder="Rich Text Editor will display"></textarea>
+                                                </div>
+                                                </div> -->
+                                                    <div class="col-md-12">
+                                                        <form ng-submit="vm.addNew()">
+                                                            <div class="row">
+                                                                <div>
+                                                                    <center>
+                                                                        <button type="submit" class="btn btn-primary addnew">Add New</button>
+                                                                        <button ng-hide="!vm.personalDetails.length" type="button" class="btn btn-danger" ng-click="vm.remove()">Remove</button>
+                                                                    </center>
+                                                                </div>
+                                                            </div>
+                                                            <div class="table-responsive">
+                                                                <table class="table">
+                                                                    <thead>
+                                                                        <tr>
+                                                                            <th>Sno</th>
+                                                                            <th>Description</th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody ng-repeat="(key,personalDetail) in vm.personalDetails">
+                                                                        <tr>
+                                                                            <td>
+                                                                                <span>{{key+1}}</span>
+                                                                            </td>
+                                                                            <td>
+                                                                                <!-- <input ng-model="personalDetail.Condition" type="text" name="Strength" class="form-control" id="usr"> -->
+                                                                                <textarea ng-model="personalDetail.Condition" name="Condition" class="form-control" id="usr" rows="5" placeholder="Rich Text Editor will display"></textarea>
+                                                                            </td>
+                                                                            <td>
+                                                                                <input type="checkbox" ng-model="personalDetail.selected">
+                                                                            </td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </form>
+                                                        <button type="button" class="btn btn-default pull-right" btn "btn success" ng-click="vm.SaveSpecialTC()">Save</button>
+                                                    </div>
+                                                    <div class="col-md-6 col-md-offset-3" style="text-align:right">
+                                                        <button type="button" class="btn btn-md btn-primary btn-block">Next</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="generalT&C" ng-show="$parent.showTab=='8'">
+                                    <div class="row" style="margin-top: -30px;margin-left: -14px;">
+                                        <div class="col-xs-12">
+                                            <div style="background-color:#fff">
+                                                <div class="row" style="background-color:#fff; padding:10px;     margin: 1px 0%;">
+                                                    <div class="row">
+                                                        <div class="col-xs-12">
+                                                            <div class="table-responsive" style="width:100%">
+                                                                <table class="table table table-bordered" style="margin:10px 0 !important;">
+                                                                    <thead style="font-size:9pt;">
+                                                                        <tr style="    background-color: #192930;    color: #fff; ">
+                                                                            <th style="width: 50px; text-align:center;" colspan="2">Genaral Terms &amp; Condition</th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody ng-repeat="condition in vm.termsConditions">
+                                                                        <tr style="background-color:#FFF;">
+                                                                            <td style="text-align:right">{{condition.SequenceId}}</td>
+                                                                            <td><b>{{condition.Title}}:</b></td>
+                                                                        </tr>
+                                                                        <tr style="background-color:#FFF;">
+                                                                            <td></td>
+                                                                            <td ng-bind-html="condition.Condition"></td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6 col-md-offset-3" style="text-align:right">
+                                                        <button type="button" ng-click=" vm.saveMaterial()" class="btn btn-md btn-primary btn-block">Create</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="LinkedPo" ng-show="$parent.showTab=='9'">
+                                    <div class="row" style="margin-top: -30px;margin-left: -14px;">
+                                        <div class="col-xs-12">
+                                            <div style="background-color:#fff">
+                                                <div class="row" style="background-color:#fff; padding:10px;     margin: 1px 0%;">
+                                                    <div class="col-lg-2 col-md-2 col-sm-6 col-xs-12">
+                                                        <div class="form-group">
+                                                            <label for="exampleInputEmail1">PO Type</label>
+                                                            <select class="form-control">
+                                                                <option>Work Order</option>
+                                                                <option>Material Order</option>
+                                                                <option>Asset Order</option>
+                                                                <option>Expense Order</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                                                        <div class="form-group">
+                                                            <label for="exampleInputEmail1">PO Title</label>
+                                                            <input type="email" class="form-control" id="Email1" placeholder="">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                                                        <div class="form-group">
+                                                            <label for="exampleInputEmail1">Vendor Code</label>
+                                                            <input type="email" class="form-control" id="Email9" placeholder="Vendor Code + Name">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-2 col-md-2 col-sm-6 col-xs-12">
+                                                        <div class="form-group">
+                                                            <label for="exampleInputEmail1">Total</label>
+                                                            <input type="email" class="form-control" id="Email2" placeholder="INR" disabled="">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-2 col-md-2 col-sm-6 col-xs-12">
+                                                        <div class="form-group">
+                                                            <label for="exampleInputEmail1">&nbsp;</label>
+                                                            <input type="email" class="form-control" id="Email15" placeholder="97,900" disabled="">
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-xs-12">
+                                                            <div class="table-responsive" style="width:100%">
+                                                                <table class="table table table-bordered" style="width:100%;margin:10px 0 !important;">
+                                                                    <thead style="font-size:9pt;">
+                                                                        <tr style="    background-color: #192930;    color: #fff; ">
+                                                                            <th style="width: 50px;">Sl No</th>
+                                                                            <th>Item</th>
+                                                                            <th>Short Description</th>
+                                                                            <th>HSN/SAC</th>
+                                                                            <th>WBS Element</th>
+                                                                            <th>Intenal Order</th>
+                                                                            <th>GL Account</th>
+                                                                            <th style="width: 148px;">Brand</th>
+                                                                            <th style="width: 75px;">Qty</th>
+                                                                            <th>Unit</th>
+                                                                            <th style="width: 120px;">Rate</th>
+                                                                            <th>Amount</th>
+                                                                            <th style="width: 120px;">Tax Code</th>
+                                                                            <th>IGST</th>
+                                                                            <th>SGST</th>
+                                                                            <th>CGST</th>
+                                                                            <th>Tax</th>
+                                                                            <th>Gross</th>
+                                                                            <th></th>
+                                                                            <th>
+                                                                                <a href="#">
+                                                                                    <i class="fa fa-plus" aria-hidden="true" style="font-size: 16pt;color: darkseagreen;"></i>
+                                                                                </a>
+                                                                            </th>
+                                                                            <th></th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                        <tr style="background-color:#FFF;">
+                                                                            <td style="text-align:right">1</td>
+                                                                            <td colspan="4">
+                                                                                <input type="email" class="form-control" id="Email20" placeholder="">
+                                                                            </td>
+                                                                            <td colspan="14"></td>
+                                                                            <td>
+                                                                                <!--<a href="#" data-toggle="modal" data-target="#popModal" aria-hidden="true">-->
+                                                                                <i class="fa fa-plus" aria-hidden="true" style="font-size: 16pt;color: darkseagreen;"></i>
+                                                                                <!--</a>-->
+                                                                            </td>
+                                                                            <td><a href="#"><span class="glyphicon glyphicon-trash" aria-hidden="true" title="Delete" style="font-size:12pt;"></span></a></td>
+                                                                        </tr>
+                                                                        <tr style="background-color:#FFF;">
+                                                                            <td style="text-align:right">1.1</td>
+                                                                            <td>Professional Charges</td>
+                                                                            <th>Freight Charges</th>
+                                                                            <td style="text-align:right">73242100</td>
+                                                                            <td>0043-CN</td>
+                                                                            <td>-</td>
+                                                                            <td>110950</td>
+                                                                            <td>
+                                                                                <select class="form-control" value="Brand 1">
+                                                                                    <option>Brand 1</option>
+                                                                                    <option>Brand 2</option>
+                                                                                </select>
+                                                                            </td>
+                                                                            <td>
+                                                                                <input type="email" class="form-control" id="Email21" placeholder="">
+                                                                            </td>
+                                                                            <td>Nos</td>
+                                                                            <td style="text-align:right">
+                                                                                <input type="email" class="form-control" id="Email22" placeholder="">
+                                                                            </td>
+                                                                            <td style="text-align:right">97,900</td>
+                                                                            <td>CC</td>
+                                                                            <td style="text-align:right">0</td>
+                                                                            <td style="text-align:right">9</td>
+                                                                            <td style="text-align:right">9</td>
+                                                                            <td style="text-align:right">0</td>
+                                                                            <td style="text-align:right">97900</td>
+                                                                            <td><a href="#" data-toggle="modal" data-target="#Notes" aria-hidden="true"><span class="fa fa-sticky-note" aria-hidden="true" title="Notes" style="font-size:12pt;"></span></a></td>
+                                                                            <td><a href="#"><span class="glyphicon glyphicon-floppy-disk" aria-hidden="true" title="Save" style="font-size:12pt;"></span></a></td>
+                                                                            <td><a href="#"><span class="glyphicon glyphicon-trash" aria-hidden="true" title="Delete" style="font-size:12pt;"></span></a></td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6 col-md-offset-3" style="text-align:right; margin-top:20px;">
+                                                        <button type="button" class="btn btn-md btn-warning btn-block">Create</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- <div ng-repeat="material in vm.materilaList.items">
+                  {{material.group}}
+    
+                  </div> -->
+            <!-- <div ng-repeat="ik in vm.Keylist">
+                  {{ik}}
+    
+                  </div> -->
+            <!---material repeat------>
+            <!-- <div ng-repeat="iv in vm.materialLists"> -->
+            <!-- {{iv}}  -->
+            <!-- <div ng-repeat="materila in iv.value[0]">
+                     {{materila}} -->
+            <!-- <div ng-repeat="imag in column.value">
+                        <img ng-src="{{imag.url}}" >
+                        </div> -->
+        </div>
+    </div>
+    </div>
+    <script type="text/ng-template" id="CreateNotesPopup.html">
+        <div class="modal-content" style="width:100% " ng-init="vm.GetAllMaterials()">
+            <div class="modal-header" style="background-color: #646572; color:#fff">
+                <h4 class="modal-title" id="H1">Select Item</h4>
+                <button type="button" class="btn btn-default">Cancel</button>
+                <button type="button" class="btn btn-primary" ng-click="vm.AddMaterial()">Add</button>
+            </div>
+            <div class="modal-body">
+                <div class="row" style="background-color:#fff; padding:10px;margin: 10px 0%; border-bottom:dotted 1px #ccc;">
+                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                        <div class="input-group stylish-input-group">
+                            <input type="text" class="form-control" placeholder="Search">
+                            <span class="input-group-addon">
+                                           <button type="submit" style="background-color: #eeeeee;border: none;">
+                                               <span class="glyphicon glyphicon-search"></span>
+                            </button>
+                            </span>
+                        </div>
+                    </div>
+                    <!--<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                                                               <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Filter    <span class="caret"></span></button>
+                                                               <ul class="dropdown-menu">
+                                                                   <li><a href="#">HTML</a></li>
+                                                                   <li><a href="#">CSS</a></li>
+                                                                   <li><a href="#">JavaScript</a></li>
+                                                               </ul>
+                                                           </div>-->
+                </div>
+                <div class="row" style="background-color:#fff; padding:0 10px; margin:0 0%;">
+                    <div class="col-xs-12">
+                        <div style="width:95%">
+    
+                            <!--class="table-responsive" -->
+                            <form name="matrials" class="materials">
+                                <table class="table-responsive table " style="width:100%;margin:10px 0 !important;">
+                                    <tbody ng-repeat="materila in vm.MaterialLists.result">
+                                        <tr style="background-color:#FFF;">
+                                            <td>
+                                                <input type="checkbox" ng-model="materila.selected">
+                                            </td>
+                                            <td style="width:90px;">
+                                                <img ng-src="{{materila.Image}}" width="70" height="70">
+                                                <div style="margin-top: 9px;"><b>{{materila.material_name}}</b> {{materila.MaterialCode}}</div>
+                                            </td>
+                                            <td style="background-color:#f9f7f8"><b>Material Name</b>
+                                                <br>{{materila.material_name}}
+                                                <div style="margin-top: 40px;"><b>Part of eDesign</b>
+                                                    <br>{{materila.part_of_edesign}}
+                                                </div>
+                                            </td>
+                                            <td><b>Short Description</b>
+                                                <br>{{materila.short_description}}
+                                                <div style="margin-top: 40px;"><b>eDesign Description</b>
+                                                    <br>{{materila.edesign_description}}</div>
+                                            </td>
+                                            <td style="background-color:#f9f7f8"><b>Shade Number</b>
+                                                <br>{{materila.shade_number}}
+                                                <div style="margin-top: 40px;"><b>Generic</b>
+                                                    <br>{{materila.generic}}</div>
+                                            </td>
+                                            <td><b>Shade Description</b>
+                                                <br>{{materila.shade_description}}
+                                                <div style="margin-top: 40px;"><b>Manufactured</b>
+                                                    <br>{{materila.manufactured}}</div>
+                                            </td>
+                                            <td style="background-color:#f9f7f8"><b>Unit of Measure</b>
+                                                <br>{{materila.unit_of_measure}}
+                                                <div style="margin-top: 40px;"><b>Can be Used as an Asset</b>
+                                                    <br>{{materila.can_be_used_as_an_asset}}</div>
+                                            </td>
+                                            <td><b>HSN Code</b>
+                                                <br>{{materila.hsn_code}}
+                                                <div style="margin-top: 40px;"><b>Available Till</b>
+                                                    <br>{{materila.available_till}}</div>
+                                            </td>
+                                            <td style="background-color:#f9f7f8"><b>SAP Code</b>
+                                                <br>{{materila.sap_code}}
+                                                <div style="margin-top: 40px;"><b></b>
+                                                    <br>
+                                                </div>
+                                            </td>
+                                            <td><b>WBS Code</b>
+                                                <br>{{materila.wbs_code}}
+                                                <div style="margin-top: 40px;"><b></b>
+                                                    <br>
+                                                </div>
+                                            </td>
+    
+                                        </tr>
+    
+                                    </tbody>
+                                </table>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+    
+            </div>
+    
+        </div>
+    
+        <style>
+            .modal-xxlg {
+                width: 95% !important;
+            }
+        </style>
+    </script>
+    </div>
